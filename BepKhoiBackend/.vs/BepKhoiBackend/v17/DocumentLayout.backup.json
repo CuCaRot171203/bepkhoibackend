@@ -19,8 +19,8 @@
       "RelativeMoniker": "D:0:0:{9146B6A7-32BD-42E3-A573-7DE5A023D2E2}|BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj|solutionrelative:bepkhoibackend.dataaccess\\repository\\loginrepository\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3E5D3DAB-FA34-45C0-A607-D499E1415562}|BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj|d:\\doan_ngocquan\\new folder\\bepkhoibackend\\bepkhoibackend\\bepkhoibackend.businessobject\\interfaces\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E5D3DAB-FA34-45C0-A607-D499E1415562}|BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj|solutionrelative:bepkhoibackend.businessobject\\interfaces\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3E5D3DAB-FA34-45C0-A607-D499E1415562}|BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj|d:\\doan_ngocquan\\new folder\\bepkhoibackend\\bepkhoibackend\\bepkhoibackend.businessobject\\services\\loginservice\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E5D3DAB-FA34-45C0-A607-D499E1415562}|BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj|solutionrelative:bepkhoibackend.businessobject\\services\\loginservice\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3E5D3DAB-FA34-45C0-A607-D499E1415562}|BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj|d:\\doan_ngocquan\\new folder\\bepkhoibackend\\bepkhoibackend\\bepkhoibackend.businessobject\\dtos\\logindto\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -108,7 +108,7 @@
               "RelativeDocumentMoniker": "BepKhoiBackend.BusinessObject\\Services\\LoginService\\AuthService.cs",
               "ToolTip": "D:\\DoAn_NgocQuan\\New folder\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\Services\\LoginService\\AuthService.cs",
               "RelativeToolTip": "BepKhoiBackend.BusinessObject\\Services\\LoginService\\AuthService.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAuwBgAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAqwBgAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-06T05:50:59.752Z",
               "EditorCaption": ""
@@ -123,17 +123,16 @@
               "RelativeToolTip": "BepKhoiBackend.API\\Controllers\\LoginControllers\\AuthController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T06:02:22.166Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-06T06:02:22.166Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "IAuthService.cs",
-              "DocumentMoniker": "D:\\DoAn_NgocQuan\\New folder\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\Interfaces\\IAuthService.cs",
-              "RelativeDocumentMoniker": "BepKhoiBackend.BusinessObject\\Interfaces\\IAuthService.cs",
-              "ToolTip": "D:\\DoAn_NgocQuan\\New folder\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\Interfaces\\IAuthService.cs",
-              "RelativeToolTip": "BepKhoiBackend.BusinessObject\\Interfaces\\IAuthService.cs",
+              "DocumentMoniker": "D:\\DoAn_NgocQuan\\New folder\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\Services\\LoginService\\IAuthService.cs",
+              "RelativeDocumentMoniker": "BepKhoiBackend.BusinessObject\\Services\\LoginService\\IAuthService.cs",
+              "ToolTip": "D:\\DoAn_NgocQuan\\New folder\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\Services\\LoginService\\IAuthService.cs",
+              "RelativeToolTip": "BepKhoiBackend.BusinessObject\\Services\\LoginService\\IAuthService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-06T05:48:00.548Z"
@@ -160,8 +159,7 @@
               "RelativeToolTip": "BepKhoiBackend.DataAccess\\Repository\\LoginRepository\\IUserRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T06:00:51.347Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-06T06:00:51.347Z"
             },
             {
               "$type": "Document",
@@ -173,8 +171,7 @@
               "RelativeToolTip": "BepKhoiBackend.API\\Program.cs",
               "ViewState": "AgIAABEAAAAAAAAAAAAAACMAAABaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-05T16:14:41.848Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-05T16:14:41.848Z"
             },
             {
               "$type": "Document",
@@ -186,8 +183,7 @@
               "RelativeToolTip": "BepKhoiBackend.DataAccess\\Repository\\LoginRepository\\UserRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T05:55:16.166Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-06T05:55:16.166Z"
             },
             {
               "$type": "Document",
