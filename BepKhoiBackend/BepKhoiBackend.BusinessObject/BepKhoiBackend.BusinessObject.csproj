@@ -6,4 +6,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BepKhoiBackend.DataAccess\BepKhoiBackend.DataAccess.csproj" />
+    <ProjectReference Include="..\BepKhoiBackend.Shared\BepKhoiBackend.Shared.csproj" />
+  </ItemGroup>
+
 </Project>
