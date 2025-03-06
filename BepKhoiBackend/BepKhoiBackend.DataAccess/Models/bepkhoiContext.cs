@@ -42,16 +42,29 @@ namespace BepKhoiBackend.DataAccess.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var config = new ConfigurationBuilder()
-                    .SetBasePath(Directory.GetCurrentDirectory()) // Lấy thư mục chạy ứng dụng
-                    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true) // Load appsettings.json
-                    .Build();
+            try
+            {
+                var config = new ConfigurationBuilder()
+                        .SetBasePath(Directory.GetCurrentDirectory())
+                        .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                        .Build();
 
-            string connectionString = config.GetConnectionString("DefaultConnection");
+                string connectionString = config.GetConnectionString("DefaultConnection");
 
-            // Cấu hình DbContext sử dụng SQL Server
-            optionsBuilder.UseSqlServer(connectionString);
+                if (string.IsNullOrEmpty(connectionString))
+                {
+                    throw new Exception("Chuỗi kết nối không được tìm thấy trong appsettings.json!");
+                }
+
+                optionsBuilder.UseSqlServer(connectionString);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Lỗi kết nối database: {ex.Message}");
+                throw;
+            }
         }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
