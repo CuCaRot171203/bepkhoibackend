@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "rnUvjT337pY=",
+  "dgSpecHash": "TloOgJ7s10Y=",
   "success": true,
-  "projectFilePath": "D:\\DoAn_NgocQuan\\New folder\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.API\\BepKhoiBackend.API.csproj",
+  "projectFilePath": "D:\\DoAn_NgocQuan\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.API\\BepKhoiBackend.API.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\abc\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\abc\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.36\\microsoft.aspnetcore.authentication.jwtbearer.6.0.36.nupkg.sha512",
     "C:\\Users\\abc\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "C:\\Users\\abc\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",

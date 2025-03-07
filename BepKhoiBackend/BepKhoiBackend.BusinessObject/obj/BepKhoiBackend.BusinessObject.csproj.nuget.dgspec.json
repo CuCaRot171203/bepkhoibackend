@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\DoAn_NgocQuan\\New folder\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj": {}
+    "D:\\DoAn_NgocQuan\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj": {}
   },
   "projects": {
-    "D:\\DoAn_NgocQuan\\New folder\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj": {
+    "D:\\DoAn_NgocQuan\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\DoAn_NgocQuan\\New folder\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj",
+        "projectUniqueName": "D:\\DoAn_NgocQuan\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj",
         "projectName": "BepKhoiBackend.BusinessObject",
-        "projectPath": "D:\\DoAn_NgocQuan\\New folder\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj",
+        "projectPath": "D:\\DoAn_NgocQuan\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj",
         "packagesPath": "C:\\Users\\abc\\.nuget\\packages\\",
-        "outputPath": "D:\\DoAn_NgocQuan\\New folder\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\obj\\",
+        "outputPath": "D:\\DoAn_NgocQuan\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -33,11 +33,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\DoAn_NgocQuan\\New folder\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj": {
-                "projectPath": "D:\\DoAn_NgocQuan\\New folder\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj"
+              "D:\\DoAn_NgocQuan\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj": {
+                "projectPath": "D:\\DoAn_NgocQuan\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj"
               },
-              "D:\\DoAn_NgocQuan\\New folder\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj": {
-                "projectPath": "D:\\DoAn_NgocQuan\\New folder\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj"
+              "D:\\DoAn_NgocQuan\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj": {
+                "projectPath": "D:\\DoAn_NgocQuan\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj"
               }
             }
           }
@@ -58,6 +58,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
               "version": "[7.6.0, )"
@@ -83,14 +87,14 @@
         }
       }
     },
-    "D:\\DoAn_NgocQuan\\New folder\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj": {
+    "D:\\DoAn_NgocQuan\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\DoAn_NgocQuan\\New folder\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj",
+        "projectUniqueName": "D:\\DoAn_NgocQuan\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj",
         "projectName": "BepKhoiBackend.DataAccess",
-        "projectPath": "D:\\DoAn_NgocQuan\\New folder\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj",
+        "projectPath": "D:\\DoAn_NgocQuan\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj",
         "packagesPath": "C:\\Users\\abc\\.nuget\\packages\\",
-        "outputPath": "D:\\DoAn_NgocQuan\\New folder\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\obj\\",
+        "outputPath": "D:\\DoAn_NgocQuan\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -175,14 +179,14 @@
         }
       }
     },
-    "D:\\DoAn_NgocQuan\\New folder\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj": {
+    "D:\\DoAn_NgocQuan\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\DoAn_NgocQuan\\New folder\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj",
+        "projectUniqueName": "D:\\DoAn_NgocQuan\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj",
         "projectName": "BepKhoiBackend.Shared",
-        "projectPath": "D:\\DoAn_NgocQuan\\New folder\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj",
+        "projectPath": "D:\\DoAn_NgocQuan\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj",
         "packagesPath": "C:\\Users\\abc\\.nuget\\packages\\",
-        "outputPath": "D:\\DoAn_NgocQuan\\New folder\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Shared\\obj\\",
+        "outputPath": "D:\\DoAn_NgocQuan\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Shared\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

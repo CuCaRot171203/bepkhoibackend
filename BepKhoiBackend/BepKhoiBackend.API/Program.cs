@@ -1,4 +1,5 @@
 ﻿using BepKhoiBackend.BusinessObject.Interfaces;
+using BepKhoiBackend.BusinessObject.Services;
 using BepKhoiBackend.BusinessObject.Services.LoginService;
 using BepKhoiBackend.DataAccess.Models;
 using BepKhoiBackend.DataAccess.Repository.LoginRepository;
@@ -31,12 +32,27 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
         };
     });
-
+//connect db context
 builder.Services.AddDbContext<bepkhoiContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
+//interface service and repository
+builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+//session
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+
+builder.Services.AddHttpContextAccessor();
+
+
 builder.Services.AddAuthorization();
 
 var app = builder.Build();
@@ -47,8 +63,8 @@ app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 app.UseRouting();
-app.UseAuthentication(); // Quan trọng: Phải gọi trước `UseAuthorization()`
+app.UseSession();
+app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllers();
 app.Run();

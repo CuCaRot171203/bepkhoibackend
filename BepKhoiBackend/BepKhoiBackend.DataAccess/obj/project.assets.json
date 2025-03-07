@@ -2383,11 +2383,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\DoAn_NgocQuan\\New folder\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj",
+      "projectUniqueName": "D:\\DoAn_NgocQuan\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj",
       "projectName": "BepKhoiBackend.DataAccess",
-      "projectPath": "D:\\DoAn_NgocQuan\\New folder\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj",
+      "projectPath": "D:\\DoAn_NgocQuan\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj",
       "packagesPath": "C:\\Users\\abc\\.nuget\\packages\\",
-      "outputPath": "D:\\DoAn_NgocQuan\\New folder\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\obj\\",
+      "outputPath": "D:\\DoAn_NgocQuan\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

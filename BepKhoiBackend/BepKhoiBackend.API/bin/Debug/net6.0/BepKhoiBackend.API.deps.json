@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "BepKhoiBackend.API/1.0.0": {
         "dependencies": {
+          "BCrypt.Net-Next": "4.0.3",
           "BepKhoiBackend.BusinessObject": "1.0.0",
           "BepKhoiBackend.DataAccess": "1.0.0",
           "BepKhoiBackend.Test": "1.0.0",
@@ -16,6 +17,14 @@
         },
         "runtime": {
           "BepKhoiBackend.API.dll": {}
+        }
+      },
+      "BCrypt.Net-Next/4.0.3": {
+        "runtime": {
+          "lib/net6.0/BCrypt.Net-Next.dll": {
+            "assemblyVersion": "4.0.3.0",
+            "fileVersion": "4.0.3.0"
+          }
         }
       },
       "Microsoft.AspNetCore.Authentication.JwtBearer/6.0.36": {
@@ -519,6 +528,7 @@
       },
       "BepKhoiBackend.BusinessObject/1.0.0": {
         "dependencies": {
+          "BCrypt.Net-Next": "4.0.3",
           "BepKhoiBackend.DataAccess": "1.0.0",
           "BepKhoiBackend.Shared": "1.0.0",
           "System.IdentityModel.Tokens.Jwt": "7.6.0"
@@ -566,6 +576,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "BCrypt.Net-Next/4.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-W+U9WvmZQgi5cX6FS5GDtDoPzUCV4LkBLkywq/kRZhuDwcbavOzcDAr3LXJFqHUi952Yj3LEYoWW0jbEUQChsA==",
+      "path": "bcrypt.net-next/4.0.3",
+      "hashPath": "bcrypt.net-next.4.0.3.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Authentication.JwtBearer/6.0.36": {
       "type": "package",

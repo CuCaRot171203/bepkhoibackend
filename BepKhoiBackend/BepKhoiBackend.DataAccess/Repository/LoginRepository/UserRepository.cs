@@ -17,5 +17,13 @@ namespace BepKhoiBackend.DataAccess.Repository.LoginRepository
         {
             return _context.Users.FirstOrDefault(u => u.Phone == phone);
         }
+        public void UpdateUser(User user)
+        {
+            _context.Users.Update(user);
+            _context.SaveChanges();
+        }
+
+       
+
     }
 }
