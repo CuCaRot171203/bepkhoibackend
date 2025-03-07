@@ -1,0 +1,71 @@
+C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.BusinessObject\bin\Debug\net6.0\BepKhoiBackend.BusinessObject.deps.json
+C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.BusinessObject\bin\Debug\net6.0\BepKhoiBackend.BusinessObject.dll
+C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.BusinessObject\bin\Debug\net6.0\BepKhoiBackend.BusinessObject.pdb
+C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.BusinessObject\obj\Debug\net6.0\BepKhoiBackend.BusinessObject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.BusinessObject\obj\Debug\net6.0\BepKhoiBackend.BusinessObject.AssemblyInfoInputs.cache
+C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.BusinessObject\obj\Debug\net6.0\BepKhoiBackend.BusinessObject.AssemblyInfo.cs
+C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.BusinessObject\obj\Debug\net6.0\BepKhoiBackend.BusinessObject.csproj.CoreCompileInputs.cache
+C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.BusinessObject\obj\Debug\net6.0\BepKhoiBackend.BusinessObject.dll
+C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.BusinessObject\obj\Debug\net6.0\refint\BepKhoiBackend.BusinessObject.dll
+C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.BusinessObject\obj\Debug\net6.0\BepKhoiBackend.BusinessObject.pdb
+C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.BusinessObject\obj\Debug\net6.0\ref\BepKhoiBackend.BusinessObject.dll
+D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\bin\Debug\net6.0\BepKhoiBackend.BusinessObject.deps.json
+D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\bin\Debug\net6.0\BepKhoiBackend.BusinessObject.dll
+D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\bin\Debug\net6.0\BepKhoiBackend.BusinessObject.pdb
+D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\bin\Debug\net6.0\BepKhoiBackend.DataAccess.dll
+D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\bin\Debug\net6.0\BepKhoiBackend.Shared.dll
+D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\bin\Debug\net6.0\BepKhoiBackend.DataAccess.pdb
+D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\bin\Debug\net6.0\BepKhoiBackend.Shared.pdb
+D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\obj\Debug\net6.0\BepKhoiBackend.BusinessObject.csproj.AssemblyReference.cache
+D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\obj\Debug\net6.0\BepKhoiBackend.BusinessObject.GeneratedMSBuildEditorConfig.editorconfig
+D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\obj\Debug\net6.0\BepKhoiBackend.BusinessObject.AssemblyInfoInputs.cache
+D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\obj\Debug\net6.0\BepKhoiBackend.BusinessObject.AssemblyInfo.cs
+D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\obj\Debug\net6.0\BepKhoiBackend.BusinessObject.csproj.CoreCompileInputs.cache
+D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\obj\Debug\net6.0\BepKhoiBackend.BusinessObject.sourcelink.json
+D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\obj\Debug\net6.0\BepKhoiB.1122EFE5.Up2Date
+D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\obj\Debug\net6.0\BepKhoiBackend.BusinessObject.dll
+D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\obj\Debug\net6.0\refint\BepKhoiBackend.BusinessObject.dll
+D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\obj\Debug\net6.0\BepKhoiBackend.BusinessObject.pdb
+D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\obj\Debug\net6.0\ref\BepKhoiBackend.BusinessObject.dll
+D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\bin\Debug\net6.0\BepKhoiBackend.BusinessObject.deps.json
+D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\bin\Debug\net6.0\BepKhoiBackend.BusinessObject.dll
+D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\bin\Debug\net6.0\BepKhoiBackend.BusinessObject.pdb
+D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\bin\Debug\net6.0\BepKhoiBackend.DataAccess.dll
+D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\bin\Debug\net6.0\BepKhoiBackend.Shared.dll
+D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\bin\Debug\net6.0\BepKhoiBackend.DataAccess.pdb
+D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\bin\Debug\net6.0\BepKhoiBackend.Shared.pdb
+D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\obj\Debug\net6.0\BepKhoiBackend.BusinessObject.csproj.AssemblyReference.cache
+D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\obj\Debug\net6.0\BepKhoiBackend.BusinessObject.GeneratedMSBuildEditorConfig.editorconfig
+D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\obj\Debug\net6.0\BepKhoiBackend.BusinessObject.AssemblyInfoInputs.cache
+D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\obj\Debug\net6.0\BepKhoiBackend.BusinessObject.AssemblyInfo.cs
+D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\obj\Debug\net6.0\BepKhoiBackend.BusinessObject.csproj.CoreCompileInputs.cache
+D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\obj\Debug\net6.0\BepKhoiBackend.BusinessObject.sourcelink.json
+D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\obj\Debug\net6.0\BepKhoiB.1122EFE5.Up2Date
+D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\obj\Debug\net6.0\BepKhoiBackend.BusinessObject.dll
+D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\obj\Debug\net6.0\refint\BepKhoiBackend.BusinessObject.dll
+D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\obj\Debug\net6.0\BepKhoiBackend.BusinessObject.pdb
+D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\obj\Debug\net6.0\ref\BepKhoiBackend.BusinessObject.dll
+C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.BusinessObject\bin\Debug\net6.0\BepKhoiBackend.DataAccess.dll
+C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.BusinessObject\bin\Debug\net6.0\BepKhoiBackend.Shared.dll
+C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.BusinessObject\bin\Debug\net6.0\BepKhoiBackend.DataAccess.pdb
+C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.BusinessObject\bin\Debug\net6.0\BepKhoiBackend.Shared.pdb
+C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.BusinessObject\obj\Debug\net6.0\BepKhoiBackend.BusinessObject.csproj.AssemblyReference.cache
+C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.BusinessObject\obj\Debug\net6.0\BepKhoiB.1122EFE5.Up2Date
+B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\bin\Debug\net6.0\BepKhoiBackend.BusinessObject.deps.json
+B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\bin\Debug\net6.0\BepKhoiBackend.BusinessObject.dll
+B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\bin\Debug\net6.0\BepKhoiBackend.BusinessObject.pdb
+B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\bin\Debug\net6.0\BepKhoiBackend.DataAccess.dll
+B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\bin\Debug\net6.0\BepKhoiBackend.Shared.dll
+B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\bin\Debug\net6.0\BepKhoiBackend.DataAccess.pdb
+B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\bin\Debug\net6.0\BepKhoiBackend.Shared.pdb
+B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\obj\Debug\net6.0\BepKhoiBackend.BusinessObject.csproj.AssemblyReference.cache
+B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\obj\Debug\net6.0\BepKhoiBackend.BusinessObject.GeneratedMSBuildEditorConfig.editorconfig
+B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\obj\Debug\net6.0\BepKhoiBackend.BusinessObject.AssemblyInfoInputs.cache
+B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\obj\Debug\net6.0\BepKhoiBackend.BusinessObject.AssemblyInfo.cs
+B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\obj\Debug\net6.0\BepKhoiBackend.BusinessObject.csproj.CoreCompileInputs.cache
+B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\obj\Debug\net6.0\BepKhoiBackend.BusinessObject.sourcelink.json
+B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\obj\Debug\net6.0\BepKhoiB.1122EFE5.Up2Date
+B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\obj\Debug\net6.0\BepKhoiBackend.BusinessObject.dll
+B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\obj\Debug\net6.0\refint\BepKhoiBackend.BusinessObject.dll
+B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\obj\Debug\net6.0\BepKhoiBackend.BusinessObject.pdb
+B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.BusinessObject\obj\Debug\net6.0\ref\BepKhoiBackend.BusinessObject.dll
