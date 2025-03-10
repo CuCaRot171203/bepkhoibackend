@@ -11,12 +11,16 @@
       "RelativeMoniker": "D:0:0:{9146B6A7-32BD-42E3-A573-7DE5A023D2E2}|BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj|solutionrelative:bepkhoibackend.dataaccess\\repository\\menurepository\\menurepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3E1A4BAF-DD7F-446E-BAA0-6B67D1F74AA7}|BepKhoiBackend.API\\BepKhoiBackend.API.csproj|b:\\do_an\\thanh_tung\\bepkhoibackend\\bepkhoibackend\\bepkhoibackend.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{3E1A4BAF-DD7F-446E-BAA0-6B67D1F74AA7}|BepKhoiBackend.API\\BepKhoiBackend.API.csproj|solutionrelative:bepkhoibackend.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{9146B6A7-32BD-42E3-A573-7DE5A023D2E2}|BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj|b:\\do_an\\thanh_tung\\bepkhoibackend\\bepkhoibackend\\bepkhoibackend.dataaccess\\helpers\\productvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9146B6A7-32BD-42E3-A573-7DE5A023D2E2}|BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj|solutionrelative:bepkhoibackend.dataaccess\\helpers\\productvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3E5D3DAB-FA34-45C0-A607-D499E1415562}|BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj|b:\\do_an\\thanh_tung\\bepkhoibackend\\bepkhoibackend\\bepkhoibackend.businessobject\\dtos\\menudto\\menudto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E5D3DAB-FA34-45C0-A607-D499E1415562}|BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj|solutionrelative:bepkhoibackend.businessobject\\dtos\\menudto\\menudto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9146B6A7-32BD-42E3-A573-7DE5A023D2E2}|BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj|b:\\do_an\\thanh_tung\\bepkhoibackend\\bepkhoibackend\\bepkhoibackend.dataaccess\\abstract\\menuabstract\\imenurepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9146B6A7-32BD-42E3-A573-7DE5A023D2E2}|BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj|solutionrelative:bepkhoibackend.dataaccess\\abstract\\menuabstract\\imenurepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9146B6A7-32BD-42E3-A573-7DE5A023D2E2}|BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj|b:\\do_an\\thanh_tung\\bepkhoibackend\\bepkhoibackend\\bepkhoibackend.dataaccess\\models\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9146B6A7-32BD-42E3-A573-7DE5A023D2E2}|BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj|solutionrelative:bepkhoibackend.dataaccess\\models\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,28 +38,41 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MenuRepository.cs",
-              "DocumentMoniker": "B:\\DO_AN\\THANH_TUNG\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\Repository\\MenuRepository\\MenuRepository.cs",
-              "RelativeDocumentMoniker": "BepKhoiBackend.DataAccess\\Repository\\MenuRepository\\MenuRepository.cs",
-              "ToolTip": "B:\\DO_AN\\THANH_TUNG\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\Repository\\MenuRepository\\MenuRepository.cs",
-              "RelativeToolTip": "BepKhoiBackend.DataAccess\\Repository\\MenuRepository\\MenuRepository.cs",
-              "ViewState": "AgIAAE8AAAAAAAAAAAAcwGgAAAAhAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "ProductValidator.cs",
+              "DocumentMoniker": "B:\\DO_AN\\THANH_TUNG\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\Helpers\\ProductValidator.cs",
+              "RelativeDocumentMoniker": "BepKhoiBackend.DataAccess\\Helpers\\ProductValidator.cs",
+              "ToolTip": "B:\\DO_AN\\THANH_TUNG\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\Helpers\\ProductValidator.cs",
+              "RelativeToolTip": "BepKhoiBackend.DataAccess\\Helpers\\ProductValidator.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAA2wBAAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-07T09:04:35.671Z",
+              "WhenOpened": "2025-03-10T12:46:02.19Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "MenuDto.cs",
-              "DocumentMoniker": "B:\\DO_AN\\THANH_TUNG\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\dtos\\MenuDto\\MenuDto.cs",
-              "RelativeDocumentMoniker": "BepKhoiBackend.BusinessObject\\dtos\\MenuDto\\MenuDto.cs",
-              "ToolTip": "B:\\DO_AN\\THANH_TUNG\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\dtos\\MenuDto\\MenuDto.cs",
-              "RelativeToolTip": "BepKhoiBackend.BusinessObject\\dtos\\MenuDto\\MenuDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "IMenuRepository.cs",
+              "DocumentMoniker": "B:\\DO_AN\\THANH_TUNG\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\Abstract\\MenuAbstract\\IMenuRepository.cs",
+              "RelativeDocumentMoniker": "BepKhoiBackend.DataAccess\\Abstract\\MenuAbstract\\IMenuRepository.cs",
+              "ToolTip": "B:\\DO_AN\\THANH_TUNG\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\Abstract\\MenuAbstract\\IMenuRepository.cs",
+              "RelativeToolTip": "BepKhoiBackend.DataAccess\\Abstract\\MenuAbstract\\IMenuRepository.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAlwBcAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-07T09:03:40.181Z",
+              "WhenOpened": "2025-03-10T09:17:05.297Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Menu.cs",
+              "DocumentMoniker": "B:\\DO_AN\\THANH_TUNG\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\Models\\Menu.cs",
+              "RelativeDocumentMoniker": "BepKhoiBackend.DataAccess\\Models\\Menu.cs",
+              "ToolTip": "B:\\DO_AN\\THANH_TUNG\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\Models\\Menu.cs",
+              "RelativeToolTip": "BepKhoiBackend.DataAccess\\Models\\Menu.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-10T07:18:36.393Z",
               "EditorCaption": ""
             },
             {
@@ -66,22 +83,22 @@
               "RelativeDocumentMoniker": "BepKhoiBackend.API\\Controllers\\MenuControllers\\MenuController.cs",
               "ToolTip": "B:\\DO_AN\\THANH_TUNG\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.API\\Controllers\\MenuControllers\\MenuController.cs",
               "RelativeToolTip": "BepKhoiBackend.API\\Controllers\\MenuControllers\\MenuController.cs",
-              "ViewState": "AgIAAKoAAAAAAAAAAAAAAFwAAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAALoAAAAAAAAAAAAAAL4AAABZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-07T06:49:08.28Z",
+              "WhenOpened": "2025-03-10T06:15:45.692Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "B:\\DO_AN\\THANH_TUNG\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.API\\appsettings.json",
-              "RelativeDocumentMoniker": "BepKhoiBackend.API\\appsettings.json",
-              "ToolTip": "B:\\DO_AN\\THANH_TUNG\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.API\\appsettings.json",
-              "RelativeToolTip": "BepKhoiBackend.API\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-03-07T05:38:57.435Z",
+              "DocumentIndex": 1,
+              "Title": "MenuRepository.cs",
+              "DocumentMoniker": "B:\\DO_AN\\THANH_TUNG\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\Repository\\MenuRepository\\MenuRepository.cs",
+              "RelativeDocumentMoniker": "BepKhoiBackend.DataAccess\\Repository\\MenuRepository\\MenuRepository.cs",
+              "ToolTip": "B:\\DO_AN\\THANH_TUNG\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\Repository\\MenuRepository\\MenuRepository.cs",
+              "RelativeToolTip": "BepKhoiBackend.DataAccess\\Repository\\MenuRepository\\MenuRepository.cs",
+              "ViewState": "AgIAALEAAAAAAAAAAAAnwLkAAABaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-09T17:44:09.302Z",
               "EditorCaption": ""
             }
           ]

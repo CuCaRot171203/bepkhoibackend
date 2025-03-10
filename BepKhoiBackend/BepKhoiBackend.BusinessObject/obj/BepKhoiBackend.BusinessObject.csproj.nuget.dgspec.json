@@ -118,7 +118,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "B:\\DO_AN\\THANH_TUNG\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj": {
+                "projectPath": "B:\\DO_AN\\THANH_TUNG\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

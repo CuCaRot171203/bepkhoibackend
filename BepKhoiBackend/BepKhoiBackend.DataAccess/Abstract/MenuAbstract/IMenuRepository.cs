@@ -1,15 +1,12 @@
 ﻿using BepKhoiBackend.DataAccess.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using BepKhoiBackend.Shared.Helpers;
+
 
 namespace BepKhoiBackend.DataAccess.Abstract.MenuAbstract
 {
+    // Create interface of all tasks
     public interface IMenuRepository
     {
-        // Create interface of all tasks
         Task<IEnumerable<Menu>> GetAllMenus(); 
         Task<Menu> GetMenuById(int id);
         Task<Menu> AddMenu(Menu menu);
@@ -17,5 +14,13 @@ namespace BepKhoiBackend.DataAccess.Abstract.MenuAbstract
         Task DeleteMenu(int id);
         Task<bool> CheckMenuExistById(int id);
         Task<bool> CheckMenuIsDelete(int id);
+        Task<PagedResult<Menu>> SearchProductByNameOrId(
+        string productNameOrId,
+        int page,
+        int pageSize,
+        string sortBy,
+        string sortDirection,
+        int? categoryId
+        );
     }
 }

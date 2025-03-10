@@ -937,6 +937,16 @@
             "rid": "win"
           }
         }
+      },
+      "BepKhoiBackend.Shared/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/BepKhoiBackend.Shared.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BepKhoiBackend.Shared.dll": {}
+        }
       }
     }
   },
@@ -2365,10 +2375,16 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "BepKhoiBackend.Shared/1.0.0": {
+      "type": "project",
+      "path": "../BepKhoiBackend.Shared/BepKhoiBackend.Shared.csproj",
+      "msbuildProject": "../BepKhoiBackend.Shared/BepKhoiBackend.Shared.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "BepKhoiBackend.Shared >= 1.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.0",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.0",
@@ -2408,7 +2424,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "B:\\DO_AN\\THANH_TUNG\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj": {
+              "projectPath": "B:\\DO_AN\\THANH_TUNG\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

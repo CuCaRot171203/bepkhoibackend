@@ -705,6 +705,7 @@
       },
       "BepKhoiBackend.DataAccess/1.0.0": {
         "dependencies": {
+          "BepKhoiBackend.Shared": "1.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.0",
           "Microsoft.Extensions.Configuration": "6.0.0",
           "Microsoft.Extensions.Configuration.Json": "6.0.0"

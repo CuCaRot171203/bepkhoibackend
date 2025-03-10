@@ -57,3 +57,6 @@ B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.DataAccess\obj\
 B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.DataAccess\obj\Debug\net6.0\BepKhoiBackend.DataAccess.pdb
 B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.DataAccess\obj\Debug\net6.0\BepKhoiBackend.DataAccess.genruntimeconfig.cache
 B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.DataAccess\obj\Debug\net6.0\ref\BepKhoiBackend.DataAccess.dll
+B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.DataAccess\bin\Debug\net6.0\BepKhoiBackend.Shared.dll
+B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.DataAccess\bin\Debug\net6.0\BepKhoiBackend.Shared.pdb
+B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.DataAccess\obj\Debug\net6.0\BepKhoiB.5317DA11.Up2Date

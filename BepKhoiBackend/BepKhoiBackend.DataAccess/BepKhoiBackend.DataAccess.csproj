@@ -26,4 +26,8 @@
     <Folder Include="SingalR\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BepKhoiBackend.Shared\BepKhoiBackend.Shared.csproj" />
+  </ItemGroup>
+
 </Project>

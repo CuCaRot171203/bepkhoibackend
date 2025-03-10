@@ -166,5 +166,66 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
                 return StatusCode(500, new { message = "Error when delete product" });
             }
         }
+
+        // API Search menu by ProductId or ProductName
+        [HttpGet("search")]
+        [ProducesResponseType(200)] // OK
+        [ProducesResponseType(400)] // Bad Request
+        [ProducesResponseType(404)] // Not Found
+        [ProducesResponseType(500)] // Internal Server Error
+        public async Task<IActionResult> SearchByNameOrProductId(
+            [FromQuery] string stringInput,
+            [FromQuery] int page = 1,
+            [FromQuery] int pageSize = 10,
+            [FromQuery] string sortBy = "ProductName", // Optional: mặc định sắp xếp theo tên sản phẩm
+            [FromQuery] string sortDirection = "asc", // Optional: sắp xếp tăng dần
+            [FromQuery] int? categoryId = null // Optional: lọc theo danh mục nếu có
+        )
+        {
+            try
+            {
+                // Check input is null or whitespace
+                if (string.IsNullOrWhiteSpace(stringInput))
+                {
+                    _logger.LogWarning("Search input is null or empty.");
+                    return BadRequest(new { message = "Search input cannot be empty." });
+                }
+
+                // Check pagination parameters are valid
+                if (page <= 0 || pageSize <= 0)
+                {
+                    _logger.LogWarning("Invalid pagination parameters.");
+                    return BadRequest(new { message = "Page and PageSize must be greater than 0." });
+                }
+
+                // Call repository to search product
+                var result = await _menuRepository.SearchProductByNameOrId(stringInput, page, pageSize, sortBy, sortDirection, categoryId);
+
+                // Check result success or fail
+                if (!result.IsSuccess || result.Data == null || !result.Data.Any())
+                {
+                    _logger.LogWarning($"No products found for input: {stringInput}");
+                    return NotFound(new { message = result.Message });
+                }
+
+                // Map to DTO
+                var mappedData = _mapper.Map<IEnumerable<MenuDto>>(result.Data);
+
+                // Return with pagination info
+                return Ok(new
+                {
+                    message = result.Message,
+                    data = mappedData,
+                    page = result.Page,
+                    pageSize = result.PageSize,
+                    totalRecords = result.TotalRecords
+                });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"An error occurred while searching for product with input: {stringInput}");
+                return StatusCode(500, new { message = "An unexpected error occurred while searching for products." });
+            }
+        }
     }
 }

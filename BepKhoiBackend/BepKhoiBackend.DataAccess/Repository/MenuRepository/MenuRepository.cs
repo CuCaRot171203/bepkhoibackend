@@ -1,6 +1,9 @@
 ﻿using BepKhoiBackend.DataAccess.Abstract.MenuAbstract;
+using BepKhoiBackend.DataAccess.Helpers;
 using BepKhoiBackend.DataAccess.Models;
+using BepKhoiBackend.Shared.Helpers;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualBasic;
 
 public class MenuRepository : IMenuRepository
 {
@@ -11,6 +14,7 @@ public class MenuRepository : IMenuRepository
         _context = context;
     }
 
+    /*=========== FUNCTION TO CALL IN API============*/
     // Method to get all products have exist
     public async Task<IEnumerable<Menu>> GetAllMenus()
     {
@@ -70,6 +74,7 @@ public class MenuRepository : IMenuRepository
         }
     }
 
+    // Method to update menu
     public async Task UpdateMenu(Menu menu)
     {
         try
@@ -111,6 +116,109 @@ public class MenuRepository : IMenuRepository
         }
     }
 
+    // Method to search product in menulist by name or ID
+    public async Task<PagedResult<Menu>> SearchProductByNameOrId(
+        string productNameOrId,
+        int page,
+        int pageSize,
+        string sortBy,
+        string sortDirection,
+        int? categoryId
+    )
+    {
+        try
+        {
+            // call method to check parameter input valid or not
+            ProductValidator.VallidateStringProductNameOrIdInput(productNameOrId);
+
+            var query = _context.Menus.AsQueryable();
+
+            // Filter and undisplay product have soft deleted
+            query = query.Where(m => m.IsDelete == false);
+
+            // Check paramter get in is integer or name
+            if (ProductValidator.IsPositiveInteger(productNameOrId))
+            {
+                // Convert and check ID is valid or not
+                int id = int.Parse(productNameOrId);
+                ProductValidator.ValidatePositiveProductId(id);
+
+                // Check Id exist in database
+                
+                // Check Id exist in database
+                if (!await CheckMenuExistById(id))
+                {
+                    return new PagedResult<Menu> { IsSuccess = false, Message = $"Can't find product with ID: {id}." };
+                }    
+                    
+                // Check flag isDelete of product
+                if (await CheckMenuIsDelete(id))
+                {
+                    return new PagedResult<Menu> { IsSuccess = false, Message = $"Product have ID: {id} had been deleted." };
+                }
+
+                query = query.Where(m => m.ProductId == id);
+            }
+            else // incase parameter get in are string name
+            {
+                var stringInput = productNameOrId.Trim().ToLower();
+                query = query.Where(m => m.ProductName.ToLower().Contains(stringInput));
+            }
+
+            // Filtered by category if have
+            if (categoryId.HasValue)
+            {
+                query = query.Where(m => m.ProductCategoryId == categoryId.Value);
+            }
+
+            query = MenuHelper.ApplySorting(query, sortBy, sortDirection);
+
+            var totalRecords = await query.CountAsync();
+
+            var data = await query
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+
+            return new PagedResult<Menu>
+            {
+                IsSuccess = data.Any(),
+                Message = data.Any() ? "Find successfully." : "Can't find product matched!.",
+                Data = data,
+                TotalRecords = totalRecords,
+                Page = page,
+                PageSize = pageSize
+            };
+        }
+        catch (FormatException ex)
+        {
+            return new PagedResult<Menu> { IsSuccess = false, Message = $"Format of data is not valid: {ex.Message}" };
+        }
+        catch (ArgumentException ex)
+        {
+            return new PagedResult<Menu> { IsSuccess = false, Message = $"Error parameter get in: {ex.Message}" };
+        }
+        catch (InvalidOperationException ex)
+        {
+            return new PagedResult<Menu> { IsSuccess = false, Message = $"Action invalid: {ex.Message}" };
+        }
+        catch (KeyNotFoundException ex)
+        {
+            return new PagedResult<Menu> { IsSuccess = false, Message = $"Can't find: {ex.Message}" };
+        }
+        catch (Exception ex)
+        {
+            return new PagedResult<Menu> { IsSuccess = false, Message = $"Occur error when find product: {ex.Message}" };
+        }
+    }
+
+
+
+
+
+
+    /*=========== SHARED FUNCTION ================*/
+
     // Method to check product have exist or not by Id
     public async Task<bool> CheckMenuExistById(int pId)
     {
@@ -125,4 +233,6 @@ public class MenuRepository : IMenuRepository
         return (menu != null
             && menu.IsDelete == true);
     }
+
+
 }
