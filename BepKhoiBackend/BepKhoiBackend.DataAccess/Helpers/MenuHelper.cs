@@ -5,6 +5,7 @@ namespace BepKhoiBackend.DataAccess.Helpers
 {
     public static class MenuHelper
     {
+        // Apply Sorting - could change
         public static IQueryable<Menu> ApplySorting(IQueryable<Menu> query, string sortBy, string sortDirection)
         {
             // Default is sort by productId

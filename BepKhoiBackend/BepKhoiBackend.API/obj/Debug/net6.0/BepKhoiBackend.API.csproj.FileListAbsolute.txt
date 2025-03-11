@@ -313,3 +313,12 @@ B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\n
 B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.pdb
 B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.genruntimeconfig.cache
 B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\ref\BepKhoiBackend.API.dll
+B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\ClosedXML.dll
+B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\ClosedXML.Parser.dll
+B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\DocumentFormat.OpenXml.dll
+B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\DocumentFormat.OpenXml.Framework.dll
+B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\ExcelNumberFormat.dll
+B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\RBush.dll
+B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\SixLabors.Fonts.dll
+B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.IO.Packaging.dll
+B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Linq.Dynamic.Core.dll

@@ -2,7 +2,7 @@
 {
     public class MenuDto
     {
-        public int? ProductId { get; set; } // couldn't required when add
+        public int? ProductId { get; set; } 
         public string ProductName { get; set; } = null!;
         public int ProductCategoryId { get; set; }
         public decimal CostPrice { get; set; }
