@@ -2,7 +2,6 @@
 using BepKhoiBackend.BusinessObject.Services;
 using BepKhoiBackend.BusinessObject.Services.LoginService;
 using BepKhoiBackend.DataAccess.Models;
-using BepKhoiBackend.DataAccess.Repository.LoginRepository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -38,6 +37,9 @@ builder.Services.AddDbContext<bepkhoiContext>(options =>
 //interface service and repository
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddScoped<IOtpService, OtpService>();
+
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 //session
@@ -49,6 +51,7 @@ builder.Services.AddSession(options =>
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 builder.Services.AddHttpContextAccessor();
 

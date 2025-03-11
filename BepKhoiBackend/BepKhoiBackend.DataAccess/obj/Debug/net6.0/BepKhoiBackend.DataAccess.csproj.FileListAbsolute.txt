@@ -42,18 +42,18 @@ D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.DataAcc
 D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.DataAccess\obj\Debug\net6.0\BepKhoiBackend.DataAccess.pdb
 D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.DataAccess\obj\Debug\net6.0\BepKhoiBackend.DataAccess.genruntimeconfig.cache
 D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.DataAccess\obj\Debug\net6.0\ref\BepKhoiBackend.DataAccess.dll
-D:\DoAn_NgocQuan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.DataAccess\bin\Debug\net6.0\BepKhoiBackend.DataAccess.deps.json
-D:\DoAn_NgocQuan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.DataAccess\bin\Debug\net6.0\BepKhoiBackend.DataAccess.runtimeconfig.json
-D:\DoAn_NgocQuan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.DataAccess\bin\Debug\net6.0\BepKhoiBackend.DataAccess.dll
-D:\DoAn_NgocQuan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.DataAccess\bin\Debug\net6.0\BepKhoiBackend.DataAccess.pdb
-D:\DoAn_NgocQuan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.DataAccess\obj\Debug\net6.0\BepKhoiBackend.DataAccess.csproj.AssemblyReference.cache
-D:\DoAn_NgocQuan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.DataAccess\obj\Debug\net6.0\BepKhoiBackend.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
-D:\DoAn_NgocQuan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.DataAccess\obj\Debug\net6.0\BepKhoiBackend.DataAccess.AssemblyInfoInputs.cache
-D:\DoAn_NgocQuan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.DataAccess\obj\Debug\net6.0\BepKhoiBackend.DataAccess.AssemblyInfo.cs
-D:\DoAn_NgocQuan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.DataAccess\obj\Debug\net6.0\BepKhoiBackend.DataAccess.csproj.CoreCompileInputs.cache
-D:\DoAn_NgocQuan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.DataAccess\obj\Debug\net6.0\BepKhoiBackend.DataAccess.sourcelink.json
-D:\DoAn_NgocQuan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.DataAccess\obj\Debug\net6.0\BepKhoiBackend.DataAccess.dll
-D:\DoAn_NgocQuan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.DataAccess\obj\Debug\net6.0\refint\BepKhoiBackend.DataAccess.dll
-D:\DoAn_NgocQuan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.DataAccess\obj\Debug\net6.0\BepKhoiBackend.DataAccess.pdb
-D:\DoAn_NgocQuan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.DataAccess\obj\Debug\net6.0\BepKhoiBackend.DataAccess.genruntimeconfig.cache
-D:\DoAn_NgocQuan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.DataAccess\obj\Debug\net6.0\ref\BepKhoiBackend.DataAccess.dll
+D:\DoAn-Main\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.DataAccess\bin\Debug\net6.0\BepKhoiBackend.DataAccess.deps.json
+D:\DoAn-Main\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.DataAccess\bin\Debug\net6.0\BepKhoiBackend.DataAccess.runtimeconfig.json
+D:\DoAn-Main\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.DataAccess\bin\Debug\net6.0\BepKhoiBackend.DataAccess.dll
+D:\DoAn-Main\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.DataAccess\bin\Debug\net6.0\BepKhoiBackend.DataAccess.pdb
+D:\DoAn-Main\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.DataAccess\obj\Debug\net6.0\BepKhoiBackend.DataAccess.csproj.AssemblyReference.cache
+D:\DoAn-Main\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.DataAccess\obj\Debug\net6.0\BepKhoiBackend.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+D:\DoAn-Main\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.DataAccess\obj\Debug\net6.0\BepKhoiBackend.DataAccess.AssemblyInfoInputs.cache
+D:\DoAn-Main\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.DataAccess\obj\Debug\net6.0\BepKhoiBackend.DataAccess.AssemblyInfo.cs
+D:\DoAn-Main\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.DataAccess\obj\Debug\net6.0\BepKhoiBackend.DataAccess.csproj.CoreCompileInputs.cache
+D:\DoAn-Main\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.DataAccess\obj\Debug\net6.0\BepKhoiBackend.DataAccess.sourcelink.json
+D:\DoAn-Main\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.DataAccess\obj\Debug\net6.0\BepKhoiBackend.DataAccess.dll
+D:\DoAn-Main\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.DataAccess\obj\Debug\net6.0\refint\BepKhoiBackend.DataAccess.dll
+D:\DoAn-Main\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.DataAccess\obj\Debug\net6.0\BepKhoiBackend.DataAccess.pdb
+D:\DoAn-Main\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.DataAccess\obj\Debug\net6.0\BepKhoiBackend.DataAccess.genruntimeconfig.cache
+D:\DoAn-Main\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.DataAccess\obj\Debug\net6.0\ref\BepKhoiBackend.DataAccess.dll

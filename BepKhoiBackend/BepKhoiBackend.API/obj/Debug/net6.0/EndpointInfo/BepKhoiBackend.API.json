@@ -36,6 +36,37 @@
         }
       }
     },
+    "/api/User/send-otp": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmailDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmailDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmailDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/User/verify": {
       "post": {
         "tags": [
@@ -45,17 +76,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/VerifyUserDto"
+                "$ref": "#/components/schemas/VerifyOtpDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/VerifyUserDto"
+                "$ref": "#/components/schemas/VerifyOtpDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/VerifyUserDto"
+                "$ref": "#/components/schemas/VerifyOtpDto"
               }
             }
           }
@@ -128,18 +159,6 @@
           }
         }
       }
-    },
-    "/api/User/get-all-users": {
-      "get": {
-        "tags": [
-          "User"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
     }
   },
   "components": {
@@ -147,7 +166,7 @@
       "ChangePasswordDto": {
         "type": "object",
         "properties": {
-          "phoneNumber": {
+          "email": {
             "type": "string",
             "nullable": true
           },
@@ -166,10 +185,20 @@
         },
         "additionalProperties": false
       },
+      "EmailDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "ForgotPasswordDto": {
         "type": "object",
         "properties": {
-          "phoneNumber": {
+          "email": {
             "type": "string",
             "nullable": true
           },
@@ -183,7 +212,7 @@
       "LoginRequestDto": {
         "type": "object",
         "properties": {
-          "phone": {
+          "email": {
             "type": "string",
             "nullable": true
           },
@@ -194,10 +223,14 @@
         },
         "additionalProperties": false
       },
-      "VerifyUserDto": {
+      "VerifyOtpDto": {
         "type": "object",
         "properties": {
-          "phoneNumber": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "otp": {
             "type": "string",
             "nullable": true
           }

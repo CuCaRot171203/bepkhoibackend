@@ -1,29 +1,24 @@
 ﻿using BepKhoiBackend.DataAccess.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
+using System.Linq;
 
-namespace BepKhoiBackend.DataAccess.Repository.LoginRepository
+public class UserRepository : IUserRepository
 {
-    public class UserRepository : IUserRepository
+    private readonly bepkhoiContext _context;
+
+    public UserRepository(bepkhoiContext context)
     {
-        private readonly bepkhoiContext _context;
+        _context = context;
+    }
 
-        public UserRepository(bepkhoiContext context)
-        {
-            _context = context;
-        }
+    public User GetUserByEmail(string email)
+    {
+        return _context.Users.FirstOrDefault(u => u.Email == email);
+    }
 
-        public User? GetUserByPhone(string phone)
-        {
-            return _context.Users.FirstOrDefault(u => u.Phone == phone);
-        }
-        public void UpdateUser(User user)
-        {
-            _context.Users.Update(user);
-            _context.SaveChanges();
-        }
-
-       
-
+    public void UpdateUser(User user)
+    {
+        _context.Users.Update(user);
+        _context.SaveChanges();
     }
 }

@@ -24,9 +24,9 @@ namespace BepKhoiBackend.API.Controllers.LoginControllers
         [HttpPost("login")]
         public IActionResult Login([FromBody] LoginRequestDto loginRequest)
         {
-            if (loginRequest == null || string.IsNullOrEmpty(loginRequest.Phone) || string.IsNullOrEmpty(loginRequest.Password))
+            if (loginRequest == null || string.IsNullOrEmpty(loginRequest.Email) || string.IsNullOrEmpty(loginRequest.Password))
             {
-                return BadRequest(new { message = "Phone and Password are required" });
+                return BadRequest(new { message = "Email and Password are required" });
             }
 
             var user = _authService.ValidateUser(loginRequest);
@@ -45,8 +45,8 @@ namespace BepKhoiBackend.API.Controllers.LoginControllers
             var session = _httpContextAccessor.HttpContext.Session;
             session.SetString("Token", token);
             session.SetString("UserId", user.UserId.ToString());
-            session.SetString("Phone", user.Phone);
-            return Ok(new { message = "succesfull", token });
+            session.SetString("Phone", user.Email);
+            return Ok(new { message = "succesfull", token , userId = user.UserId});
         }
 
 

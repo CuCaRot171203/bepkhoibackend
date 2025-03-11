@@ -20,7 +20,6 @@ namespace BepKhoiBackend.DataAccess.Models
         public int? RoomId { get; set; }
         public DateTime CreatedTime { get; set; }
         public int TotalQuantity { get; set; }
-        public decimal Subtotal { get; set; }
         public decimal AmountDue { get; set; }
         public int OrderStatusId { get; set; }
         public string? OrderNote { get; set; }

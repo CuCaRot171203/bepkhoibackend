@@ -49,12 +49,18 @@
   },
   {
     "ContainingType": "BepKhoiBackend.API.Controllers.LoginControllers.UserController",
-    "Method": "GetAllUsers",
-    "RelativePath": "api/User/get-all-users",
-    "HttpMethod": "GET",
+    "Method": "SendOtp",
+    "RelativePath": "api/User/send-otp",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "BepKhoiBackend.BusinessObject.dtos.LoginDto.EmailDto",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -67,7 +73,7 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "BepKhoiBackend.BusinessObject.dtos.LoginDto.VerifyUserDto",
+        "Type": "VerifyOtpDto",
         "IsRequired": true
       }
     ],
