@@ -6,7 +6,6 @@ using System.Text;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using BepKhoiBackend.BusinessObject.dtos.LoginDto;
-using BepKhoiBackend.DataAccess.Repository.LoginRepository;
 
 namespace BepKhoiBackend.BusinessObject.Services.LoginService
 {
@@ -23,7 +22,7 @@ namespace BepKhoiBackend.BusinessObject.Services.LoginService
 
         public UserDto? ValidateUser(LoginRequestDto loginRequest)
         {
-            var user = _userRepository.GetUserByPhone(loginRequest.Phone);
+            var user = _userRepository.GetUserByEmail(loginRequest.Email);
             if (user == null || user.Password != loginRequest.Password)
             {
                 return null;
@@ -32,7 +31,7 @@ namespace BepKhoiBackend.BusinessObject.Services.LoginService
             return new UserDto
             {
                 UserId = user.UserId,
-                Phone = user.Phone,
+                Email = user.Email,
                 IsVerify = user.IsVerify
             };
         }
@@ -46,7 +45,7 @@ namespace BepKhoiBackend.BusinessObject.Services.LoginService
                 Subject = new ClaimsIdentity(new[]
                 {
                     new Claim(ClaimTypes.NameIdentifier, user.UserId.ToString()),
-                    new Claim(ClaimTypes.Name, user.Phone)
+                    new Claim(ClaimTypes.Name, user.Email)
                 }),
                 Expires = DateTime.UtcNow.AddHours(2),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256)

@@ -1,9 +1,7 @@
 ﻿using BepKhoiBackend.DataAccess.Models;
 
-namespace BepKhoiBackend.DataAccess.Repository.LoginRepository
+public interface IUserRepository
 {
-    public interface IUserRepository
-    {
-        User? GetUserByPhone(string phone);
-    }
+    User GetUserByEmail(string email);
+    void UpdateUser(User user);
 }

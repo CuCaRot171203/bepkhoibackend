@@ -33,3 +33,15 @@ D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Shared\
 D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Shared\obj\Debug\net6.0\refint\BepKhoiBackend.Shared.dll
 D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Shared\obj\Debug\net6.0\BepKhoiBackend.Shared.pdb
 D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Shared\obj\Debug\net6.0\ref\BepKhoiBackend.Shared.dll
+D:\DoAn-Main\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Shared\bin\Debug\net6.0\BepKhoiBackend.Shared.deps.json
+D:\DoAn-Main\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Shared\bin\Debug\net6.0\BepKhoiBackend.Shared.dll
+D:\DoAn-Main\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Shared\bin\Debug\net6.0\BepKhoiBackend.Shared.pdb
+D:\DoAn-Main\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Shared\obj\Debug\net6.0\BepKhoiBackend.Shared.GeneratedMSBuildEditorConfig.editorconfig
+D:\DoAn-Main\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Shared\obj\Debug\net6.0\BepKhoiBackend.Shared.AssemblyInfoInputs.cache
+D:\DoAn-Main\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Shared\obj\Debug\net6.0\BepKhoiBackend.Shared.AssemblyInfo.cs
+D:\DoAn-Main\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Shared\obj\Debug\net6.0\BepKhoiBackend.Shared.csproj.CoreCompileInputs.cache
+D:\DoAn-Main\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Shared\obj\Debug\net6.0\BepKhoiBackend.Shared.sourcelink.json
+D:\DoAn-Main\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Shared\obj\Debug\net6.0\BepKhoiBackend.Shared.dll
+D:\DoAn-Main\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Shared\obj\Debug\net6.0\refint\BepKhoiBackend.Shared.dll
+D:\DoAn-Main\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Shared\obj\Debug\net6.0\BepKhoiBackend.Shared.pdb
+D:\DoAn-Main\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Shared\obj\Debug\net6.0\ref\BepKhoiBackend.Shared.dll

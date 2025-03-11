@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\TungNT\\Downloads\\Compressed\\bepkhoibackend-NgocQuan\\bepkhoibackend-NgocQuan\\BepKhoiBackend\\BepKhoiBackend.API\\BepKhoiBackend.API.csproj": {}
+    "D:\\DoAn-Main\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.API\\BepKhoiBackend.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\TungNT\\Downloads\\Compressed\\bepkhoibackend-NgocQuan\\bepkhoibackend-NgocQuan\\BepKhoiBackend\\BepKhoiBackend.API\\BepKhoiBackend.API.csproj": {
+    "D:\\DoAn-Main\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.API\\BepKhoiBackend.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\TungNT\\Downloads\\Compressed\\bepkhoibackend-NgocQuan\\bepkhoibackend-NgocQuan\\BepKhoiBackend\\BepKhoiBackend.API\\BepKhoiBackend.API.csproj",
+        "projectUniqueName": "D:\\DoAn-Main\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.API\\BepKhoiBackend.API.csproj",
         "projectName": "BepKhoiBackend.API",
-        "projectPath": "C:\\Users\\TungNT\\Downloads\\Compressed\\bepkhoibackend-NgocQuan\\bepkhoibackend-NgocQuan\\BepKhoiBackend\\BepKhoiBackend.API\\BepKhoiBackend.API.csproj",
-        "packagesPath": "C:\\Users\\TungNT\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\TungNT\\Downloads\\Compressed\\bepkhoibackend-NgocQuan\\bepkhoibackend-NgocQuan\\BepKhoiBackend\\BepKhoiBackend.API\\obj\\",
+        "projectPath": "D:\\DoAn-Main\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.API\\BepKhoiBackend.API.csproj",
+        "packagesPath": "C:\\Users\\abc\\.nuget\\packages\\",
+        "outputPath": "D:\\DoAn-Main\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\TungNT\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\abc\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -33,14 +33,14 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\TungNT\\Downloads\\Compressed\\bepkhoibackend-NgocQuan\\bepkhoibackend-NgocQuan\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj": {
-                "projectPath": "C:\\Users\\TungNT\\Downloads\\Compressed\\bepkhoibackend-NgocQuan\\bepkhoibackend-NgocQuan\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj"
+              "D:\\DoAn-Main\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj": {
+                "projectPath": "D:\\DoAn-Main\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj"
               },
-              "C:\\Users\\TungNT\\Downloads\\Compressed\\bepkhoibackend-NgocQuan\\bepkhoibackend-NgocQuan\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj": {
-                "projectPath": "C:\\Users\\TungNT\\Downloads\\Compressed\\bepkhoibackend-NgocQuan\\bepkhoibackend-NgocQuan\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj"
+              "D:\\DoAn-Main\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj": {
+                "projectPath": "D:\\DoAn-Main\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj"
               },
-              "C:\\Users\\TungNT\\Downloads\\Compressed\\bepkhoibackend-NgocQuan\\bepkhoibackend-NgocQuan\\BepKhoiBackend\\BepKhoiBackend.Test\\BepKhoiBackend.Test.csproj": {
-                "projectPath": "C:\\Users\\TungNT\\Downloads\\Compressed\\bepkhoibackend-NgocQuan\\bepkhoibackend-NgocQuan\\BepKhoiBackend\\BepKhoiBackend.Test\\BepKhoiBackend.Test.csproj"
+              "D:\\DoAn-Main\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Test\\BepKhoiBackend.Test.csproj": {
+                "projectPath": "D:\\DoAn-Main\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Test\\BepKhoiBackend.Test.csproj"
               }
             }
           }
@@ -54,7 +54,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net6.0": {
@@ -88,24 +89,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\TungNT\\Downloads\\Compressed\\bepkhoibackend-NgocQuan\\bepkhoibackend-NgocQuan\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj": {
+    "D:\\DoAn-Main\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\TungNT\\Downloads\\Compressed\\bepkhoibackend-NgocQuan\\bepkhoibackend-NgocQuan\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj",
+        "projectUniqueName": "D:\\DoAn-Main\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj",
         "projectName": "BepKhoiBackend.BusinessObject",
-        "projectPath": "C:\\Users\\TungNT\\Downloads\\Compressed\\bepkhoibackend-NgocQuan\\bepkhoibackend-NgocQuan\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj",
-        "packagesPath": "C:\\Users\\TungNT\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\TungNT\\Downloads\\Compressed\\bepkhoibackend-NgocQuan\\bepkhoibackend-NgocQuan\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\obj\\",
+        "projectPath": "D:\\DoAn-Main\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj",
+        "packagesPath": "C:\\Users\\abc\\.nuget\\packages\\",
+        "outputPath": "D:\\DoAn-Main\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\TungNT\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\abc\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -121,11 +122,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\TungNT\\Downloads\\Compressed\\bepkhoibackend-NgocQuan\\bepkhoibackend-NgocQuan\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj": {
-                "projectPath": "C:\\Users\\TungNT\\Downloads\\Compressed\\bepkhoibackend-NgocQuan\\bepkhoibackend-NgocQuan\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj"
+              "D:\\DoAn-Main\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj": {
+                "projectPath": "D:\\DoAn-Main\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj"
               },
-              "C:\\Users\\TungNT\\Downloads\\Compressed\\bepkhoibackend-NgocQuan\\bepkhoibackend-NgocQuan\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj": {
-                "projectPath": "C:\\Users\\TungNT\\Downloads\\Compressed\\bepkhoibackend-NgocQuan\\bepkhoibackend-NgocQuan\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj"
+              "D:\\DoAn-Main\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj": {
+                "projectPath": "D:\\DoAn-Main\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj"
               }
             }
           }
@@ -139,12 +140,17 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "MimeKit": {
+              "target": "Package",
+              "version": "[4.11.0, )"
+            },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
               "version": "[7.6.0, )"
@@ -166,24 +172,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\TungNT\\Downloads\\Compressed\\bepkhoibackend-NgocQuan\\bepkhoibackend-NgocQuan\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj": {
+    "D:\\DoAn-Main\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\TungNT\\Downloads\\Compressed\\bepkhoibackend-NgocQuan\\bepkhoibackend-NgocQuan\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj",
+        "projectUniqueName": "D:\\DoAn-Main\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj",
         "projectName": "BepKhoiBackend.DataAccess",
-        "projectPath": "C:\\Users\\TungNT\\Downloads\\Compressed\\bepkhoibackend-NgocQuan\\bepkhoibackend-NgocQuan\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj",
-        "packagesPath": "C:\\Users\\TungNT\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\TungNT\\Downloads\\Compressed\\bepkhoibackend-NgocQuan\\bepkhoibackend-NgocQuan\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\obj\\",
+        "projectPath": "D:\\DoAn-Main\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj",
+        "packagesPath": "C:\\Users\\abc\\.nuget\\packages\\",
+        "outputPath": "D:\\DoAn-Main\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\TungNT\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\abc\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -210,7 +216,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net6.0": {
@@ -257,24 +264,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\TungNT\\Downloads\\Compressed\\bepkhoibackend-NgocQuan\\bepkhoibackend-NgocQuan\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj": {
+    "D:\\DoAn-Main\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\TungNT\\Downloads\\Compressed\\bepkhoibackend-NgocQuan\\bepkhoibackend-NgocQuan\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj",
+        "projectUniqueName": "D:\\DoAn-Main\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj",
         "projectName": "BepKhoiBackend.Shared",
-        "projectPath": "C:\\Users\\TungNT\\Downloads\\Compressed\\bepkhoibackend-NgocQuan\\bepkhoibackend-NgocQuan\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj",
-        "packagesPath": "C:\\Users\\TungNT\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\TungNT\\Downloads\\Compressed\\bepkhoibackend-NgocQuan\\bepkhoibackend-NgocQuan\\BepKhoiBackend\\BepKhoiBackend.Shared\\obj\\",
+        "projectPath": "D:\\DoAn-Main\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj",
+        "packagesPath": "C:\\Users\\abc\\.nuget\\packages\\",
+        "outputPath": "D:\\DoAn-Main\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Shared\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\TungNT\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\abc\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -301,7 +308,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net6.0": {
@@ -322,24 +330,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\TungNT\\Downloads\\Compressed\\bepkhoibackend-NgocQuan\\bepkhoibackend-NgocQuan\\BepKhoiBackend\\BepKhoiBackend.Test\\BepKhoiBackend.Test.csproj": {
+    "D:\\DoAn-Main\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Test\\BepKhoiBackend.Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\TungNT\\Downloads\\Compressed\\bepkhoibackend-NgocQuan\\bepkhoibackend-NgocQuan\\BepKhoiBackend\\BepKhoiBackend.Test\\BepKhoiBackend.Test.csproj",
+        "projectUniqueName": "D:\\DoAn-Main\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Test\\BepKhoiBackend.Test.csproj",
         "projectName": "BepKhoiBackend.Test",
-        "projectPath": "C:\\Users\\TungNT\\Downloads\\Compressed\\bepkhoibackend-NgocQuan\\bepkhoibackend-NgocQuan\\BepKhoiBackend\\BepKhoiBackend.Test\\BepKhoiBackend.Test.csproj",
-        "packagesPath": "C:\\Users\\TungNT\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\TungNT\\Downloads\\Compressed\\bepkhoibackend-NgocQuan\\bepkhoibackend-NgocQuan\\BepKhoiBackend\\BepKhoiBackend.Test\\obj\\",
+        "projectPath": "D:\\DoAn-Main\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Test\\BepKhoiBackend.Test.csproj",
+        "packagesPath": "C:\\Users\\abc\\.nuget\\packages\\",
+        "outputPath": "D:\\DoAn-Main\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Test\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\TungNT\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\abc\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -366,7 +374,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net6.0": {
@@ -387,7 +396,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

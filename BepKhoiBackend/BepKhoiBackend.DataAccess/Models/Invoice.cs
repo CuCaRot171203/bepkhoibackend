@@ -22,6 +22,7 @@ namespace BepKhoiBackend.DataAccess.Models
         public DateTime CheckOutTime { get; set; }
         public int TotalQuantity { get; set; }
         public decimal Subtotal { get; set; }
+        public decimal? OtherPayment { get; set; }
         public decimal? InvoiceDiscount { get; set; }
         public decimal? TotalVat { get; set; }
         public decimal AmountDue { get; set; }
