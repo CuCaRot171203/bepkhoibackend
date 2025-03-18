@@ -1,7 +1,13 @@
 ﻿using BepKhoiBackend.BusinessObject.Interfaces;
 using BepKhoiBackend.BusinessObject.Services;
+using BepKhoiBackend.BusinessObject.Services.CustomerService;
 using BepKhoiBackend.BusinessObject.Services.LoginService;
+using BepKhoiBackend.BusinessObject.Services.UserService.CashierService;
+using BepKhoiBackend.BusinessObject.Services.UserService.ShipperService;
 using BepKhoiBackend.DataAccess.Models;
+using BepKhoiBackend.DataAccess.Repository.CustomerRepository;
+using BepKhoiBackend.DataAccess.Repository.UserRepository.CashierRepository;
+using BepKhoiBackend.DataAccess.Repository.UserRepository.ShipperRepository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -34,6 +40,21 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 //connect db context
 builder.Services.AddDbContext<bepkhoiContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Đăng ký dịch vụ liên quan đến cashier
+
+builder.Services.AddScoped<ICashierRepository, CashierRepository>();
+builder.Services.AddScoped<ICashierService, CashierService>();
+// Đăng ký dịch vụ liên quan đến shipper
+
+builder.Services.AddScoped<IShipperRepository, ShipperRepository>();
+builder.Services.AddScoped<IShipperService, ShipperService>();
+
+
+// Đăng ký dịch vụ liên quan đến khách hàng
+builder.Services.AddScoped<ICustomerRepository, CustomerRepository>(); // Repository cho Customer
+builder.Services.AddScoped<ICustomerService, CustomerService>(); // Service cho Customer
+
 //interface service and repository
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
