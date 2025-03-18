@@ -17,137 +17,6 @@
   },
   {
     "ContainingType": "BepKhoiBackend.API.Controllers.MenuControllers.MenuController",
-    "Method": "AddMenu",
-    "RelativePath": "api/Menu",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "menuDto",
-        "Type": "BepKhoiBackend.BusinessObject.dtos.MenuDto.MenuDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 201
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 400
-      },
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 500
-      }
-    ]
-  },
-  {
-    "ContainingType": "BepKhoiBackend.API.Controllers.MenuControllers.MenuController",
-    "Method": "GetMenuById",
-    "RelativePath": "api/Menu/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 400
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      },
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 500
-      }
-    ]
-  },
-  {
-    "ContainingType": "BepKhoiBackend.API.Controllers.MenuControllers.MenuController",
-    "Method": "UpdateMenuById",
-    "RelativePath": "api/Menu/{productId}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "productId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "menuDto",
-        "Type": "BepKhoiBackend.BusinessObject.dtos.MenuDto.MenuDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 400
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      },
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 500
-      }
-    ]
-  },
-  {
-    "ContainingType": "BepKhoiBackend.API.Controllers.MenuControllers.MenuController",
     "Method": "DeleteMenu",
     "RelativePath": "api/Menu/{productId}",
     "HttpMethod": "DELETE",
@@ -184,43 +53,23 @@
   },
   {
     "ContainingType": "BepKhoiBackend.API.Controllers.MenuControllers.MenuController",
-    "Method": "GetActiveProducts",
-    "RelativePath": "api/Menu/active-products",
-    "HttpMethod": "GET",
+    "Method": "AddMenu",
+    "RelativePath": "api/Menu/add",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "page",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "pageSize",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "sortBy",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "sortDirection",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "categoryId",
-        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": false
+        "Name": "menuDto",
+        "Type": "BepKhoiBackend.BusinessObject.dtos.MenuDto.CreateMenuDto",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
         "Type": "System.Void",
         "MediaTypes": [],
-        "StatusCode": 200
+        "StatusCode": 201
       },
       {
         "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
@@ -302,22 +151,12 @@
   },
   {
     "ContainingType": "BepKhoiBackend.API.Controllers.MenuControllers.MenuController",
-    "Method": "GetAllMenus",
-    "RelativePath": "api/Menu/menus",
+    "Method": "GetAllMenuAsync",
+    "RelativePath": "api/Menu/get-all-menus",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
-      {
-        "Name": "page",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "pageSize",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
       {
         "Name": "sortBy",
         "Type": "System.String",
@@ -344,6 +183,22 @@
         "IsRequired": false
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.MenuControllers.MenuController",
+    "Method": "GetMenuById",
+    "RelativePath": "api/Menu/get-menu-by-id/{pid}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pid",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": [
       {
         "Type": "System.Void",
@@ -360,6 +215,15 @@
         "StatusCode": 400
       },
       {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      },
+      {
         "Type": "System.Void",
         "MediaTypes": [],
         "StatusCode": 500
@@ -368,41 +232,21 @@
   },
   {
     "ContainingType": "BepKhoiBackend.API.Controllers.MenuControllers.MenuController",
-    "Method": "SearchByNameOrProductId",
-    "RelativePath": "api/Menu/search",
-    "HttpMethod": "GET",
+    "Method": "UpdateMenu",
+    "RelativePath": "api/Menu/update-menu/{id}",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "stringInput",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "page",
+        "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       },
       {
-        "Name": "pageSize",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "sortBy",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "sortDirection",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "categoryId",
-        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": false
+        "Name": "dto",
+        "Type": "BepKhoiBackend.BusinessObject.dtos.MenuDto.UpdateMenuDto",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": [
@@ -485,5 +329,25 @@
         "StatusCode": 500
       }
     ]
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.ProductCategoryControllers.ProductCategoryController",
+    "Method": "GetAllCategories",
+    "RelativePath": "api/product-categories/get-all-categories",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.UnitControllers.UnitController",
+    "Method": "GetAllUnits",
+    "RelativePath": "api/units/get-all-units",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
   }
 ]

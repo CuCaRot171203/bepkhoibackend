@@ -3,11 +3,8 @@ using BepKhoiBackend.DataAccess.Abstract.MenuAbstract;
 using BepKhoiBackend.DataAccess.Models;
 using BepKhoiBackend.BusinessObject.dtos.MenuDto;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Microsoft.IdentityModel.Tokens;
+using BepKhoiBackend.BusinessObject.Abstract.MenuBusinessAbstract;
 
 namespace BepKhoiBackend.API.Controllers.MenuControllers
 {
@@ -17,92 +14,67 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
     {
         private readonly IMenuRepository _menuRepository;
         private readonly IMapper _mapper;
+        private readonly IMenuService _menuService;
         private readonly ILogger<MenuController> _logger;
 
-        public MenuController(IMenuRepository menuRepository, IMapper mapper, ILogger<MenuController> logger)
+        public MenuController(
+            IMenuRepository menuRepository,
+            IMapper mapper,
+            ILogger<MenuController> logger,
+            IMenuService menuService)
         {
             _menuRepository = menuRepository;
+            _menuService = menuService;
             _mapper = mapper;
             _logger = logger;
         }
-
-        // API to get all menus with optional filters, pagination, and sorting
-        [HttpGet("menus")]
-        [ProducesResponseType(200)] // OK
-        [ProducesResponseType(400)] // BadRequest
-        [ProducesResponseType(500)] // InternalServerError
-        public async Task<IActionResult> GetAllMenus(
-            [FromQuery] int page = 1,
-            [FromQuery] int pageSize = 10,
+        
+        /*========== NEW MENU API CONTROLLER =======*/
+        // API - MenuController.cs
+        [HttpGet("get-all-menus")]
+        public async Task<IActionResult> GetAllMenuAsync(
             [FromQuery] string sortBy = "ProductId",
             [FromQuery] string sortDirection = "asc",
             [FromQuery] int? categoryId = null,
             [FromQuery] bool? isActive = null,
             [FromQuery] string? productNameOrId = null)
         {
-            try
+            var result = await _menuService.GetAllMenusAsync(sortBy, sortDirection, categoryId, isActive, productNameOrId);
+            if (!result.IsSuccess)
+                return NotFound(new { message = result.Message });
+
+            var mappedData = _mapper.Map<IEnumerable<MenuDto>>(result.Data);
+
+            return Ok(new
             {
-                if (page <= 0 || pageSize <= 0)
-                {
-                    return BadRequest(new { message = "Page and PageSize must be greater than 0." });
-                }
-
-                var result = await _menuRepository.GetAllMenus(
-                    page,
-                    pageSize,
-                    sortBy,
-                    sortDirection,
-                    categoryId,
-                    isActive,
-                    productNameOrId);
-
-                if (!result.IsSuccess)
-                {
-                    return NotFound(new { message = result.Message });
-                }
-
-                // Map data to DTO
-                var mappedData = _mapper.Map<IEnumerable<MenuDto>>(result.Data);
-
-                // Return success response with pagination info
-                return Ok(new
-                {
-                    message = result.Message,
-                    data = mappedData,
-                    page = result.Page,
-                    pageSize = result.PageSize,
-                    totalRecords = result.TotalRecords
-                });
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "An error occurred while retrieving the menu list.");
-                return StatusCode(500, new { message = "An unexpected error occurred while retrieving the menu list." });
-            }
+                message = result.Message,
+                data = mappedData
+            });
         }
 
         // API Get menu by ID
-        [HttpGet("{id}")]
+        [HttpGet("get-menu-by-id/{pid}")]
         [ProducesResponseType(200)] // OK
         [ProducesResponseType(400)] // BadRequest
         [ProducesResponseType(404)] // NotFound
         [ProducesResponseType(500)] // InternalServerError
-        public async Task<IActionResult> GetMenuById(int id)
+        public async Task<IActionResult> GetMenuById(int pid)
         {
             try
             {
-                if (id <= 0)
+                if (pid <= 0)
                 {
                     return BadRequest(new { message = "Product ID must be greater than 0." });
                 }
-                var result = await _menuRepository.GetMenuById(id);
 
-                // Check if not founded data
+                var result = await _menuService.GetMenuByIdAsync(pid);
+
                 if (!result.IsSuccess || result.Data == null || !result.Data.Any())
                 {
-                    _logger.LogWarning($"Couldn't find menu with ID: {id}");
+                    _logger.LogWarning($"Couldn't find menu with ID: {pid}");
                     return NotFound(new { message = result.Message });
                 }
+
                 var mappedData = _mapper.Map<MenuDto>(result.Data.First());
 
                 return Ok(new
@@ -113,45 +85,47 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
             }
             catch (ArgumentException ex)
             {
-                _logger.LogError(ex, $"Invalid argument when finding menu with ID: {id}");
+                _logger.LogError(ex, $"Invalid argument when finding menu with ID: {pid}");
                 return BadRequest(new { message = ex.Message });
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, $"An error occurred while retrieving menu with ID: {id}");
+                _logger.LogError(ex, $"An error occurred while retrieving menu with ID: {pid}");
                 return StatusCode(500, new { message = "An unexpected error occurred while retrieving the menu." });
             }
         }
 
-        // API Add menu
-        [HttpPost]
-        [ProducesResponseType(201)] // Created
-        [ProducesResponseType(400)] // Bad Request
-        [ProducesResponseType(500)] // Internal Server Error
-        public async Task<IActionResult> AddMenu([FromBody] MenuDto menuDto)
+        // API add product to Menu list
+        [HttpPost("add")]
+        [ProducesResponseType(201)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(500)]
+        public async Task<IActionResult> AddMenu([FromBody] CreateMenuDto menuDto)
         {
             try
             {
-                // Check menu invalid
-                if (menuDto == null)
+                if (!ModelState.IsValid)
                 {
                     _logger.LogWarning("Invalid menu data received.");
-                    return BadRequest(new { message = "Menu data is invalid." });
+                    return BadRequest(ModelState);
                 }
-                var menu = _mapper.Map<Menu>(menuDto);
 
-                var result = await _menuRepository.AddMenu(menu);
+                // Call service
+                var result = await _menuService.AddMenuAsync(menuDto);
 
-                // Check if call function false
                 if (!result.IsSuccess)
                 {
                     _logger.LogWarning($"Failed to add menu: {result.Message}");
                     return BadRequest(new { message = result.Message });
                 }
 
-                var addedMenuDto = _mapper.Map<MenuDto>(result.Data.FirstOrDefault());
+                var addedMenuDto = result.Data.First();
 
-                return CreatedAtAction(nameof(GetMenuById), new { id = addedMenuDto.ProductId }, new
+                // Return result successfully
+                return CreatedAtAction(
+                    nameof(GetMenuById),
+                    new { pId = addedMenuDto.ProductId},
+                    new
                 {
                     message = result.Message,
                     data = addedMenuDto
@@ -159,61 +133,65 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "An error occurred while adding the menu.");
+                _logger.LogError(ex, "An unexpected error occurred while adding the menu.");
                 return StatusCode(500, new { message = "An unexpected error occurred while adding the menu." });
             }
         }
 
-        [HttpPut("{productId}")]
+        // API to update product by Id
+        [HttpPut("update-menu/{id}")]
         [ProducesResponseType(200)] // OK
-        [ProducesResponseType(400)] // Bad Request
-        [ProducesResponseType(404)] // Not Found
-        [ProducesResponseType(500)] // Internal Server Error
-        public async Task<IActionResult> UpdateMenuById(int productId, [FromBody] MenuDto menuDto)
+        [ProducesResponseType(400)] // BadRequest
+        [ProducesResponseType(404)] // NotFound
+        [ProducesResponseType(500)] // InternalServerError
+        public async Task<IActionResult> UpdateMenu(int id, [FromBody] UpdateMenuDto dto)
         {
             try
             {
-                // check exist
-                if (menuDto == null || productId != menuDto.ProductId)
+                if (!ModelState.IsValid)
                 {
-                    _logger.LogWarning("Product ID does not match or data is invalid.");
-                    return BadRequest(new { message = "Product ID does not match or data is invalid." });
+                    var errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage);
+                    return BadRequest(new { message = "Validation failed", errors });
                 }
 
-                var existingMenuResult = await _menuRepository.GetMenuById(productId);
-                // check null
-                if (!existingMenuResult.IsSuccess || existingMenuResult.Data.IsNullOrEmpty() || existingMenuResult.Data.Count() == 0)
+                if (id <= 0)
                 {
-                    _logger.LogWarning($"Menu with ID {productId} not found or has been deleted.");
-                    return NotFound(new { message = $"Menu with ID {productId} not found or has been deleted." });
+                    return BadRequest(new { message = "Product ID must be greater than 0." });
                 }
 
-                var updatedMenu = _mapper.Map<Menu>(menuDto);
+                var result = await _menuService.UpdateMenuAsync(id, dto);
 
-                var updateResult = await _menuRepository.UpdateMenu(updatedMenu);
-
-                // Check if update was successful
-                if (!updateResult.IsSuccess)
+                if (!result.IsSuccess)
                 {
-                    _logger.LogError($"Failed to update menu with ID {productId}: {updateResult.Message}");
-                    return StatusCode(500, new { message = $"Failed to update menu: {updateResult.Message}" });
+                    if (result.Message.Contains("not found"))
+                        return NotFound(new { message = result.Message });
+                    if (result.Message.Contains("deleted"))
+                        return BadRequest(new { message = result.Message });
+
+                    return BadRequest(new { message = result.Message });
                 }
+
+                var mappedData = _mapper.Map<MenuDto>(result.Data);
 
                 return Ok(new
                 {
-                    message = $"Menu with ID {productId} updated successfully.",
-                    data = _mapper.Map<MenuDto>(updateResult.Data.FirstOrDefault())
+                    message = result.Message,
+                    data = mappedData
                 });
+            }
+            catch (ArgumentException ex)
+            {
+                _logger.LogError(ex, "Invalid argument while updating menu.");
+                return BadRequest(new { message = ex.Message });
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, $"An error occurred while updating menu with ID {productId}.");
-                return StatusCode(500, new { message = "An error occurred while updating menu." });
+                _logger.LogError(ex, "Unexpected error while updating menu.");
+                return StatusCode(500, new { message = "An unexpected error occurred while updating the menu." });
             }
         }
 
-
-        // API Delete menu
+        // API to delete product
         [HttpDelete("{productId}")]
         [ProducesResponseType(204)] // No Content
         [ProducesResponseType(404)] // Not Found
@@ -222,204 +200,99 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
         {
             try
             {
-                var existingMenu = await _menuRepository.GetMenuById(productId);
+                var result = await _menuService.DeleteMenuAsync(productId);
 
-                // check menu invalid?
-                if (existingMenu == null)
-                {
-                    _logger.LogWarning($"Couldn't find menu with ID: {productId}");
-                    return NotFound(new { message = "Couldn't find menu." });
-                }
-
-                await _menuRepository.DeleteMenu(productId);
-                return Ok(new { message = "Delete product successfully." }); ;
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, $"Error when delete product have ID: {productId}");
-                return StatusCode(500, new { message = "Error when delete product" });
-            }
-        }
-
-        // API Search menu by ProductId or ProductName
-        [HttpGet("search")]
-        [ProducesResponseType(200)] // OK
-        [ProducesResponseType(400)] // Bad Request
-        [ProducesResponseType(404)] // Not Found
-        [ProducesResponseType(500)] // Internal Server Error
-        public async Task<IActionResult> SearchByNameOrProductId(
-            [FromQuery] string stringInput,
-            [FromQuery] int page = 1,
-            [FromQuery] int pageSize = 10,
-            [FromQuery] string sortBy = "ProductId", 
-            [FromQuery] string sortDirection = "asc",
-            [FromQuery] int? categoryId = null
-        )
-        {
-            try
-            {
-                // Check input is null or whitespace
-                if (string.IsNullOrWhiteSpace(stringInput))
-                {
-                    _logger.LogWarning("Search input is null or empty.");
-                    return BadRequest(new { message = "Search input cannot be empty." });
-                }
-
-                // Check pagination parameters are valid
-                if (page <= 0 || pageSize <= 0)
-                {
-                    _logger.LogWarning("Invalid pagination parameters.");
-                    return BadRequest(new { message = "Page and PageSize must be greater than 0." });
-                }
-
-                // Call repository to search product
-                var result = await _menuRepository.SearchProductByNameOrId(stringInput, page, pageSize, sortBy, sortDirection, categoryId);
-
-                // Check result success or fail
-                if (!result.IsSuccess || result.Data == null || !result.Data.Any())
-                {
-                    _logger.LogWarning($"No products found for input: {stringInput}");
-                    return NotFound(new { message = result.Message });
-                }
-
-                // Map to DTO
-                var mappedData = _mapper.Map<IEnumerable<MenuDto>>(result.Data);
-
-                // Return with pagination info
-                return Ok(new
-                {
-                    message = result.Message,
-                    data = mappedData,
-                    page = result.Page,
-                    pageSize = result.PageSize,
-                    totalRecords = result.TotalRecords
-                });
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, $"An error occurred while searching for product with input: {stringInput}");
-                return StatusCode(500, new { message = "An unexpected error occurred while searching for products." });
-            }
-        }
-
-        // API to get list products are active in database
-        [HttpGet("active-products")]
-        [ProducesResponseType(200)] // OK
-        [ProducesResponseType(400)] // BadRequest
-        [ProducesResponseType(500)] // InternalServerError
-        public async Task<IActionResult> GetActiveProducts(
-            [FromQuery] int page = 1,
-            [FromQuery] int pageSize = 10,
-            [FromQuery] string sortBy = "ProductId",
-            [FromQuery] string sortDirection = "asc",
-            [FromQuery] int? categoryId = null)
-        {
-            try
-            {
-                // Validate pagination input
-                if (page <= 0 || pageSize <= 0)
-                {
-                    return BadRequest(new { message = "Page and PageSize must be greater than 0." });
-                }
-
-                // Call service to get data
-                var result = await _menuRepository.GetActiveProductsList(page, pageSize, sortBy, sortDirection, categoryId);
-
-                // Handle result
                 if (!result.IsSuccess)
                 {
-                    return NotFound(new { message = result.Message });
+                    if (result.Message.Contains("not found") || result.Message.Contains("already been deleted"))
+                    {
+                        _logger.LogWarning(result.Message);
+                        return NotFound(new { message = result.Message });
+                    }
+
+                    _logger.LogError(result.Message);
+                    return StatusCode(500, new { message = result.Message });
                 }
 
-                // Map to DTO
-                var mappedData = _mapper.Map<IEnumerable<MenuDto>>(result.Data);
-
-                // Return response
-                return Ok(new
-                {
-                    message = result.Message,
-                    data = mappedData,
-                    page = result.Page,
-                    pageSize = result.PageSize,
-                    totalRecords = result.TotalRecords
-                });
+                return Ok(new { message = result.Message }); 
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "An error occurred while retrieving active products.");
-                return StatusCode(500, new { message = "An unexpected error occurred while retrieving products." });
+                _logger.LogError(ex, $"Error when deleting menu with ID: {productId}");
+                return StatusCode(500, new { message = "Error when deleting menu." });
             }
         }
 
-        // API to get excel file
+        // API to export products list to excel
         [HttpGet("export-products-excel")]
         public async Task<IActionResult> ExportProductsToExcel(
             [FromQuery] string sortBy = "ProductId",
             [FromQuery] string sortDirection = "asc",
             [FromQuery] int? categoryId = null,
-            [FromQuery] bool? isActive = null
-        )
+            [FromQuery] bool? isActive = null)
         {
-            var (fileContent, fileName, hasData, errorMessage) = await _menuRepository.ExportActiveProductsToExcelAsync(sortBy, sortDirection, categoryId, isActive);
+            var (fileContent, fileName, hasData, errorMessage) = await _menuService.ExportActiveProductsToExcelAsync(sortBy, sortDirection, categoryId, isActive);
 
-            // Check null
             if (!string.IsNullOrEmpty(errorMessage))
             {
-                // Check exist
-                if (errorMessage.Contains("does not exist"))
-                    return BadRequest(new { message = errorMessage });
-                // Check data
-                if (errorMessage.Contains("No product data found"))
-                    return NotFound(new { message = errorMessage });
-
+                if (errorMessage.Contains("does not exist")) return BadRequest(new { message = errorMessage });
+                if (errorMessage.Contains("No product data found")) return NotFound(new { message = errorMessage });
                 return StatusCode(500, new { message = errorMessage });
             }
 
-            return File(
-                fileContent,
-                "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-                fileName
-            );
+            return File(fileContent, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", fileName);
+        }
+        
+
+        // API to export products price list to excel
+        [HttpGet("export-product-price-excel")]
+        public async Task<IActionResult> ExportProductPriceToExcel(
+            [FromQuery] string sortBy = "ProductId",
+            [FromQuery] string sortDirection = "asc",
+            [FromQuery] int? categoryId = null,
+            [FromQuery] bool? isActive = null)
+        {
+            var (fileContent, fileName, hasData, errorMessage) = await _menuService.ExportPriceExcelAsync(sortBy, sortDirection, categoryId, isActive);
+
+            if (!string.IsNullOrEmpty(errorMessage))
+            {
+                if (errorMessage.Contains("does not exist"))
+                    return BadRequest(new { message = errorMessage });
+                if (errorMessage.Contains("No product price data found"))
+                    return NotFound(new { message = errorMessage });
+                return StatusCode(500, new { message = errorMessage });
+            }
+
+            return File(fileContent, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", fileName);
         }
 
-
-        // API to update price of a product 
+        // API to update price of product
         [HttpPut("update-price/{productId}")]
-        [ProducesResponseType(200)] // OK
-        [ProducesResponseType(400)] // Bad Request
-        [ProducesResponseType(404)] // Not Found
-        [ProducesResponseType(500)] // Internal Server Error
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
         public async Task<IActionResult> UpdatePriceOfProduct(int productId, [FromBody] UpdatePriceDto priceDto)
         {
             try
             {
-                // check null or not matched
                 if (priceDto == null || productId != priceDto.ProductId)
                 {
                     _logger.LogWarning("Product ID does not match or data is invalid.");
                     return BadRequest(new { message = "Product ID does not match or data is invalid." });
                 }
 
-                // update
-                var result = await _menuRepository.UpdatePriceOfProduct(
-                    productId,
-                    priceDto.CostPrice,
-                    priceDto.SellPrice,
-                    priceDto.SalePrice,
-                    priceDto.ProductVat
-                );
+                var (isSuccess, message, data) = await _menuService.UpdatePriceOfProductAsync(priceDto);
 
-                // Check success
-                if (!result.IsSuccess)
+                if (!isSuccess)
                 {
-                    _logger.LogWarning(result.Message);
-                    if (result.Message.Contains("does not exist") || result.Message.Contains("deleted"))
-                        return NotFound(new { message = result.Message });
-                    else
-                        return BadRequest(new { message = result.Message });
+                    _logger.LogWarning(message);
+                    if (message.Contains("does not exist") || message.Contains("deleted"))
+                        return NotFound(new { message });
+                    return BadRequest(new { message });
                 }
 
-                return Ok(new { message = "Update product price successfully.", data = result.Data });
+                return Ok(new { message = "Update product price successfully.", data });
             }
             catch (Exception ex)
             {
@@ -427,45 +300,5 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
                 return StatusCode(500, new { message = "Internal server error while updating product price." });
             }
         }
-
-        // API to export product price to Excel file
-        [HttpGet("export-product-price-excel")]
-        public async Task<IActionResult> ExportProductPriceToExcel(
-            [FromQuery] string sortBy = "ProductId",
-            [FromQuery] string sortDirection = "asc",
-            [FromQuery] int? categoryId = null,
-            [FromQuery] bool? isActive = null
-        )
-        {
-            var (fileContent, fileName, hasData, errorMessage) = await _menuRepository.ExportPriceExcelAsync(sortBy, sortDirection, categoryId, isActive);
-            // Check null
-            if (!string.IsNullOrEmpty(errorMessage))
-            {
-                // Check exist
-                if (errorMessage.Contains("does not exist"))
-                    return BadRequest(new { message = errorMessage }); 
-                // Check data in
-                if (errorMessage.Contains("No product price data found"))
-                    return NotFound(new { message = errorMessage });
-
-                // Other server errors
-                return StatusCode(500, new { message = errorMessage });
-            }
-
-            // Check data in
-            if (!hasData || fileContent == null)
-            {
-                return NotFound(new { message = "No product price data found to export." });
-            }
-
-            return File(
-                fileContent,
-                "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-                fileName
-            );
-        }
-
-
-
     }
 }

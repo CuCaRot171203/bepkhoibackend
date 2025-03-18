@@ -9,6 +9,16 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Serilog;
 using BepKhoiBackend.API.Configurations;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Authorization;
+using BepKhoiBackend.BusinessObject.Mappings;
+
+
+Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Debug() 
+    .WriteTo.Console() 
+    .WriteTo.File("logs/log-.txt", rollingInterval: RollingInterval.Day) 
+    .CreateLogger();
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,8 +29,10 @@ LoggingConfig.ConfigureLogging();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
+//builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddAutoMapper(typeof(MenuProfile).Assembly);
+builder.Services.AddAutoMapper(typeof(UnitProfile).Assembly);
+builder.Services.AddAutoMapper(typeof(ProductCategoryProfile).Assembly);
 
 // Config of logger
 builder.Logging.ClearProviders();
@@ -28,32 +40,15 @@ builder.Logging.AddConsole();
 builder.Logging.AddDebug();
 builder.Host.UseSerilog();
 
-// Cấu hình Authentication
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(options =>
-    {
-        options.RequireHttpsMetadata = false;
-        options.SaveToken = true;
-        options.TokenValidationParameters = new TokenValidationParameters
-        {
-            ValidateIssuer = true,
-            ValidateAudience = true,
-            ValidateLifetime = true,
-            ValidateIssuerSigningKey = true,
-            ValidIssuer = builder.Configuration["Jwt:Issuer"],
-            ValidAudience = builder.Configuration["Jwt:Audience"],
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
-        };
-    });
+// Add JWT Authentication (custom config)
+builder.Services.AddJwtAuthentication(builder.Configuration);
 
-builder.Services.AddDbContext<bepkhoiContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+// Add Application Services (custom config DI)
+builder.Services.AddApplicationServices(builder.Configuration);
 
-builder.Services.AddScoped<IAuthService, AuthService>();
-builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<IMenuRepository, MenuRepository>();
 builder.Services.AddAuthorization();
 
+builder.Services.AddCorsPolicy(builder.Configuration);
 
 var app = builder.Build();
 
@@ -64,7 +59,8 @@ app.UseMiddleware<ExceptionMiddleware>(); // Use to solve problemss
 
 app.UseHttpsRedirection();
 app.UseRouting();
-app.UseAuthentication(); // Quan trọng: Phải gọi trước `UseAuthorization()`
+app.UseCors("AllowReactApp");
+app.UseAuthentication(); 
 app.UseAuthorization();
 
 app.MapControllers();
