@@ -22,6 +22,16 @@ using Microsoft.EntityFrameworkCore;
 using BepKhoiBackend.BusinessObject.Services.LoginService.Interface;
 using BepKhoiBackend.BusinessObject.Services.RoomAreaService;
 using BepKhoiBackend.BusinessObject.Services.RoomService;
+using BepKhoiBackend.BusinessObject.Services.InvoiceService;
+using BepKhoiBackend.DataAccess.Repositories;
+using BepKhoiBackend.DataAccess.Repository.InvoiceRepository;
+using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
+using BepKhoiBackend.BusinessObject.Services.UserService.CashierService;
+using BepKhoiBackend.DataAccess.Repository.UserRepository.CashierRepository;
+using BepKhoiBackend.BusinessObject.Services.UserService.ShipperService;
+using BepKhoiBackend.DataAccess.Repository.UserRepository.ShipperRepository;
+using BepKhoiBackend.BusinessObject.Services.CustomerService;
+using BepKhoiBackend.DataAccess.Repository.CustomerRepository;
 
 namespace BepKhoiBackend.API.Configurations
 {
@@ -32,7 +42,7 @@ namespace BepKhoiBackend.API.Configurations
             // DbContext
             services.AddDbContext<bepkhoiContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
-            // Đăng ký các Service và Repository
+            // Register any Services and Repositories
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<IEmailService, EmailService>();
@@ -51,13 +61,29 @@ namespace BepKhoiBackend.API.Configurations
             //Dependency Injection for Services and Repositories
 
             // Menu Repositories and Services
-           services.AddScoped<IMenuRepository, MenuRepository>(); // Repository
+            services.AddScoped<IMenuRepository, MenuRepository>(); // Repository
             services.AddScoped<IMenuService, MenuService>();       // Service
 
             services.AddScoped<IProductCategoryRepository, ProductCategoryRepository>();
             services.AddScoped<IProductCategoryService, ProductCategoryService>();
             services.AddScoped<IUnitRepository, UnitRepository>();
             services.AddScoped<IUnitService, UnitService>();
+
+            // Register services for Invoices
+            services.AddScoped<IInvoiceRepository, InvoiceRepository>();
+            services.AddScoped<IInvoiceService, InvoiceService>();
+
+            // Register for cashier
+            services.AddScoped<ICashierRepository, CashierRepository>();
+            services.AddScoped<ICashierService, CashierService>();
+
+            // Register to shipper
+            services.AddScoped<IShipperRepository, ShipperRepository>();
+            services.AddScoped<IShipperService, ShipperService>();
+
+            // Register for customer
+            services.AddScoped<ICustomerRepository, CustomerRepository>(); // Repository cho Customer
+            services.AddScoped<ICustomerService, CustomerService>();
         }
     }
 }

@@ -16,6 +16,478 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController",
+    "Method": "GetAllCashiers",
+    "RelativePath": "api/cashiers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[BepKhoiBackend.BusinessObject.dtos.UserDto.CashierDto.CashierDTO, BepKhoiBackend.BusinessObject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController",
+    "Method": "CreateCashier",
+    "RelativePath": "api/cashiers",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "newCashier",
+        "Type": "BepKhoiBackend.BusinessObject.dtos.UserDto.CashierDto.CreateCashierDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController",
+    "Method": "GetCashierById",
+    "RelativePath": "api/cashiers/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "BepKhoiBackend.BusinessObject.dtos.UserDto.CashierDto.CashierDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController",
+    "Method": "UpdateCashier",
+    "RelativePath": "api/cashiers/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "updatedCashier",
+        "Type": "BepKhoiBackend.BusinessObject.dtos.UserDto.CashierDto.UpdateCashierDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController",
+    "Method": "DeleteCashier",
+    "RelativePath": "api/cashiers/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController",
+    "Method": "GetCashierInvoices",
+    "RelativePath": "api/cashiers/{id}/invoices",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[BepKhoiBackend.BusinessObject.dtos.UserDto.CashierDto.CashierInvoiceDTO, BepKhoiBackend.BusinessObject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController",
+    "Method": "GetCashiersByNameOrPhone",
+    "RelativePath": "api/cashiers/search",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "searchTerm",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[BepKhoiBackend.BusinessObject.dtos.UserDto.CashierDto.CashierDTO, BepKhoiBackend.BusinessObject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController",
+    "Method": "GetCashiersByStatus",
+    "RelativePath": "api/cashiers/status/{status}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "status",
+        "Type": "System.Boolean",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.CustomerControllers.CustomerController",
+    "Method": "GetAllCustomers",
+    "RelativePath": "api/Customer",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[BepKhoiBackend.BusinessObject.dtos.CustomerDto.CustomerDTO, BepKhoiBackend.BusinessObject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.CustomerControllers.CustomerController",
+    "Method": "GetInvoicesByCustomerId",
+    "RelativePath": "api/Customer/{customerId}/invoices",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "customerId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.CustomerControllers.CustomerController",
+    "Method": "GetCustomerById",
+    "RelativePath": "api/Customer/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "BepKhoiBackend.BusinessObject.dtos.CustomerDto.CustomerDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.CustomerControllers.CustomerController",
+    "Method": "ExportCustomers",
+    "RelativePath": "api/Customer/export",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.CustomerControllers.CustomerController",
+    "Method": "SearchCustomersByNameOrPhone",
+    "RelativePath": "api/Customer/search",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "searchTerm",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[BepKhoiBackend.BusinessObject.dtos.CustomerDto.CustomerDTO, BepKhoiBackend.BusinessObject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController",
+    "Method": "GetAllInvoices",
+    "RelativePath": "api/Invoice",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[BepKhoiBackend.BusinessObject.dtos.InvoiceDto.InvoiceDTO, BepKhoiBackend.BusinessObject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController",
+    "Method": "GetInvoiceById",
+    "RelativePath": "api/Invoice/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "BepKhoiBackend.BusinessObject.dtos.InvoiceDto.InvoiceDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController",
+    "Method": "GetInvoiceByCashier",
+    "RelativePath": "api/Invoice/cashier/{keyword}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "keyword",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[BepKhoiBackend.BusinessObject.dtos.InvoiceDto.InvoiceDTO, BepKhoiBackend.BusinessObject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController",
+    "Method": "GetInvoiceByCustomer",
+    "RelativePath": "api/Invoice/customer/{keyword}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "keyword",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[BepKhoiBackend.BusinessObject.dtos.InvoiceDto.InvoiceDTO, BepKhoiBackend.BusinessObject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController",
+    "Method": "GetInvoiceByOrderMethod",
+    "RelativePath": "api/Invoice/order-method/{method}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "method",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[BepKhoiBackend.BusinessObject.dtos.InvoiceDto.InvoiceDTO, BepKhoiBackend.BusinessObject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController",
+    "Method": "GetInvoiceByPeriod",
+    "RelativePath": "api/Invoice/period",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "from",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "to",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[BepKhoiBackend.BusinessObject.dtos.InvoiceDto.InvoiceDTO, BepKhoiBackend.BusinessObject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController",
+    "Method": "GetInvoiceByProductName",
+    "RelativePath": "api/Invoice/product/{productName}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "productName",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[BepKhoiBackend.BusinessObject.dtos.InvoiceDto.InvoiceDTO, BepKhoiBackend.BusinessObject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController",
+    "Method": "GetInvoiceByStatus",
+    "RelativePath": "api/Invoice/status/{status}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "status",
+        "Type": "System.Boolean",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[BepKhoiBackend.BusinessObject.dtos.InvoiceDto.InvoiceDTO, BepKhoiBackend.BusinessObject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "BepKhoiBackend.API.Controllers.MenuControllers.MenuController",
     "Method": "DeleteMenu",
     "RelativePath": "api/Menu/{productId}",
@@ -657,6 +1129,173 @@
       {
         "Name": "roomUpdateDto",
         "Type": "BepKhoiBackend.BusinessObject.dtos.RoomDto.RoomUpdateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers.ShipperController",
+    "Method": "GetAllShippers",
+    "RelativePath": "api/Shipper",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[BepKhoiBackend.BusinessObject.dtos.UserDto.ShipperDto.ShipperDTO, BepKhoiBackend.BusinessObject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers.ShipperController",
+    "Method": "CreateShipper",
+    "RelativePath": "api/Shipper",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "newShipper",
+        "Type": "BepKhoiBackend.BusinessObject.dtos.UserDto.ShipperDto.CreateShipperDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers.ShipperController",
+    "Method": "GetShipperById",
+    "RelativePath": "api/Shipper/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "BepKhoiBackend.BusinessObject.dtos.UserDto.ShipperDto.ShipperDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers.ShipperController",
+    "Method": "UpdateShipper",
+    "RelativePath": "api/Shipper/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "updatedShipper",
+        "Type": "BepKhoiBackend.BusinessObject.dtos.UserDto.ShipperDto.UpdateShipperDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers.ShipperController",
+    "Method": "DeleteShipper",
+    "RelativePath": "api/Shipper/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers.ShipperController",
+    "Method": "GetShipperInvoices",
+    "RelativePath": "api/Shipper/{id}/invoices",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[BepKhoiBackend.BusinessObject.dtos.UserDto.ShipperDto.ShipperInvoiceDTO, BepKhoiBackend.BusinessObject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers.ShipperController",
+    "Method": "GetShippersByNameOrPhone",
+    "RelativePath": "api/Shipper/search",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "searchTerm",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[BepKhoiBackend.BusinessObject.dtos.UserDto.ShipperDto.ShipperDTO, BepKhoiBackend.BusinessObject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers.ShipperController",
+    "Method": "GetShippersByStatus",
+    "RelativePath": "api/Shipper/status/{status}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "status",
+        "Type": "System.Boolean",
         "IsRequired": true
       }
     ],

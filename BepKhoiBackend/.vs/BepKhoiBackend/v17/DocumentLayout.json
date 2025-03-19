@@ -3,16 +3,36 @@
   "WorkspaceRootPath": "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3E1A4BAF-DD7F-446E-BAA0-6B67D1F74AA7}|BepKhoiBackend.API\\BepKhoiBackend.API.csproj|b:\\do_an\\backend_chung\\bepkhoibackend\\bepkhoibackend.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{3E1A4BAF-DD7F-446E-BAA0-6B67D1F74AA7}|BepKhoiBackend.API\\BepKhoiBackend.API.csproj|solutionrelative:bepkhoibackend.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{3E5D3DAB-FA34-45C0-A607-D499E1415562}|BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj|b:\\do_an\\backend_chung\\bepkhoibackend\\bepkhoibackend.businessobject\\services\\customerservice\\customerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E5D3DAB-FA34-45C0-A607-D499E1415562}|BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj|solutionrelative:bepkhoibackend.businessobject\\services\\customerservice\\customerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E1A4BAF-DD7F-446E-BAA0-6B67D1F74AA7}|BepKhoiBackend.API\\BepKhoiBackend.API.csproj|b:\\do_an\\backend_chung\\bepkhoibackend\\bepkhoibackend.api\\controllers\\invoicecontrollers\\invoicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E1A4BAF-DD7F-446E-BAA0-6B67D1F74AA7}|BepKhoiBackend.API\\BepKhoiBackend.API.csproj|solutionrelative:bepkhoibackend.api\\controllers\\invoicecontrollers\\invoicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E1A4BAF-DD7F-446E-BAA0-6B67D1F74AA7}|BepKhoiBackend.API\\BepKhoiBackend.API.csproj|b:\\do_an\\backend_chung\\bepkhoibackend\\bepkhoibackend.api\\configurations\\dependencyinjectionconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E1A4BAF-DD7F-446E-BAA0-6B67D1F74AA7}|BepKhoiBackend.API\\BepKhoiBackend.API.csproj|solutionrelative:bepkhoibackend.api\\configurations\\dependencyinjectionconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E1A4BAF-DD7F-446E-BAA0-6B67D1F74AA7}|BepKhoiBackend.API\\BepKhoiBackend.API.csproj|b:\\do_an\\backend_chung\\bepkhoibackend\\bepkhoibackend.api\\controllers\\usercontrollers\\shippercontrollers\\shippercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E1A4BAF-DD7F-446E-BAA0-6B67D1F74AA7}|BepKhoiBackend.API\\BepKhoiBackend.API.csproj|solutionrelative:bepkhoibackend.api\\controllers\\usercontrollers\\shippercontrollers\\shippercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E1A4BAF-DD7F-446E-BAA0-6B67D1F74AA7}|BepKhoiBackend.API\\BepKhoiBackend.API.csproj|b:\\do_an\\backend_chung\\bepkhoibackend\\bepkhoibackend.api\\controllers\\usercontrollers\\cashiercontrollers\\cashiercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E1A4BAF-DD7F-446E-BAA0-6B67D1F74AA7}|BepKhoiBackend.API\\BepKhoiBackend.API.csproj|solutionrelative:bepkhoibackend.api\\controllers\\usercontrollers\\cashiercontrollers\\cashiercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E1A4BAF-DD7F-446E-BAA0-6B67D1F74AA7}|BepKhoiBackend.API\\BepKhoiBackend.API.csproj|b:\\do_an\\backend_chung\\bepkhoibackend\\bepkhoibackend.api\\controllers\\customercontrollers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E1A4BAF-DD7F-446E-BAA0-6B67D1F74AA7}|BepKhoiBackend.API\\BepKhoiBackend.API.csproj|solutionrelative:bepkhoibackend.api\\controllers\\customercontrollers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3E1A4BAF-DD7F-446E-BAA0-6B67D1F74AA7}|BepKhoiBackend.API\\BepKhoiBackend.API.csproj|b:\\do_an\\backend_chung\\bepkhoibackend\\bepkhoibackend.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3E1A4BAF-DD7F-446E-BAA0-6B67D1F74AA7}|BepKhoiBackend.API\\BepKhoiBackend.API.csproj|solutionrelative:bepkhoibackend.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3E1A4BAF-DD7F-446E-BAA0-6B67D1F74AA7}|BepKhoiBackend.API\\BepKhoiBackend.API.csproj|b:\\do_an\\backend_chung\\bepkhoibackend\\bepkhoibackend.api\\configurations\\dependencyinjectionconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E1A4BAF-DD7F-446E-BAA0-6B67D1F74AA7}|BepKhoiBackend.API\\BepKhoiBackend.API.csproj|solutionrelative:bepkhoibackend.api\\configurations\\dependencyinjectionconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3E1A4BAF-DD7F-446E-BAA0-6B67D1F74AA7}|BepKhoiBackend.API\\BepKhoiBackend.API.csproj|b:\\do_an\\backend_chung\\bepkhoibackend\\bepkhoibackend.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{3E1A4BAF-DD7F-446E-BAA0-6B67D1F74AA7}|BepKhoiBackend.API\\BepKhoiBackend.API.csproj|solutionrelative:bepkhoibackend.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,12 +51,77 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "CustomerService.cs",
+              "DocumentMoniker": "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\Services\\CustomerService\\CustomerService.cs",
+              "RelativeDocumentMoniker": "BepKhoiBackend.BusinessObject\\Services\\CustomerService\\CustomerService.cs",
+              "ToolTip": "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\Services\\CustomerService\\CustomerService.cs",
+              "RelativeToolTip": "BepKhoiBackend.BusinessObject\\Services\\CustomerService\\CustomerService.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABQAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T13:53:51.445Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "InvoiceController.cs",
+              "DocumentMoniker": "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.API\\Controllers\\InvoiceControllers\\InvoiceController.cs",
+              "RelativeDocumentMoniker": "BepKhoiBackend.API\\Controllers\\InvoiceControllers\\InvoiceController.cs",
+              "ToolTip": "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.API\\Controllers\\InvoiceControllers\\InvoiceController.cs",
+              "RelativeToolTip": "BepKhoiBackend.API\\Controllers\\InvoiceControllers\\InvoiceController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T13:53:49.382Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ShipperController.cs",
+              "DocumentMoniker": "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.API\\Controllers\\UserControllers\\ShipperControllers\\ShipperController.cs",
+              "RelativeDocumentMoniker": "BepKhoiBackend.API\\Controllers\\UserControllers\\ShipperControllers\\ShipperController.cs",
+              "ToolTip": "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.API\\Controllers\\UserControllers\\ShipperControllers\\ShipperController.cs",
+              "RelativeToolTip": "BepKhoiBackend.API\\Controllers\\UserControllers\\ShipperControllers\\ShipperController.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAA6wC0AAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T13:53:43.553Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CustomerController.cs",
+              "DocumentMoniker": "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.API\\Controllers\\CustomerControllers\\CustomerController.cs",
+              "RelativeDocumentMoniker": "BepKhoiBackend.API\\Controllers\\CustomerControllers\\CustomerController.cs",
+              "ToolTip": "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.API\\Controllers\\CustomerControllers\\CustomerController.cs",
+              "RelativeToolTip": "BepKhoiBackend.API\\Controllers\\CustomerControllers\\CustomerController.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAqwBIAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T13:52:25.082Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CashierController.cs",
+              "DocumentMoniker": "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.API\\Controllers\\UserControllers\\CashierControllers\\CashierController.cs",
+              "RelativeDocumentMoniker": "BepKhoiBackend.API\\Controllers\\UserControllers\\CashierControllers\\CashierController.cs",
+              "ToolTip": "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.API\\Controllers\\UserControllers\\CashierControllers\\CashierController.cs",
+              "RelativeToolTip": "BepKhoiBackend.API\\Controllers\\UserControllers\\CashierControllers\\CashierController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T13:52:22.772Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "appsettings.json",
               "DocumentMoniker": "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.API\\appsettings.json",
               "RelativeDocumentMoniker": "BepKhoiBackend.API\\appsettings.json",
               "ToolTip": "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.API\\appsettings.json",
               "RelativeToolTip": "BepKhoiBackend.API\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-03-19T07:18:11.559Z",
               "EditorCaption": ""
@@ -49,20 +134,20 @@
               "RelativeDocumentMoniker": "BepKhoiBackend.API\\Configurations\\DependencyInjectionConfig.cs",
               "ToolTip": "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.API\\Configurations\\DependencyInjectionConfig.cs",
               "RelativeToolTip": "BepKhoiBackend.API\\Configurations\\DependencyInjectionConfig.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAAACoAAABKAAAAAAAAAA==",
+              "ViewState": "AgIAABcAAAAAAAAAAAAqwCAAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-19T07:10:33.038Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.API\\Program.cs",
               "RelativeDocumentMoniker": "BepKhoiBackend.API\\Program.cs",
               "ToolTip": "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.API\\Program.cs",
               "RelativeToolTip": "BepKhoiBackend.API\\Program.cs",
-              "ViewState": "AgIAADYAAAAAAAAAAAAAAEwAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAADAAAAAAAAAAAIBJwD0AAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-19T07:10:00.123Z",
               "EditorCaption": ""
