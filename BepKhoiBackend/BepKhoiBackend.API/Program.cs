@@ -1,4 +1,4 @@
-﻿using BepKhoiBackend.BusinessObject.Interfaces;
+﻿//using BepKhoiBackend.BusinessObject.Interfaces;
 using BepKhoiBackend.BusinessObject.Services.LoginService;
 using BepKhoiBackend.DataAccess.Abstract.MenuAbstract;
 using BepKhoiBackend.DataAccess.Models;
@@ -40,11 +40,29 @@ builder.Logging.AddConsole();
 builder.Logging.AddDebug();
 builder.Host.UseSerilog();
 
-// Add JWT Authentication (custom config)
-builder.Services.AddJwtAuthentication(builder.Configuration);
+//// Add JWT Authentication (custom config)
+//builder.Services.AddJwtAuthentication(builder.Configuration);
+
+// Config Authentication Jwt
+JwtConfig.ConfigureJwtAuthentication(builder.Services, builder.Configuration);
 
 // Add Application Services (custom config DI)
 builder.Services.AddApplicationServices(builder.Configuration);
+
+//session
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddHttpContextAccessor();
+
+
+
 
 builder.Services.AddAuthorization();
 
@@ -56,6 +74,7 @@ var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI();
 app.UseMiddleware<ExceptionMiddleware>(); // Use to solve problemss
+app.UseSession();
 
 app.UseHttpsRedirection();
 app.UseRouting();

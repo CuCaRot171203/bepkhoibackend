@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using BepKhoiBackend.BusinessObject.DTOs;
-using BepKhoiBackend.BusinessObject.Interfaces;
 using BepKhoiBackend.BusinessObject.dtos.LoginDto;
+using Microsoft.AspNetCore.Http;
+using System;
+using DocumentFormat.OpenXml.Office2016.Excel;
+using BepKhoiBackend.BusinessObject.Services.LoginService.Interface;
 
 namespace BepKhoiBackend.API.Controllers.LoginControllers
 {
@@ -10,33 +13,72 @@ namespace BepKhoiBackend.API.Controllers.LoginControllers
     public class AuthController : ControllerBase
     {
         private readonly IAuthService _authService;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public AuthController(IAuthService authService)
+        public AuthController(IAuthService authService, IHttpContextAccessor httpContextAccessor)
         {
             _authService = authService;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         [HttpPost("login")]
         public IActionResult Login([FromBody] LoginRequestDto loginRequest)
         {
-            if (loginRequest == null || string.IsNullOrEmpty(loginRequest.Phone) || string.IsNullOrEmpty(loginRequest.Password))
+            try
             {
-                return BadRequest(new { message = "Phone and Password are required" });
-            }
+                // Kiểm tra dữ liệu đầu vào
+                if (loginRequest == null)
+                {
+                    return BadRequest(new { message = "Invalid request data." });
+                }
 
-            var user = _authService.ValidateUser(loginRequest);
-            if (user == null)
+                if (string.IsNullOrWhiteSpace(loginRequest.Email) || string.IsNullOrWhiteSpace(loginRequest.Password))
+                {
+                    return BadRequest(new { message = "Email and Password are required." });
+                }
+
+                if (loginRequest.Email.Length > 255)
+                {
+                    return BadRequest(new { message = "Email must be at most 255 characters long." });
+                }
+                // Kiểm tra email có đúng định dạng không
+                if (!_authService.IsValidEmail(loginRequest.Email))
+                {
+                    return BadRequest(new { message = "Invalid email format." });
+                }
+                if (loginRequest.Password.Length > 255)
+                {
+                    return BadRequest(new { message = "Password must be at most 255 characters long." });
+                }
+
+                var user = _authService.ValidateUser(loginRequest);
+                if (user == null)
+                {
+                    return Unauthorized(new { message = "Invalid email or password." });
+                }
+
+                if (!user.IsVerify == true)
+                {
+                    return Ok(new { message = "not_verify" });
+                }
+
+                var token = _authService.GenerateJwtToken(user);
+                // Lưu thông tin vào Session
+                var session = _httpContextAccessor.HttpContext.Session;
+                session.SetString("Token", token);
+                session.SetString("UserId", user.UserId.ToString());
+                session.SetString("Phone", user.Email);
+
+                return Ok(new { message = "successful", token, userId = user.UserId });
+            }
+            catch (Exception ex)
             {
-                return Unauthorized(new { message = "fail" });
+                return StatusCode(StatusCodes.Status500InternalServerError, new
+                {
+                    message = "An error occurred while processing your request.",
+                    error = ex.Message
+                });
             }
-
-            if (user.IsVerify == false)
-            {
-                return Ok(new { message = "not_verify", token = _authService.GenerateJwtToken(user) });
-            }
-
-            var token = _authService.GenerateJwtToken(user);
-            return Ok(new { message = "succesfull", token });
         }
     }
 }

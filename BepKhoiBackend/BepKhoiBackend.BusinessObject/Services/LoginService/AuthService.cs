@@ -1,12 +1,12 @@
 ﻿using BepKhoiBackend.BusinessObject.DTOs;
-using BepKhoiBackend.BusinessObject.Interfaces;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using BepKhoiBackend.BusinessObject.dtos.LoginDto;
-using BepKhoiBackend.DataAccess.Repository.LoginRepository;
+using BepKhoiBackend.DataAccess.Repository.LoginRepository.Interface;
+using BepKhoiBackend.BusinessObject.Services.LoginService.Interface;
 
 namespace BepKhoiBackend.BusinessObject.Services.LoginService
 {
@@ -23,7 +23,7 @@ namespace BepKhoiBackend.BusinessObject.Services.LoginService
 
         public UserDto? ValidateUser(LoginRequestDto loginRequest)
         {
-            var user = _userRepository.GetUserByPhone(loginRequest.Phone);
+            var user = _userRepository.GetUserByEmail(loginRequest.Email);
             if (user == null || user.Password != loginRequest.Password)
             {
                 return null;
@@ -32,11 +32,23 @@ namespace BepKhoiBackend.BusinessObject.Services.LoginService
             return new UserDto
             {
                 UserId = user.UserId,
-                Phone = user.Phone,
+                Email = user.Email,
                 IsVerify = user.IsVerify
             };
         }
-
+        // Hàm kiểm tra định dạng email hợp lệ
+        public bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
+        }
         public string GenerateJwtToken(UserDto user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
@@ -46,7 +58,7 @@ namespace BepKhoiBackend.BusinessObject.Services.LoginService
                 Subject = new ClaimsIdentity(new[]
                 {
                     new Claim(ClaimTypes.NameIdentifier, user.UserId.ToString()),
-                    new Claim(ClaimTypes.Name, user.Phone)
+                    new Claim(ClaimTypes.Name, user.Email)
                 }),
                 Expires = DateTime.UtcNow.AddHours(2),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256)

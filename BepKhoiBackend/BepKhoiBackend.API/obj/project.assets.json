@@ -3711,11 +3711,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "B:\\DO_AN\\THANH_TUNG\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.API\\BepKhoiBackend.API.csproj",
+      "projectUniqueName": "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.API\\BepKhoiBackend.API.csproj",
       "projectName": "BepKhoiBackend.API",
-      "projectPath": "B:\\DO_AN\\THANH_TUNG\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.API\\BepKhoiBackend.API.csproj",
+      "projectPath": "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.API\\BepKhoiBackend.API.csproj",
       "packagesPath": "C:\\Users\\TungNT\\.nuget\\packages\\",
-      "outputPath": "B:\\DO_AN\\THANH_TUNG\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.API\\obj\\",
+      "outputPath": "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -3737,14 +3737,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "B:\\DO_AN\\THANH_TUNG\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj": {
-              "projectPath": "B:\\DO_AN\\THANH_TUNG\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj"
+            "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj": {
+              "projectPath": "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj"
             },
-            "B:\\DO_AN\\THANH_TUNG\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj": {
-              "projectPath": "B:\\DO_AN\\THANH_TUNG\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj"
+            "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj": {
+              "projectPath": "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj"
             },
-            "B:\\DO_AN\\THANH_TUNG\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Test\\BepKhoiBackend.Test.csproj": {
-              "projectPath": "B:\\DO_AN\\THANH_TUNG\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Test\\BepKhoiBackend.Test.csproj"
+            "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.Test\\BepKhoiBackend.Test.csproj": {
+              "projectPath": "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.Test\\BepKhoiBackend.Test.csproj"
             }
           }
         }
