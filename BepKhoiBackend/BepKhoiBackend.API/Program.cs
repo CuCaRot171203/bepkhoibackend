@@ -1,11 +1,14 @@
 ﻿using BepKhoiBackend.BusinessObject.Interfaces;
 using BepKhoiBackend.BusinessObject.Services;
 using BepKhoiBackend.BusinessObject.Services.CustomerService;
+using BepKhoiBackend.BusinessObject.Services.InvoiceService;
 using BepKhoiBackend.BusinessObject.Services.LoginService;
 using BepKhoiBackend.BusinessObject.Services.UserService.CashierService;
 using BepKhoiBackend.BusinessObject.Services.UserService.ShipperService;
 using BepKhoiBackend.DataAccess.Models;
+using BepKhoiBackend.DataAccess.Repositories;
 using BepKhoiBackend.DataAccess.Repository.CustomerRepository;
+using BepKhoiBackend.DataAccess.Repository.InvoiceRepository;
 using BepKhoiBackend.DataAccess.Repository.UserRepository.CashierRepository;
 using BepKhoiBackend.DataAccess.Repository.UserRepository.ShipperRepository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -40,6 +43,12 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 //connect db context
 builder.Services.AddDbContext<bepkhoiContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+
+// Đăng ký dịch vụ liên quan đến Invoice
+
+builder.Services.AddScoped<IInvoiceRepository, InvoiceRepository>();
+builder.Services.AddScoped<IInvoiceService, InvoiceService>();
 
 // Đăng ký dịch vụ liên quan đến cashier
 
