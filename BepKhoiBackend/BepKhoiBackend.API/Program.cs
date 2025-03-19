@@ -1,46 +1,53 @@
-﻿using BepKhoiBackend.BusinessObject.Interfaces;
-using BepKhoiBackend.BusinessObject.Services;
+﻿//using BepKhoiBackend.BusinessObject.Interfaces;
 using BepKhoiBackend.BusinessObject.Services.LoginService;
+using BepKhoiBackend.DataAccess.Abstract.MenuAbstract;
 using BepKhoiBackend.DataAccess.Models;
+using BepKhoiBackend.DataAccess.Repository.LoginRepository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Serilog;
+using BepKhoiBackend.API.Configurations;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Authorization;
+using BepKhoiBackend.BusinessObject.Mappings;
+
+
+Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Debug() 
+    .WriteTo.Console() 
+    .WriteTo.File("logs/log-.txt", rollingInterval: RollingInterval.Day) 
+    .CreateLogger();
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Scpace to call function
+LoggingConfig.ConfigureLogging();
 
 // Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+//builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddAutoMapper(typeof(MenuProfile).Assembly);
+builder.Services.AddAutoMapper(typeof(UnitProfile).Assembly);
+builder.Services.AddAutoMapper(typeof(ProductCategoryProfile).Assembly);
 
-// Cấu hình Authentication
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(options =>
-    {
-        options.RequireHttpsMetadata = false;
-        options.SaveToken = true;
-        options.TokenValidationParameters = new TokenValidationParameters
-        {
-            ValidateIssuer = true,
-            ValidateAudience = true,
-            ValidateLifetime = true,
-            ValidateIssuerSigningKey = true,
-            ValidIssuer = builder.Configuration["Jwt:Issuer"],
-            ValidAudience = builder.Configuration["Jwt:Audience"],
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
-        };
-    });
-//connect db context
-builder.Services.AddDbContext<bepkhoiContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-//interface service and repository
-builder.Services.AddScoped<IUserService, UserService>();
-builder.Services.AddScoped<IAuthService, AuthService>();
-builder.Services.AddScoped<IEmailService, EmailService>();
-builder.Services.AddScoped<IOtpService, OtpService>();
+// Config of logger
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
+builder.Logging.AddDebug();
+builder.Host.UseSerilog();
 
-builder.Services.AddScoped<IUserRepository, UserRepository>();
+//// Add JWT Authentication (custom config)
+//builder.Services.AddJwtAuthentication(builder.Configuration);
+
+// Config Authentication Jwt
+JwtConfig.ConfigureJwtAuthentication(builder.Services, builder.Configuration);
+
+// Add Application Services (custom config DI)
+builder.Services.AddApplicationServices(builder.Configuration);
 
 //session
 builder.Services.AddHttpContextAccessor();
@@ -52,22 +59,28 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true;
 });
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-
 builder.Services.AddHttpContextAccessor();
 
 
+
+
 builder.Services.AddAuthorization();
+
+builder.Services.AddCorsPolicy(builder.Configuration);
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 app.UseSwagger();
 app.UseSwaggerUI();
+app.UseMiddleware<ExceptionMiddleware>(); // Use to solve problemss
+app.UseSession();
 
 app.UseHttpsRedirection();
 app.UseRouting();
-app.UseSession();
-app.UseAuthentication();
+app.UseCors("AllowReactApp");
+app.UseAuthentication(); 
 app.UseAuthorization();
+
 app.MapControllers();
 app.Run();

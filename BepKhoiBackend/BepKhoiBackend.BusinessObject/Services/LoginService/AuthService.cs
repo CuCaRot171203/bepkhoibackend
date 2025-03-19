@@ -1,11 +1,12 @@
 ﻿using BepKhoiBackend.BusinessObject.DTOs;
-using BepKhoiBackend.BusinessObject.Interfaces;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using BepKhoiBackend.BusinessObject.dtos.LoginDto;
+using BepKhoiBackend.DataAccess.Repository.LoginRepository.Interface;
+using BepKhoiBackend.BusinessObject.Services.LoginService.Interface;
 
 namespace BepKhoiBackend.BusinessObject.Services.LoginService
 {
@@ -35,7 +36,19 @@ namespace BepKhoiBackend.BusinessObject.Services.LoginService
                 IsVerify = user.IsVerify
             };
         }
-
+        // Hàm kiểm tra định dạng email hợp lệ
+        public bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
+        }
         public string GenerateJwtToken(UserDto user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();

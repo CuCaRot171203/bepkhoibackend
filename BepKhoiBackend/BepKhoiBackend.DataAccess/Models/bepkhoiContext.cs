@@ -42,14 +42,17 @@ namespace BepKhoiBackend.DataAccess.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            Console.WriteLine(Directory.GetCurrentDirectory());
-            IConfiguration config = new ConfigurationBuilder()
-            .SetBasePath(Directory.GetCurrentDirectory())
-            .AddJsonFile("appsettings.json", true, true)
-            .Build();
-            var strConn = config["ConnectionStrings:DefaultConnection"];
-            optionsBuilder.UseSqlServer(strConn);
+            if (!optionsBuilder.IsConfigured)
+            {
+                var configuration = new ConfigurationBuilder()
+                    .SetBasePath(Directory.GetCurrentDirectory())
+                    .AddJsonFile("appsettings.json")
+                    .Build();
 
+                var connectionString = configuration.GetConnectionString("DefaultConnection");
+
+                optionsBuilder.UseSqlServer(connectionString);
+            }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -58,7 +61,7 @@ namespace BepKhoiBackend.DataAccess.Models
             {
                 entity.ToTable("Customer");
 
-                entity.HasIndex(e => e.Phone, "UQ__Customer__5C7E359E3C65ABFB")
+                entity.HasIndex(e => e.Phone, "UQ__Customer__5C7E359EBDB426EF")
                     .IsUnique();
 
                 entity.Property(e => e.CustomerId).HasColumnName("Customer_id");
@@ -100,7 +103,7 @@ namespace BepKhoiBackend.DataAccess.Models
             modelBuilder.Entity<DiscountCampaign>(entity =>
             {
                 entity.HasKey(e => e.DiscountId)
-                    .HasName("PK__Discount__63D7679C403CDF43");
+                    .HasName("PK__Discount__63D7679C5F1F0A62");
 
                 entity.ToTable("Discount_campaign");
 
@@ -136,7 +139,7 @@ namespace BepKhoiBackend.DataAccess.Models
             modelBuilder.Entity<DiscountCampaignDetail>(entity =>
             {
                 entity.HasKey(e => e.DiscountDetailId)
-                    .HasName("PK__Discount__62F0B98E9B636CEC");
+                    .HasName("PK__Discount__62F0B98E449D8AF2");
 
                 entity.ToTable("Discount_campaign_detail");
 
@@ -150,13 +153,13 @@ namespace BepKhoiBackend.DataAccess.Models
                     .WithMany(p => p.DiscountCampaignDetails)
                     .HasForeignKey(d => d.DiscountId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Discount___Disco__0D7A0286");
+                    .HasConstraintName("FK__Discount___Disco__7A672E12");
 
                 entity.HasOne(d => d.Product)
                     .WithMany(p => p.DiscountCampaignDetails)
                     .HasForeignKey(d => d.ProductId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Discount___Produ__0E6E26BF");
+                    .HasConstraintName("FK__Discount___Produ__7B5B524B");
             });
 
             modelBuilder.Entity<Invoice>(entity =>
@@ -291,13 +294,13 @@ namespace BepKhoiBackend.DataAccess.Models
                     .WithMany(p => p.InvoiceDetails)
                     .HasForeignKey(d => d.ProductId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Invoice_d__Produ__17036CC0");
+                    .HasConstraintName("FK__Invoice_d__Produ__03F0984C");
             });
 
             modelBuilder.Entity<Menu>(entity =>
             {
                 entity.HasKey(e => e.ProductId)
-                    .HasName("PK__Menu__9833FF92F04D6093");
+                    .HasName("PK__Menu__9833FF92C4E70A99");
 
                 entity.ToTable("Menu");
 
@@ -337,13 +340,13 @@ namespace BepKhoiBackend.DataAccess.Models
                     .WithMany(p => p.Menus)
                     .HasForeignKey(d => d.ProductCategoryId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Menu__Product_ca__17F790F9");
+                    .HasConstraintName("FK__Menu__Product_ca__04E4BC85");
 
                 entity.HasOne(d => d.Unit)
                     .WithMany(p => p.Menus)
                     .HasForeignKey(d => d.UnitId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Menu__Unit_id__18EBB532");
+                    .HasConstraintName("FK__Menu__Unit_id__05D8E0BE");
             });
 
             modelBuilder.Entity<Order>(entity =>
@@ -430,7 +433,7 @@ namespace BepKhoiBackend.DataAccess.Models
                     .WithMany(p => p.OrderCancellationHistories)
                     .HasForeignKey(d => d.CashierId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Order_can__Cashi__1F98B2C1");
+                    .HasConstraintName("FK__Order_can__Cashi__0C85DE4D");
 
                 entity.HasOne(d => d.Order)
                     .WithMany(p => p.OrderCancellationHistories)
@@ -442,7 +445,7 @@ namespace BepKhoiBackend.DataAccess.Models
                     .WithMany(p => p.OrderCancellationHistories)
                     .HasForeignKey(d => d.ProductId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Order_can__Produ__2180FB33");
+                    .HasConstraintName("FK__Order_can__Produ__0E6E26BF");
             });
 
             modelBuilder.Entity<OrderDetail>(entity =>
@@ -477,7 +480,7 @@ namespace BepKhoiBackend.DataAccess.Models
                     .WithMany(p => p.OrderDetails)
                     .HasForeignKey(d => d.ProductId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Order_det__Produ__236943A5");
+                    .HasConstraintName("FK__Order_det__Produ__10566F31");
             });
 
             modelBuilder.Entity<OrderStatus>(entity =>
@@ -552,7 +555,7 @@ namespace BepKhoiBackend.DataAccess.Models
                     .WithMany(p => p.ProductImages)
                     .HasForeignKey(d => d.ProductId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Product_i__Produ__245D67DE");
+                    .HasConstraintName("FK__Product_i__Produ__114A936A");
             });
 
             modelBuilder.Entity<Room>(entity =>
@@ -593,7 +596,7 @@ namespace BepKhoiBackend.DataAccess.Models
                     .WithMany(p => p.Rooms)
                     .HasForeignKey(d => d.RoomAreaId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Room__Room_area___25518C17");
+                    .HasConstraintName("FK__Room__Room_area___123EB7A3");
             });
 
             modelBuilder.Entity<RoomArea>(entity =>
@@ -634,10 +637,10 @@ namespace BepKhoiBackend.DataAccess.Models
             {
                 entity.ToTable("User");
 
-                entity.HasIndex(e => e.Email, "UQ__User__AB6E6164AAD8AE98")
+                entity.HasIndex(e => e.Email, "UQ__User__AB6E6164F582B981")
                     .IsUnique();
 
-                entity.HasIndex(e => e.Phone, "UQ__User__B43B145F1706E928")
+                entity.HasIndex(e => e.Phone, "UQ__User__B43B145F0D622E7C")
                     .IsUnique();
 
                 entity.Property(e => e.UserId).HasColumnName("User_id");
@@ -679,13 +682,13 @@ namespace BepKhoiBackend.DataAccess.Models
                     .WithMany(p => p.Users)
                     .HasForeignKey(d => d.RoleId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__User__role_id__2645B050");
+                    .HasConstraintName("FK__User__role_id__1332DBDC");
 
                 entity.HasOne(d => d.UserInformation)
                     .WithMany(p => p.Users)
                     .HasForeignKey(d => d.UserInformationId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__User__user_infor__2739D489");
+                    .HasConstraintName("FK__User__user_infor__14270015");
             });
 
             modelBuilder.Entity<UserInformation>(entity =>
@@ -718,7 +721,7 @@ namespace BepKhoiBackend.DataAccess.Models
             modelBuilder.Entity<UserRole>(entity =>
             {
                 entity.HasKey(e => e.RoleId)
-                    .HasName("PK__User_rol__760965CCA4E0C897");
+                    .HasName("PK__User_rol__760965CC8CC23E73");
 
                 entity.ToTable("User_role");
 
