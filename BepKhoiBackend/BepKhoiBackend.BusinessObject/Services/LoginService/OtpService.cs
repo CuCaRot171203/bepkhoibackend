@@ -1,4 +1,4 @@
-﻿using BepKhoiBackend.BusinessObject.Services.LoginService;
+﻿using BepKhoiBackend.BusinessObject.Services.LoginService.Interface;
 using System;
 using System.Collections.Generic;
 

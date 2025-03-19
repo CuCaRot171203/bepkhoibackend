@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BepKhoiBackend.Test")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+951cc511ac26a7f4dc7b1512c00b6b0ef6466df8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+92dc3378a14abb94ae9dede34a46876ac635a183")]
 [assembly: System.Reflection.AssemblyProductAttribute("BepKhoiBackend.Test")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BepKhoiBackend.Test")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

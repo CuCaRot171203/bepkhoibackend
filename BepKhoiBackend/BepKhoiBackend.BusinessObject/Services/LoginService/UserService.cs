@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using BepKhoiBackend.BusinessObject.dtos.LoginDto;
 using BepKhoiBackend.BusinessObject.DTOs;
-using BepKhoiBackend.BusinessObject.Interfaces;
-using BepKhoiBackend.BusinessObject.Services.LoginService;
+using BepKhoiBackend.BusinessObject.Services.LoginService.Interface;
+using BepKhoiBackend.DataAccess.Repository.LoginRepository.Interface;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
@@ -91,7 +91,19 @@ public class UserService : IUserService
         _userRepository.UpdateUser(user);
         return true;
     }
-
+    // Hàm kiểm tra định dạng email hợp lệ
+    public bool IsValidEmail(string email)
+    {
+        try
+        {
+            var addr = new System.Net.Mail.MailAddress(email);
+            return addr.Address == email;
+        }
+        catch
+        {
+            return false;
+        }
+    }
     //change password
     public async Task<string> ChangePassword(ChangePasswordDto request)
     {
@@ -114,5 +126,8 @@ public class UserService : IUserService
 
         return "Success"; // Đổi mật khẩu thành công
     }
+
+
+    
 
 }

@@ -1,7 +1,10 @@
 ﻿using BepKhoiBackend.DataAccess.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using BepKhoiBackend.DataAccess.Repository.LoginRepository.Interface;
 
+namespace BepKhoiBackend.DataAccess.Repository.LoginRepository
+{ 
 public class UserRepository : IUserRepository
 {
     private readonly bepkhoiContext _context;
@@ -21,4 +24,5 @@ public class UserRepository : IUserRepository
         _context.Users.Update(user);
         _context.SaveChanges();
     }
+}
 }
