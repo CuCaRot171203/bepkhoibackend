@@ -55,7 +55,7 @@ namespace BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers
         }
 
         [HttpPut("{id}")]
-        //[Authorize(Roles = "Admin, Manager")]
+        // [Authorize(Roles = "Admin, Manager")]
         public IActionResult UpdateShipper(int id, [FromBody] UpdateShipperDTO updatedShipper)
         {
             if (updatedShipper == null)
@@ -63,9 +63,26 @@ namespace BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers
                 return BadRequest("Dữ liệu không hợp lệ.");
             }
 
-            _shipperService.UpdateShipper(id, updatedShipper.Email, updatedShipper.Phone, updatedShipper.UserName);
+            var isUpdated = _shipperService.UpdateShipper(
+                id,
+                updatedShipper.Email,
+                updatedShipper.Phone,
+                updatedShipper.UserName,
+                updatedShipper.Address,
+                updatedShipper.ProvinceCity,
+                updatedShipper.District,
+                updatedShipper.WardCommune,
+                updatedShipper.DateOfBirth
+            );
+
+            if (!isUpdated)
+            {
+                return BadRequest("Cập nhật shipper thất bại. Kiểm tra lại thông tin.");
+            }
+
             return Ok($"Shipper có ID {id} đã được cập nhật thành công.");
         }
+
 
         [HttpDelete("{id}")]
         //[Authorize(Roles = "Admin")]

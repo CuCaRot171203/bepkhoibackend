@@ -49,7 +49,7 @@ namespace BepKhoiBackend.API.Controllers.UserControllers.CashierControllers
         }
 
         [HttpPut("{id}")]
-        //[Authorize(Roles = "Admin, Manager")]
+        // [Authorize(Roles = "Admin, Manager")]
         public IActionResult UpdateCashier(int id, [FromBody] UpdateCashierDTO updatedCashier)
         {
             if (updatedCashier == null)
@@ -57,9 +57,26 @@ namespace BepKhoiBackend.API.Controllers.UserControllers.CashierControllers
                 return BadRequest("Dữ liệu không hợp lệ.");
             }
 
-            _cashierService.UpdateCashier(id, updatedCashier.Email, updatedCashier.Phone, updatedCashier.UserName);
+            var isUpdated = _cashierService.UpdateCashier(
+                id,
+                updatedCashier.Email,
+                updatedCashier.Phone,
+                updatedCashier.UserName,
+                updatedCashier.Address,
+                updatedCashier.ProvinceCity,
+                updatedCashier.District,
+                updatedCashier.WardCommune,
+                updatedCashier.DateOfBirth
+            );
+
+            if (!isUpdated)
+            {
+                return BadRequest("Cập nhật cashier thất bại. Kiểm tra lại thông tin.");
+            }
+
             return Ok($"Cashier có ID {id} đã được cập nhật thành công.");
         }
+
 
         [HttpDelete("{id}")]
         //[Authorize(Roles = "Admin")]

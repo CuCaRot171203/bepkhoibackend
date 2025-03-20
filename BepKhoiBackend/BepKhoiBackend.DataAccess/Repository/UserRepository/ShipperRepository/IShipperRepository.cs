@@ -8,7 +8,8 @@ namespace BepKhoiBackend.DataAccess.Repository.UserRepository.ShipperRepository
         List<User> GetAllShippers();
         User? GetShipperById(int id);
         void CreateShipper(string email, string password, string phone, string userName);
-        void UpdateShipper(int userId, string email, string phone, string userName);
+        bool UpdateShipper(int userId, string email, string phone, string userName, string address,
+                           string provinceCity, string district, string wardCommune, DateTime? dateOfBirth);
         void DeleteShipper(int userId);
         List<Invoice> GetShipperInvoices(int shipperId);
         List<User> GetShippersByNameOrPhone(string searchTerm);

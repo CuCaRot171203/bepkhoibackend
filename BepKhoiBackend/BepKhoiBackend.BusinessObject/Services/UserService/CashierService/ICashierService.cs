@@ -11,9 +11,11 @@ namespace BepKhoiBackend.BusinessObject.Services.UserService.CashierService
     public interface ICashierService
     {
         List<CashierDTO> GetAllCashiers();
-        CashierDTO? GetCashierById(int id);
+        GetCashierDTO? GetCashierById(int id);
         void CreateCashier(string email, string password, string phone, string userName);
-        void UpdateCashier(int userId, string email, string phone, string userName);
+        bool UpdateCashier(int userId, string email, string phone, string userName,
+                          string address, string provinceCity, string district,
+                          string wardCommune, DateTime? dateOfBirth);
         void DeleteCashier(int userId);
         List<CashierInvoiceDTO> GetCashierInvoices(int cashierId);
         List<CashierDTO> GetCashiersByNameOrPhone(string searchTerm);

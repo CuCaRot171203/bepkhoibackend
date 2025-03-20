@@ -32,6 +32,8 @@ using BepKhoiBackend.BusinessObject.Services.UserService.ShipperService;
 using BepKhoiBackend.DataAccess.Repository.UserRepository.ShipperRepository;
 using BepKhoiBackend.BusinessObject.Services.CustomerService;
 using BepKhoiBackend.DataAccess.Repository.CustomerRepository;
+using BepKhoiBackend.DataAccess.Repository.UserRepository.ManagerRepository;
+using BepKhoiBackend.BusinessObject.Services.UserService.ManagerService;
 
 namespace BepKhoiBackend.API.Configurations
 {
@@ -68,6 +70,10 @@ namespace BepKhoiBackend.API.Configurations
             services.AddScoped<IProductCategoryService, ProductCategoryService>();
             services.AddScoped<IUnitRepository, UnitRepository>();
             services.AddScoped<IUnitService, UnitService>();
+
+            // Register services for Manager
+            services.AddScoped<IManagerRepository, ManagerRepository>();
+            services.AddScoped<IManagerService, ManagerService>();
 
             // Register services for Invoices
             services.AddScoped<IInvoiceRepository, InvoiceRepository>();

@@ -28,7 +28,8 @@ namespace BepKhoiBackend.DataAccess.Repository.UserRepository.CashierRepository
         public User GetCashierById(int id)
         {
             return _context.Users
-                .Include(u => u.UserInformation) // Load thông tin người dùng
+                .Include(u => u.UserInformation)
+                .Include(u => u.Role)// Load thông tin người dùng
                 .FirstOrDefault(u => u.UserId == id && u.RoleId == 2 && (u.IsDelete == false || u.IsDelete == null));
         }
 
@@ -61,25 +62,42 @@ namespace BepKhoiBackend.DataAccess.Repository.UserRepository.CashierRepository
         }
 
         // Cập nhật thông tin Cashier
-        public void UpdateCashier(int userId, string email, string phone, string userName)
+        public bool UpdateCashier(int userId, string email, string phone, string userName, string address,
+                                  string provinceCity, string district, string wardCommune, DateTime? dateOfBirth)
         {
             var cashier = _context.Users
                 .Include(u => u.UserInformation)
                 .FirstOrDefault(u => u.UserId == userId && u.RoleId == 2);
 
-            if (cashier != null)
+            if (cashier == null)
+            {
+                return false; // Không tìm thấy cashier
+            }
+
+            // Kiểm tra nếu có thay đổi email thì đặt is_verify = false
+            if (!string.IsNullOrEmpty(email) && cashier.Email != email)
             {
                 cashier.Email = email;
-                cashier.Phone = phone;
-
-                if (cashier.UserInformation != null)
-                {
-                    cashier.UserInformation.UserName = userName;
-                }
-
-                _context.SaveChanges();
+                cashier.IsVerify = false; // Đánh dấu email chưa xác thực
             }
+
+            // Cập nhật các thông tin cơ bản
+            cashier.Phone = phone;
+
+            if (cashier.UserInformation != null)
+            {
+                cashier.UserInformation.UserName = userName;
+                cashier.UserInformation.Address = address;
+                cashier.UserInformation.ProvinceCity = provinceCity;
+                cashier.UserInformation.District = district;
+                cashier.UserInformation.WardCommune = wardCommune;
+                cashier.UserInformation.DateOfBirth = dateOfBirth;
+            }
+
+            _context.SaveChanges();
+            return true;
         }
+
 
         // Xóa Cashier (Đánh dấu IsDelete = true)
         public void DeleteCashier(int userId)

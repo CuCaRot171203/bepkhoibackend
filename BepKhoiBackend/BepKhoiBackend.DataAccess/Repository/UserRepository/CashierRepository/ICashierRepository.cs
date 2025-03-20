@@ -12,7 +12,9 @@ namespace BepKhoiBackend.DataAccess.Repository.UserRepository.CashierRepository
         List<User> GetAllCashiers();
         User? GetCashierById(int id);
         void CreateCashier(string email, string password, string phone, string userName);
-        void UpdateCashier(int userId, string email, string phone, string userName);
+        bool UpdateCashier(int userId, string email, string phone, string userName,
+                           string address, string provinceCity, string district,
+                           string wardCommune, DateTime? dateOfBirth);
         void DeleteCashier(int userId);
         List<Invoice> GetCashierInvoices(int cashierId);
         List<User> GetCashiersByNameOrPhone(string searchTerm);

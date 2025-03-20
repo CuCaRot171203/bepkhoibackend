@@ -56,3 +56,15 @@ B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\BepKh
 B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\refint\BepKhoiBackend.Test.dll
 B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\BepKhoiBackend.Test.pdb
 B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\ref\BepKhoiBackend.Test.dll
+E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\bin\Debug\net6.0\BepKhoiBackend.Test.deps.json
+E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\bin\Debug\net6.0\BepKhoiBackend.Test.dll
+E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\bin\Debug\net6.0\BepKhoiBackend.Test.pdb
+E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\BepKhoiBackend.Test.csproj.AssemblyReference.cache
+E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\BepKhoiBackend.Test.GeneratedMSBuildEditorConfig.editorconfig
+E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\BepKhoiBackend.Test.AssemblyInfoInputs.cache
+E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\BepKhoiBackend.Test.AssemblyInfo.cs
+E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\BepKhoiBackend.Test.csproj.CoreCompileInputs.cache
+E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\BepKhoiBackend.Test.dll
+E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\refint\BepKhoiBackend.Test.dll
+E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\BepKhoiBackend.Test.pdb
+E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\ref\BepKhoiBackend.Test.dll

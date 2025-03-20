@@ -56,3 +56,15 @@ B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.Shared\obj\Debug\net6.0\Bep
 B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.Shared\obj\Debug\net6.0\refint\BepKhoiBackend.Shared.dll
 B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.Shared\obj\Debug\net6.0\BepKhoiBackend.Shared.pdb
 B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.Shared\obj\Debug\net6.0\ref\BepKhoiBackend.Shared.dll
+E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Shared\bin\Debug\net6.0\BepKhoiBackend.Shared.deps.json
+E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Shared\bin\Debug\net6.0\BepKhoiBackend.Shared.dll
+E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Shared\bin\Debug\net6.0\BepKhoiBackend.Shared.pdb
+E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Shared\obj\Debug\net6.0\BepKhoiBackend.Shared.csproj.AssemblyReference.cache
+E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Shared\obj\Debug\net6.0\BepKhoiBackend.Shared.GeneratedMSBuildEditorConfig.editorconfig
+E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Shared\obj\Debug\net6.0\BepKhoiBackend.Shared.AssemblyInfoInputs.cache
+E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Shared\obj\Debug\net6.0\BepKhoiBackend.Shared.AssemblyInfo.cs
+E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Shared\obj\Debug\net6.0\BepKhoiBackend.Shared.csproj.CoreCompileInputs.cache
+E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Shared\obj\Debug\net6.0\BepKhoiBackend.Shared.dll
+E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Shared\obj\Debug\net6.0\refint\BepKhoiBackend.Shared.dll
+E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Shared\obj\Debug\net6.0\BepKhoiBackend.Shared.pdb
+E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Shared\obj\Debug\net6.0\ref\BepKhoiBackend.Shared.dll

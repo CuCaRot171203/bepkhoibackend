@@ -32,28 +32,41 @@ namespace BepKhoiBackend.BusinessObject.Services.UserService.CashierService
                 }).ToList();
         }
 
-        public CashierDTO GetCashierById(int id)
+        public GetCashierDTO GetCashierById(int id)
         {
             var cashier = _cashierRepository.GetCashierById(id);
             if (cashier == null || cashier.UserInformation == null) return null; // Kiểm tra null
 
-            return new CashierDTO
+            return new GetCashierDTO
             {
                 UserId = cashier.UserId,
                 UserName = cashier.UserInformation?.UserName ?? "Unknown", // Kiểm tra null
-                Phone = cashier.Phone,
-                Status = cashier.Status
+                RoleName = cashier.Role?.RoleName ?? "Unknown",
+                Phone = cashier.Phone ?? "N/A",
+                Email = cashier.Email ?? "N/A",
+                Address = cashier.UserInformation?.Address ?? "N/A",
+                Province_City = cashier.UserInformation?.ProvinceCity ?? "N/A",
+                District = cashier.UserInformation?.District ?? "N/A",
+                Ward_Commune = cashier.UserInformation?.WardCommune ?? "N/A",
+                Date_of_Birth = cashier.UserInformation?.DateOfBirth ?? null,
             };
         }
+
+
         public void CreateCashier(string email, string password, string phone, string userName)
         {
             _cashierRepository.CreateCashier(email, password, phone, userName);
         }
 
-        public void UpdateCashier(int userId, string email, string phone, string userName)
+        public bool UpdateCashier(int userId, string email, string phone, string userName,
+                           string address, string provinceCity, string district,
+                           string wardCommune, DateTime? dateOfBirth)
         {
-            _cashierRepository.UpdateCashier(userId, email, phone, userName);
+            return _cashierRepository.UpdateCashier(userId, email, phone, userName,
+                                                    address, provinceCity, district,
+                                                    wardCommune, dateOfBirth);
         }
+
 
         public void DeleteCashier(int userId)
         {

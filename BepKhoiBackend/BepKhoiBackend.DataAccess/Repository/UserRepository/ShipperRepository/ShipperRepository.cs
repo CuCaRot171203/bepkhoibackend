@@ -1,4 +1,5 @@
 ﻿using BepKhoiBackend.DataAccess.Models;
+using DocumentFormat.OpenXml.Math;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -30,6 +31,7 @@ namespace BepKhoiBackend.DataAccess.Repository.UserRepository.ShipperRepository
         {
             return _context.Users
                 .Include(u => u.UserInformation)
+                .Include(u => u.Role)// Load thông tin người dùng
                 .FirstOrDefault(u => u.UserId == id && u.RoleId == 3 && (u.IsDelete == false || u.IsDelete == null));
         }
 
@@ -64,25 +66,43 @@ namespace BepKhoiBackend.DataAccess.Repository.UserRepository.ShipperRepository
         }
 
         // Cập nhật thông tin Shipper
-        public void UpdateShipper(int userId, string email, string phone, string userName)
+        public bool UpdateShipper(int userId, string email, string phone, string userName, string address,
+                                string provinceCity, string district, string wardCommune, DateTime? dateOfBirth)
         {
             var shipper = _context.Users
                 .Include(u => u.UserInformation)
                 .FirstOrDefault(u => u.UserId == userId && u.RoleId == 3);
 
-            if (shipper != null)
+            if (shipper == null)
+            {
+                return false; // Không tìm thấy shipper
+            }
+
+            // Kiểm tra nếu có thay đổi email thì đặt is_verify = false
+            if (!string.IsNullOrEmpty(email) && shipper.Email != email)
             {
                 shipper.Email = email;
-                shipper.Phone = phone;
-
-                if (shipper.UserInformation != null)
-                {
-                    shipper.UserInformation.UserName = userName;
-                }
-
-                _context.SaveChanges();
+                shipper.IsVerify = false; // Đánh dấu email chưa xác thực
             }
+
+            // Cập nhật các thông tin cơ bản
+            shipper.Phone = phone;
+
+            if (shipper.UserInformation != null)
+            {
+                shipper.UserInformation.UserName = userName;
+                shipper.UserInformation.Address = address;
+                shipper.UserInformation.ProvinceCity = provinceCity;
+                shipper.UserInformation.District = district;
+                shipper.UserInformation.WardCommune = wardCommune;
+                shipper.UserInformation.DateOfBirth = dateOfBirth;
+            }
+
+            _context.SaveChanges();
+            return true;
         }
+
+
 
         // Xóa Shipper (Đánh dấu IsDelete = true)
         public void DeleteShipper(int userId)

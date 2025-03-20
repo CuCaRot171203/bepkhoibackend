@@ -27,29 +27,41 @@ namespace BepKhoiBackend.BusinessObject.Services.UserService.ShipperService
                 }).ToList();
         }
 
-        public ShipperDTO GetShipperById(int id)
+        public GetShipperDTO GetShipperById(int id)
         {
             var shipper = _shipperRepository.GetShipperById(id);
             if (shipper == null || shipper.UserInformation == null) return null; // Kiểm tra null
 
-            return new ShipperDTO
+            return new GetShipperDTO
             {
                 UserId = shipper.UserId,
                 UserName = shipper.UserInformation?.UserName ?? "Unknown",
-                Phone = shipper.Phone,
-                Status = shipper.Status
+                RoleName = shipper.Role?.RoleName ?? "Unknown",
+                Phone = shipper.Phone ?? "N/A",
+                Email = shipper.Email ?? "N/A",
+                Address = shipper.UserInformation?.Address ?? "N/A",
+                Province_City = shipper.UserInformation?.ProvinceCity ?? "N/A",
+                District = shipper.UserInformation?.District ?? "N/A",
+                Ward_Commune = shipper.UserInformation?.WardCommune ?? "N/A",
+                Date_of_Birth = shipper.UserInformation?.DateOfBirth ?? null,
             };
         }
+
 
         public void CreateShipper(string email, string password, string phone, string userName)
         {
             _shipperRepository.CreateShipper(email, password, phone, userName);
         }
 
-        public void UpdateShipper(int userId, string email, string phone, string userName)
+        public bool UpdateShipper(int userId, string email, string phone, string userName,
+                          string address, string provinceCity, string district, string wardCommune,
+                          DateTime? dateOfBirth)
         {
-            _shipperRepository.UpdateShipper(userId, email, phone, userName);
+            return _shipperRepository.UpdateShipper(userId, email, phone, userName,
+                                                    address, provinceCity, district, wardCommune, dateOfBirth);
         }
+
+
 
         public void DeleteShipper(int userId)
         {

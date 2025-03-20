@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.API\\BepKhoiBackend.API.csproj": {}
+    "E:\\SPRING25\\DoAn4\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.API\\BepKhoiBackend.API.csproj": {}
   },
   "projects": {
-    "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.API\\BepKhoiBackend.API.csproj": {
+    "E:\\SPRING25\\DoAn4\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.API\\BepKhoiBackend.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.API\\BepKhoiBackend.API.csproj",
+        "projectUniqueName": "E:\\SPRING25\\DoAn4\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.API\\BepKhoiBackend.API.csproj",
         "projectName": "BepKhoiBackend.API",
-        "projectPath": "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.API\\BepKhoiBackend.API.csproj",
-        "packagesPath": "C:\\Users\\TungNT\\.nuget\\packages\\",
-        "outputPath": "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.API\\obj\\",
+        "projectPath": "E:\\SPRING25\\DoAn4\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.API\\BepKhoiBackend.API.csproj",
+        "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
+        "outputPath": "E:\\SPRING25\\DoAn4\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\TungNT\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -33,14 +33,14 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj": {
-                "projectPath": "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj"
+              "E:\\SPRING25\\DoAn4\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj": {
+                "projectPath": "E:\\SPRING25\\DoAn4\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj"
               },
-              "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj": {
-                "projectPath": "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj"
+              "E:\\SPRING25\\DoAn4\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj": {
+                "projectPath": "E:\\SPRING25\\DoAn4\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj"
               },
-              "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.Test\\BepKhoiBackend.Test.csproj": {
-                "projectPath": "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.Test\\BepKhoiBackend.Test.csproj"
+              "E:\\SPRING25\\DoAn4\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Test\\BepKhoiBackend.Test.csproj": {
+                "projectPath": "E:\\SPRING25\\DoAn4\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Test\\BepKhoiBackend.Test.csproj"
               }
             }
           }
@@ -49,11 +49,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -104,24 +99,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj": {
+    "E:\\SPRING25\\DoAn4\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj",
+        "projectUniqueName": "E:\\SPRING25\\DoAn4\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj",
         "projectName": "BepKhoiBackend.BusinessObject",
-        "projectPath": "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj",
-        "packagesPath": "C:\\Users\\TungNT\\.nuget\\packages\\",
-        "outputPath": "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\obj\\",
+        "projectPath": "E:\\SPRING25\\DoAn4\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj",
+        "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
+        "outputPath": "E:\\SPRING25\\DoAn4\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\TungNT\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -137,11 +132,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj": {
-                "projectPath": "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj"
+              "E:\\SPRING25\\DoAn4\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj": {
+                "projectPath": "E:\\SPRING25\\DoAn4\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj"
               },
-              "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj": {
-                "projectPath": "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj"
+              "E:\\SPRING25\\DoAn4\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj": {
+                "projectPath": "E:\\SPRING25\\DoAn4\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj"
               }
             }
           }
@@ -150,11 +145,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -198,24 +188,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj": {
+    "E:\\SPRING25\\DoAn4\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj",
+        "projectUniqueName": "E:\\SPRING25\\DoAn4\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj",
         "projectName": "BepKhoiBackend.DataAccess",
-        "projectPath": "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj",
-        "packagesPath": "C:\\Users\\TungNT\\.nuget\\packages\\",
-        "outputPath": "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\obj\\",
+        "projectPath": "E:\\SPRING25\\DoAn4\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj",
+        "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
+        "outputPath": "E:\\SPRING25\\DoAn4\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\TungNT\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -231,8 +221,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj": {
-                "projectPath": "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj"
+              "E:\\SPRING25\\DoAn4\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj": {
+                "projectPath": "E:\\SPRING25\\DoAn4\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj"
               }
             }
           }
@@ -241,11 +231,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -301,24 +286,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj": {
+    "E:\\SPRING25\\DoAn4\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj",
+        "projectUniqueName": "E:\\SPRING25\\DoAn4\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj",
         "projectName": "BepKhoiBackend.Shared",
-        "projectPath": "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj",
-        "packagesPath": "C:\\Users\\TungNT\\.nuget\\packages\\",
-        "outputPath": "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.Shared\\obj\\",
+        "projectPath": "E:\\SPRING25\\DoAn4\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj",
+        "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
+        "outputPath": "E:\\SPRING25\\DoAn4\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Shared\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\TungNT\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -340,11 +325,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -366,24 +346,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.Test\\BepKhoiBackend.Test.csproj": {
+    "E:\\SPRING25\\DoAn4\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Test\\BepKhoiBackend.Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.Test\\BepKhoiBackend.Test.csproj",
+        "projectUniqueName": "E:\\SPRING25\\DoAn4\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Test\\BepKhoiBackend.Test.csproj",
         "projectName": "BepKhoiBackend.Test",
-        "projectPath": "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.Test\\BepKhoiBackend.Test.csproj",
-        "packagesPath": "C:\\Users\\TungNT\\.nuget\\packages\\",
-        "outputPath": "B:\\DO_AN\\BACKEND_CHUNG\\BepKhoiBackend\\BepKhoiBackend.Test\\obj\\",
+        "projectPath": "E:\\SPRING25\\DoAn4\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Test\\BepKhoiBackend.Test.csproj",
+        "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
+        "outputPath": "E:\\SPRING25\\DoAn4\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Test\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\TungNT\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -405,11 +385,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -431,7 +406,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }
