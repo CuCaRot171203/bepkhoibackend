@@ -34,6 +34,10 @@ using BepKhoiBackend.BusinessObject.Services.CustomerService;
 using BepKhoiBackend.DataAccess.Repository.CustomerRepository;
 using BepKhoiBackend.DataAccess.Repository.UserRepository.ManagerRepository;
 using BepKhoiBackend.BusinessObject.Services.UserService.ManagerService;
+using BepKhoiBackend.DataAccess.Repository.TakeAwayOrderRepository;
+using BepKhoiBackend.BusinessObject.Services.TakeAwayOrderService;
+using BepKhoiBackend.DataAccess.Repository.ShippingOrderRepository;
+using BepKhoiBackend.BusinessObject.Services.ShippingOrderService;
 
 namespace BepKhoiBackend.API.Configurations
 {
@@ -74,6 +78,15 @@ namespace BepKhoiBackend.API.Configurations
             // Register services for Manager
             services.AddScoped<IManagerRepository, ManagerRepository>();
             services.AddScoped<IManagerService, ManagerService>();
+
+            // Register services for ShippingOrder
+            services.AddScoped<IShippingOrderRepository, ShippingOrderRepository>();
+            services.AddScoped<IShippingOrderService, ShippingOrderService>();
+
+
+            // Register services for TakeAwayOrder
+            services.AddScoped<ITakeAwayOrderRepository, TakeAwayOrderRepository>();
+            services.AddScoped<ITakeAwayOrderService, TakeAwayOrderService>();
 
             // Register services for Invoices
             services.AddScoped<IInvoiceRepository, InvoiceRepository>();
