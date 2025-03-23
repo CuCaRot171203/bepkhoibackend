@@ -38,6 +38,8 @@ using BepKhoiBackend.DataAccess.Repository.TakeAwayOrderRepository;
 using BepKhoiBackend.BusinessObject.Services.TakeAwayOrderService;
 using BepKhoiBackend.DataAccess.Repository.ShippingOrderRepository;
 using BepKhoiBackend.BusinessObject.Services.ShippingOrderService;
+using BepKhoiBackend.BusinessObject.Services.MenuPOSService;
+using BepKhoiBackend.DataAccess.Repository.MenuPOSRepository;
 
 namespace BepKhoiBackend.API.Configurations
 {
@@ -78,6 +80,12 @@ namespace BepKhoiBackend.API.Configurations
             // Register services for Manager
             services.AddScoped<IManagerRepository, ManagerRepository>();
             services.AddScoped<IManagerService, ManagerService>();
+
+            // Register services for MenuPOS
+
+            services.AddScoped<IMenuPOSRepository, MenuPOSRepository>();
+            services.AddScoped<IMenuPOSService, MenuPOSService>();
+
 
             // Register services for ShippingOrder
             services.AddScoped<IShippingOrderRepository, ShippingOrderRepository>();

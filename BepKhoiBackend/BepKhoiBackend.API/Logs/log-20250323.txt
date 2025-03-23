@@ -1,0 +1,338 @@
+2025-03-23 15:43:32.546 +07:00 [INF] User profile is available. Using 'C:\Users\Asus\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-23 15:43:33.078 +07:00 [INF] Now listening on: https://localhost:7257
+2025-03-23 15:43:33.080 +07:00 [INF] Now listening on: http://localhost:5287
+2025-03-23 15:43:33.086 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-23 15:43:33.087 +07:00 [INF] Hosting environment: Development
+2025-03-23 15:43:33.088 +07:00 [INF] Content root path: E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\
+2025-03-23 15:43:34.185 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-03-23 15:43:34.617 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 439.5649ms
+2025-03-23 15:43:34.624 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-03-23 15:43:34.630 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 12006 application/javascript;+charset=utf-8 5.8342ms
+2025-03-23 15:43:35.128 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-03-23 15:43:35.226 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 97.9376ms
+2025-03-23 15:43:36.253 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-03-23 15:43:36.507 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 254.2406ms
+2025-03-23 15:43:48.537 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/api/menu-pos/get-all?limit=10&offset=0 - -
+2025-03-23 15:43:49.389 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController.GetAllMenuPos (BepKhoiBackend.API)'
+2025-03-23 15:43:49.411 +07:00 [INF] Route matched with {action = "GetAllMenuPos", controller = "MenuPOS"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[BepKhoiBackend.BusinessObject.dtos.MenuPOSDto.MenuPOSDto]] GetAllMenuPos(Int32, Int32) on controller BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController (BepKhoiBackend.API).
+2025-03-23 15:43:50.605 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-03-23 15:43:51.799 +07:00 [INF] Executed DbCommand (159ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Product_id], [t].[Cost_price], [t].[Description], [t].[IsAvailable], [t].[IsDelete], [t].[Product_category_id], [t].[Product_name], [t].[Product_vat], [t].[Sale_price], [t].[Sell_price], [t].[Status], [t].[Unit_id], [p].[Product_category_id], [p].[isDelete], [p].[Product_category_title], [u].[Unit_id], [u].[isDelete], [u].[Unit_title]
+FROM (
+    SELECT [m].[Product_id], [m].[Cost_price], [m].[Description], [m].[IsAvailable], [m].[IsDelete], [m].[Product_category_id], [m].[Product_name], [m].[Product_vat], [m].[Sale_price], [m].[Sell_price], [m].[Status], [m].[Unit_id]
+    FROM [Menu] AS [m]
+    ORDER BY [m].[Product_id]
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+INNER JOIN [Product_category] AS [p] ON [t].[Product_category_id] = [p].[Product_category_id]
+INNER JOIN [Unit] AS [u] ON [t].[Unit_id] = [u].[Unit_id]
+ORDER BY [t].[Product_id]
+2025-03-23 15:43:51.833 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[BepKhoiBackend.BusinessObject.dtos.MenuPOSDto.MenuPOSDto, BepKhoiBackend.BusinessObject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-03-23 15:43:51.861 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController.GetAllMenuPos (BepKhoiBackend.API) in 2445.5994ms
+2025-03-23 15:43:51.862 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController.GetAllMenuPos (BepKhoiBackend.API)'
+2025-03-23 15:43:51.868 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/api/menu-pos/get-all?limit=10&offset=0 - - - 200 - application/json;+charset=utf-8 3330.5690ms
+2025-03-23 15:49:20.227 +07:00 [INF] User profile is available. Using 'C:\Users\Asus\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-23 15:49:20.347 +07:00 [INF] Now listening on: https://localhost:7257
+2025-03-23 15:49:20.348 +07:00 [INF] Now listening on: http://localhost:5287
+2025-03-23 15:49:20.351 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-23 15:49:20.351 +07:00 [INF] Hosting environment: Development
+2025-03-23 15:49:20.352 +07:00 [INF] Content root path: E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\
+2025-03-23 15:49:20.732 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-03-23 15:49:20.977 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 246.2711ms
+2025-03-23 15:49:20.980 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-03-23 15:49:20.980 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-03-23 15:49:20.982 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 12006 application/javascript;+charset=utf-8 2.8515ms
+2025-03-23 15:49:20.994 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 14.0542ms
+2025-03-23 15:49:21.953 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-03-23 15:49:22.093 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 140.2371ms
+2025-03-23 15:49:34.784 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/api/menu-pos/GetAllProductCategories - -
+2025-03-23 15:49:34.839 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController.GetAllProductCategories (BepKhoiBackend.API)'
+2025-03-23 15:49:34.847 +07:00 [INF] Route matched with {action = "GetAllProductCategories", controller = "MenuPOS"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[BepKhoiBackend.BusinessObject.dtos.MenuPOSDto.ProductCategoryDTO]] GetAllProductCategories() on controller BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController (BepKhoiBackend.API).
+2025-03-23 15:49:35.593 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-03-23 15:49:35.971 +07:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Product_category_id], [p].[isDelete], [p].[Product_category_title]
+FROM [Product_category] AS [p]
+ORDER BY [p].[Product_category_id]
+2025-03-23 15:49:35.993 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[BepKhoiBackend.BusinessObject.dtos.MenuPOSDto.ProductCategoryDTO, BepKhoiBackend.BusinessObject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-03-23 15:49:36.010 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController.GetAllProductCategories (BepKhoiBackend.API) in 1156.2488ms
+2025-03-23 15:49:36.011 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController.GetAllProductCategories (BepKhoiBackend.API)'
+2025-03-23 15:49:36.016 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/api/menu-pos/GetAllProductCategories - - - 200 - application/json;+charset=utf-8 1232.1544ms
+2025-03-23 15:56:37.855 +07:00 [INF] User profile is available. Using 'C:\Users\Asus\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-23 15:56:38.054 +07:00 [INF] Now listening on: https://localhost:7257
+2025-03-23 15:56:38.054 +07:00 [INF] Now listening on: http://localhost:5287
+2025-03-23 15:56:38.059 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-23 15:56:38.059 +07:00 [INF] Hosting environment: Development
+2025-03-23 15:56:38.060 +07:00 [INF] Content root path: E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\
+2025-03-23 15:56:38.922 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-03-23 15:56:39.174 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 254.7733ms
+2025-03-23 15:56:39.178 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-03-23 15:56:39.178 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-03-23 15:56:39.181 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 12006 application/javascript;+charset=utf-8 3.0096ms
+2025-03-23 15:56:39.191 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 13.4769ms
+2025-03-23 15:56:39.853 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-03-23 15:56:40.122 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 269.2123ms
+2025-03-23 15:56:45.041 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/api/menu-pos/get-all?limit=10&offset=0 - -
+2025-03-23 15:56:45.091 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController.GetAllMenuPos (BepKhoiBackend.API)'
+2025-03-23 15:56:45.110 +07:00 [INF] Route matched with {action = "GetAllMenuPos", controller = "MenuPOS"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[BepKhoiBackend.BusinessObject.dtos.MenuPOSDto.MenuPOSDto]] GetAllMenuPos(Int32, Int32) on controller BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController (BepKhoiBackend.API).
+2025-03-23 15:56:45.818 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-03-23 15:56:46.324 +07:00 [INF] Executed DbCommand (35ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Product_id], [t].[Cost_price], [t].[Description], [t].[IsAvailable], [t].[IsDelete], [t].[Product_category_id], [t].[Product_name], [t].[Product_vat], [t].[Sale_price], [t].[Sell_price], [t].[Status], [t].[Unit_id], [p].[Product_category_id], [p].[isDelete], [p].[Product_category_title], [u].[Unit_id], [u].[isDelete], [u].[Unit_title]
+FROM (
+    SELECT [m].[Product_id], [m].[Cost_price], [m].[Description], [m].[IsAvailable], [m].[IsDelete], [m].[Product_category_id], [m].[Product_name], [m].[Product_vat], [m].[Sale_price], [m].[Sell_price], [m].[Status], [m].[Unit_id]
+    FROM [Menu] AS [m]
+    ORDER BY [m].[Product_id]
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+INNER JOIN [Product_category] AS [p] ON [t].[Product_category_id] = [p].[Product_category_id]
+INNER JOIN [Unit] AS [u] ON [t].[Unit_id] = [u].[Unit_id]
+ORDER BY [t].[Product_id]
+2025-03-23 15:56:46.355 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[BepKhoiBackend.BusinessObject.dtos.MenuPOSDto.MenuPOSDto, BepKhoiBackend.BusinessObject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-03-23 15:56:46.381 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController.GetAllMenuPos (BepKhoiBackend.API) in 1266.577ms
+2025-03-23 15:56:46.385 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController.GetAllMenuPos (BepKhoiBackend.API)'
+2025-03-23 15:56:46.388 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/api/menu-pos/get-all?limit=10&offset=0 - - - 200 - application/json;+charset=utf-8 1346.6589ms
+2025-03-23 15:56:57.093 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/api/menu-pos/GetAllProductCategories - -
+2025-03-23 15:56:57.100 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController.GetAllProductCategories (BepKhoiBackend.API)'
+2025-03-23 15:56:57.103 +07:00 [INF] Route matched with {action = "GetAllProductCategories", controller = "MenuPOS"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[BepKhoiBackend.BusinessObject.dtos.MenuPOSDto.ProductCategoryDTO]] GetAllProductCategories() on controller BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController (BepKhoiBackend.API).
+2025-03-23 15:56:57.116 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-03-23 15:56:57.127 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Product_category_id], [p].[isDelete], [p].[Product_category_title]
+FROM [Product_category] AS [p]
+ORDER BY [p].[Product_category_id]
+2025-03-23 15:56:57.130 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[BepKhoiBackend.BusinessObject.dtos.MenuPOSDto.ProductCategoryDTO, BepKhoiBackend.BusinessObject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-03-23 15:56:57.134 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController.GetAllProductCategories (BepKhoiBackend.API) in 28.3407ms
+2025-03-23 15:56:57.136 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController.GetAllProductCategories (BepKhoiBackend.API)'
+2025-03-23 15:56:57.137 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/api/menu-pos/GetAllProductCategories - - - 200 - application/json;+charset=utf-8 44.1703ms
+2025-03-23 15:57:18.995 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7257/api/menu-pos/FilterProductPos application/json 58
+2025-03-23 15:57:19.002 +07:00 [INF] CORS policy execution failed.
+2025-03-23 15:57:19.003 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-03-23 15:57:19.009 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController.FilterProductPos (BepKhoiBackend.API)'
+2025-03-23 15:57:19.011 +07:00 [INF] Route matched with {action = "FilterProductPos", controller = "MenuPOS"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[BepKhoiBackend.BusinessObject.dtos.MenuPOSDto.MenuPOSDto]] FilterProductPos(BepKhoiBackend.BusinessObject.dtos.MenuPOSDto.FilterProductPosRequest) on controller BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController (BepKhoiBackend.API).
+2025-03-23 15:57:19.092 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-03-23 15:57:19.145 +07:00 [INF] Executed DbCommand (38ms) [Parameters=[@__productCategoryId_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Product_id], [t].[Cost_price], [t].[Description], [t].[IsAvailable], [t].[IsDelete], [t].[Product_category_id], [t].[Product_name], [t].[Product_vat], [t].[Sale_price], [t].[Sell_price], [t].[Status], [t].[Unit_id], [p].[Product_category_id], [p].[isDelete], [p].[Product_category_title], [u].[Unit_id], [u].[isDelete], [u].[Unit_title]
+FROM (
+    SELECT [m].[Product_id], [m].[Cost_price], [m].[Description], [m].[IsAvailable], [m].[IsDelete], [m].[Product_category_id], [m].[Product_name], [m].[Product_vat], [m].[Sale_price], [m].[Sell_price], [m].[Status], [m].[Unit_id]
+    FROM [Menu] AS [m]
+    WHERE [m].[Product_category_id] = @__productCategoryId_0
+    ORDER BY [m].[Product_id]
+    OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+) AS [t]
+INNER JOIN [Product_category] AS [p] ON [t].[Product_category_id] = [p].[Product_category_id]
+INNER JOIN [Unit] AS [u] ON [t].[Unit_id] = [u].[Unit_id]
+ORDER BY [t].[Product_id]
+2025-03-23 15:57:19.149 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[BepKhoiBackend.BusinessObject.dtos.MenuPOSDto.MenuPOSDto, BepKhoiBackend.BusinessObject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-03-23 15:57:19.150 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController.FilterProductPos (BepKhoiBackend.API) in 137.4508ms
+2025-03-23 15:57:19.151 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController.FilterProductPos (BepKhoiBackend.API)'
+2025-03-23 15:57:19.152 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7257/api/menu-pos/FilterProductPos application/json 58 - 200 - application/json;+charset=utf-8 157.0836ms
+2025-03-23 15:57:27.136 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7257/api/menu-pos/FilterProductPos application/json 57
+2025-03-23 15:57:27.137 +07:00 [INF] CORS policy execution failed.
+2025-03-23 15:57:27.138 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-03-23 15:57:27.139 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController.FilterProductPos (BepKhoiBackend.API)'
+2025-03-23 15:57:27.141 +07:00 [INF] Route matched with {action = "FilterProductPos", controller = "MenuPOS"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[BepKhoiBackend.BusinessObject.dtos.MenuPOSDto.MenuPOSDto]] FilterProductPos(BepKhoiBackend.BusinessObject.dtos.MenuPOSDto.FilterProductPosRequest) on controller BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController (BepKhoiBackend.API).
+2025-03-23 15:57:27.154 +07:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-03-23 15:57:27.163 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController.FilterProductPos (BepKhoiBackend.API) in 20.889ms
+2025-03-23 15:57:27.164 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController.FilterProductPos (BepKhoiBackend.API)'
+2025-03-23 15:57:27.166 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7257/api/menu-pos/FilterProductPos application/json 57 - 400 - application/problem+json;+charset=utf-8 29.8975ms
+2025-03-23 15:57:31.446 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7257/api/menu-pos/FilterProductPos application/json 58
+2025-03-23 15:57:31.447 +07:00 [INF] CORS policy execution failed.
+2025-03-23 15:57:31.449 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-03-23 15:57:31.450 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController.FilterProductPos (BepKhoiBackend.API)'
+2025-03-23 15:57:31.450 +07:00 [INF] Route matched with {action = "FilterProductPos", controller = "MenuPOS"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[BepKhoiBackend.BusinessObject.dtos.MenuPOSDto.MenuPOSDto]] FilterProductPos(BepKhoiBackend.BusinessObject.dtos.MenuPOSDto.FilterProductPosRequest) on controller BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController (BepKhoiBackend.API).
+2025-03-23 15:57:31.452 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-03-23 15:57:31.513 +07:00 [INF] Executed DbCommand (58ms) [Parameters=[@__productCategoryId_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Product_id], [t].[Cost_price], [t].[Description], [t].[IsAvailable], [t].[IsDelete], [t].[Product_category_id], [t].[Product_name], [t].[Product_vat], [t].[Sale_price], [t].[Sell_price], [t].[Status], [t].[Unit_id], [p].[Product_category_id], [p].[isDelete], [p].[Product_category_title], [u].[Unit_id], [u].[isDelete], [u].[Unit_title]
+FROM (
+    SELECT [m].[Product_id], [m].[Cost_price], [m].[Description], [m].[IsAvailable], [m].[IsDelete], [m].[Product_category_id], [m].[Product_name], [m].[Product_vat], [m].[Sale_price], [m].[Sell_price], [m].[Status], [m].[Unit_id]
+    FROM [Menu] AS [m]
+    WHERE [m].[Product_category_id] = @__productCategoryId_0
+    ORDER BY [m].[Product_id]
+    OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+) AS [t]
+INNER JOIN [Product_category] AS [p] ON [t].[Product_category_id] = [p].[Product_category_id]
+INNER JOIN [Unit] AS [u] ON [t].[Unit_id] = [u].[Unit_id]
+ORDER BY [t].[Product_id]
+2025-03-23 15:57:31.562 +07:00 [ERR] An exception occurred while iterating over the results of a query for context type 'BepKhoiBackend.DataAccess.Models.bepkhoiContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): The number of rows provided for a FETCH clause must be greater then zero.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.Read()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDataReader.Read()
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:6abee1eb-993a-49cb-872c-6d2c45dce4d8
+Error Number:10744,State:1,Class:15
+Microsoft.Data.SqlClient.SqlException (0x80131904): The number of rows provided for a FETCH clause must be greater then zero.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.Read()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDataReader.Read()
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:6abee1eb-993a-49cb-872c-6d2c45dce4d8
+Error Number:10744,State:1,Class:15
+2025-03-23 15:57:31.568 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController.FilterProductPos (BepKhoiBackend.API) in 116.921ms
+2025-03-23 15:57:31.570 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController.FilterProductPos (BepKhoiBackend.API)'
+2025-03-23 15:57:31.572 +07:00 [ERR] Error: The number of rows provided for a FETCH clause must be greater then zero.
+2025-03-23 15:57:31.583 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7257/api/menu-pos/FilterProductPos application/json 58 - 500 - application/json 136.7490ms
+2025-03-23 15:57:36.509 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7257/api/menu-pos/FilterProductPos application/json 58
+2025-03-23 15:57:36.511 +07:00 [INF] CORS policy execution failed.
+2025-03-23 15:57:36.512 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-03-23 15:57:36.512 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController.FilterProductPos (BepKhoiBackend.API)'
+2025-03-23 15:57:36.514 +07:00 [INF] Route matched with {action = "FilterProductPos", controller = "MenuPOS"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[BepKhoiBackend.BusinessObject.dtos.MenuPOSDto.MenuPOSDto]] FilterProductPos(BepKhoiBackend.BusinessObject.dtos.MenuPOSDto.FilterProductPosRequest) on controller BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController (BepKhoiBackend.API).
+2025-03-23 15:57:36.515 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-03-23 15:57:36.524 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[@__productCategoryId_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Product_id], [t].[Cost_price], [t].[Description], [t].[IsAvailable], [t].[IsDelete], [t].[Product_category_id], [t].[Product_name], [t].[Product_vat], [t].[Sale_price], [t].[Sell_price], [t].[Status], [t].[Unit_id], [p].[Product_category_id], [p].[isDelete], [p].[Product_category_title], [u].[Unit_id], [u].[isDelete], [u].[Unit_title]
+FROM (
+    SELECT [m].[Product_id], [m].[Cost_price], [m].[Description], [m].[IsAvailable], [m].[IsDelete], [m].[Product_category_id], [m].[Product_name], [m].[Product_vat], [m].[Sale_price], [m].[Sell_price], [m].[Status], [m].[Unit_id]
+    FROM [Menu] AS [m]
+    WHERE [m].[Product_category_id] = @__productCategoryId_0
+    ORDER BY [m].[Product_id]
+    OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+) AS [t]
+INNER JOIN [Product_category] AS [p] ON [t].[Product_category_id] = [p].[Product_category_id]
+INNER JOIN [Unit] AS [u] ON [t].[Unit_id] = [u].[Unit_id]
+ORDER BY [t].[Product_id]
+2025-03-23 15:57:36.527 +07:00 [ERR] An exception occurred while iterating over the results of a query for context type 'BepKhoiBackend.DataAccess.Models.bepkhoiContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): The number of rows provided for a FETCH clause must be greater then zero.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.Read()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDataReader.Read()
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:6abee1eb-993a-49cb-872c-6d2c45dce4d8
+Error Number:10744,State:1,Class:15
+Microsoft.Data.SqlClient.SqlException (0x80131904): The number of rows provided for a FETCH clause must be greater then zero.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.Read()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDataReader.Read()
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:6abee1eb-993a-49cb-872c-6d2c45dce4d8
+Error Number:10744,State:1,Class:15
+2025-03-23 15:57:36.534 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController.FilterProductPos (BepKhoiBackend.API) in 19.2097ms
+2025-03-23 15:57:36.536 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController.FilterProductPos (BepKhoiBackend.API)'
+2025-03-23 15:57:36.536 +07:00 [ERR] Error: The number of rows provided for a FETCH clause must be greater then zero.
+2025-03-23 15:57:36.537 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7257/api/menu-pos/FilterProductPos application/json 58 - 500 - application/json 27.5973ms
+2025-03-23 15:57:54.117 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7257/api/menu-pos/FilterProductPos application/json 58
+2025-03-23 15:57:54.118 +07:00 [INF] CORS policy execution failed.
+2025-03-23 15:57:54.119 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-03-23 15:57:54.120 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController.FilterProductPos (BepKhoiBackend.API)'
+2025-03-23 15:57:54.121 +07:00 [INF] Route matched with {action = "FilterProductPos", controller = "MenuPOS"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[BepKhoiBackend.BusinessObject.dtos.MenuPOSDto.MenuPOSDto]] FilterProductPos(BepKhoiBackend.BusinessObject.dtos.MenuPOSDto.FilterProductPosRequest) on controller BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController (BepKhoiBackend.API).
+2025-03-23 15:57:54.124 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-03-23 15:57:54.132 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[@__productCategoryId_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Product_id], [t].[Cost_price], [t].[Description], [t].[IsAvailable], [t].[IsDelete], [t].[Product_category_id], [t].[Product_name], [t].[Product_vat], [t].[Sale_price], [t].[Sell_price], [t].[Status], [t].[Unit_id], [p].[Product_category_id], [p].[isDelete], [p].[Product_category_title], [u].[Unit_id], [u].[isDelete], [u].[Unit_title]
+FROM (
+    SELECT [m].[Product_id], [m].[Cost_price], [m].[Description], [m].[IsAvailable], [m].[IsDelete], [m].[Product_category_id], [m].[Product_name], [m].[Product_vat], [m].[Sale_price], [m].[Sell_price], [m].[Status], [m].[Unit_id]
+    FROM [Menu] AS [m]
+    WHERE [m].[Product_category_id] = @__productCategoryId_0
+    ORDER BY [m].[Product_id]
+    OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+) AS [t]
+INNER JOIN [Product_category] AS [p] ON [t].[Product_category_id] = [p].[Product_category_id]
+INNER JOIN [Unit] AS [u] ON [t].[Unit_id] = [u].[Unit_id]
+ORDER BY [t].[Product_id]
+2025-03-23 15:57:54.135 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[BepKhoiBackend.BusinessObject.dtos.MenuPOSDto.MenuPOSDto, BepKhoiBackend.BusinessObject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-03-23 15:57:54.137 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController.FilterProductPos (BepKhoiBackend.API) in 14.5773ms
+2025-03-23 15:57:54.138 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController.FilterProductPos (BepKhoiBackend.API)'
+2025-03-23 15:57:54.139 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7257/api/menu-pos/FilterProductPos application/json 58 - 200 - application/json;+charset=utf-8 21.7362ms
+2025-03-23 15:57:57.926 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7257/api/menu-pos/FilterProductPos application/json 58
+2025-03-23 15:57:57.926 +07:00 [INF] CORS policy execution failed.
+2025-03-23 15:57:57.928 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-03-23 15:57:57.929 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController.FilterProductPos (BepKhoiBackend.API)'
+2025-03-23 15:57:57.930 +07:00 [INF] Route matched with {action = "FilterProductPos", controller = "MenuPOS"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[BepKhoiBackend.BusinessObject.dtos.MenuPOSDto.MenuPOSDto]] FilterProductPos(BepKhoiBackend.BusinessObject.dtos.MenuPOSDto.FilterProductPosRequest) on controller BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController (BepKhoiBackend.API).
+2025-03-23 15:57:57.932 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-03-23 15:57:57.948 +07:00 [INF] Executed DbCommand (14ms) [Parameters=[@__productCategoryId_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Product_id], [t].[Cost_price], [t].[Description], [t].[IsAvailable], [t].[IsDelete], [t].[Product_category_id], [t].[Product_name], [t].[Product_vat], [t].[Sale_price], [t].[Sell_price], [t].[Status], [t].[Unit_id], [p].[Product_category_id], [p].[isDelete], [p].[Product_category_title], [u].[Unit_id], [u].[isDelete], [u].[Unit_title]
+FROM (
+    SELECT [m].[Product_id], [m].[Cost_price], [m].[Description], [m].[IsAvailable], [m].[IsDelete], [m].[Product_category_id], [m].[Product_name], [m].[Product_vat], [m].[Sale_price], [m].[Sell_price], [m].[Status], [m].[Unit_id]
+    FROM [Menu] AS [m]
+    WHERE [m].[Product_category_id] = @__productCategoryId_0
+    ORDER BY [m].[Product_id]
+    OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+) AS [t]
+INNER JOIN [Product_category] AS [p] ON [t].[Product_category_id] = [p].[Product_category_id]
+INNER JOIN [Unit] AS [u] ON [t].[Unit_id] = [u].[Unit_id]
+ORDER BY [t].[Product_id]
+2025-03-23 15:57:57.954 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[BepKhoiBackend.BusinessObject.dtos.MenuPOSDto.MenuPOSDto, BepKhoiBackend.BusinessObject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-03-23 15:57:57.956 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController.FilterProductPos (BepKhoiBackend.API) in 24.1028ms
+2025-03-23 15:57:57.959 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController.FilterProductPos (BepKhoiBackend.API)'
+2025-03-23 15:57:57.960 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7257/api/menu-pos/FilterProductPos application/json 58 - 200 - application/json;+charset=utf-8 34.7609ms
+2025-03-23 15:58:04.607 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7257/api/menu-pos/FilterProductPos application/json 58
+2025-03-23 15:58:04.607 +07:00 [INF] CORS policy execution failed.
+2025-03-23 15:58:04.609 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-03-23 15:58:04.610 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController.FilterProductPos (BepKhoiBackend.API)'
+2025-03-23 15:58:04.611 +07:00 [INF] Route matched with {action = "FilterProductPos", controller = "MenuPOS"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[BepKhoiBackend.BusinessObject.dtos.MenuPOSDto.MenuPOSDto]] FilterProductPos(BepKhoiBackend.BusinessObject.dtos.MenuPOSDto.FilterProductPosRequest) on controller BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController (BepKhoiBackend.API).
+2025-03-23 15:58:04.613 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-03-23 15:58:04.621 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[@__productCategoryId_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Product_id], [t].[Cost_price], [t].[Description], [t].[IsAvailable], [t].[IsDelete], [t].[Product_category_id], [t].[Product_name], [t].[Product_vat], [t].[Sale_price], [t].[Sell_price], [t].[Status], [t].[Unit_id], [p].[Product_category_id], [p].[isDelete], [p].[Product_category_title], [u].[Unit_id], [u].[isDelete], [u].[Unit_title]
+FROM (
+    SELECT [m].[Product_id], [m].[Cost_price], [m].[Description], [m].[IsAvailable], [m].[IsDelete], [m].[Product_category_id], [m].[Product_name], [m].[Product_vat], [m].[Sale_price], [m].[Sell_price], [m].[Status], [m].[Unit_id]
+    FROM [Menu] AS [m]
+    WHERE [m].[Product_category_id] = @__productCategoryId_0
+    ORDER BY [m].[Product_id]
+    OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+) AS [t]
+INNER JOIN [Product_category] AS [p] ON [t].[Product_category_id] = [p].[Product_category_id]
+INNER JOIN [Unit] AS [u] ON [t].[Unit_id] = [u].[Unit_id]
+ORDER BY [t].[Product_id]
+2025-03-23 15:58:04.624 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[BepKhoiBackend.BusinessObject.dtos.MenuPOSDto.MenuPOSDto, BepKhoiBackend.BusinessObject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-03-23 15:58:04.626 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController.FilterProductPos (BepKhoiBackend.API) in 13.439ms
+2025-03-23 15:58:04.627 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController.FilterProductPos (BepKhoiBackend.API)'
+2025-03-23 15:58:04.628 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7257/api/menu-pos/FilterProductPos application/json 58 - 200 - application/json;+charset=utf-8 20.9960ms
+2025-03-23 15:58:07.324 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7257/api/menu-pos/FilterProductPos application/json 58
+2025-03-23 15:58:07.324 +07:00 [INF] CORS policy execution failed.
+2025-03-23 15:58:07.325 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-03-23 15:58:07.327 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController.FilterProductPos (BepKhoiBackend.API)'
+2025-03-23 15:58:07.328 +07:00 [INF] Route matched with {action = "FilterProductPos", controller = "MenuPOS"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[BepKhoiBackend.BusinessObject.dtos.MenuPOSDto.MenuPOSDto]] FilterProductPos(BepKhoiBackend.BusinessObject.dtos.MenuPOSDto.FilterProductPosRequest) on controller BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController (BepKhoiBackend.API).
+2025-03-23 15:58:07.330 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-03-23 15:58:07.337 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[@__productCategoryId_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Product_id], [t].[Cost_price], [t].[Description], [t].[IsAvailable], [t].[IsDelete], [t].[Product_category_id], [t].[Product_name], [t].[Product_vat], [t].[Sale_price], [t].[Sell_price], [t].[Status], [t].[Unit_id], [p].[Product_category_id], [p].[isDelete], [p].[Product_category_title], [u].[Unit_id], [u].[isDelete], [u].[Unit_title]
+FROM (
+    SELECT [m].[Product_id], [m].[Cost_price], [m].[Description], [m].[IsAvailable], [m].[IsDelete], [m].[Product_category_id], [m].[Product_name], [m].[Product_vat], [m].[Sale_price], [m].[Sell_price], [m].[Status], [m].[Unit_id]
+    FROM [Menu] AS [m]
+    WHERE [m].[Product_category_id] = @__productCategoryId_0
+    ORDER BY [m].[Product_id]
+    OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+) AS [t]
+INNER JOIN [Product_category] AS [p] ON [t].[Product_category_id] = [p].[Product_category_id]
+INNER JOIN [Unit] AS [u] ON [t].[Unit_id] = [u].[Unit_id]
+ORDER BY [t].[Product_id]
+2025-03-23 15:58:07.339 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[BepKhoiBackend.BusinessObject.dtos.MenuPOSDto.MenuPOSDto, BepKhoiBackend.BusinessObject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-03-23 15:58:07.341 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController.FilterProductPos (BepKhoiBackend.API) in 11.7018ms
+2025-03-23 15:58:07.344 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController.FilterProductPos (BepKhoiBackend.API)'
+2025-03-23 15:58:07.345 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7257/api/menu-pos/FilterProductPos application/json 58 - 200 - application/json;+charset=utf-8 21.6390ms
+2025-03-23 15:58:14.739 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7257/api/menu-pos/FilterProductPos application/json 61
+2025-03-23 15:58:14.739 +07:00 [INF] CORS policy execution failed.
+2025-03-23 15:58:14.740 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-03-23 15:58:14.741 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController.FilterProductPos (BepKhoiBackend.API)'
+2025-03-23 15:58:14.742 +07:00 [INF] Route matched with {action = "FilterProductPos", controller = "MenuPOS"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[BepKhoiBackend.BusinessObject.dtos.MenuPOSDto.MenuPOSDto]] FilterProductPos(BepKhoiBackend.BusinessObject.dtos.MenuPOSDto.FilterProductPosRequest) on controller BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController (BepKhoiBackend.API).
+2025-03-23 15:58:14.743 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-03-23 15:58:14.751 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Product_id], [t].[Cost_price], [t].[Description], [t].[IsAvailable], [t].[IsDelete], [t].[Product_category_id], [t].[Product_name], [t].[Product_vat], [t].[Sale_price], [t].[Sell_price], [t].[Status], [t].[Unit_id], [p].[Product_category_id], [p].[isDelete], [p].[Product_category_title], [u].[Unit_id], [u].[isDelete], [u].[Unit_title]
+FROM (
+    SELECT [m].[Product_id], [m].[Cost_price], [m].[Description], [m].[IsAvailable], [m].[IsDelete], [m].[Product_category_id], [m].[Product_name], [m].[Product_vat], [m].[Sale_price], [m].[Sell_price], [m].[Status], [m].[Unit_id]
+    FROM [Menu] AS [m]
+    ORDER BY [m].[Product_id]
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+INNER JOIN [Product_category] AS [p] ON [t].[Product_category_id] = [p].[Product_category_id]
+INNER JOIN [Unit] AS [u] ON [t].[Unit_id] = [u].[Unit_id]
+ORDER BY [t].[Product_id]
+2025-03-23 15:58:14.753 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[BepKhoiBackend.BusinessObject.dtos.MenuPOSDto.MenuPOSDto, BepKhoiBackend.BusinessObject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-03-23 15:58:14.756 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController.FilterProductPos (BepKhoiBackend.API) in 13.6052ms
+2025-03-23 15:58:14.757 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController.FilterProductPos (BepKhoiBackend.API)'
+2025-03-23 15:58:14.759 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7257/api/menu-pos/FilterProductPos application/json 61 - 200 - application/json;+charset=utf-8 20.4707ms
