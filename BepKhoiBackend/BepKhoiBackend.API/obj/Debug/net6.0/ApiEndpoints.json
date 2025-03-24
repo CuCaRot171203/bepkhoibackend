@@ -488,6 +488,120 @@
     ]
   },
   {
+    "ContainingType": "BepKhoiBackend.API.Controllers.UserControllers.ManagerControllers.ManagerController",
+    "Method": "GetManagerById",
+    "RelativePath": "api/Manager/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.UserControllers.ManagerControllers.ManagerController",
+    "Method": "UpdateManager",
+    "RelativePath": "api/Manager/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "updatedManager",
+        "Type": "BepKhoiBackend.BusinessObject.dtos.UserDto.ManagerDto.UpdateManagerDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController",
+    "Method": "FilterProductPos",
+    "RelativePath": "api/menu-pos/FilterProductPos",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "filterRequest",
+        "Type": "BepKhoiBackend.BusinessObject.dtos.MenuPOSDto.FilterProductPosRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[BepKhoiBackend.BusinessObject.dtos.MenuPOSDto.MenuPOSDto, BepKhoiBackend.BusinessObject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController",
+    "Method": "GetAllMenuPos",
+    "RelativePath": "api/menu-pos/get-all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "limit",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "offset",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[BepKhoiBackend.BusinessObject.dtos.MenuPOSDto.MenuPOSDto, BepKhoiBackend.BusinessObject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController",
+    "Method": "GetAllProductCategories",
+    "RelativePath": "api/menu-pos/GetAllProductCategories",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[BepKhoiBackend.BusinessObject.dtos.MenuPOSDto.ProductCategoryDTO, BepKhoiBackend.BusinessObject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "BepKhoiBackend.API.Controllers.MenuControllers.MenuController",
     "Method": "DeleteMenu",
     "RelativePath": "api/Menu/{productId}",
@@ -1299,6 +1413,26 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.ShippingOrderController.ShippingOrderController",
+    "Method": "GetShippersWithOrders",
+    "RelativePath": "api/ShippingOrder/shippers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.TakeAwayOrderControllers.TakeAwayOrderController",
+    "Method": "GetTakeAwayOrders",
+    "RelativePath": "api/TakeAwayOrder/takeaway",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
