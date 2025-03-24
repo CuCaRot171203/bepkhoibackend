@@ -3,36 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\TungNT\\OneDrive\\Documents\\GitHub\\bepkhoibackend\\BepKhoiBackend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3E1A4BAF-DD7F-446E-BAA0-6B67D1F74AA7}|BepKhoiBackend.API\\BepKhoiBackend.API.csproj|c:\\users\\tungnt\\onedrive\\documents\\github\\bepkhoibackend\\bepkhoibackend\\bepkhoibackend.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{3E1A4BAF-DD7F-446E-BAA0-6B67D1F74AA7}|BepKhoiBackend.API\\BepKhoiBackend.API.csproj|solutionrelative:bepkhoibackend.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{3E1A4BAF-DD7F-446E-BAA0-6B67D1F74AA7}|BepKhoiBackend.API\\BepKhoiBackend.API.csproj|c:\\users\\tungnt\\onedrive\\documents\\github\\bepkhoibackend\\bepkhoibackend\\bepkhoibackend.api\\controllers\\customercontrollers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E1A4BAF-DD7F-446E-BAA0-6B67D1F74AA7}|BepKhoiBackend.API\\BepKhoiBackend.API.csproj|solutionrelative:bepkhoibackend.api\\controllers\\customercontrollers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E5D3DAB-FA34-45C0-A607-D499E1415562}|BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj|c:\\users\\tungnt\\onedrive\\documents\\github\\bepkhoibackend\\bepkhoibackend\\bepkhoibackend.businessobject\\services\\customerservice\\icustomerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E5D3DAB-FA34-45C0-A607-D499E1415562}|BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj|solutionrelative:bepkhoibackend.businessobject\\services\\customerservice\\icustomerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3E5D3DAB-FA34-45C0-A607-D499E1415562}|BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj|c:\\users\\tungnt\\onedrive\\documents\\github\\bepkhoibackend\\bepkhoibackend\\bepkhoibackend.businessobject\\services\\customerservice\\customerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3E5D3DAB-FA34-45C0-A607-D499E1415562}|BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj|solutionrelative:bepkhoibackend.businessobject\\services\\customerservice\\customerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3E1A4BAF-DD7F-446E-BAA0-6B67D1F74AA7}|BepKhoiBackend.API\\BepKhoiBackend.API.csproj|c:\\users\\tungnt\\onedrive\\documents\\github\\bepkhoibackend\\bepkhoibackend\\bepkhoibackend.api\\controllers\\invoicecontrollers\\invoicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E1A4BAF-DD7F-446E-BAA0-6B67D1F74AA7}|BepKhoiBackend.API\\BepKhoiBackend.API.csproj|solutionrelative:bepkhoibackend.api\\controllers\\invoicecontrollers\\invoicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9146B6A7-32BD-42E3-A573-7DE5A023D2E2}|BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj|c:\\users\\tungnt\\onedrive\\documents\\github\\bepkhoibackend\\bepkhoibackend\\bepkhoibackend.dataaccess\\repository\\customerrepository\\icustomerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9146B6A7-32BD-42E3-A573-7DE5A023D2E2}|BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj|solutionrelative:bepkhoibackend.dataaccess\\repository\\customerrepository\\icustomerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3E1A4BAF-DD7F-446E-BAA0-6B67D1F74AA7}|BepKhoiBackend.API\\BepKhoiBackend.API.csproj|c:\\users\\tungnt\\onedrive\\documents\\github\\bepkhoibackend\\bepkhoibackend\\bepkhoibackend.api\\configurations\\dependencyinjectionconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E1A4BAF-DD7F-446E-BAA0-6B67D1F74AA7}|BepKhoiBackend.API\\BepKhoiBackend.API.csproj|solutionrelative:bepkhoibackend.api\\configurations\\dependencyinjectionconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9146B6A7-32BD-42E3-A573-7DE5A023D2E2}|BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj|c:\\users\\tungnt\\onedrive\\documents\\github\\bepkhoibackend\\bepkhoibackend\\bepkhoibackend.dataaccess\\repository\\customerrepository\\customerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9146B6A7-32BD-42E3-A573-7DE5A023D2E2}|BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj|solutionrelative:bepkhoibackend.dataaccess\\repository\\customerrepository\\customerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3E1A4BAF-DD7F-446E-BAA0-6B67D1F74AA7}|BepKhoiBackend.API\\BepKhoiBackend.API.csproj|c:\\users\\tungnt\\onedrive\\documents\\github\\bepkhoibackend\\bepkhoibackend\\bepkhoibackend.api\\controllers\\usercontrollers\\shippercontrollers\\shippercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E1A4BAF-DD7F-446E-BAA0-6B67D1F74AA7}|BepKhoiBackend.API\\BepKhoiBackend.API.csproj|solutionrelative:bepkhoibackend.api\\controllers\\usercontrollers\\shippercontrollers\\shippercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3E1A4BAF-DD7F-446E-BAA0-6B67D1F74AA7}|BepKhoiBackend.API\\BepKhoiBackend.API.csproj|c:\\users\\tungnt\\onedrive\\documents\\github\\bepkhoibackend\\bepkhoibackend\\bepkhoibackend.api\\controllers\\usercontrollers\\cashiercontrollers\\cashiercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E1A4BAF-DD7F-446E-BAA0-6B67D1F74AA7}|BepKhoiBackend.API\\BepKhoiBackend.API.csproj|solutionrelative:bepkhoibackend.api\\controllers\\usercontrollers\\cashiercontrollers\\cashiercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3E1A4BAF-DD7F-446E-BAA0-6B67D1F74AA7}|BepKhoiBackend.API\\BepKhoiBackend.API.csproj|c:\\users\\tungnt\\onedrive\\documents\\github\\bepkhoibackend\\bepkhoibackend\\bepkhoibackend.api\\controllers\\customercontrollers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E1A4BAF-DD7F-446E-BAA0-6B67D1F74AA7}|BepKhoiBackend.API\\BepKhoiBackend.API.csproj|solutionrelative:bepkhoibackend.api\\controllers\\customercontrollers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3E1A4BAF-DD7F-446E-BAA0-6B67D1F74AA7}|BepKhoiBackend.API\\BepKhoiBackend.API.csproj|c:\\users\\tungnt\\onedrive\\documents\\github\\bepkhoibackend\\bepkhoibackend\\bepkhoibackend.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E1A4BAF-DD7F-446E-BAA0-6B67D1F74AA7}|BepKhoiBackend.API\\BepKhoiBackend.API.csproj|solutionrelative:bepkhoibackend.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3E1A4BAF-DD7F-446E-BAA0-6B67D1F74AA7}|BepKhoiBackend.API\\BepKhoiBackend.API.csproj|c:\\users\\tungnt\\onedrive\\documents\\github\\bepkhoibackend\\bepkhoibackend\\bepkhoibackend.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{3E1A4BAF-DD7F-446E-BAA0-6B67D1F74AA7}|BepKhoiBackend.API\\BepKhoiBackend.API.csproj|solutionrelative:bepkhoibackend.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,101 +42,81 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CustomerService.cs",
-              "DocumentMoniker": "C:\\Users\\TungNT\\OneDrive\\Documents\\GitHub\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\Services\\CustomerService\\CustomerService.cs",
-              "RelativeDocumentMoniker": "BepKhoiBackend.BusinessObject\\Services\\CustomerService\\CustomerService.cs",
-              "ToolTip": "C:\\Users\\TungNT\\OneDrive\\Documents\\GitHub\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\Services\\CustomerService\\CustomerService.cs",
-              "RelativeToolTip": "BepKhoiBackend.BusinessObject\\Services\\CustomerService\\CustomerService.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABQAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-19T13:53:51.445Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "InvoiceController.cs",
-              "DocumentMoniker": "C:\\Users\\TungNT\\OneDrive\\Documents\\GitHub\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.API\\Controllers\\InvoiceControllers\\InvoiceController.cs",
-              "RelativeDocumentMoniker": "BepKhoiBackend.API\\Controllers\\InvoiceControllers\\InvoiceController.cs",
-              "ToolTip": "C:\\Users\\TungNT\\OneDrive\\Documents\\GitHub\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.API\\Controllers\\InvoiceControllers\\InvoiceController.cs",
-              "RelativeToolTip": "BepKhoiBackend.API\\Controllers\\InvoiceControllers\\InvoiceController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-19T13:53:49.382Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ShipperController.cs",
-              "DocumentMoniker": "C:\\Users\\TungNT\\OneDrive\\Documents\\GitHub\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.API\\Controllers\\UserControllers\\ShipperControllers\\ShipperController.cs",
-              "RelativeDocumentMoniker": "BepKhoiBackend.API\\Controllers\\UserControllers\\ShipperControllers\\ShipperController.cs",
-              "ToolTip": "C:\\Users\\TungNT\\OneDrive\\Documents\\GitHub\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.API\\Controllers\\UserControllers\\ShipperControllers\\ShipperController.cs",
-              "RelativeToolTip": "BepKhoiBackend.API\\Controllers\\UserControllers\\ShipperControllers\\ShipperController.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAA6wC0AAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-19T13:53:43.553Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
               "Title": "CustomerController.cs",
               "DocumentMoniker": "C:\\Users\\TungNT\\OneDrive\\Documents\\GitHub\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.API\\Controllers\\CustomerControllers\\CustomerController.cs",
               "RelativeDocumentMoniker": "BepKhoiBackend.API\\Controllers\\CustomerControllers\\CustomerController.cs",
               "ToolTip": "C:\\Users\\TungNT\\OneDrive\\Documents\\GitHub\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.API\\Controllers\\CustomerControllers\\CustomerController.cs",
               "RelativeToolTip": "BepKhoiBackend.API\\Controllers\\CustomerControllers\\CustomerController.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAqwBIAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAuwFUAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-19T13:52:25.082Z"
+              "WhenOpened": "2025-03-24T10:31:12.571Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CashierController.cs",
-              "DocumentMoniker": "C:\\Users\\TungNT\\OneDrive\\Documents\\GitHub\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.API\\Controllers\\UserControllers\\CashierControllers\\CashierController.cs",
-              "RelativeDocumentMoniker": "BepKhoiBackend.API\\Controllers\\UserControllers\\CashierControllers\\CashierController.cs",
-              "ToolTip": "C:\\Users\\TungNT\\OneDrive\\Documents\\GitHub\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.API\\Controllers\\UserControllers\\CashierControllers\\CashierController.cs",
-              "RelativeToolTip": "BepKhoiBackend.API\\Controllers\\UserControllers\\CashierControllers\\CashierController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAoAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "ICustomerService.cs",
+              "DocumentMoniker": "C:\\Users\\TungNT\\OneDrive\\Documents\\GitHub\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\Services\\CustomerService\\ICustomerService.cs",
+              "RelativeDocumentMoniker": "BepKhoiBackend.BusinessObject\\Services\\CustomerService\\ICustomerService.cs",
+              "ToolTip": "C:\\Users\\TungNT\\OneDrive\\Documents\\GitHub\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\Services\\CustomerService\\ICustomerService.cs",
+              "RelativeToolTip": "BepKhoiBackend.BusinessObject\\Services\\CustomerService\\ICustomerService.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAA1wBIAAABQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-19T13:52:22.772Z"
+              "WhenOpened": "2025-03-24T10:30:35.664Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\TungNT\\OneDrive\\Documents\\GitHub\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.API\\appsettings.json",
-              "RelativeDocumentMoniker": "BepKhoiBackend.API\\appsettings.json",
-              "ToolTip": "C:\\Users\\TungNT\\OneDrive\\Documents\\GitHub\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.API\\appsettings.json",
-              "RelativeToolTip": "BepKhoiBackend.API\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-03-19T07:18:11.559Z",
+              "DocumentIndex": 2,
+              "Title": "CustomerService.cs",
+              "DocumentMoniker": "C:\\Users\\TungNT\\OneDrive\\Documents\\GitHub\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\Services\\CustomerService\\CustomerService.cs",
+              "RelativeDocumentMoniker": "BepKhoiBackend.BusinessObject\\Services\\CustomerService\\CustomerService.cs",
+              "ToolTip": "C:\\Users\\TungNT\\OneDrive\\Documents\\GitHub\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\Services\\CustomerService\\CustomerService.cs",
+              "RelativeToolTip": "BepKhoiBackend.BusinessObject\\Services\\CustomerService\\CustomerService.cs",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAowHwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-24T10:30:03.079Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "DependencyInjectionConfig.cs",
-              "DocumentMoniker": "C:\\Users\\TungNT\\OneDrive\\Documents\\GitHub\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.API\\Configurations\\DependencyInjectionConfig.cs",
-              "RelativeDocumentMoniker": "BepKhoiBackend.API\\Configurations\\DependencyInjectionConfig.cs",
-              "ToolTip": "C:\\Users\\TungNT\\OneDrive\\Documents\\GitHub\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.API\\Configurations\\DependencyInjectionConfig.cs",
-              "RelativeToolTip": "BepKhoiBackend.API\\Configurations\\DependencyInjectionConfig.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAqwCAAAAAtAAAAAAAAAA==",
+              "Title": "ICustomerRepository.cs",
+              "DocumentMoniker": "C:\\Users\\TungNT\\OneDrive\\Documents\\GitHub\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\Repository\\CustomerRepository\\ICustomerRepository.cs",
+              "RelativeDocumentMoniker": "BepKhoiBackend.DataAccess\\Repository\\CustomerRepository\\ICustomerRepository.cs",
+              "ToolTip": "C:\\Users\\TungNT\\OneDrive\\Documents\\GitHub\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\Repository\\CustomerRepository\\ICustomerRepository.cs",
+              "RelativeToolTip": "BepKhoiBackend.DataAccess\\Repository\\CustomerRepository\\ICustomerRepository.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA8AAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-19T07:10:33.038Z"
+              "WhenOpened": "2025-03-24T10:28:44.208Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\TungNT\\OneDrive\\Documents\\GitHub\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.API\\Program.cs",
-              "RelativeDocumentMoniker": "BepKhoiBackend.API\\Program.cs",
-              "ToolTip": "C:\\Users\\TungNT\\OneDrive\\Documents\\GitHub\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.API\\Program.cs",
-              "RelativeToolTip": "BepKhoiBackend.API\\Program.cs",
-              "ViewState": "AgIAADAAAAAAAAAAAIBJwD0AAAAqAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "CustomerRepository.cs",
+              "DocumentMoniker": "C:\\Users\\TungNT\\OneDrive\\Documents\\GitHub\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\Repository\\CustomerRepository\\CustomerRepository.cs",
+              "RelativeDocumentMoniker": "BepKhoiBackend.DataAccess\\Repository\\CustomerRepository\\CustomerRepository.cs",
+              "ToolTip": "C:\\Users\\TungNT\\OneDrive\\Documents\\GitHub\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\Repository\\CustomerRepository\\CustomerRepository.cs",
+              "RelativeToolTip": "BepKhoiBackend.DataAccess\\Repository\\CustomerRepository\\CustomerRepository.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAswD4AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-19T07:10:00.123Z"
+              "WhenOpened": "2025-03-24T10:28:02.743Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\TungNT\\OneDrive\\Documents\\GitHub\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.API\\appsettings.json",
+              "RelativeDocumentMoniker": "BepKhoiBackend.API\\appsettings.json",
+              "ToolTip": "C:\\Users\\TungNT\\OneDrive\\Documents\\GitHub\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.API\\appsettings.json",
+              "RelativeToolTip": "BepKhoiBackend.API\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-03-19T07:18:11.559Z",
+              "EditorCaption": ""
             }
           ]
         }

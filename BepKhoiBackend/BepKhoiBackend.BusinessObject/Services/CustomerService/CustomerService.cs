@@ -93,6 +93,35 @@ namespace BepKhoiBackend.BusinessObject.Services.CustomerService
                 return package.GetAsByteArray();
             }
         }
-       
+
+        // ======== Customer Service - Thanh Tung ======
+
+        // Method create customer
+        public async Task<Customer> CreateNewCustomerAsync(CreateNewCustomerRequest request)
+        {
+            try
+            {
+                var existingCustomer = await _customerRepository.GetCustomerByPhoneAsync(request.Phone);
+                // Check exist
+                if (existingCustomer != null)
+                {
+                    throw new InvalidOperationException("Phone number is already registered.");
+                }
+
+                var newCustomer = new Customer
+                {
+                    Phone = request.Phone,
+                    CustomerName = request.CustomerName,
+                    IsDelete = false,
+                };
+
+                await _customerRepository.CreateCustomerAsync(newCustomer);
+                return newCustomer;
+            }
+            catch
+            {
+                throw;
+            }
+        }
     }
 }

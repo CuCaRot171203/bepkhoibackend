@@ -40,6 +40,14 @@ using BepKhoiBackend.DataAccess.Repository.ShippingOrderRepository;
 using BepKhoiBackend.BusinessObject.Services.ShippingOrderService;
 using BepKhoiBackend.BusinessObject.Services.MenuPOSService;
 using BepKhoiBackend.DataAccess.Repository.MenuPOSRepository;
+using BepKhoiBackend.BusinessObject.Services.OrderDetailService;
+using BepKhoiBackend.BusinessObject.Services.OrderService;
+using BepKhoiBackend.DataAccess.Abstract.OrderAbstract;
+using BepKhoiBackend.DataAccess.Abstract.OrderDetailAbstract;
+using BepKhoiBackend.DataAccess.Repository.OrderDetailRepository;
+using BepKhoiBackend.DataAccess.Repository.OrderRepository;
+using BepKhoiBackend.BusinessObject.Abstract.OrderAbstract;
+using BepKhoiBackend.BusinessObject.Abstract.OrderDetailAbstract;
 
 namespace BepKhoiBackend.API.Configurations
 {
@@ -111,6 +119,14 @@ namespace BepKhoiBackend.API.Configurations
             // Register for customer
             services.AddScoped<ICustomerRepository, CustomerRepository>(); // Repository cho Customer
             services.AddScoped<ICustomerService, CustomerService>();
+
+            // Register for Order
+            services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<IOrderService, OrderService>();
+
+            //Register for order detail
+            services.AddScoped<IOrderDetailRepository, OrderDetailRepository>();
+            services.AddScoped<IOrderDetailService, OrderDetailService>();
         }
     }
 }

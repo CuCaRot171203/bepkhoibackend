@@ -45,5 +45,21 @@ namespace BepKhoiBackend.DataAccess.Repository.CustomerRepository
                 .ToList();
         }
 
+        // ====== Customer Repo - Thanh Tung ======
+
+        // Func to get c by phone number
+        public async Task<Customer?> GetCustomerByPhoneAsync(string phone)
+        {
+            return await _context.Customers
+                .AsNoTracking()
+                .FirstOrDefaultAsync(c => c.Phone == phone);
+        }
+
+        // func to create customer 
+        public async Task CreateCustomerAsync(Customer customer)
+        {
+            _context.Customers.Add(customer);
+            await _context.SaveChangesAsync();
+        }
     }
 }

@@ -65,6 +65,36 @@ namespace BepKhoiBackend.API.Controllers.CustomerControllers
             var fileContents = _customerService.ExportCustomersToExcel();
             return File(fileContents, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Customers.xlsx");
         }
-    
+
+        [HttpPost("create-new-customer")]
+        [ProducesResponseType(200)] // OK
+        [ProducesResponseType(400)] // BadRequest
+        [ProducesResponseType(409)] // Conflict
+        [ProducesResponseType(500)] // Internal Server Error
+        public async Task<IActionResult> CreateNewCustomerPos([FromBody] CreateNewCustomerRequest request)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(request.Phone) || string.IsNullOrWhiteSpace(request.CustomerName))
+                {
+                    return BadRequest(new { message = "Phone and Customer Name cannot be empty." });
+                }
+
+                var result = await _customerService.CreateNewCustomerAsync(request);
+                return Ok(new { message = "Customer created successfully", data = result });
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+            catch (InvalidOperationException ex)
+            {
+                return Conflict(new { message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Server error", error = ex.Message });
+            }
+        }
     }
 }

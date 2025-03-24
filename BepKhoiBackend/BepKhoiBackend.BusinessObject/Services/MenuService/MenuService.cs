@@ -74,10 +74,10 @@ namespace BepKhoiBackend.BusinessObject.Services.MenuService
                 if (!string.IsNullOrEmpty(productNameOrId) && !ProductValidator.IsPositiveInteger(productNameOrId.Trim()))
                 {
                     var searchValue = productNameOrId.Trim().ToLower();
-                    var searchNoSign = StringHelper.RemoveDiacritics(searchValue);
+                    var searchNoSign = DataAccess.Helpers.StringHelper.RemoveDiacritics(searchValue);
 
                     data = data.Where(m =>
-                        StringHelper.RemoveDiacritics(m.ProductName.ToLower()).Contains(searchNoSign)
+                        DataAccess.Helpers.StringHelper.RemoveDiacritics(m.ProductName.ToLower()).Contains(searchNoSign)
                     ).ToList();
                 }
 

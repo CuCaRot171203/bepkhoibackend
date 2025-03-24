@@ -1,4 +1,5 @@
-﻿using BepKhoiBackend.DataAccess.Models;
+﻿using BepKhoiBackend.DataAccess.Helpers;
+using BepKhoiBackend.DataAccess.Models;
 using BepKhoiBackend.DataAccess.Repository.RoomRepository.Interface;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -85,7 +86,88 @@ namespace BepKhoiBackend.DataAccess.Repository.RoomRepository
                 .ToListAsync();
         }
 
+        // ========== Room Repository - Thanh Tung ============
 
+        // Repository of get room for POS site
+        public async Task<List<Room>> GetRoomsAsyncPOS(int limit, int offset)
+        {
+            try
+            {
+                return await _context.Rooms
+                 .AsNoTracking()
+                .Where(r => !(r.IsDelete ?? false))
+                .OrderBy(r => r.RoomId)
+                .Skip(offset)
+                .Take(limit)
+                .Include(r => r.Orders.Where(o => o.OrderStatusId == 1))
+                .ThenInclude(o => o.OrderDetails)
+                .ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error when querry from database.", ex);
+            }
+        }
+
+        // Repositor of filter room pos async 
+        public async Task<List<Room>> FilterRoomPosAsync(int? roolAreaId, bool? isUse)
+        {
+            try
+            {
+                var query = _context.Rooms
+                    .AsNoTracking()
+                    .Where(r => !(r.IsDelete ?? false));
+
+                if (roolAreaId.HasValue)
+                    query = query.Where(r => r.RoomAreaId == roolAreaId.Value);
+
+                if (isUse.HasValue)
+                    query = query.Where(r => r.IsUse == isUse.Value);
+
+                return await query
+                    .OrderBy(r => r.RoomId)
+                    .Include(r => r.Orders.Where(o => o.OrderStatusId == 1))
+                    .ThenInclude(o => o.OrderDetails)
+                    .ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error when filter from database.", ex);
+            }
+        }
+
+        // Repository of search room POS async
+        public async Task<List<Room>> SearchRoomPosAsync(string searchString)
+        {
+            try
+            {
+                // Validate input
+                StringHelper.ValidateSearchInput(searchString);
+
+                // Normalize input (remove diacritics)
+                string normalizedKeyword = StringHelper.RemoveDiacritics(searchString).ToLower();
+
+                var rooms = await _context.Rooms
+                    .AsNoTracking()
+                    .Where(r => !(r.IsDelete ?? false))
+                    .OrderBy(r => r.RoomId)
+                    .Include(r => r.Orders.Where(o => o.OrderStatusId == 1))
+                    .ThenInclude(o => o.OrderDetails)
+                    .ToListAsync();
+
+                var filteredRooms = rooms.Where(r =>
+                    StringHelper.RemoveDiacritics(r.RoomName).ToLower().Contains(normalizedKeyword) ||
+                    r.Orders.Any(o => o.Customer != null &&
+                        StringHelper.RemoveDiacritics(o.Customer.CustomerName).ToLower().Contains(normalizedKeyword))
+                ).ToList();
+
+                return filteredRooms;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error when searching from database: {ex.Message}", ex);
+            }
+        }
 
     }
 }

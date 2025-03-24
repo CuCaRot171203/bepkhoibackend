@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BepKhoiBackend.BusinessObject.dtos.CustomerDto;
+using BepKhoiBackend.DataAccess.Models;
 
 namespace BepKhoiBackend.BusinessObject.Services.CustomerService
 {
@@ -14,8 +15,8 @@ namespace BepKhoiBackend.BusinessObject.Services.CustomerService
         List<CustomerDTO> SearchCustomers(string searchTerm);
         List<CustomerInvoiceDto> GetInvoicesByCustomerId(int customerId);
         byte[] ExportCustomersToExcel();
-       
 
+        Task<Customer> CreateNewCustomerAsync(CreateNewCustomerRequest request);
 
     }
 }

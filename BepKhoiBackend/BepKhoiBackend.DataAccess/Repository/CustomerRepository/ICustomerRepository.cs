@@ -11,6 +11,8 @@ namespace BepKhoiBackend.DataAccess.Repository.CustomerRepository
     {
         List<Customer> GetAllCustomers();
         Customer? GetCustomerById(int customerId);
-        List<Customer> SearchCustomers(string keyword); // Gộp tìm kiếm theo tên và số điện thoại
+        List<Customer> SearchCustomers(string keyword);
+        Task<Customer?> GetCustomerByPhoneAsync(string phone);
+        Task CreateCustomerAsync(Customer customer);
     }
 }

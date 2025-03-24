@@ -33,6 +33,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(typeof(MenuProfile).Assembly);
 builder.Services.AddAutoMapper(typeof(UnitProfile).Assembly);
 builder.Services.AddAutoMapper(typeof(ProductCategoryProfile).Assembly);
+builder.Services.AddAutoMapper(typeof(OrderMappingProfile));
 
 // Config of logger
 builder.Logging.ClearProviders();
