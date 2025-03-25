@@ -116,7 +116,6 @@ namespace BepKhoiBackend.API.Controllers
             return Ok(result);
         }
 
-        /*========= Room Controller - Thanh Tung ======== */
 
         //controller for get Room for POS site
         [HttpGet("get-all-room-for-pos")]
