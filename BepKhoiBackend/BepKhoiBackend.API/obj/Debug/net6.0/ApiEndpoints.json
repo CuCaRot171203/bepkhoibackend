@@ -1542,9 +1542,41 @@
   },
   {
     "ContainingType": "BepKhoiBackend.API.Controllers.RoomController",
+    "Method": "DeleteQRCode",
+    "RelativePath": "api/rooms/delete-qr/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.RoomController",
     "Method": "SoftDelete",
     "RelativePath": "api/rooms/delete/{id}",
     "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.RoomController",
+    "Method": "DownloadQRCode",
+    "RelativePath": "api/rooms/download-qr/{id}",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -1600,6 +1632,22 @@
         "StatusCode": 500
       }
     ]
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.RoomController",
+    "Method": "GenerateQRCodeForRoom",
+    "RelativePath": "api/rooms/generate-qr/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "BepKhoiBackend.API.Controllers.RoomController",

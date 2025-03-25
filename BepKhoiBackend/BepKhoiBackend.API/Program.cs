@@ -62,7 +62,9 @@ builder.Services.AddSession(options =>
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddHttpContextAccessor();
 
-
+// Cấu hình CloudinaryService và QRCodeService
+builder.Services.AddSingleton<CloudinaryService>(); // Dùng Singleton vì chỉ cần 1 instance duy nhất
+builder.Services.AddScoped<QRCodeService>();
 
 
 builder.Services.AddAuthorization();

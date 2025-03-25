@@ -4,6 +4,11 @@ namespace BepKhoiBackend.BusinessObject.Services.RoomService
 {
     public interface IRoomService
     {
+        Task<FileDataDto> DownloadQRCodeAsync(int roomId);
+
+        Task DeleteQRCodeAsync(int roomId);
+        Task UpdateQRCodeUrlAsync(int roomId, string qrCodeUrl);
+        Task<string> GenerateQRCodeAndSaveAsync(int roomId);
         Task<IEnumerable<RoomDto>> GetAllAsync(int limit, int offset);
         Task<RoomDto> GetByIdAsync(int id);
         Task AddAsync(RoomCreateDto roomCreateDto);

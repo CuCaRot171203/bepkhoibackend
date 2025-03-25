@@ -13,10 +13,12 @@ namespace BepKhoiBackend.BusinessObject.Services.RoomService
     public class RoomService : IRoomService
     {
         private readonly IRoomRepository _roomRepository;
+        private readonly QRCodeService _qrCodeService;
 
-        public RoomService(IRoomRepository roomRepository)
+        public RoomService(IRoomRepository roomRepository, QRCodeService qrCodeService)
         {
             _roomRepository = roomRepository;
+            _qrCodeService = qrCodeService;
         }
 
         public async Task<IEnumerable<RoomDto>> GetAllAsync(int limit, int offset)
@@ -69,6 +71,9 @@ namespace BepKhoiBackend.BusinessObject.Services.RoomService
 
         public async Task AddAsync(RoomCreateDto roomCreateDto)
         {
+            //string savePath = Path.GetTempPath();
+            //string url = $"https://facebook.com/{roomCreateDto.RoomName}&{roomCreateDto.RoomAreaId}";
+            //string qrUrl = await _qrCodeService.GenerateAndUploadQRCodeAsync(url, savePath);
             var room = new Room
             {
                 RoomName = roomCreateDto.RoomName,
@@ -76,14 +81,105 @@ namespace BepKhoiBackend.BusinessObject.Services.RoomService
                 OrdinalNumber = roomCreateDto.OrdinalNumber,
                 SeatNumber = roomCreateDto.SeatNumber,
                 RoomNote = roomCreateDto.RoomNote,
-                QrCodeUrl = roomCreateDto.QrCodeUrl,
-                Status = roomCreateDto.Status,
-                IsUse = roomCreateDto.IsUse,
+                QrCodeUrl = null,
+                Status = false,
+                IsUse = false,
                 IsDelete = false
             };
-
             await _roomRepository.AddAsync(room);
         }
+
+        public async Task<string> GenerateQRCodeAndSaveAsync(int roomId)
+        {
+            var room = await _roomRepository.GetByIdAsync(roomId);
+            if (room == null)
+            {
+                throw new Exception("Room not found");
+            }
+
+            // Kiểm tra nếu room đã có QR Code URL
+            if (!string.IsNullOrEmpty(room.QrCodeUrl))
+            {
+                throw new Exception("Room already has a QR Code");
+            }
+
+            // Dữ liệu để nhúng vào QR Code
+            string qrData = $"https://Facebook.com/roomId";
+
+            // Tạo và upload QR Code lên Cloudinary
+            string qrCodeUrl = await _qrCodeService.GenerateAndUploadQRCodeAsync(qrData);
+
+            // Lưu URL vào database
+            await UpdateQRCodeUrlAsync(roomId, qrCodeUrl);
+
+            return qrCodeUrl;
+        }
+
+
+
+        public async Task UpdateQRCodeUrlAsync(int roomId, string qrCodeUrl)
+        {
+            var room = await _roomRepository.GetByIdAsync(roomId);
+            if (room != null)
+            {
+                room.QrCodeUrl = qrCodeUrl;
+                await _roomRepository.UpdateAsync(room);
+            }
+        }
+        public async Task DeleteQRCodeAsync(int roomId)
+        {
+            var room = await _roomRepository.GetByIdAsync(roomId);
+            if (room == null)
+            {
+                throw new Exception("Room not found");
+            }
+
+            if (string.IsNullOrEmpty(room.QrCodeUrl))
+            {
+                throw new Exception("Room does not have a QR Code to delete");
+            }
+
+            // Xóa QR Code trên Cloudinary
+            await _qrCodeService.DeleteQRCodeFromCloudinaryAsync(room.QrCodeUrl);
+
+            // Xóa URL trong database
+            room.QrCodeUrl = null;
+            await _roomRepository.UpdateAsync(room);
+        }
+
+        public async Task<FileDataDto> DownloadQRCodeAsync(int roomId)
+        {
+            var room = await _roomRepository.GetByIdAsync(roomId);
+            if (room == null)
+            {
+                throw new Exception("Room not found");
+            }
+
+            if (string.IsNullOrEmpty(room.QrCodeUrl))
+            {
+                throw new Exception("Room does not have a QR Code");
+            }
+
+            using (var httpClient = new HttpClient())
+            {
+                var response = await httpClient.GetAsync(room.QrCodeUrl);
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw new Exception("Failed to download QR Code");
+                }
+
+                byte[] fileBytes = await response.Content.ReadAsByteArrayAsync();
+                string contentType = response.Content.Headers.ContentType?.ToString() ?? "image/png";
+
+                return new FileDataDto
+                {
+                    Content = fileBytes,
+                    ContentType = contentType,
+                    FileName = $"QRCode_{room.RoomName}.png"
+                };
+            }
+        }
+
 
         public async Task UpdateAsync(int id, RoomUpdateDto roomUpdateDto)
         {
