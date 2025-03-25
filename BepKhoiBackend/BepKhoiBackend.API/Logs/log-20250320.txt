@@ -1,0 +1,439 @@
+2025-03-20 19:07:07.698 +07:00 [INF] User profile is available. Using 'C:\Users\Asus\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-20 19:07:08.116 +07:00 [INF] Now listening on: https://localhost:7257
+2025-03-20 19:07:08.116 +07:00 [INF] Now listening on: http://localhost:5287
+2025-03-20 19:07:08.120 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-20 19:07:08.121 +07:00 [INF] Hosting environment: Development
+2025-03-20 19:07:08.122 +07:00 [INF] Content root path: E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\
+2025-03-20 19:07:09.068 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-03-20 19:07:09.495 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 432.4454ms
+2025-03-20 19:07:09.504 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-03-20 19:07:09.515 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 12006 application/javascript;+charset=utf-8 11.0227ms
+2025-03-20 19:07:09.773 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-03-20 19:07:09.830 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 56.9461ms
+2025-03-20 19:07:10.550 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-03-20 19:07:10.734 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 182.9757ms
+2025-03-20 19:07:32.866 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/api/cashiers/2 - -
+2025-03-20 19:07:33.873 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController.GetCashierById (BepKhoiBackend.API)'
+2025-03-20 19:07:33.900 +07:00 [INF] Route matched with {action = "GetCashierById", controller = "Cashier"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[BepKhoiBackend.BusinessObject.dtos.UserDto.CashierDto.CashierDTO] GetCashierById(Int32) on controller BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController (BepKhoiBackend.API).
+2025-03-20 19:07:35.180 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-03-20 19:07:36.579 +07:00 [INF] Executed DbCommand (203ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[User_id], [u].[create_date], [u].[email], [u].[isDelete], [u].[is_verify], [u].[password], [u].[phone], [u].[role_id], [u].[status], [u].[user_information_id], [u0].[User_information_id], [u0].[Address], [u0].[Date_of_birth], [u0].[District], [u0].[Province_City], [u0].[User_name], [u0].[Ward_Commune]
+FROM [User] AS [u]
+INNER JOIN [User_information] AS [u0] ON [u].[user_information_id] = [u0].[User_information_id]
+WHERE (([u].[User_id] = @__id_0) AND ([u].[role_id] = 2)) AND (([u].[isDelete] = CAST(0 AS bit)) OR ([u].[isDelete] IS NULL))
+2025-03-20 19:07:36.682 +07:00 [INF] Executing OkObjectResult, writing value of type 'BepKhoiBackend.BusinessObject.dtos.UserDto.CashierDto.CashierDTO'.
+2025-03-20 19:07:36.702 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController.GetCashierById (BepKhoiBackend.API) in 2795.5606ms
+2025-03-20 19:07:36.703 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController.GetCashierById (BepKhoiBackend.API)'
+2025-03-20 19:07:36.709 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/api/cashiers/2 - - - 200 - application/json;+charset=utf-8 3842.9609ms
+2025-03-20 19:07:41.743 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/api/cashiers/3 - -
+2025-03-20 19:07:41.749 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController.GetCashierById (BepKhoiBackend.API)'
+2025-03-20 19:07:41.751 +07:00 [INF] Route matched with {action = "GetCashierById", controller = "Cashier"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[BepKhoiBackend.BusinessObject.dtos.UserDto.CashierDto.CashierDTO] GetCashierById(Int32) on controller BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController (BepKhoiBackend.API).
+2025-03-20 19:07:41.764 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-03-20 19:07:41.781 +07:00 [INF] Executed DbCommand (12ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[User_id], [u].[create_date], [u].[email], [u].[isDelete], [u].[is_verify], [u].[password], [u].[phone], [u].[role_id], [u].[status], [u].[user_information_id], [u0].[User_information_id], [u0].[Address], [u0].[Date_of_birth], [u0].[District], [u0].[Province_City], [u0].[User_name], [u0].[Ward_Commune]
+FROM [User] AS [u]
+INNER JOIN [User_information] AS [u0] ON [u].[user_information_id] = [u0].[User_information_id]
+WHERE (([u].[User_id] = @__id_0) AND ([u].[role_id] = 2)) AND (([u].[isDelete] = CAST(0 AS bit)) OR ([u].[isDelete] IS NULL))
+2025-03-20 19:07:41.785 +07:00 [INF] Executing NotFoundObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-03-20 19:07:41.795 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController.GetCashierById (BepKhoiBackend.API) in 41.92ms
+2025-03-20 19:07:41.795 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController.GetCashierById (BepKhoiBackend.API)'
+2025-03-20 19:07:41.796 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/api/cashiers/3 - - - 404 - application/json;+charset=utf-8 53.0048ms
+2025-03-20 19:07:44.141 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/api/cashiers/2 - -
+2025-03-20 19:07:44.145 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController.GetCashierById (BepKhoiBackend.API)'
+2025-03-20 19:07:44.146 +07:00 [INF] Route matched with {action = "GetCashierById", controller = "Cashier"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[BepKhoiBackend.BusinessObject.dtos.UserDto.CashierDto.CashierDTO] GetCashierById(Int32) on controller BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController (BepKhoiBackend.API).
+2025-03-20 19:07:44.192 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-03-20 19:07:44.200 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[User_id], [u].[create_date], [u].[email], [u].[isDelete], [u].[is_verify], [u].[password], [u].[phone], [u].[role_id], [u].[status], [u].[user_information_id], [u0].[User_information_id], [u0].[Address], [u0].[Date_of_birth], [u0].[District], [u0].[Province_City], [u0].[User_name], [u0].[Ward_Commune]
+FROM [User] AS [u]
+INNER JOIN [User_information] AS [u0] ON [u].[user_information_id] = [u0].[User_information_id]
+WHERE (([u].[User_id] = @__id_0) AND ([u].[role_id] = 2)) AND (([u].[isDelete] = CAST(0 AS bit)) OR ([u].[isDelete] IS NULL))
+2025-03-20 19:07:44.201 +07:00 [INF] Executing OkObjectResult, writing value of type 'BepKhoiBackend.BusinessObject.dtos.UserDto.CashierDto.CashierDTO'.
+2025-03-20 19:07:44.202 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController.GetCashierById (BepKhoiBackend.API) in 54.7451ms
+2025-03-20 19:07:44.203 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController.GetCashierById (BepKhoiBackend.API)'
+2025-03-20 19:07:44.204 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/api/cashiers/2 - - - 200 - application/json;+charset=utf-8 63.4371ms
+2025-03-20 19:25:55.963 +07:00 [INF] User profile is available. Using 'C:\Users\Asus\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-20 19:25:56.113 +07:00 [INF] Now listening on: https://localhost:7257
+2025-03-20 19:25:56.114 +07:00 [INF] Now listening on: http://localhost:5287
+2025-03-20 19:25:56.117 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-20 19:25:56.118 +07:00 [INF] Hosting environment: Development
+2025-03-20 19:25:56.119 +07:00 [INF] Content root path: E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\
+2025-03-20 19:25:56.710 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-03-20 19:25:56.940 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 231.7322ms
+2025-03-20 19:25:56.948 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-03-20 19:25:56.948 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-03-20 19:25:56.951 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 12006 application/javascript;+charset=utf-8 3.4712ms
+2025-03-20 19:25:56.968 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 20.2913ms
+2025-03-20 19:25:57.781 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-03-20 19:25:57.945 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 163.9274ms
+2025-03-20 19:26:05.081 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/api/cashiers/2 - -
+2025-03-20 19:26:05.146 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController.GetCashierById (BepKhoiBackend.API)'
+2025-03-20 19:26:05.161 +07:00 [INF] Route matched with {action = "GetCashierById", controller = "Cashier"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[BepKhoiBackend.BusinessObject.dtos.UserDto.CashierDto.CashierDTO] GetCashierById(Int32) on controller BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController (BepKhoiBackend.API).
+2025-03-20 19:26:05.927 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-03-20 19:26:06.415 +07:00 [INF] Executed DbCommand (42ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[User_id], [u].[create_date], [u].[email], [u].[isDelete], [u].[is_verify], [u].[password], [u].[phone], [u].[role_id], [u].[status], [u].[user_information_id], [u0].[User_information_id], [u0].[Address], [u0].[Date_of_birth], [u0].[District], [u0].[Province_City], [u0].[User_name], [u0].[Ward_Commune], [u1].[role_id], [u1].[isDelete], [u1].[role_name]
+FROM [User] AS [u]
+INNER JOIN [User_information] AS [u0] ON [u].[user_information_id] = [u0].[User_information_id]
+INNER JOIN [User_role] AS [u1] ON [u].[role_id] = [u1].[role_id]
+WHERE (([u].[User_id] = @__id_0) AND ([u].[role_id] = 2)) AND (([u].[isDelete] = CAST(0 AS bit)) OR ([u].[isDelete] IS NULL))
+2025-03-20 19:26:06.509 +07:00 [INF] Executing OkObjectResult, writing value of type 'BepKhoiBackend.BusinessObject.dtos.UserDto.CashierDto.GetCashierDTO'.
+2025-03-20 19:26:06.529 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController.GetCashierById (BepKhoiBackend.API) in 1362.5945ms
+2025-03-20 19:26:06.530 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController.GetCashierById (BepKhoiBackend.API)'
+2025-03-20 19:26:06.536 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/api/cashiers/2 - - - 200 - application/json;+charset=utf-8 1455.4304ms
+2025-03-20 19:26:21.900 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/api/Shipper/3 - -
+2025-03-20 19:26:21.907 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers.ShipperController.GetShipperById (BepKhoiBackend.API)'
+2025-03-20 19:26:21.911 +07:00 [INF] Route matched with {action = "GetShipperById", controller = "Shipper"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[BepKhoiBackend.BusinessObject.dtos.UserDto.ShipperDto.ShipperDTO] GetShipperById(Int32) on controller BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers.ShipperController (BepKhoiBackend.API).
+2025-03-20 19:26:21.925 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-03-20 19:26:21.946 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[User_id], [u].[create_date], [u].[email], [u].[isDelete], [u].[is_verify], [u].[password], [u].[phone], [u].[role_id], [u].[status], [u].[user_information_id], [u0].[User_information_id], [u0].[Address], [u0].[Date_of_birth], [u0].[District], [u0].[Province_City], [u0].[User_name], [u0].[Ward_Commune], [u1].[role_id], [u1].[isDelete], [u1].[role_name]
+FROM [User] AS [u]
+INNER JOIN [User_information] AS [u0] ON [u].[user_information_id] = [u0].[User_information_id]
+INNER JOIN [User_role] AS [u1] ON [u].[role_id] = [u1].[role_id]
+WHERE (([u].[User_id] = @__id_0) AND ([u].[role_id] = 3)) AND (([u].[isDelete] = CAST(0 AS bit)) OR ([u].[isDelete] IS NULL))
+2025-03-20 19:26:21.948 +07:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2025-03-20 19:26:21.949 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers.ShipperController.GetShipperById (BepKhoiBackend.API) in 35.7306ms
+2025-03-20 19:26:21.951 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers.ShipperController.GetShipperById (BepKhoiBackend.API)'
+2025-03-20 19:26:21.952 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/api/Shipper/3 - - - 404 - text/plain;+charset=utf-8 51.8901ms
+2025-03-20 19:26:34.421 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/api/Shipper/4 - -
+2025-03-20 19:26:34.426 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers.ShipperController.GetShipperById (BepKhoiBackend.API)'
+2025-03-20 19:26:34.427 +07:00 [INF] Route matched with {action = "GetShipperById", controller = "Shipper"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[BepKhoiBackend.BusinessObject.dtos.UserDto.ShipperDto.ShipperDTO] GetShipperById(Int32) on controller BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers.ShipperController (BepKhoiBackend.API).
+2025-03-20 19:26:34.482 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-03-20 19:26:34.494 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[User_id], [u].[create_date], [u].[email], [u].[isDelete], [u].[is_verify], [u].[password], [u].[phone], [u].[role_id], [u].[status], [u].[user_information_id], [u0].[User_information_id], [u0].[Address], [u0].[Date_of_birth], [u0].[District], [u0].[Province_City], [u0].[User_name], [u0].[Ward_Commune], [u1].[role_id], [u1].[isDelete], [u1].[role_name]
+FROM [User] AS [u]
+INNER JOIN [User_information] AS [u0] ON [u].[user_information_id] = [u0].[User_information_id]
+INNER JOIN [User_role] AS [u1] ON [u].[role_id] = [u1].[role_id]
+WHERE (([u].[User_id] = @__id_0) AND ([u].[role_id] = 3)) AND (([u].[isDelete] = CAST(0 AS bit)) OR ([u].[isDelete] IS NULL))
+2025-03-20 19:26:34.496 +07:00 [INF] Executing OkObjectResult, writing value of type 'BepKhoiBackend.BusinessObject.dtos.UserDto.ShipperDto.GetShipperDTO'.
+2025-03-20 19:26:34.499 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers.ShipperController.GetShipperById (BepKhoiBackend.API) in 70.3341ms
+2025-03-20 19:26:34.500 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers.ShipperController.GetShipperById (BepKhoiBackend.API)'
+2025-03-20 19:26:34.501 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/api/Shipper/4 - - - 200 - application/json;+charset=utf-8 79.9047ms
+2025-03-20 19:49:55.104 +07:00 [INF] User profile is available. Using 'C:\Users\Asus\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-20 19:49:55.270 +07:00 [INF] Now listening on: https://localhost:7257
+2025-03-20 19:49:55.272 +07:00 [INF] Now listening on: http://localhost:5287
+2025-03-20 19:49:55.275 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-20 19:49:55.275 +07:00 [INF] Hosting environment: Development
+2025-03-20 19:49:55.276 +07:00 [INF] Content root path: E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\
+2025-03-20 19:49:55.417 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-03-20 19:49:55.673 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 258.1509ms
+2025-03-20 19:49:55.691 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-03-20 19:49:55.691 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-03-20 19:49:55.695 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 12006 application/javascript;+charset=utf-8 3.6279ms
+2025-03-20 19:49:55.708 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 16.8197ms
+2025-03-20 19:49:56.427 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-03-20 19:49:56.569 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 142.7858ms
+2025-03-20 19:50:10.773 +07:00 [INF] User profile is available. Using 'C:\Users\Asus\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-20 19:50:10.933 +07:00 [INF] Now listening on: https://localhost:7257
+2025-03-20 19:50:10.934 +07:00 [INF] Now listening on: http://localhost:5287
+2025-03-20 19:50:10.937 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-20 19:50:10.937 +07:00 [INF] Hosting environment: Development
+2025-03-20 19:50:10.938 +07:00 [INF] Content root path: E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\
+2025-03-20 19:50:22.532 +07:00 [INF] User profile is available. Using 'C:\Users\Asus\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-20 19:50:22.674 +07:00 [INF] Now listening on: https://localhost:7257
+2025-03-20 19:50:22.675 +07:00 [INF] Now listening on: http://localhost:5287
+2025-03-20 19:50:22.680 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-20 19:50:22.680 +07:00 [INF] Hosting environment: Development
+2025-03-20 19:50:22.681 +07:00 [INF] Content root path: E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\
+2025-03-20 19:50:23.076 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-03-20 19:50:23.319 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 246.7308ms
+2025-03-20 19:50:23.328 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-03-20 19:50:23.337 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 12006 application/javascript;+charset=utf-8 6.9525ms
+2025-03-20 19:50:23.559 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-03-20 19:50:23.595 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 36.0954ms
+2025-03-20 19:50:24.531 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-03-20 19:50:24.720 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 189.0738ms
+2025-03-20 19:52:18.794 +07:00 [INF] Request starting HTTP/2 PUT https://localhost:7257/api/Shipper/6 application/json 339
+2025-03-20 19:52:18.823 +07:00 [INF] CORS policy execution failed.
+2025-03-20 19:52:18.824 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-03-20 19:52:18.850 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers.ShipperController.UpdateShipper (BepKhoiBackend.API)'
+2025-03-20 19:52:18.865 +07:00 [INF] Route matched with {action = "UpdateShipper", controller = "Shipper"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UpdateShipper(Int32, BepKhoiBackend.BusinessObject.dtos.UserDto.ShipperDto.UpdateShipperDTO) on controller BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers.ShipperController (BepKhoiBackend.API).
+2025-03-20 19:52:19.877 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-03-20 19:52:20.371 +07:00 [INF] Executed DbCommand (42ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[User_id], [u].[create_date], [u].[email], [u].[isDelete], [u].[is_verify], [u].[password], [u].[phone], [u].[role_id], [u].[status], [u].[user_information_id], [u0].[User_information_id], [u0].[Address], [u0].[Date_of_birth], [u0].[District], [u0].[Province_City], [u0].[User_name], [u0].[Ward_Commune]
+FROM [User] AS [u]
+INNER JOIN [User_information] AS [u0] ON [u].[user_information_id] = [u0].[User_information_id]
+WHERE ([u].[User_id] = @__userId_0) AND ([u].[role_id] = 3)
+2025-03-20 19:52:20.610 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers.ShipperController.UpdateShipper (BepKhoiBackend.API) in 1740.2809ms
+2025-03-20 19:52:20.613 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers.ShipperController.UpdateShipper (BepKhoiBackend.API)'
+2025-03-20 19:52:20.615 +07:00 [ERR] Error: Invalid salt version
+2025-03-20 19:52:20.627 +07:00 [INF] Request finished HTTP/2 PUT https://localhost:7257/api/Shipper/6 application/json 339 - 500 - application/json 1833.1980ms
+2025-03-20 19:54:57.762 +07:00 [INF] Request starting HTTP/2 PUT https://localhost:7257/api/Shipper/4 application/json 360
+2025-03-20 19:54:57.769 +07:00 [INF] CORS policy execution failed.
+2025-03-20 19:54:57.770 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-03-20 19:54:57.771 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers.ShipperController.UpdateShipper (BepKhoiBackend.API)'
+2025-03-20 19:54:57.773 +07:00 [INF] Route matched with {action = "UpdateShipper", controller = "Shipper"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UpdateShipper(Int32, BepKhoiBackend.BusinessObject.dtos.UserDto.ShipperDto.UpdateShipperDTO) on controller BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers.ShipperController (BepKhoiBackend.API).
+2025-03-20 19:54:57.788 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-03-20 19:54:57.807 +07:00 [INF] Executed DbCommand (13ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[User_id], [u].[create_date], [u].[email], [u].[isDelete], [u].[is_verify], [u].[password], [u].[phone], [u].[role_id], [u].[status], [u].[user_information_id], [u0].[User_information_id], [u0].[Address], [u0].[Date_of_birth], [u0].[District], [u0].[Province_City], [u0].[User_name], [u0].[Ward_Commune]
+FROM [User] AS [u]
+INNER JOIN [User_information] AS [u0] ON [u].[user_information_id] = [u0].[User_information_id]
+WHERE ([u].[User_id] = @__userId_0) AND ([u].[role_id] = 3)
+2025-03-20 19:54:57.810 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers.ShipperController.UpdateShipper (BepKhoiBackend.API) in 35.7155ms
+2025-03-20 19:54:57.812 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers.ShipperController.UpdateShipper (BepKhoiBackend.API)'
+2025-03-20 19:54:57.812 +07:00 [ERR] Error: Invalid salt version
+2025-03-20 19:54:57.813 +07:00 [INF] Request finished HTTP/2 PUT https://localhost:7257/api/Shipper/4 application/json 360 - 500 - application/json 51.4375ms
+2025-03-20 19:56:15.006 +07:00 [INF] User profile is available. Using 'C:\Users\Asus\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-20 19:56:15.123 +07:00 [INF] Now listening on: https://localhost:7257
+2025-03-20 19:56:15.124 +07:00 [INF] Now listening on: http://localhost:5287
+2025-03-20 19:56:15.127 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-20 19:56:15.128 +07:00 [INF] Hosting environment: Development
+2025-03-20 19:56:15.128 +07:00 [INF] Content root path: E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\
+2025-03-20 19:56:15.682 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-03-20 19:56:15.982 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-03-20 19:56:15.986 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 307.2178ms
+2025-03-20 19:56:15.987 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 12006 application/javascript;+charset=utf-8 5.5888ms
+2025-03-20 19:56:16.282 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-03-20 19:56:16.317 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 34.7511ms
+2025-03-20 19:56:17.043 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-03-20 19:56:17.208 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 164.6856ms
+2025-03-20 19:58:03.753 +07:00 [INF] Request starting HTTP/2 PUT https://localhost:7257/api/Shipper/4 application/json 360
+2025-03-20 19:58:03.783 +07:00 [INF] CORS policy execution failed.
+2025-03-20 19:58:03.784 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-03-20 19:58:03.810 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers.ShipperController.UpdateShipper (BepKhoiBackend.API)'
+2025-03-20 19:58:03.825 +07:00 [INF] Route matched with {action = "UpdateShipper", controller = "Shipper"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UpdateShipper(Int32, BepKhoiBackend.BusinessObject.dtos.UserDto.ShipperDto.UpdateShipperDTO) on controller BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers.ShipperController (BepKhoiBackend.API).
+2025-03-20 19:58:04.674 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-03-20 19:58:05.129 +07:00 [INF] Executed DbCommand (39ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[User_id], [u].[create_date], [u].[email], [u].[isDelete], [u].[is_verify], [u].[password], [u].[phone], [u].[role_id], [u].[status], [u].[user_information_id], [u0].[User_information_id], [u0].[Address], [u0].[Date_of_birth], [u0].[District], [u0].[Province_City], [u0].[User_name], [u0].[Ward_Commune]
+FROM [User] AS [u]
+INNER JOIN [User_information] AS [u0] ON [u].[user_information_id] = [u0].[User_information_id]
+WHERE ([u].[User_id] = @__userId_0) AND ([u].[role_id] = 3)
+2025-03-20 19:58:05.259 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers.ShipperController.UpdateShipper (BepKhoiBackend.API) in 1426.446ms
+2025-03-20 19:58:05.261 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers.ShipperController.UpdateShipper (BepKhoiBackend.API)'
+2025-03-20 19:58:05.264 +07:00 [ERR] Error: Invalid salt version
+2025-03-20 19:58:05.280 +07:00 [INF] Request finished HTTP/2 PUT https://localhost:7257/api/Shipper/4 application/json 360 - 500 - application/json 1526.2669ms
+2025-03-20 20:15:59.826 +07:00 [INF] User profile is available. Using 'C:\Users\Asus\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-20 20:15:59.947 +07:00 [INF] Now listening on: https://localhost:7257
+2025-03-20 20:15:59.948 +07:00 [INF] Now listening on: http://localhost:5287
+2025-03-20 20:15:59.952 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-20 20:15:59.952 +07:00 [INF] Hosting environment: Development
+2025-03-20 20:15:59.953 +07:00 [INF] Content root path: E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\
+2025-03-20 20:16:00.360 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-03-20 20:16:00.598 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 240.4738ms
+2025-03-20 20:16:00.929 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-03-20 20:16:00.929 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-03-20 20:16:00.936 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 12006 application/javascript;+charset=utf-8 7.0698ms
+2025-03-20 20:16:00.947 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 17.8513ms
+2025-03-20 20:16:01.327 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-03-20 20:16:01.476 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 149.1296ms
+2025-03-20 20:27:42.164 +07:00 [INF] User profile is available. Using 'C:\Users\Asus\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-20 20:27:42.333 +07:00 [INF] Now listening on: https://localhost:7257
+2025-03-20 20:27:42.335 +07:00 [INF] Now listening on: http://localhost:5287
+2025-03-20 20:27:42.338 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-20 20:27:42.339 +07:00 [INF] Hosting environment: Development
+2025-03-20 20:27:42.340 +07:00 [INF] Content root path: E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\
+2025-03-20 20:27:42.702 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-03-20 20:27:43.007 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 308.0972ms
+2025-03-20 20:27:43.013 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-03-20 20:27:43.018 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 12006 application/javascript;+charset=utf-8 5.0805ms
+2025-03-20 20:27:43.283 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-03-20 20:27:43.314 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 30.2276ms
+2025-03-20 20:27:44.103 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-03-20 20:27:44.293 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 189.7006ms
+2025-03-20 20:28:57.497 +07:00 [INF] Request starting HTTP/2 PUT https://localhost:7257/api/Shipper/4 application/json 260
+2025-03-20 20:28:57.551 +07:00 [INF] CORS policy execution failed.
+2025-03-20 20:28:57.553 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-03-20 20:28:57.581 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers.ShipperController.UpdateShipper (BepKhoiBackend.API)'
+2025-03-20 20:28:57.604 +07:00 [INF] Route matched with {action = "UpdateShipper", controller = "Shipper"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UpdateShipper(Int32, BepKhoiBackend.BusinessObject.dtos.UserDto.ShipperDto.UpdateShipperDTO) on controller BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers.ShipperController (BepKhoiBackend.API).
+2025-03-20 20:28:58.487 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-03-20 20:28:59.123 +07:00 [INF] Executed DbCommand (127ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[User_id], [u].[create_date], [u].[email], [u].[isDelete], [u].[is_verify], [u].[password], [u].[phone], [u].[role_id], [u].[status], [u].[user_information_id], [u0].[User_information_id], [u0].[Address], [u0].[Date_of_birth], [u0].[District], [u0].[Province_City], [u0].[User_name], [u0].[Ward_Commune]
+FROM [User] AS [u]
+INNER JOIN [User_information] AS [u0] ON [u].[user_information_id] = [u0].[User_information_id]
+WHERE ([u].[User_id] = @__userId_0) AND ([u].[role_id] = 3)
+2025-03-20 20:28:59.489 +07:00 [INF] Executed DbCommand (188ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (Size = 255), @p1='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [User] SET [email] = @p0, [is_verify] = @p1
+WHERE [User_id] = @p2;
+SELECT @@ROWCOUNT;
+2025-03-20 20:28:59.500 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [User_information] SET [Date_of_birth] = @p0
+WHERE [User_information_id] = @p1;
+SELECT @@ROWCOUNT;
+2025-03-20 20:28:59.521 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-03-20 20:28:59.532 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers.ShipperController.UpdateShipper (BepKhoiBackend.API) in 1920.5783ms
+2025-03-20 20:28:59.533 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers.ShipperController.UpdateShipper (BepKhoiBackend.API)'
+2025-03-20 20:28:59.540 +07:00 [INF] Request finished HTTP/2 PUT https://localhost:7257/api/Shipper/4 application/json 260 - 200 - text/plain;+charset=utf-8 2042.6714ms
+2025-03-20 20:33:24.559 +07:00 [INF] User profile is available. Using 'C:\Users\Asus\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-20 20:33:24.691 +07:00 [INF] Now listening on: https://localhost:7257
+2025-03-20 20:33:24.692 +07:00 [INF] Now listening on: http://localhost:5287
+2025-03-20 20:33:24.695 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-20 20:33:24.695 +07:00 [INF] Hosting environment: Development
+2025-03-20 20:33:24.696 +07:00 [INF] Content root path: E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\
+2025-03-20 20:33:25.084 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-03-20 20:33:25.357 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 275.9273ms
+2025-03-20 20:33:25.364 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-03-20 20:33:25.364 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-03-20 20:33:25.369 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 12006 application/javascript;+charset=utf-8 4.5371ms
+2025-03-20 20:33:25.428 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 63.7670ms
+2025-03-20 20:33:26.540 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-03-20 20:33:26.666 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 126.0449ms
+2025-03-20 20:34:36.230 +07:00 [INF] Request starting HTTP/2 PUT https://localhost:7257/api/cashiers/2 application/json 266
+2025-03-20 20:34:36.269 +07:00 [INF] CORS policy execution failed.
+2025-03-20 20:34:36.271 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-03-20 20:34:36.296 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController.UpdateCashier (BepKhoiBackend.API)'
+2025-03-20 20:34:36.313 +07:00 [INF] Route matched with {action = "UpdateCashier", controller = "Cashier"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UpdateCashier(Int32, BepKhoiBackend.BusinessObject.dtos.UserDto.CashierDto.UpdateCashierDTO) on controller BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController (BepKhoiBackend.API).
+2025-03-20 20:34:37.157 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-03-20 20:34:37.660 +07:00 [INF] Executed DbCommand (29ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[User_id], [u].[create_date], [u].[email], [u].[isDelete], [u].[is_verify], [u].[password], [u].[phone], [u].[role_id], [u].[status], [u].[user_information_id], [u0].[User_information_id], [u0].[Address], [u0].[Date_of_birth], [u0].[District], [u0].[Province_City], [u0].[User_name], [u0].[Ward_Commune]
+FROM [User] AS [u]
+INNER JOIN [User_information] AS [u0] ON [u].[user_information_id] = [u0].[User_information_id]
+WHERE ([u].[User_id] = @__userId_0) AND ([u].[role_id] = 2)
+2025-03-20 20:34:37.912 +07:00 [INF] Executed DbCommand (103ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (Size = 255), @p1='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [User] SET [email] = @p0, [is_verify] = @p1
+WHERE [User_id] = @p2;
+SELECT @@ROWCOUNT;
+2025-03-20 20:34:37.923 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = Date), @p1='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [User_information] SET [Date_of_birth] = @p0, [User_name] = @p1
+WHERE [User_information_id] = @p2;
+SELECT @@ROWCOUNT;
+2025-03-20 20:34:37.954 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-03-20 20:34:37.962 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController.UpdateCashier (BepKhoiBackend.API) in 1644.0933ms
+2025-03-20 20:34:37.965 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController.UpdateCashier (BepKhoiBackend.API)'
+2025-03-20 20:34:37.969 +07:00 [INF] Request finished HTTP/2 PUT https://localhost:7257/api/cashiers/2 application/json 266 - 200 - text/plain;+charset=utf-8 1739.3301ms
+2025-03-20 20:43:20.904 +07:00 [INF] User profile is available. Using 'C:\Users\Asus\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-20 20:43:21.060 +07:00 [INF] Now listening on: https://localhost:7257
+2025-03-20 20:43:21.061 +07:00 [INF] Now listening on: http://localhost:5287
+2025-03-20 20:43:21.064 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-20 20:43:21.064 +07:00 [INF] Hosting environment: Development
+2025-03-20 20:43:21.065 +07:00 [INF] Content root path: E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\
+2025-03-20 20:43:21.194 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-03-20 20:43:21.448 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 256.0524ms
+2025-03-20 20:43:21.453 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-03-20 20:43:21.453 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-03-20 20:43:21.456 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 12006 application/javascript;+charset=utf-8 3.7530ms
+2025-03-20 20:43:21.464 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 11.3699ms
+2025-03-20 20:43:22.522 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-03-20 20:43:22.685 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 163.0166ms
+2025-03-20 20:43:47.785 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/api/Manager/1 - -
+2025-03-20 20:43:47.859 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.UserControllers.ManagerControllers.ManagerController.GetManagerById (BepKhoiBackend.API)'
+2025-03-20 20:43:47.882 +07:00 [INF] Route matched with {action = "GetManagerById", controller = "Manager"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetManagerById(Int32) on controller BepKhoiBackend.API.Controllers.UserControllers.ManagerControllers.ManagerController (BepKhoiBackend.API).
+2025-03-20 20:43:47.890 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.UserControllers.ManagerControllers.ManagerController.GetManagerById (BepKhoiBackend.API) in 2.5029ms
+2025-03-20 20:43:47.894 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.UserControllers.ManagerControllers.ManagerController.GetManagerById (BepKhoiBackend.API)'
+2025-03-20 20:43:47.896 +07:00 [ERR] Error: Unable to resolve service for type 'BepKhoiBackend.BusinessObject.Services.UserService.ManagerService.IManagerService' while attempting to activate 'BepKhoiBackend.API.Controllers.UserControllers.ManagerControllers.ManagerController'.
+2025-03-20 20:43:47.909 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/api/Manager/1 - - - 500 - application/json 124.1526ms
+2025-03-20 20:44:51.605 +07:00 [INF] User profile is available. Using 'C:\Users\Asus\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-20 20:44:51.758 +07:00 [INF] Now listening on: https://localhost:7257
+2025-03-20 20:44:51.759 +07:00 [INF] Now listening on: http://localhost:5287
+2025-03-20 20:44:51.766 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-20 20:44:51.767 +07:00 [INF] Hosting environment: Development
+2025-03-20 20:44:51.768 +07:00 [INF] Content root path: E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\
+2025-03-20 20:44:52.358 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-03-20 20:44:52.671 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 316.0002ms
+2025-03-20 20:44:52.673 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-03-20 20:44:52.673 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-03-20 20:44:52.678 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 12006 application/javascript;+charset=utf-8 4.3379ms
+2025-03-20 20:44:52.703 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 29.7422ms
+2025-03-20 20:44:53.287 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-03-20 20:44:53.473 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 186.5505ms
+2025-03-20 20:44:57.352 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/api/Manager/1 - -
+2025-03-20 20:44:57.400 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.UserControllers.ManagerControllers.ManagerController.GetManagerById (BepKhoiBackend.API)'
+2025-03-20 20:44:57.421 +07:00 [INF] Route matched with {action = "GetManagerById", controller = "Manager"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetManagerById(Int32) on controller BepKhoiBackend.API.Controllers.UserControllers.ManagerControllers.ManagerController (BepKhoiBackend.API).
+2025-03-20 20:44:58.302 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-03-20 20:44:58.792 +07:00 [INF] Executed DbCommand (36ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[User_id], [u].[create_date], [u].[email], [u].[isDelete], [u].[is_verify], [u].[password], [u].[phone], [u].[role_id], [u].[status], [u].[user_information_id], [u0].[User_information_id], [u0].[Address], [u0].[Date_of_birth], [u0].[District], [u0].[Province_City], [u0].[User_name], [u0].[Ward_Commune], [u1].[role_id], [u1].[isDelete], [u1].[role_name]
+FROM [User] AS [u]
+INNER JOIN [User_information] AS [u0] ON [u].[user_information_id] = [u0].[User_information_id]
+INNER JOIN [User_role] AS [u1] ON [u].[role_id] = [u1].[role_id]
+WHERE (([u].[User_id] = @__id_0) AND ([u].[role_id] = 1)) AND (([u].[isDelete] = CAST(0 AS bit)) OR ([u].[isDelete] IS NULL))
+2025-03-20 20:44:58.896 +07:00 [INF] Executing OkObjectResult, writing value of type 'BepKhoiBackend.DataAccess.Models.User'.
+2025-03-20 20:44:58.938 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.UserControllers.ManagerControllers.ManagerController.GetManagerById (BepKhoiBackend.API) in 1512.5644ms
+2025-03-20 20:44:58.941 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.UserControllers.ManagerControllers.ManagerController.GetManagerById (BepKhoiBackend.API)'
+2025-03-20 20:44:58.942 +07:00 [ERR] Error: A possible object cycle was detected. This can either be due to a cycle or if the object depth is larger than the maximum allowed depth of 32. Consider using ReferenceHandler.Preserve on JsonSerializerOptions to support cycles. Path: $.Role.Users.Role.Users.Role.Users.Role.Users.Role.Users.Role.Users.Role.Users.Role.Users.Role.Users.Role.Users.Role.RoleId.
+2025-03-20 20:44:58.953 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/api/Manager/1 - - - 500 - application/json 1601.1211ms
+2025-03-20 20:45:12.616 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/api/cashiers/3 - -
+2025-03-20 20:45:12.621 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController.GetCashierById (BepKhoiBackend.API)'
+2025-03-20 20:45:12.624 +07:00 [INF] Route matched with {action = "GetCashierById", controller = "Cashier"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[BepKhoiBackend.BusinessObject.dtos.UserDto.CashierDto.CashierDTO] GetCashierById(Int32) on controller BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController (BepKhoiBackend.API).
+2025-03-20 20:45:12.642 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-03-20 20:45:12.668 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[User_id], [u].[create_date], [u].[email], [u].[isDelete], [u].[is_verify], [u].[password], [u].[phone], [u].[role_id], [u].[status], [u].[user_information_id], [u0].[User_information_id], [u0].[Address], [u0].[Date_of_birth], [u0].[District], [u0].[Province_City], [u0].[User_name], [u0].[Ward_Commune], [u1].[role_id], [u1].[isDelete], [u1].[role_name]
+FROM [User] AS [u]
+INNER JOIN [User_information] AS [u0] ON [u].[user_information_id] = [u0].[User_information_id]
+INNER JOIN [User_role] AS [u1] ON [u].[role_id] = [u1].[role_id]
+WHERE (([u].[User_id] = @__id_0) AND ([u].[role_id] = 2)) AND (([u].[isDelete] = CAST(0 AS bit)) OR ([u].[isDelete] IS NULL))
+2025-03-20 20:45:12.673 +07:00 [INF] Executing NotFoundObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-03-20 20:45:12.674 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController.GetCashierById (BepKhoiBackend.API) in 48.2864ms
+2025-03-20 20:45:12.675 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController.GetCashierById (BepKhoiBackend.API)'
+2025-03-20 20:45:12.676 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/api/cashiers/3 - - - 404 - application/json;+charset=utf-8 60.3380ms
+2025-03-20 20:45:14.672 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/api/cashiers/4 - -
+2025-03-20 20:45:14.678 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController.GetCashierById (BepKhoiBackend.API)'
+2025-03-20 20:45:14.679 +07:00 [INF] Route matched with {action = "GetCashierById", controller = "Cashier"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[BepKhoiBackend.BusinessObject.dtos.UserDto.CashierDto.CashierDTO] GetCashierById(Int32) on controller BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController (BepKhoiBackend.API).
+2025-03-20 20:45:14.742 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-03-20 20:45:14.751 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[User_id], [u].[create_date], [u].[email], [u].[isDelete], [u].[is_verify], [u].[password], [u].[phone], [u].[role_id], [u].[status], [u].[user_information_id], [u0].[User_information_id], [u0].[Address], [u0].[Date_of_birth], [u0].[District], [u0].[Province_City], [u0].[User_name], [u0].[Ward_Commune], [u1].[role_id], [u1].[isDelete], [u1].[role_name]
+FROM [User] AS [u]
+INNER JOIN [User_information] AS [u0] ON [u].[user_information_id] = [u0].[User_information_id]
+INNER JOIN [User_role] AS [u1] ON [u].[role_id] = [u1].[role_id]
+WHERE (([u].[User_id] = @__id_0) AND ([u].[role_id] = 2)) AND (([u].[isDelete] = CAST(0 AS bit)) OR ([u].[isDelete] IS NULL))
+2025-03-20 20:45:14.752 +07:00 [INF] Executing NotFoundObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-03-20 20:45:14.753 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController.GetCashierById (BepKhoiBackend.API) in 72.4083ms
+2025-03-20 20:45:14.754 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController.GetCashierById (BepKhoiBackend.API)'
+2025-03-20 20:45:14.754 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/api/cashiers/4 - - - 404 - application/json;+charset=utf-8 81.6514ms
+2025-03-20 20:45:17.116 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/api/cashiers/2 - -
+2025-03-20 20:45:17.117 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController.GetCashierById (BepKhoiBackend.API)'
+2025-03-20 20:45:17.119 +07:00 [INF] Route matched with {action = "GetCashierById", controller = "Cashier"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[BepKhoiBackend.BusinessObject.dtos.UserDto.CashierDto.CashierDTO] GetCashierById(Int32) on controller BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController (BepKhoiBackend.API).
+2025-03-20 20:45:17.123 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-03-20 20:45:17.132 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[User_id], [u].[create_date], [u].[email], [u].[isDelete], [u].[is_verify], [u].[password], [u].[phone], [u].[role_id], [u].[status], [u].[user_information_id], [u0].[User_information_id], [u0].[Address], [u0].[Date_of_birth], [u0].[District], [u0].[Province_City], [u0].[User_name], [u0].[Ward_Commune], [u1].[role_id], [u1].[isDelete], [u1].[role_name]
+FROM [User] AS [u]
+INNER JOIN [User_information] AS [u0] ON [u].[user_information_id] = [u0].[User_information_id]
+INNER JOIN [User_role] AS [u1] ON [u].[role_id] = [u1].[role_id]
+WHERE (([u].[User_id] = @__id_0) AND ([u].[role_id] = 2)) AND (([u].[isDelete] = CAST(0 AS bit)) OR ([u].[isDelete] IS NULL))
+2025-03-20 20:45:17.138 +07:00 [INF] Executing OkObjectResult, writing value of type 'BepKhoiBackend.BusinessObject.dtos.UserDto.CashierDto.GetCashierDTO'.
+2025-03-20 20:45:17.142 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController.GetCashierById (BepKhoiBackend.API) in 21.5141ms
+2025-03-20 20:45:17.144 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController.GetCashierById (BepKhoiBackend.API)'
+2025-03-20 20:45:17.145 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/api/cashiers/2 - - - 200 - application/json;+charset=utf-8 28.7603ms
+2025-03-20 20:52:55.050 +07:00 [INF] User profile is available. Using 'C:\Users\Asus\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-20 20:52:55.210 +07:00 [INF] Now listening on: https://localhost:7257
+2025-03-20 20:52:55.211 +07:00 [INF] Now listening on: http://localhost:5287
+2025-03-20 20:52:55.215 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-20 20:52:55.216 +07:00 [INF] Hosting environment: Development
+2025-03-20 20:52:55.217 +07:00 [INF] Content root path: E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\
+2025-03-20 20:52:55.650 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-03-20 20:52:55.883 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-03-20 20:52:55.883 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-03-20 20:52:55.883 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 235.8404ms
+2025-03-20 20:52:55.889 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 12006 application/javascript;+charset=utf-8 5.5075ms
+2025-03-20 20:52:55.900 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 16.6610ms
+2025-03-20 20:52:56.493 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-03-20 20:52:56.636 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 143.0925ms
+2025-03-20 20:53:01.932 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/api/Manager/1 - -
+2025-03-20 20:53:02.001 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.UserControllers.ManagerControllers.ManagerController.GetManagerById (BepKhoiBackend.API)'
+2025-03-20 20:53:02.018 +07:00 [INF] Route matched with {action = "GetManagerById", controller = "Manager"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetManagerById(Int32) on controller BepKhoiBackend.API.Controllers.UserControllers.ManagerControllers.ManagerController (BepKhoiBackend.API).
+2025-03-20 20:53:02.855 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-03-20 20:53:03.328 +07:00 [INF] Executed DbCommand (34ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[User_id], [u].[create_date], [u].[email], [u].[isDelete], [u].[is_verify], [u].[password], [u].[phone], [u].[role_id], [u].[status], [u].[user_information_id], [u0].[User_information_id], [u0].[Address], [u0].[Date_of_birth], [u0].[District], [u0].[Province_City], [u0].[User_name], [u0].[Ward_Commune], [u1].[role_id], [u1].[isDelete], [u1].[role_name]
+FROM [User] AS [u]
+INNER JOIN [User_information] AS [u0] ON [u].[user_information_id] = [u0].[User_information_id]
+INNER JOIN [User_role] AS [u1] ON [u].[role_id] = [u1].[role_id]
+WHERE (([u].[User_id] = @__id_0) AND ([u].[role_id] = 1)) AND (([u].[isDelete] = CAST(0 AS bit)) OR ([u].[isDelete] IS NULL))
+2025-03-20 20:53:03.429 +07:00 [INF] Executing OkObjectResult, writing value of type 'BepKhoiBackend.BusinessObject.dtos.UserDto.ManagerDto.GetManagerDTO'.
+2025-03-20 20:53:03.448 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.UserControllers.ManagerControllers.ManagerController.GetManagerById (BepKhoiBackend.API) in 1424.429ms
+2025-03-20 20:53:03.450 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.UserControllers.ManagerControllers.ManagerController.GetManagerById (BepKhoiBackend.API)'
+2025-03-20 20:53:03.454 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/api/Manager/1 - - - 200 - application/json;+charset=utf-8 1521.6981ms
+2025-03-20 20:54:19.748 +07:00 [INF] Request starting HTTP/2 PUT https://localhost:7257/api/Manager/1 application/json 258
+2025-03-20 20:54:19.757 +07:00 [INF] CORS policy execution failed.
+2025-03-20 20:54:19.760 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-03-20 20:54:19.763 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.UserControllers.ManagerControllers.ManagerController.UpdateManager (BepKhoiBackend.API)'
+2025-03-20 20:54:19.769 +07:00 [INF] Route matched with {action = "UpdateManager", controller = "Manager"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UpdateManager(Int32, BepKhoiBackend.BusinessObject.dtos.UserDto.ManagerDto.UpdateManagerDTO) on controller BepKhoiBackend.API.Controllers.UserControllers.ManagerControllers.ManagerController (BepKhoiBackend.API).
+2025-03-20 20:54:19.840 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-03-20 20:54:19.860 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[User_id], [u].[create_date], [u].[email], [u].[isDelete], [u].[is_verify], [u].[password], [u].[phone], [u].[role_id], [u].[status], [u].[user_information_id], [u0].[User_information_id], [u0].[Address], [u0].[Date_of_birth], [u0].[District], [u0].[Province_City], [u0].[User_name], [u0].[Ward_Commune]
+FROM [User] AS [u]
+INNER JOIN [User_information] AS [u0] ON [u].[user_information_id] = [u0].[User_information_id]
+WHERE ([u].[User_id] = @__userId_0) AND ([u].[role_id] = 1)
+2025-03-20 20:54:20.010 +07:00 [INF] Executed DbCommand (59ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (Size = 20)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [User] SET [phone] = @p0
+WHERE [User_id] = @p1;
+SELECT @@ROWCOUNT;
+2025-03-20 20:54:20.024 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [User_information] SET [User_name] = @p0
+WHERE [User_information_id] = @p1;
+SELECT @@ROWCOUNT;
+2025-03-20 20:54:20.048 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-03-20 20:54:20.053 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.UserControllers.ManagerControllers.ManagerController.UpdateManager (BepKhoiBackend.API) in 264.1039ms
+2025-03-20 20:54:20.055 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.UserControllers.ManagerControllers.ManagerController.UpdateManager (BepKhoiBackend.API)'
+2025-03-20 20:54:20.057 +07:00 [INF] Request finished HTTP/2 PUT https://localhost:7257/api/Manager/1 application/json 258 - 200 - text/plain;+charset=utf-8 308.3554ms

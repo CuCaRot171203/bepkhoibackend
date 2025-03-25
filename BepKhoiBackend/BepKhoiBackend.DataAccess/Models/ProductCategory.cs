@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace BepKhoiBackend.DataAccess.Models
+﻿namespace BepKhoiBackend.DataAccess.Models
 {
     public partial class ProductCategory
     {
