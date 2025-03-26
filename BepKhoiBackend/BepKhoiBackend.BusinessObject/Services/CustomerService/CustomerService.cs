@@ -69,6 +69,8 @@ namespace BepKhoiBackend.BusinessObject.Services.CustomerService
         {
             var customers = _customerRepository.GetAllCustomers();
 
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+
             using (var package = new ExcelPackage())
             {
                 var worksheet = package.Workbook.Worksheets.Add("Customers");

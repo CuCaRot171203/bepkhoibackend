@@ -1,6 +1,7 @@
 ﻿using BepKhoiBackend.BusinessObject.dtos.UserDto.CashierDto;
 using BepKhoiBackend.DataAccess.Models;
 using BepKhoiBackend.DataAccess.Repository.UserRepository.CashierRepository;
+using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -100,9 +101,10 @@ namespace BepKhoiBackend.BusinessObject.Services.UserService.CashierService
             }).ToList();
         }
 
-        public List<CashierDTO> GetCashiersByNameOrPhone(string searchTerm)
+        public List<CashierDTO> GetCashiers(string? searchTerm, bool? status)
         {
-            var cashiers = _cashierRepository.GetCashiersByNameOrPhone(searchTerm);
+            var cashiers = _cashierRepository.GetCashiers(searchTerm, status);
+
             return cashiers
                 .Where(c => c.UserInformation != null)
                 .Select(c => new CashierDTO
@@ -113,18 +115,36 @@ namespace BepKhoiBackend.BusinessObject.Services.UserService.CashierService
                     Status = c.Status
                 }).ToList();
         }
-
-        public List<CashierDTO> GetCashierByStatus(bool status)
+        public byte[] ExportCashiersToExcel()
         {
-            return _cashierRepository.GetCashiersSortedByStatus(status)
-                .Where(c => c.UserInformation != null)
-                .Select(c => new CashierDTO
+            var cashiers = _cashierRepository.GetAllCashiers();
+
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+
+            using (var package = new ExcelPackage())
+            {
+                var worksheet = package.Workbook.Worksheets.Add("Cashiers");
+
+                // Thêm tiêu đề
+                worksheet.Cells[1, 1].Value = "Cashier ID";
+                worksheet.Cells[1, 2].Value = "Cashier Name";
+                worksheet.Cells[1, 3].Value = "Phone";
+                worksheet.Cells[1, 4].Value = "Total Invoices";
+
+                // Đổ dữ liệu
+                int row = 2;
+                foreach (var cashier in cashiers)
                 {
-                    UserId = c.UserId,
-                    UserName = c.UserInformation?.UserName ?? "Unknown",
-                    Status = c.Status,
-                    Phone = c.Phone
-                }).ToList();
+                    worksheet.Cells[row, 1].Value = cashier.UserId;
+                    worksheet.Cells[row, 2].Value = cashier.UserInformation.UserName;
+                    worksheet.Cells[row, 3].Value = cashier.Phone;
+                    worksheet.Cells[row, 4].Value = cashier.InvoiceCashiers.Count; // Tổng số đơn hàng mà Cashier xử lý
+                    row++;
+                }
+
+                return package.GetAsByteArray();
+            }
         }
+
     }
 }

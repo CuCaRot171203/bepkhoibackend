@@ -102,17 +102,16 @@ namespace BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers
             return Ok(new { ShipperId = id, Invoices = invoices });
         }
         [HttpGet("search")]
-        public ActionResult<List<ShipperDTO>> GetShippersByNameOrPhone([FromQuery] string searchTerm)
+        public ActionResult<List<ShipperDTO>> GetShippers([FromQuery] string? searchTerm, [FromQuery] bool? status)
         {
-            var shippers = _shipperService.GetShippersByNameOrPhone(searchTerm);
-            return Ok(shippers);
-
+            var shippers = _shipperService.GetShippers(searchTerm, status);
+            return shippers is { Count: > 0 } ? Ok(shippers) : NotFound("Không tìm thấy shipper nào.");
         }
-        [HttpGet("status/{status}")]
-        public IActionResult GetShippersByStatus(bool status)
+        [HttpGet("export")]
+        public IActionResult ExportShippersToExcel()
         {
-            var shippers = _shipperService.GetShipperByStatus(status);
-            return Ok(shippers);
+            var fileContents = _shipperService.ExportShippersToExcel();
+            return File(fileContents, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Shippers.xlsx");
         }
     }
 }

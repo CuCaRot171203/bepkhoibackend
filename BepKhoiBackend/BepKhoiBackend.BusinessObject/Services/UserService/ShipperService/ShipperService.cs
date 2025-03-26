@@ -1,5 +1,6 @@
 ﻿using BepKhoiBackend.BusinessObject.dtos.UserDto.ShipperDto;
 using BepKhoiBackend.DataAccess.Repository.UserRepository.ShipperRepository;
+using OfficeOpenXml;
 using System.Collections.Generic;
 
 namespace BepKhoiBackend.BusinessObject.Services.UserService.ShipperService
@@ -93,9 +94,9 @@ namespace BepKhoiBackend.BusinessObject.Services.UserService.ShipperService
                 }).ToList()
             }).ToList();
         }
-        public List<ShipperDTO> GetShippersByNameOrPhone(string searchTerm)
+        public List<ShipperDTO> GetShippers(string searchTerm = null, bool? status = null)
         {
-            var shippers = _shipperRepository.GetShippersByNameOrPhone(searchTerm);
+            var shippers = _shipperRepository.GetShippers(searchTerm, status);
             return shippers
                 .Where(s => s.UserInformation != null)
                 .Select(s => new ShipperDTO
@@ -106,18 +107,37 @@ namespace BepKhoiBackend.BusinessObject.Services.UserService.ShipperService
                     Status = s.Status
                 }).ToList();
         }
-        public List<ShipperDTO> GetShipperByStatus(bool status)
+        public byte[] ExportShippersToExcel()
         {
-            return _shipperRepository.GetShippersSortedByStatus(status)
-                .Where(s => s.UserInformation != null)
-                .Select(s => new ShipperDTO
+            var shippers = _shipperRepository.GetAllShippers();
+
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+
+            using (var package = new ExcelPackage())
+            {
+                var worksheet = package.Workbook.Worksheets.Add("Shippers");
+
+                // Thêm tiêu đề
+                worksheet.Cells[1, 1].Value = "Shipper ID";
+                worksheet.Cells[1, 2].Value = "Shipper Name";
+                worksheet.Cells[1, 3].Value = "Phone";
+                worksheet.Cells[1, 4].Value = "Total Orders";
+
+                // Đổ dữ liệu
+                int row = 2;
+                foreach (var shipper in shippers)
                 {
-                    UserId = s.UserId,
-                    UserName = s.UserInformation?.UserName ?? "Unknown",
-                    Status = s.Status,
-                    Phone = s.Phone
-                }).ToList();
+
+                    worksheet.Cells[row, 1].Value = shipper.UserId;
+                    worksheet.Cells[row, 2].Value = shipper.UserInformation.UserName;
+                    worksheet.Cells[row, 3].Value = shipper.Phone;
+                    worksheet.Cells[row, 4].Value = shipper.Orders.Count;
+                    row++;
+                }
+
+                return package.GetAsByteArray();
+            }
         }
 
-    }
+        }
 }

@@ -17,8 +17,8 @@ namespace BepKhoiBackend.DataAccess.Repository.UserRepository.CashierRepository
                            string wardCommune, DateTime? dateOfBirth);
         void DeleteCashier(int userId);
         List<Invoice> GetCashierInvoices(int cashierId);
-        List<User> GetCashiersByNameOrPhone(string searchTerm);
-        List<User> GetCashiersSortedByStatus(bool status);
+        List<User> GetCashiers(string? searchTerm, bool? status);
+
 
     }
 }

@@ -98,18 +98,17 @@ namespace BepKhoiBackend.API.Controllers.UserControllers.CashierControllers
         }
 
         [HttpGet("search")]
-        public ActionResult<List<CashierDTO>> GetCashiersByNameOrPhone([FromQuery] string searchTerm)
+        public ActionResult<List<CashierDTO>> GetCashiers([FromQuery] string? searchTerm, [FromQuery] bool? status)
         {
-            var cashiers = _cashierService.GetCashiersByNameOrPhone(searchTerm);
+            var cashiers = _cashierService.GetCashiers(searchTerm, status);
             return Ok(cashiers);
         }
-
-        [HttpGet("status/{status}")]
-        public IActionResult GetCashiersByStatus(bool status)
+        // Xuất danh sách Cashiers ra Excel
+        [HttpGet("export")]
+        public IActionResult ExportCashiersToExcel()
         {
-            var cashiers = _cashierService.GetCashierByStatus(status);
-            return Ok(cashiers);
+            var fileContent = _cashierService.ExportCashiersToExcel();
+            return File(fileContent, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Cashiers.xlsx");
         }
-
     }
 }
