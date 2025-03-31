@@ -4,7 +4,9 @@ using BepKhoiBackend.BusinessObject.dtos.OrderDetailDto;
 using BepKhoiBackend.DataAccess.Abstract.OrderAbstract;
 using BepKhoiBackend.DataAccess.Abstract.OrderDetailAbstract;
 using BepKhoiBackend.DataAccess.Models;
+using BepKhoiBackend.DataAccess.Models.ExtendObjects;
 using BepKhoiBackend.DataAccess.Repository.OrderRepository;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -141,6 +143,58 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderDetailService
             catch
             {
                 throw;
+            }
+        }
+
+        //Pham Son Tung
+        //Func to turn all Order_detail status of an "Order_id" to "true" - API ConfirmOrderPos
+        public async Task<bool> ConfirmOrderPosServiceAsync(int orderId)
+        {
+            if (orderId <= 0)
+            {
+                throw new ArgumentException("Invalid order ID. It must be greater than 0.");
+            }
+
+            try
+            {
+                return await _orderDetailRepository.ConfirmOrderPosRepoAsync(orderId);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An error occurred while confirming order.", ex);
+            }
+        }
+
+        //Pham Son Tung 
+        //Func for SplitOrderPos(Tách đơn) API
+        public async Task<bool> SplitOrderPosServiceAsync(SplitOrderPosRquest request)
+        {
+            // Mapping từ DTO sang object của tầng Repository
+            var productListRepo = request.Product.Select(p => new SplitOrderPosExtendObject_ProductList
+            {
+                Order_detail_id = p.Order_detail_id,
+                Product_id = p.Product_id,
+                Quantity = p.Quantity
+            }).ToList();
+            if (request.CreateNewOrder)
+            {
+                return await _orderDetailRepository.CreateAndSplitOrderDetailRepoAsync(
+                    request.OrderId,
+                    request.OrderTypeId,
+                    request.RoomId,
+                    request.ShipperId,
+                    productListRepo);
+            }
+            else
+            {
+                if (request.SplitTo == null)
+                {
+                    throw new ArgumentException("SplitTo must be provided when CreateNewOrder is false.");
+                }
+                return await _orderDetailRepository.SplitOrderDetailRepoAsync(
+                    request.OrderId,
+                    request.SplitTo.Value,
+                    productListRepo);
             }
         }
     }

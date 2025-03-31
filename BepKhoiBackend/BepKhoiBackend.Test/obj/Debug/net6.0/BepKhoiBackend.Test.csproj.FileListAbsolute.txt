@@ -104,3 +104,15 @@ E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\ne
 E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\refint\BepKhoiBackend.Test.dll
 E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\BepKhoiBackend.Test.pdb
 E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\ref\BepKhoiBackend.Test.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\bin\Debug\net6.0\BepKhoiBackend.Test.deps.json
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\bin\Debug\net6.0\BepKhoiBackend.Test.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\bin\Debug\net6.0\BepKhoiBackend.Test.pdb
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\BepKhoiBackend.Test.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\BepKhoiBackend.Test.AssemblyInfoInputs.cache
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\BepKhoiBackend.Test.AssemblyInfo.cs
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\BepKhoiBackend.Test.csproj.CoreCompileInputs.cache
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\BepKhoiBackend.Test.sourcelink.json
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\BepKhoiBackend.Test.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\refint\BepKhoiBackend.Test.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\BepKhoiBackend.Test.pdb
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\ref\BepKhoiBackend.Test.dll

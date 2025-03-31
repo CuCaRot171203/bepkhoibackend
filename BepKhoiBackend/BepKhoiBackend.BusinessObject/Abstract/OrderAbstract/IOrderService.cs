@@ -17,5 +17,7 @@ namespace BepKhoiBackend.BusinessObject.Abstract.OrderAbstract
         Task<OrderDetailDto> UpdateOrderDetailQuantiyPosAsync(UpdateOrderDetailQuantityRequest request);
         Task<bool> AddCustomerToOrderAsync(AddCustomerToOrderRequest request);
         Task<bool> AddProductToOrderAsync(AddProductToOrderRequest request);
+        Task<bool> ChangeOrderTypeServiceAsync(MoveOrderPosRequestDto request);
+        Task<bool> CombineOrderPosServiceAsync(CombineOrderPosRequestDto request);
     }
 }
