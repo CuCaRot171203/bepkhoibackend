@@ -166,5 +166,65 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
             }
         }
 
+
+        //Pham Son Tung
+        [HttpPut("MoveOrderPos")]
+        public async Task<IActionResult> UpdateOrderType([FromBody] MoveOrderPosRequestDto request)
+        {
+            try
+            {
+                bool result = await _orderService.ChangeOrderTypeServiceAsync(request);
+                return result
+                    ? Ok(new { message = "Order type updated successfully." })
+                    : BadRequest(new { message = "Failed to update order type." });
+            }
+            catch (ArgumentException ex) // Lỗi do tham số đầu vào không hợp lệ (service)
+            {
+                return BadRequest(new { message = "Invalid input parameters.", error = ex.Message });
+            }
+            catch (KeyNotFoundException ex) // Lỗi do không tìm thấy Order, Room hoặc User (repo)
+            {
+                return NotFound(new { message = "Resource not found.", error = ex.Message });
+            }
+            catch (Exception ex) // Các lỗi khác (bao gồm lỗi ở repository)
+            {
+                return StatusCode(500, new { message = "An internal server error occurred.", error = ex.Message });
+            }
+        }
+
+        //Pham Son Tung
+        [HttpPut("combine-orders")]
+        public async Task<IActionResult> CombineOrderPosAsync([FromBody] CombineOrderPosRequestDto request)
+        {
+            try
+            {
+                bool result = await _orderService.CombineOrderPosServiceAsync(request);
+
+                return result
+                    ? Ok(new { message = "Orders combined successfully." })
+                    : BadRequest(new { message = "Failed to combine orders." });
+            }
+            catch (ArgumentNullException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(new { message = ex.Message });
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "An internal server error occurred.", error = ex.Message });
+            }
+        }
+
     }
 }

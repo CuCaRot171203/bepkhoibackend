@@ -7,5 +7,7 @@ namespace BepKhoiBackend.BusinessObject.Abstract.OrderDetailAbstract
         Task<bool> CancelOrderDetailAsync(CancelOrderDetailRequest request);
         Task<bool> RemoveOrderDetailAsync(RemoveOrderDetailRequest request);
         Task<bool> AddNoteToOrderDetailAsync(AddNoteToOrderDetailRequest request);
+        Task<bool> ConfirmOrderPosServiceAsync(int orderId);
+        Task<bool> SplitOrderPosServiceAsync(SplitOrderPosRquest request);
     }
 }

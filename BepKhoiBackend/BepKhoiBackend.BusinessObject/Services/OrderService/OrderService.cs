@@ -7,6 +7,7 @@ using BepKhoiBackend.BusinessObject.dtos.OrderDto;
 using BepKhoiBackend.DataAccess.Abstract.OrderAbstract;
 using BepKhoiBackend.DataAccess.Abstract.OrderDetailAbstract;
 using BepKhoiBackend.DataAccess.Models;
+using Org.BouncyCastle.Asn1.Ocsp;
 
 namespace BepKhoiBackend.BusinessObject.Services.OrderService
 {
@@ -197,6 +198,93 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
             catch
             {
                 throw;
+            }
+        }
+
+        //Pham Son Tung
+        //Service Func for MoveOrderPos API
+        public async Task<bool> ChangeOrderTypeServiceAsync(MoveOrderPosRequestDto request)
+        {
+            // Kiểm tra điều kiện hợp lệ trước khi gọi repository
+            if (request.OrderTypeId == 1) // Đơn mang về
+            {
+                if (request.RoomId != null || request.UserId != null)
+                {
+                    throw new ArgumentException("Invalid parameter. Takeaway order cannot have RoomId or UserId.");
+                }
+            }
+            else if (request.OrderTypeId == 2) // Đơn ship
+            {
+                if (request.RoomId != null)
+                {
+                    throw new ArgumentException("Invalid parameter. Ship order cannot have RoomId.");
+                }
+                if (request.UserId == null)
+                {
+                    throw new ArgumentException("Ship order must have a ShipperId.");
+                }
+            }
+            else if (request.OrderTypeId == 3) // Đơn ăn tại quán
+            {
+                if (request.UserId != null)
+                {
+                    throw new ArgumentException("Invalid parameter. Dine-in order cannot have UserId.");
+                }
+                if (request.RoomId == null)
+                {
+                    throw new ArgumentException("Dine-in order must have RoomId.");
+                }
+            }
+            else
+            {
+                throw new ArgumentException("Invalid OrderTypeId. Must be 1 (Takeaway), 2 (Ship), or 3 (Dine-in).");
+            }
+
+            // Gọi repository để cập nhật dữ liệu
+            return await _orderRepository.MoveOrderPosRepoAsync(
+            request.OrderId, request.OrderTypeId, request.RoomId, request.UserId);
+        }
+
+        //Pham Son Tung
+        //Service function for CombineOrderPos API
+        public async Task<bool> CombineOrderPosServiceAsync(CombineOrderPosRequestDto request)
+        {
+            try
+            {
+                // Kiểm tra nếu orderId là null
+                if (request.FirstOrderId == null || request.SecondOrderId == null)
+                {
+                    throw new ArgumentNullException("Order ID cannot be null.");
+                }
+
+                // Kiểm tra nếu orderId không hợp lệ
+                if (request.FirstOrderId <= 0 || request.SecondOrderId <= 0)
+                {
+                    throw new ArgumentException("Order ID must be a positive integer.");
+                }
+
+                // Gọi repository để thực hiện việc chuyển order details
+                return await _orderRepository.CombineOrderPosRepoAsync(request.FirstOrderId.Value, request.SecondOrderId.Value);
+            }
+            catch (ArgumentNullException ex)
+            {
+                throw new ArgumentNullException("Invalid input: Order ID cannot be null.", ex);
+            }
+            catch (ArgumentException ex)
+            {
+                throw new ArgumentException("Invalid input: Order ID must be a positive integer.", ex);
+            }
+            catch (KeyNotFoundException ex)
+            {
+                throw new KeyNotFoundException("Resource not found.", ex);
+            }
+            catch (InvalidOperationException ex)
+            {
+                throw new InvalidOperationException("Business logic error.", ex);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An error occurred while combining orders.", ex);
             }
         }
 
