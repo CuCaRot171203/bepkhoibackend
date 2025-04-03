@@ -1,6 +1,7 @@
 ﻿using BepKhoiBackend.DataAccess.Helpers;
 using BepKhoiBackend.DataAccess.Models;
 using BepKhoiBackend.DataAccess.Repository.RoomRepository.Interface;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
@@ -89,19 +90,15 @@ namespace BepKhoiBackend.DataAccess.Repository.RoomRepository
         // ========== Room Repository - Thanh Tung ============
 
         // Repository of get room for POS site
-        public async Task<List<Room>> GetRoomsAsyncPOS(int limit, int offset)
+        public async Task<List<Room>> GetRoomsAsyncPOS()
         {
             try
             {
                 return await _context.Rooms
-                 .AsNoTracking()
-                .Where(r => !(r.IsDelete ?? false))
-                .OrderBy(r => r.RoomId)
-                .Skip(offset)
-                .Take(limit)
-                .Include(r => r.Orders.Where(o => o.OrderStatusId == 1))
-                .ThenInclude(o => o.OrderDetails)
-                .ToListAsync();
+                    .AsNoTracking()
+                    .Where(r => r.IsDelete==false && r.Status==true)
+                    .OrderBy(r => r.OrdinalNumber)
+                    .ToListAsync();
             }
             catch (Exception ex)
             {
@@ -109,25 +106,23 @@ namespace BepKhoiBackend.DataAccess.Repository.RoomRepository
             }
         }
 
-        // Repositor of filter room pos async 
-        public async Task<List<Room>> FilterRoomPosAsync(int? roolAreaId, bool? isUse)
+        // Repository of filter room pos async 
+        public async Task<List<Room>> FilterRoomPosAsync(int? roomAreaId, bool? isUse)
         {
             try
             {
                 var query = _context.Rooms
                     .AsNoTracking()
-                    .Where(r => !(r.IsDelete ?? false));
+                    .Where(r => r.IsDelete==false && r.Status==true);
 
-                if (roolAreaId.HasValue)
-                    query = query.Where(r => r.RoomAreaId == roolAreaId.Value);
+                if (roomAreaId.HasValue)
+                    query = query.Where(r => r.RoomAreaId == roomAreaId.Value);
 
                 if (isUse.HasValue)
                     query = query.Where(r => r.IsUse == isUse.Value);
 
                 return await query
-                    .OrderBy(r => r.RoomId)
-                    .Include(r => r.Orders.Where(o => o.OrderStatusId == 1))
-                    .ThenInclude(o => o.OrderDetails)
+                    .OrderBy(r => r.OrdinalNumber)
                     .ToListAsync();
             }
             catch (Exception ex)
@@ -168,6 +163,40 @@ namespace BepKhoiBackend.DataAccess.Repository.RoomRepository
                 throw new Exception($"Error when searching from database: {ex.Message}", ex);
             }
         }
+
+        //Pham Son Tung
+        //Func to add note to room
+        public async Task<bool> UpdateRoomNote(int roomId, string roomNote)
+        {
+            try
+            {
+                var room = await _context.Rooms.FirstOrDefaultAsync(r => r.RoomId == roomId);
+                if (room == null)
+                {
+                    throw new KeyNotFoundException($"Room with ID {roomId} not found.");
+                }
+
+                room.RoomNote = roomNote;
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch (DbUpdateException dbEx)
+            {
+                // Ném lỗi nếu có vấn đề trong quá trình cập nhật cơ sở dữ liệu
+                throw new InvalidOperationException($"Database update error: {dbEx.Message}", dbEx);
+            }
+            catch (SqlException sqlEx)
+            {
+                // Ném lỗi nếu có vấn đề với kết nối hoặc truy vấn SQL
+                throw new InvalidOperationException($"SQL error: {sqlEx.Message}", sqlEx);
+            }
+            catch (Exception ex)
+            {
+                // Ném lỗi nếu có lỗi không xác định
+                throw new InvalidOperationException($"Unexpected error: {ex.Message}", ex);
+            }
+        }
+
 
     }
 }

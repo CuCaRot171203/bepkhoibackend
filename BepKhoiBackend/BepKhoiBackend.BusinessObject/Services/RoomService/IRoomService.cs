@@ -14,10 +14,11 @@ namespace BepKhoiBackend.BusinessObject.Services.RoomService
         Task AddAsync(RoomCreateDto roomCreateDto);
         Task UpdateAsync(int id, RoomUpdateDto roomUpdateDto);
         Task<bool> SoftDeleteAsync(int id);
-        Task<IEnumerable<RoomDto>> SearchByNameAsync(string roomName, int limit, int offset);        // ✅ API Search
+        Task<IEnumerable<RoomDto>> SearchByNameAsync(string roomName, int limit, int offset);    
         // Service - Thanh Tung
-        Task<List<RoomDtoPos>> GetRoomAsyncForPos(int limit, int offset);
+        Task<List<RoomDtoPos>> GetRoomAsyncForPos();
         Task<List<RoomDtoPos>> FilterRoomAsyncPos(int? roomAreaId, bool? isUse);
-        Task<List<RoomDtoPos>> SearchRoomPosAsync(string searchString);
+        //Task<List<RoomDtoPos>> SearchRoomPosAsync(string searchString);
+        Task<bool> UpdateRoomNoteAsync(RoomNoteUpdateDto dto);
     }
 }
