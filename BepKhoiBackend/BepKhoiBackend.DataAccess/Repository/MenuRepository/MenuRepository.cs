@@ -111,7 +111,6 @@ public class MenuRepository : RepositoryBase, IMenuRepository
             bool categoryExists = await _context.ProductCategories
                 .AnyAsync(c => c.ProductCategoryId == categoryId.Value);
             if (!categoryExists) throw new ArgumentException($"Category ID {categoryId.Value} does not exist.");
-
             query = query.Where(m => m.ProductCategoryId == categoryId.Value);
         }
 
