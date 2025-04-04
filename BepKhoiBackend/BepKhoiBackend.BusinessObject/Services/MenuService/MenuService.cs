@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BepKhoiBackend.BusinessObject.Abstract.MenuBusinessAbstract;
 using BepKhoiBackend.BusinessObject.dtos.MenuDto;
+using BepKhoiBackend.BusinessObject.dtos.RoomDto;
 using BepKhoiBackend.BusinessObject.Helpers;
 using BepKhoiBackend.DataAccess.Abstract.MenuAbstract;
 using BepKhoiBackend.DataAccess.Helpers;
@@ -474,5 +475,67 @@ namespace BepKhoiBackend.BusinessObject.Services.MenuService
 
             return (true, $"Product price with ID {dto.ProductId} updated successfully.", existingMenu);
         }
+
+        //Pham Son Tung
+        //Func for api GetAllMenuPos
+        public async Task<IEnumerable<MenuPosDto>> GetAllMenuPosAsync()
+        {
+            try
+            {
+                // Lấy danh sách menu từ repository
+                var menuList = await _menuRepository.GetAllMenuPos();
+
+                // Map từ Menu entity sang MenuDto
+                var menuDtoList = menuList.Select(m => new MenuPosDto
+                {
+                    ProductId = m.ProductId,
+                    ProductName = m.ProductName,
+                    ProductCategoryId = m.ProductCategoryId,
+                    SellPrice = m.SellPrice,
+                    SalePrice = m.SalePrice,
+                    ProductVat = m.ProductVat,
+                    UnitId = m.UnitId,
+                    IsAvailable = m.IsAvailable,
+                    Status = m.Status,
+                    ProductImageUrl = m.ProductImages==null?null:m.ProductImages.FirstOrDefault().ProductImage1,
+                }).ToList();
+
+                return menuDtoList;
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException("An error occurred while retrieving the menu in service layer.", ex);
+            }
+        }
+
+        //Pham Son Tung
+        //Func for FilterProductPos API
+        public async Task<List<MenuPosDto>> FilterMenuAsyncPos(int? categoryId, bool? isAvailable)
+        {
+
+            if (categoryId <= 0)
+            {
+                throw new ArgumentOutOfRangeException("ProductCategoryId must greater than 0");
+            }
+
+            var menuList = await _menuRepository.FilterMenuPos(categoryId, isAvailable);
+
+            var menuDtoList = menuList.Select(m => new MenuPosDto
+            {
+                ProductId = m.ProductId,
+                ProductName = m.ProductName,
+                ProductCategoryId = m.ProductCategoryId,
+                SellPrice = m.SellPrice,
+                SalePrice = m.SalePrice,
+                ProductVat = m.ProductVat,
+                UnitId = m.UnitId,
+                IsAvailable = m.IsAvailable,
+                Status = m.Status,
+                ProductImageUrl = m.ProductImages == null ? null : m.ProductImages.FirstOrDefault().ProductImage1,
+            }).ToList();
+
+            return menuDtoList;
+        }
+
     }
 }

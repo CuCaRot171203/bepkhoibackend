@@ -19,5 +19,7 @@ namespace BepKhoiBackend.BusinessObject.Abstract.MenuBusinessAbstract
         Task<(byte[] fileContent, string FileName, bool HasData, string ErrorMessage)> ExportPriceExcelAsync(
             string sortBy, string sortDirection, int? categoryId = null, bool? isActive = null);
         Task<(bool IsSuccess, string Message, Menu Data)> UpdatePriceOfProductAsync(UpdatePriceDto dto);
+        Task<IEnumerable<MenuPosDto>> GetAllMenuPosAsync();
+        Task<List<MenuPosDto>> FilterMenuAsyncPos(int? categoryId, bool? isAvailable);
     }
 }

@@ -226,5 +226,29 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
             }
         }
 
+        //Pham Son Tung
+        [HttpGet("get-order-by-type-pos")]
+        public async Task<IActionResult> GetOrdersByTypePosAsync(int? roomId, int? shipperId, int? orderTypeId)
+        {
+            try
+            {
+                // Gọi service để lấy danh sách đơn hàng
+                var orders = await _orderService.GetOrdersByTypePosAsync(roomId, shipperId, orderTypeId);
+
+                // Trả về kết quả thành công với danh sách đơn hàng
+                return Ok(orders);
+            }
+            catch (ArgumentException argEx)
+            {
+                // Nếu có lỗi về tham số, trả về lỗi với thông điệp chi tiết
+                return BadRequest(new { message = $"Invalid parameter: {argEx.Message}" });
+            }
+            catch (Exception ex)
+            {
+                // Xử lý tất cả các lỗi khác, trả về lỗi server
+                return StatusCode(500, new { message = "An error occurred while processing your request.", details = ex.Message });
+            }
+        }
+
     }
 }

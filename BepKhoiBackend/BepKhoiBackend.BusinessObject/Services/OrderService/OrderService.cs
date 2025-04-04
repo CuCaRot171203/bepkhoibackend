@@ -288,6 +288,53 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
             }
         }
 
+        //Pham Son Tung
+        public async Task<IEnumerable<OrderDtoPos>> GetOrdersByTypePosAsync(int? roomId, int? shipperId, int? orderTypeId)
+        {
+            try
+            {
+                // Gọi hàm repository để lấy danh sách đơn hàng theo kiểu
+                var orders = await _orderRepository.GetOrdersByTypePos(roomId, shipperId, orderTypeId);
 
+                // Chuyển đổi từ Order sang OrderDtoPos
+                var orderDtos = orders.Select(o => new OrderDtoPos
+                {
+                    OrderId = o.OrderId,
+                    CustomerId = o.CustomerId,
+                    ShipperId = o.ShipperId,
+                    DeliveryInformationId = o.DeliveryInformationId,
+                    OrderTypeId = o.OrderTypeId,
+                    RoomId = o.RoomId,
+                    CreatedTime = o.CreatedTime,
+                    TotalQuantity = o.TotalQuantity,
+                    AmountDue = o.AmountDue,
+                    OrderStatusId = o.OrderStatusId,
+                    OrderNote = o.OrderNote,
+                    // Chuyển đổi OrderDetails sang OrderDetailDtoPos
+                    OrderDetails = o.OrderDetails.Select(od => new OrderDetailDtoPos
+                    {
+                        OrderDetailId = od.OrderDetailId,
+                        OrderId = od.OrderId,
+                        Status = od.Status,
+                        ProductId = od.ProductId,
+                        ProductName = od.ProductName,
+                        Quantity = od.Quantity,
+                        Price = od.Price,
+                        ProductNote = od.ProductNote
+                    }).ToList()
+                }).ToList();
+                return orderDtos;
+            }
+            catch (ArgumentException argEx)
+            {
+                // Log lỗi và ném lại cho API xử lý
+                throw new Exception($"Invalid parameter: {argEx.Message}", argEx);
+            }
+            catch (Exception ex)
+            {
+                // Log tất cả các lỗi khác
+                throw new Exception("An error occurred while processing your request.", ex);
+            }
+        }
     }
 }

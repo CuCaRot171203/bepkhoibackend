@@ -193,7 +193,54 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
             }
         }
 
+        //Pham Son Tung
+        public async Task<IEnumerable<Order>> GetOrdersByTypePos(int? roomId, int? shipperId, int? orderTypeId)
+        {
+            if (!orderTypeId.HasValue)
+                throw new ArgumentException("orderTypeId is required.");
 
+            IQueryable<Order> query = _context.Orders
+                .AsNoTracking()
+                .Include(o => o.OrderDetails); // Load OrderDetails cùng Order
+
+            try
+            {
+                switch (orderTypeId)
+                {
+                    case 1:
+                        query = query.Where(o => o.OrderStatusId == 1);
+                        break;
+
+                    case 2:
+                        if (!shipperId.HasValue)
+                            throw new ArgumentException("shipperId is required for orderTypeId = 2.");
+                        query = query.Where(o => o.OrderStatusId == 1 && o.ShipperId == shipperId.Value);
+                        break;
+
+                    case 3:
+                        if (!roomId.HasValue)
+                            throw new ArgumentException("roomId is required for orderTypeId = 3.");
+                        query = query.Where(o => o.OrderStatusId == 1 && o.RoomId == roomId.Value);
+                        break;
+
+                    default:
+                        throw new ArgumentException("Invalid orderTypeId. Accepted values: {1, 2, 3}.");
+                }
+
+                // Thực hiện truy vấn và trả về kết quả
+                return await query.ToListAsync();
+            }
+            catch (DbUpdateException dbEx)
+            {
+                // Bắt lỗi liên quan đến cập nhật database
+                throw new Exception("Database update error occurred while fetching orders.", dbEx);
+            }
+            catch (Exception ex)
+            {
+                // Bắt tất cả các lỗi khác và ném lỗi tùy chỉnh
+                throw new Exception("An error occurred while fetching orders.", ex);
+            }
+        }
 
     }
 }

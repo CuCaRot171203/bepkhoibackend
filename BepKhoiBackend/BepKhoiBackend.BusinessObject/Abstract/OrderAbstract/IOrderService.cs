@@ -19,5 +19,6 @@ namespace BepKhoiBackend.BusinessObject.Abstract.OrderAbstract
         Task<bool> AddProductToOrderAsync(AddProductToOrderRequest request);
         Task<bool> ChangeOrderTypeServiceAsync(MoveOrderPosRequestDto request);
         Task<bool> CombineOrderPosServiceAsync(CombineOrderPosRequestDto request);
+        Task<IEnumerable<OrderDtoPos>> GetOrdersByTypePosAsync(int? roomId, int? shipperId, int? orderTypeId);
     }
 }

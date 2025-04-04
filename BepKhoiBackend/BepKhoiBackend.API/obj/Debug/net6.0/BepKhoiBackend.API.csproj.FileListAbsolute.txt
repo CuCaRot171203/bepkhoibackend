@@ -993,7 +993,6 @@ C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiB
 C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.AssemblyInfoInputs.cache
 C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.AssemblyInfo.cs
 C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.csproj.CoreCompileInputs.cache
-C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.sourcelink.json
 C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.build.json
