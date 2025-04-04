@@ -9,7 +9,7 @@ namespace BepKhoiBackend.BusinessObject.Mappings
     {
         public OrderMappingProfile()
         {
-            CreateMap<CreateOrderRequest, Order>()
+            CreateMap<CreateOrderRequestDto, Order>()
                 .ForMember(dest => dest.CreatedTime, otp => otp.MapFrom(_ => DateTime.UtcNow))
                 .ForMember(dest => dest.TotalQuantity, opt => opt.MapFrom(_ => 0))
                 .ForMember(dest => dest.AmountDue, opt => opt.MapFrom(_ => 0));

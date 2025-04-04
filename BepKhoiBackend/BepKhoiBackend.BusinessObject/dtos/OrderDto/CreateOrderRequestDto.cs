@@ -1,6 +1,6 @@
 ﻿namespace BepKhoiBackend.BusinessObject.dtos.OrderDto
 {
-    public class CreateOrderRequest
+    public class CreateOrderRequestDto
     {
         public int? CustomerId { get; set; }
         public int? ShipperId { get; set; }
