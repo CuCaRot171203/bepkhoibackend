@@ -127,6 +127,15 @@ namespace BepKhoiBackend.API.Configurations
             //Register for order detail
             services.AddScoped<IOrderDetailRepository, OrderDetailRepository>();
             services.AddScoped<IOrderDetailService, OrderDetailService>();
+
+            // Register CloudinaryService and QRCodeService
+            services.AddSingleton<CloudinaryService>();
+            services.AddScoped<QRCodeService>();
+            //pdf print
+            services.AddScoped<PrintInvoicePdfService>();
+            services.AddScoped<PrintOrderPdfService>();
+            //VnPay
+            services.AddScoped<VnPayService>();
         }
     }
 }

@@ -142,7 +142,17 @@
   },
   {
     "ContainingType": "BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController",
-    "Method": "GetCashiersByNameOrPhone",
+    "Method": "ExportCashiersToExcel",
+    "RelativePath": "api/cashiers/export",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController",
+    "Method": "GetCashiers",
     "RelativePath": "api/cashiers/search",
     "HttpMethod": "GET",
     "IsController": true,
@@ -151,6 +161,11 @@
       {
         "Name": "searchTerm",
         "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "status",
+        "Type": "System.Nullable\u00601[[System.Boolean, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": false
       }
     ],
@@ -165,22 +180,6 @@
         "StatusCode": 200
       }
     ]
-  },
-  {
-    "ContainingType": "BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController",
-    "Method": "GetCashiersByStatus",
-    "RelativePath": "api/cashiers/status/{status}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "status",
-        "Type": "System.Boolean",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
   },
   {
     "ContainingType": "BepKhoiBackend.API.Controllers.CustomerControllers.CustomerController",
@@ -373,6 +372,22 @@
   },
   {
     "ContainingType": "BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController",
+    "Method": "GetInvoicePdf",
+    "RelativePath": "api/Invoice/{id}/print-pdf",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController",
     "Method": "GetInvoiceByCashier",
     "RelativePath": "api/Invoice/cashier/{keyword}",
     "HttpMethod": "GET",
@@ -508,6 +523,16 @@
   },
   {
     "ContainingType": "BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController",
+    "Method": "PaymentCallbackVnpay",
+    "RelativePath": "api/Invoice/Return",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController",
     "Method": "GetInvoiceByStatus",
     "RelativePath": "api/Invoice/status/{status}",
     "HttpMethod": "GET",
@@ -531,6 +556,22 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController",
+    "Method": "CreatePaymentUrlVnpay",
+    "RelativePath": "api/Invoice/vnpay-url",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "BepKhoiBackend.API.Controllers.UserControllers.ManagerControllers.ManagerController",
@@ -1095,6 +1136,22 @@
         "StatusCode": 500
       }
     ]
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.OrderControllers.OrderController",
+    "Method": "GetTempInvoicePdf",
+    "RelativePath": "api/orders/{orderId}/print-pdf-temp-Invoice",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "orderId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "BepKhoiBackend.API.Controllers.OrderControllers.OrderController",
@@ -1947,7 +2004,17 @@
   },
   {
     "ContainingType": "BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers.ShipperController",
-    "Method": "GetShippersByNameOrPhone",
+    "Method": "ExportShippersToExcel",
+    "RelativePath": "api/Shipper/export",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers.ShipperController",
+    "Method": "GetShippers",
     "RelativePath": "api/Shipper/search",
     "HttpMethod": "GET",
     "IsController": true,
@@ -1956,6 +2023,11 @@
       {
         "Name": "searchTerm",
         "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "status",
+        "Type": "System.Nullable\u00601[[System.Boolean, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": false
       }
     ],
@@ -1970,22 +2042,6 @@
         "StatusCode": 200
       }
     ]
-  },
-  {
-    "ContainingType": "BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers.ShipperController",
-    "Method": "GetShippersByStatus",
-    "RelativePath": "api/Shipper/status/{status}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "status",
-        "Type": "System.Boolean",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
   },
   {
     "ContainingType": "BepKhoiBackend.API.Controllers.ShippingOrderController.ShippingOrderController",

@@ -86,6 +86,7 @@ namespace BepKhoiBackend.DataAccess.Repository.RoomRepository
                 .ToListAsync();
         }
 
+        // ========== Room Repository - Thanh Tung ============
 
         // Repository of get room for POS site
         public async Task<List<Room>> GetRoomsAsyncPOS(int limit, int offset)

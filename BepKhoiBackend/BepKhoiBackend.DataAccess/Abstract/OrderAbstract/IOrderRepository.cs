@@ -12,5 +12,7 @@ namespace BepKhoiBackend.DataAccess.Abstract.OrderAbstract
         Task<Customer?> GetCustomerByIdAsync(int customerId);
         Task UpdateOrderAsync(Order order);
         Task<Menu?> GetProductByIdAsync(int productId);
+        //-------------NgocQuan---------------//
+        Task<Order?> GetOrderWithDetailsAsync(int orderId);
     }
 }

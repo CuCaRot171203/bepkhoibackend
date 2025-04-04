@@ -12,6 +12,8 @@ using BepKhoiBackend.API.Configurations;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Authorization;
 using BepKhoiBackend.BusinessObject.Mappings;
+using BepKhoiBackend.BusinessObject.Services.InvoiceService;
+using BepKhoiBackend.BusinessObject.Services;
 
 
 Log.Logger = new LoggerConfiguration()
@@ -21,6 +23,9 @@ Log.Logger = new LoggerConfiguration()
     .CreateLogger();
 
 var builder = WebApplication.CreateBuilder(args);
+
+
+
 
 // Scpace to call function
 LoggingConfig.ConfigureLogging();
@@ -62,9 +67,8 @@ builder.Services.AddSession(options =>
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddHttpContextAccessor();
 
-// Cấu hình CloudinaryService và QRCodeService
-builder.Services.AddSingleton<CloudinaryService>(); // Dùng Singleton vì chỉ cần 1 instance duy nhất
-builder.Services.AddScoped<QRCodeService>();
+
+
 
 
 builder.Services.AddAuthorization();

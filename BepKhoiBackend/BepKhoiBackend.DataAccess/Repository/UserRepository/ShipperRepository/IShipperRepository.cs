@@ -12,7 +12,7 @@ namespace BepKhoiBackend.DataAccess.Repository.UserRepository.ShipperRepository
                            string provinceCity, string district, string wardCommune, DateTime? dateOfBirth);
         void DeleteShipper(int userId);
         List<Invoice> GetShipperInvoices(int shipperId);
-        List<User> GetShippersByNameOrPhone(string searchTerm);
-        List<User> GetShippersSortedByStatus(bool status);
+        List<User> GetShippers(string searchTerm = null, bool? status = null);
+
     }
 }

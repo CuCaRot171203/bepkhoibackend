@@ -13,11 +13,14 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
     public class OrderController : ControllerBase
     {
         private readonly IOrderService _orderService;
-
-        public OrderController(IOrderService orderService)
+        private readonly PrintOrderPdfService _printOrderPdfService;
+        public OrderController(IOrderService orderService, PrintOrderPdfService printOrderPdfService)
         {
             _orderService = orderService;
+            _printOrderPdfService = printOrderPdfService;
         }
+
+        
 
         // Create order
         [HttpPost("create-order")]
@@ -159,6 +162,25 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
             catch (ArgumentException ex)
             {
                 return BadRequest(new { message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Server error", error = ex.Message });
+            }
+        }
+
+        //-------------NgocQuan----------------//
+        [HttpGet("{orderId}/print-pdf-temp-Invoice")]
+        public async Task<IActionResult> GetTempInvoicePdf(int orderId)
+        {
+            try
+            {
+                var pdfBytes = await _printOrderPdfService.GenerateTempInvoicePdfAsync(orderId);
+                return File(pdfBytes, "application/pdf", $"Invoice_{orderId}.pdf");
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(new { message = ex.Message });
             }
             catch (Exception ex)
             {

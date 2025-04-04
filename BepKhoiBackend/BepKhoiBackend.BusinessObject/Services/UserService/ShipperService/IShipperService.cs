@@ -13,7 +13,8 @@ namespace BepKhoiBackend.BusinessObject.Services.UserService.ShipperService
                     DateTime? dateOfBirth);
         void DeleteShipper(int userId);
         List<ShipperInvoiceDTO> GetShipperInvoices(int shipperId);
-        List<ShipperDTO> GetShippersByNameOrPhone(string searchTerm);
-        List<ShipperDTO> GetShipperByStatus(bool status);
+        List<ShipperDTO> GetShippers(string searchTerm = null, bool? status = null);
+        byte[] ExportShippersToExcel(); // Thêm phương thức xuất file Excel
+
     }
 }

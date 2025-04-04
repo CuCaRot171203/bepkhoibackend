@@ -22,6 +22,7 @@ namespace BepKhoiBackend.DataAccess.Repository.UserRepository.ShipperRepository
         {
             return _context.Users
                 .Include(u => u.UserInformation)
+                .Include(u => u.Orders)
                 .Where(u => u.RoleId == 3 && (u.IsDelete == false || u.IsDelete == null))
                 .ToList();
         }
@@ -128,30 +129,27 @@ namespace BepKhoiBackend.DataAccess.Repository.UserRepository.ShipperRepository
                 .Where(i => i.ShipperId == shipperId && i.OrderTypeId == 2)
                 .ToList();
         }
-        public List<User> GetShippersByNameOrPhone(string searchTerm)
+        public List<User> GetShippers(string searchTerm = null, bool? status = null)
         {
-            if (string.IsNullOrWhiteSpace(searchTerm))
+            var query = _context.Users
+                .Include(u => u.UserInformation)
+                .Where(u => u.RoleId == 3 && u.IsDelete == false);
+
+            if (!string.IsNullOrWhiteSpace(searchTerm))
             {
-                return new List<User>();
+                searchTerm = searchTerm.Trim(); // Loại bỏ khoảng trắng không cần thiết
+                query = query.Where(u => EF.Functions.Like(u.UserInformation.UserName, $"%{searchTerm}%") ||
+                                         EF.Functions.Like(u.Phone, $"%{searchTerm}%"));
             }
 
-            searchTerm = searchTerm.Trim(); // Loại bỏ khoảng trắng không cần thiết
-            return _context.Users
-                .Include(u => u.UserInformation)
-                .Where(u => u.RoleId == 3 &&
-                            (EF.Functions.Like(u.UserInformation.UserName, $"%{searchTerm}%") ||
-                             EF.Functions.Like(u.Phone, $"%{searchTerm}%")))
-                .ToList();
+            if (status.HasValue)
+            {
+                query = query.Where(u => u.Status == status.Value);
+            }
+
+            return query.OrderBy(u => u.Status).ToList();
         }
-        // Lấy danh sách shipper theo trạng thái (Status)
-        public List<User> GetShippersSortedByStatus(bool status)
-        {
-            return _context.Users
-                .Include(u => u.UserInformation)
-                .Where(u => u.RoleId == 3 && u.IsDelete == false && u.Status == status)
-                .OrderBy(u => u.Status) // Sắp xếp theo Status
-                .ToList();
-        }
+
 
     }
 }

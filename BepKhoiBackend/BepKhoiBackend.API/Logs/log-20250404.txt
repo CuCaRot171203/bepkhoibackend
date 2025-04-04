@@ -1,0 +1,481 @@
+2025-04-04 16:04:55.212 +07:00 [INF] User profile is available. Using 'C:\Users\abc\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-04 16:04:55.546 +07:00 [INF] Now listening on: https://localhost:7257
+2025-04-04 16:04:55.547 +07:00 [INF] Now listening on: http://localhost:5287
+2025-04-04 16:04:55.649 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-04 16:04:55.650 +07:00 [INF] Hosting environment: Development
+2025-04-04 16:04:55.653 +07:00 [INF] Content root path: D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\
+2025-04-04 16:04:57.020 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-04-04 16:04:57.238 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 222.9172ms
+2025-04-04 16:04:57.259 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-04-04 16:04:57.265 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 16521 application/javascript;+charset=utf-8 5.1445ms
+2025-04-04 16:04:57.521 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-04-04 16:04:57.574 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 52.4271ms
+2025-04-04 16:04:57.726 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-04-04 16:04:57.764 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 38.2028ms
+2025-04-04 16:05:31.787 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/api/Invoice/vnpay-url?Id=2 - -
+2025-04-04 16:05:33.182 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API)'
+2025-04-04 16:05:33.221 +07:00 [INF] Route matched with {action = "CreatePaymentUrlVnpay", controller = "Invoice"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CreatePaymentUrlVnpay(Int32) on controller BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController (BepKhoiBackend.API).
+2025-04-04 16:05:35.647 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-04 16:05:37.862 +07:00 [INF] Executed DbCommand (102ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Invoice_id], [t].[Amount_due], [t].[Cashier_id], [t].[Check_in_time], [t].[Check_out_time], [t].[Customer_id], [t].[Invoice_discount], [t].[Invoice_note], [t].[Order_id], [t].[Order_type_id], [t].[Other_payment], [t].[Payment_method_id], [t].[Room_id], [t].[Shipper_id], [t].[Status], [t].[Subtotal], [t].[Total_quantity], [t].[Total_vat], [i0].[Invoice_detail_id], [i0].[Invoice_id], [i0].[Price], [i0].[Product_id], [i0].[Product_name], [i0].[Product_note], [i0].[Product_vat], [i0].[Quantity]
+FROM (
+    SELECT TOP(1) [i].[Invoice_id], [i].[Amount_due], [i].[Cashier_id], [i].[Check_in_time], [i].[Check_out_time], [i].[Customer_id], [i].[Invoice_discount], [i].[Invoice_note], [i].[Order_id], [i].[Order_type_id], [i].[Other_payment], [i].[Payment_method_id], [i].[Room_id], [i].[Shipper_id], [i].[Status], [i].[Subtotal], [i].[Total_quantity], [i].[Total_vat]
+    FROM [Invoice] AS [i]
+    WHERE [i].[Invoice_id] = @__id_0
+) AS [t]
+LEFT JOIN [Invoice_detail] AS [i0] ON [t].[Invoice_id] = [i0].[Invoice_id]
+ORDER BY [t].[Invoice_id]
+2025-04-04 16:05:38.159 +07:00 [INF] Executing RedirectResult, redirecting to https://sandbox.vnpayment.vn/paymentv2/vpcpay.html?vnp_Amount=14325000&vnp_Command=pay&vnp_CreateDate=20250404160538&vnp_CurrCode=VND&vnp_IpAddr=192.168.1.6&vnp_Locale=vn&vnp_OrderInfo=Khach+le+2+143250&vnp_OrderType=other&vnp_ReturnUrl=https%3A%2F%2Flocalhost%3A7257%2Fapi%2FInvoice%2FReturn&vnp_TmnCode=1MTJPPPJ&vnp_TxnRef=638793795381324776&vnp_Version=2.1.0&vnp_SecureHash=68482ec63c14b7534800b347ad7cc9616c0a2a8ea373019b9716ebe5dac166dd1b009cae0b44f853b7a13fd6ba588768f085b9888b5c958e0d0a0f69169bd0e9.
+2025-04-04 16:05:38.170 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API) in 4933.5516ms
+2025-04-04 16:05:38.175 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API)'
+2025-04-04 16:05:38.185 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/api/Invoice/vnpay-url?Id=2 - - - 302 0 - 6397.9333ms
+2025-04-04 16:05:46.626 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/api/Invoice/vnpay-url?Id=2 - -
+2025-04-04 16:05:46.643 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API)'
+2025-04-04 16:05:46.647 +07:00 [INF] Route matched with {action = "CreatePaymentUrlVnpay", controller = "Invoice"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CreatePaymentUrlVnpay(Int32) on controller BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController (BepKhoiBackend.API).
+2025-04-04 16:05:46.660 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-04 16:05:46.679 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Invoice_id], [t].[Amount_due], [t].[Cashier_id], [t].[Check_in_time], [t].[Check_out_time], [t].[Customer_id], [t].[Invoice_discount], [t].[Invoice_note], [t].[Order_id], [t].[Order_type_id], [t].[Other_payment], [t].[Payment_method_id], [t].[Room_id], [t].[Shipper_id], [t].[Status], [t].[Subtotal], [t].[Total_quantity], [t].[Total_vat], [i0].[Invoice_detail_id], [i0].[Invoice_id], [i0].[Price], [i0].[Product_id], [i0].[Product_name], [i0].[Product_note], [i0].[Product_vat], [i0].[Quantity]
+FROM (
+    SELECT TOP(1) [i].[Invoice_id], [i].[Amount_due], [i].[Cashier_id], [i].[Check_in_time], [i].[Check_out_time], [i].[Customer_id], [i].[Invoice_discount], [i].[Invoice_note], [i].[Order_id], [i].[Order_type_id], [i].[Other_payment], [i].[Payment_method_id], [i].[Room_id], [i].[Shipper_id], [i].[Status], [i].[Subtotal], [i].[Total_quantity], [i].[Total_vat]
+    FROM [Invoice] AS [i]
+    WHERE [i].[Invoice_id] = @__id_0
+) AS [t]
+LEFT JOIN [Invoice_detail] AS [i0] ON [t].[Invoice_id] = [i0].[Invoice_id]
+ORDER BY [t].[Invoice_id]
+2025-04-04 16:05:46.686 +07:00 [INF] Executing RedirectResult, redirecting to https://sandbox.vnpayment.vn/paymentv2/vpcpay.html?vnp_Amount=14325000&vnp_Command=pay&vnp_CreateDate=20250404160546&vnp_CurrCode=VND&vnp_IpAddr=192.168.1.6&vnp_Locale=vn&vnp_OrderInfo=Khach+le+2+143250&vnp_OrderType=other&vnp_ReturnUrl=https%3A%2F%2Flocalhost%3A7257%2Fapi%2FInvoice%2FReturn&vnp_TmnCode=1MTJPPPJ&vnp_TxnRef=638793795466843881&vnp_Version=2.1.0&vnp_SecureHash=4570c84fb7f5c975858245b2f3aee2cbed55a7b657cc2d806ae3e5e4076d009d652bf19f6a33ac80f43f85d9f1aa932de97a5704b41483651ee5dcc179b5c501.
+2025-04-04 16:05:46.688 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API) in 38.73ms
+2025-04-04 16:05:46.690 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API)'
+2025-04-04 16:05:46.694 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/api/Invoice/vnpay-url?Id=2 - - - 302 0 - 68.2927ms
+2025-04-04 16:07:12.754 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/api/Invoice/Return?vnp_Amount=14325000&vnp_BankCode=NCB&vnp_BankTranNo=VNP14890743&vnp_CardType=ATM&vnp_OrderInfo=Khach+le+2+143250&vnp_PayDate=20250404160713&vnp_ResponseCode=00&vnp_TmnCode=1MTJPPPJ&vnp_TransactionNo=14890743&vnp_TransactionStatus=00&vnp_TxnRef=638793795466843881&vnp_SecureHash=466c07d7fb6a8187af96b415be6a2adc56fe36f4c83243d0224e9b44f9c88cf6e4a6b4f8bb48785285dc236b596ba614b6875e899cca07e6c894d83102438aec - -
+2025-04-04 16:07:12.765 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.PaymentCallbackVnpay (BepKhoiBackend.API)'
+2025-04-04 16:07:12.770 +07:00 [INF] Route matched with {action = "PaymentCallbackVnpay", controller = "Invoice"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PaymentCallbackVnpay() on controller BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController (BepKhoiBackend.API).
+2025-04-04 16:07:12.797 +07:00 [INF] Executing OkObjectResult, writing value of type 'PaymentResponseModel'.
+2025-04-04 16:07:12.805 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.PaymentCallbackVnpay (BepKhoiBackend.API) in 33.0949ms
+2025-04-04 16:07:12.808 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.PaymentCallbackVnpay (BepKhoiBackend.API)'
+2025-04-04 16:07:12.810 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/api/Invoice/Return?vnp_Amount=14325000&vnp_BankCode=NCB&vnp_BankTranNo=VNP14890743&vnp_CardType=ATM&vnp_OrderInfo=Khach+le+2+143250&vnp_PayDate=20250404160713&vnp_ResponseCode=00&vnp_TmnCode=1MTJPPPJ&vnp_TransactionNo=14890743&vnp_TransactionStatus=00&vnp_TxnRef=638793795466843881&vnp_SecureHash=466c07d7fb6a8187af96b415be6a2adc56fe36f4c83243d0224e9b44f9c88cf6e4a6b4f8bb48785285dc236b596ba614b6875e899cca07e6c894d83102438aec - - - 200 - application/json;+charset=utf-8 56.7489ms
+2025-04-04 16:07:13.183 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/favicon.ico - -
+2025-04-04 16:07:13.185 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/favicon.ico - - - 404 0 - 2.0296ms
+2025-04-04 16:07:59.356 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-04-04 16:07:59.363 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 6.4815ms
+2025-04-04 16:07:59.855 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-04-04 16:07:59.857 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 16521 application/javascript;+charset=utf-8 2.4603ms
+2025-04-04 16:07:59.877 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-04-04 16:07:59.886 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 8.2387ms
+2025-04-04 16:08:00.149 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-04-04 16:08:00.183 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 34.6255ms
+2025-04-04 16:08:03.879 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-04-04 16:08:03.884 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 5.4573ms
+2025-04-04 16:08:03.917 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-04-04 16:08:03.919 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-04-04 16:08:03.922 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 16521 application/javascript;+charset=utf-8 2.0656ms
+2025-04-04 16:08:03.932 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 14.8617ms
+2025-04-04 16:08:04.483 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-04-04 16:08:04.517 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 33.7585ms
+2025-04-04 16:08:16.168 +07:00 [INF] User profile is available. Using 'C:\Users\abc\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-04 16:08:16.894 +07:00 [INF] Now listening on: https://localhost:7257
+2025-04-04 16:08:16.899 +07:00 [INF] Now listening on: http://localhost:5287
+2025-04-04 16:08:17.080 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-04 16:08:17.082 +07:00 [INF] Hosting environment: Development
+2025-04-04 16:08:17.093 +07:00 [INF] Content root path: D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\
+2025-04-04 16:08:17.491 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-04-04 16:08:17.849 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 363.9428ms
+2025-04-04 16:08:17.864 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-04-04 16:08:17.887 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 16521 application/javascript;+charset=utf-8 23.8796ms
+2025-04-04 16:08:18.203 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-04-04 16:08:18.306 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 102.9630ms
+2025-04-04 16:08:18.363 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-04-04 16:08:18.415 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 52.1382ms
+2025-04-04 16:08:24.256 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/api/Invoice/vnpay-url?Id=2 - -
+2025-04-04 16:08:24.686 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API)'
+2025-04-04 16:08:24.740 +07:00 [INF] Route matched with {action = "CreatePaymentUrlVnpay", controller = "Invoice"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CreatePaymentUrlVnpay(Int32) on controller BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController (BepKhoiBackend.API).
+2025-04-04 16:08:27.093 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-04 16:08:28.977 +07:00 [INF] Executed DbCommand (118ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Invoice_id], [t].[Amount_due], [t].[Cashier_id], [t].[Check_in_time], [t].[Check_out_time], [t].[Customer_id], [t].[Invoice_discount], [t].[Invoice_note], [t].[Order_id], [t].[Order_type_id], [t].[Other_payment], [t].[Payment_method_id], [t].[Room_id], [t].[Shipper_id], [t].[Status], [t].[Subtotal], [t].[Total_quantity], [t].[Total_vat], [i0].[Invoice_detail_id], [i0].[Invoice_id], [i0].[Price], [i0].[Product_id], [i0].[Product_name], [i0].[Product_note], [i0].[Product_vat], [i0].[Quantity]
+FROM (
+    SELECT TOP(1) [i].[Invoice_id], [i].[Amount_due], [i].[Cashier_id], [i].[Check_in_time], [i].[Check_out_time], [i].[Customer_id], [i].[Invoice_discount], [i].[Invoice_note], [i].[Order_id], [i].[Order_type_id], [i].[Other_payment], [i].[Payment_method_id], [i].[Room_id], [i].[Shipper_id], [i].[Status], [i].[Subtotal], [i].[Total_quantity], [i].[Total_vat]
+    FROM [Invoice] AS [i]
+    WHERE [i].[Invoice_id] = @__id_0
+) AS [t]
+LEFT JOIN [Invoice_detail] AS [i0] ON [t].[Invoice_id] = [i0].[Invoice_id]
+ORDER BY [t].[Invoice_id]
+2025-04-04 16:08:58.769 +07:00 [INF] Executing RedirectResult, redirecting to https://sandbox.vnpayment.vn/paymentv2/vpcpay.html?vnp_Amount=14325000&vnp_Command=pay&vnp_CreateDate=20250404160829&vnp_CurrCode=VND&vnp_IpAddr=192.168.1.6&vnp_Locale=vn&vnp_OrderInfo=Khach+le+2+143250&vnp_OrderType=other&vnp_ReturnUrl=https%3A%2F%2Flocalhost%3A7257%2Fapi%2FInvoice%2FReturn&vnp_TmnCode=1MTJPPPJ&vnp_TxnRef=638793797093298536&vnp_Version=2.1.0&vnp_SecureHash=b2f9f7142563f0c7562a78ebc19d057be0ba6cd91c433ce0726b952cc04214cecca44307eef00adfed9c9a101008eb1d6bb6a335093aa32094a3af3ffdce1525.
+2025-04-04 16:08:58.784 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API) in 34024.531ms
+2025-04-04 16:08:58.791 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API)'
+2025-04-04 16:09:00.610 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/api/Invoice/vnpay-url?Id=2 - - - 302 0 - 36354.1207ms
+2025-04-04 16:09:07.168 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/api/Invoice/vnpay-url?Id=2 - -
+2025-04-04 16:09:07.205 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API)'
+2025-04-04 16:09:07.210 +07:00 [INF] Route matched with {action = "CreatePaymentUrlVnpay", controller = "Invoice"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CreatePaymentUrlVnpay(Int32) on controller BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController (BepKhoiBackend.API).
+2025-04-04 16:09:07.321 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-04 16:09:07.353 +07:00 [INF] Executed DbCommand (12ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Invoice_id], [t].[Amount_due], [t].[Cashier_id], [t].[Check_in_time], [t].[Check_out_time], [t].[Customer_id], [t].[Invoice_discount], [t].[Invoice_note], [t].[Order_id], [t].[Order_type_id], [t].[Other_payment], [t].[Payment_method_id], [t].[Room_id], [t].[Shipper_id], [t].[Status], [t].[Subtotal], [t].[Total_quantity], [t].[Total_vat], [i0].[Invoice_detail_id], [i0].[Invoice_id], [i0].[Price], [i0].[Product_id], [i0].[Product_name], [i0].[Product_note], [i0].[Product_vat], [i0].[Quantity]
+FROM (
+    SELECT TOP(1) [i].[Invoice_id], [i].[Amount_due], [i].[Cashier_id], [i].[Check_in_time], [i].[Check_out_time], [i].[Customer_id], [i].[Invoice_discount], [i].[Invoice_note], [i].[Order_id], [i].[Order_type_id], [i].[Other_payment], [i].[Payment_method_id], [i].[Room_id], [i].[Shipper_id], [i].[Status], [i].[Subtotal], [i].[Total_quantity], [i].[Total_vat]
+    FROM [Invoice] AS [i]
+    WHERE [i].[Invoice_id] = @__id_0
+) AS [t]
+LEFT JOIN [Invoice_detail] AS [i0] ON [t].[Invoice_id] = [i0].[Invoice_id]
+ORDER BY [t].[Invoice_id]
+2025-04-04 16:09:07.359 +07:00 [INF] Executing RedirectResult, redirecting to https://sandbox.vnpayment.vn/paymentv2/vpcpay.html?vnp_Amount=14325000&vnp_Command=pay&vnp_CreateDate=20250404160907&vnp_CurrCode=VND&vnp_IpAddr=192.168.1.6&vnp_Locale=vn&vnp_OrderInfo=Khach+le+2+143250&vnp_OrderType=other&vnp_ReturnUrl=https%3A%2F%2Flocalhost%3A7257%2Fapi%2FInvoice%2FReturn&vnp_TmnCode=1MTJPPPJ&vnp_TxnRef=638793797473565330&vnp_Version=2.1.0&vnp_SecureHash=3b623a8e535363fe2e970a8c226a9eb3a1d1de2da4e59a00add02e21fbc06fbcf4f739b96262410bb260966c17769f91d450b67da50d45b777019c1ef4854643.
+2025-04-04 16:09:07.361 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API) in 147.9332ms
+2025-04-04 16:09:07.363 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API)'
+2025-04-04 16:09:07.365 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/api/Invoice/vnpay-url?Id=2 - - - 302 0 - 197.3452ms
+2025-04-04 16:09:29.320 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/api/Invoice/Return?vnp_Amount=14325000&vnp_BankCode=NCB&vnp_BankTranNo=VNP14890749&vnp_CardType=ATM&vnp_OrderInfo=Khach+le+2+143250&vnp_PayDate=20250404160930&vnp_ResponseCode=00&vnp_TmnCode=1MTJPPPJ&vnp_TransactionNo=14890749&vnp_TransactionStatus=00&vnp_TxnRef=638793797473565330&vnp_SecureHash=8138917d2df4e961f103b12e7821e9df3379eca40040abb488ab825f211bd2b9502fb7ecb43870f7d3664200658b789adca2f18f83744a432c0cfc7da3dfc0f7 - -
+2025-04-04 16:09:29.332 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.PaymentCallbackVnpay (BepKhoiBackend.API)'
+2025-04-04 16:09:29.337 +07:00 [INF] Route matched with {action = "PaymentCallbackVnpay", controller = "Invoice"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PaymentCallbackVnpay() on controller BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController (BepKhoiBackend.API).
+2025-04-04 16:09:29.371 +07:00 [INF] Executing OkObjectResult, writing value of type 'PaymentResponseModel'.
+2025-04-04 16:09:29.383 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.PaymentCallbackVnpay (BepKhoiBackend.API) in 42.5557ms
+2025-04-04 16:09:29.386 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.PaymentCallbackVnpay (BepKhoiBackend.API)'
+2025-04-04 16:09:29.389 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/api/Invoice/Return?vnp_Amount=14325000&vnp_BankCode=NCB&vnp_BankTranNo=VNP14890749&vnp_CardType=ATM&vnp_OrderInfo=Khach+le+2+143250&vnp_PayDate=20250404160930&vnp_ResponseCode=00&vnp_TmnCode=1MTJPPPJ&vnp_TransactionNo=14890749&vnp_TransactionStatus=00&vnp_TxnRef=638793797473565330&vnp_SecureHash=8138917d2df4e961f103b12e7821e9df3379eca40040abb488ab825f211bd2b9502fb7ecb43870f7d3664200658b789adca2f18f83744a432c0cfc7da3dfc0f7 - - - 200 - application/json;+charset=utf-8 68.7302ms
+2025-04-04 16:10:49.377 +07:00 [INF] User profile is available. Using 'C:\Users\abc\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-04 16:10:49.922 +07:00 [INF] Now listening on: https://localhost:7257
+2025-04-04 16:10:49.923 +07:00 [INF] Now listening on: http://localhost:5287
+2025-04-04 16:10:50.053 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-04 16:10:50.054 +07:00 [INF] Hosting environment: Development
+2025-04-04 16:10:50.056 +07:00 [INF] Content root path: D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\
+2025-04-04 16:10:50.533 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-04-04 16:10:50.928 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 400.8966ms
+2025-04-04 16:10:50.953 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-04-04 16:10:50.964 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 16521 application/javascript;+charset=utf-8 11.1934ms
+2025-04-04 16:10:51.256 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-04-04 16:10:51.344 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 88.0203ms
+2025-04-04 16:10:51.392 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-04-04 16:10:51.437 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 44.6073ms
+2025-04-04 16:10:57.434 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/api/Invoice/vnpay-url?Id=3 - -
+2025-04-04 16:10:57.634 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API)'
+2025-04-04 16:10:57.679 +07:00 [INF] Route matched with {action = "CreatePaymentUrlVnpay", controller = "Invoice"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CreatePaymentUrlVnpay(Int32) on controller BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController (BepKhoiBackend.API).
+2025-04-04 16:10:59.610 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-04 16:11:01.248 +07:00 [INF] Executed DbCommand (98ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Invoice_id], [t].[Amount_due], [t].[Cashier_id], [t].[Check_in_time], [t].[Check_out_time], [t].[Customer_id], [t].[Invoice_discount], [t].[Invoice_note], [t].[Order_id], [t].[Order_type_id], [t].[Other_payment], [t].[Payment_method_id], [t].[Room_id], [t].[Shipper_id], [t].[Status], [t].[Subtotal], [t].[Total_quantity], [t].[Total_vat], [i0].[Invoice_detail_id], [i0].[Invoice_id], [i0].[Price], [i0].[Product_id], [i0].[Product_name], [i0].[Product_note], [i0].[Product_vat], [i0].[Quantity]
+FROM (
+    SELECT TOP(1) [i].[Invoice_id], [i].[Amount_due], [i].[Cashier_id], [i].[Check_in_time], [i].[Check_out_time], [i].[Customer_id], [i].[Invoice_discount], [i].[Invoice_note], [i].[Order_id], [i].[Order_type_id], [i].[Other_payment], [i].[Payment_method_id], [i].[Room_id], [i].[Shipper_id], [i].[Status], [i].[Subtotal], [i].[Total_quantity], [i].[Total_vat]
+    FROM [Invoice] AS [i]
+    WHERE [i].[Invoice_id] = @__id_0
+) AS [t]
+LEFT JOIN [Invoice_detail] AS [i0] ON [t].[Invoice_id] = [i0].[Invoice_id]
+ORDER BY [t].[Invoice_id]
+2025-04-04 16:11:01.565 +07:00 [INF] Executing RedirectResult, redirecting to https://sandbox.vnpayment.vn/paymentv2/vpcpay.html?vnp_Amount=20475000&vnp_Command=pay&vnp_CreateDate=20250404161101&vnp_CurrCode=VND&vnp_IpAddr=192.168.1.6&vnp_Locale=vn&vnp_OrderInfo=Khach+le+3+204750&vnp_OrderType=other&vnp_ReturnUrl=https%3A%2F%2Flocalhost%3A7257%2Fapi%2FInvoice%2FReturn&vnp_TmnCode=1MTJPPPJ&vnp_TxnRef=638793798615449781&vnp_Version=2.1.0&vnp_SecureHash=ea7ba6c9a96a3ee189bb597e4dbb2028a7b11183e12eb33a7074445a64f4e595035b31d6b629b0bff2b02854b34051ff82ea97fcc7514526e956eb4a959a6ee9.
+2025-04-04 16:11:01.575 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API) in 3882.9791ms
+2025-04-04 16:11:01.582 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API)'
+2025-04-04 16:11:01.605 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/api/Invoice/vnpay-url?Id=3 - - - 302 0 - 4171.0285ms
+2025-04-04 16:11:08.659 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/api/Invoice/vnpay-url?Id=2 - -
+2025-04-04 16:11:08.669 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API)'
+2025-04-04 16:11:08.675 +07:00 [INF] Route matched with {action = "CreatePaymentUrlVnpay", controller = "Invoice"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CreatePaymentUrlVnpay(Int32) on controller BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController (BepKhoiBackend.API).
+2025-04-04 16:11:08.730 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-04 16:11:08.797 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Invoice_id], [t].[Amount_due], [t].[Cashier_id], [t].[Check_in_time], [t].[Check_out_time], [t].[Customer_id], [t].[Invoice_discount], [t].[Invoice_note], [t].[Order_id], [t].[Order_type_id], [t].[Other_payment], [t].[Payment_method_id], [t].[Room_id], [t].[Shipper_id], [t].[Status], [t].[Subtotal], [t].[Total_quantity], [t].[Total_vat], [i0].[Invoice_detail_id], [i0].[Invoice_id], [i0].[Price], [i0].[Product_id], [i0].[Product_name], [i0].[Product_note], [i0].[Product_vat], [i0].[Quantity]
+FROM (
+    SELECT TOP(1) [i].[Invoice_id], [i].[Amount_due], [i].[Cashier_id], [i].[Check_in_time], [i].[Check_out_time], [i].[Customer_id], [i].[Invoice_discount], [i].[Invoice_note], [i].[Order_id], [i].[Order_type_id], [i].[Other_payment], [i].[Payment_method_id], [i].[Room_id], [i].[Shipper_id], [i].[Status], [i].[Subtotal], [i].[Total_quantity], [i].[Total_vat]
+    FROM [Invoice] AS [i]
+    WHERE [i].[Invoice_id] = @__id_0
+) AS [t]
+LEFT JOIN [Invoice_detail] AS [i0] ON [t].[Invoice_id] = [i0].[Invoice_id]
+ORDER BY [t].[Invoice_id]
+2025-04-04 16:11:08.809 +07:00 [INF] Executing RedirectResult, redirecting to https://sandbox.vnpayment.vn/paymentv2/vpcpay.html?vnp_Amount=14325000&vnp_Command=pay&vnp_CreateDate=20250404161108&vnp_CurrCode=VND&vnp_IpAddr=192.168.1.6&vnp_Locale=vn&vnp_OrderInfo=Khach+le+2+143250&vnp_OrderType=other&vnp_ReturnUrl=https%3A%2F%2Flocalhost%3A7257%2Fapi%2FInvoice%2FReturn&vnp_TmnCode=1MTJPPPJ&vnp_TxnRef=638793798688067181&vnp_Version=2.1.0&vnp_SecureHash=1f509bb7829ad51e3b56ffce47bb97db2c6740f0f40d536e63b9621b2dd3089283024e2e62ca015c641bfa502bbb42ad3e1063b04c84b27740a313ee441d66c0.
+2025-04-04 16:11:08.811 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API) in 132.9726ms
+2025-04-04 16:11:08.817 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API)'
+2025-04-04 16:11:08.821 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/api/Invoice/vnpay-url?Id=2 - - - 302 0 - 161.3198ms
+2025-04-04 16:11:13.570 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/api/Invoice/vnpay-url?Id=2 - -
+2025-04-04 16:11:13.597 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API)'
+2025-04-04 16:11:13.599 +07:00 [INF] Route matched with {action = "CreatePaymentUrlVnpay", controller = "Invoice"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CreatePaymentUrlVnpay(Int32) on controller BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController (BepKhoiBackend.API).
+2025-04-04 16:11:13.658 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-04 16:11:13.679 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Invoice_id], [t].[Amount_due], [t].[Cashier_id], [t].[Check_in_time], [t].[Check_out_time], [t].[Customer_id], [t].[Invoice_discount], [t].[Invoice_note], [t].[Order_id], [t].[Order_type_id], [t].[Other_payment], [t].[Payment_method_id], [t].[Room_id], [t].[Shipper_id], [t].[Status], [t].[Subtotal], [t].[Total_quantity], [t].[Total_vat], [i0].[Invoice_detail_id], [i0].[Invoice_id], [i0].[Price], [i0].[Product_id], [i0].[Product_name], [i0].[Product_note], [i0].[Product_vat], [i0].[Quantity]
+FROM (
+    SELECT TOP(1) [i].[Invoice_id], [i].[Amount_due], [i].[Cashier_id], [i].[Check_in_time], [i].[Check_out_time], [i].[Customer_id], [i].[Invoice_discount], [i].[Invoice_note], [i].[Order_id], [i].[Order_type_id], [i].[Other_payment], [i].[Payment_method_id], [i].[Room_id], [i].[Shipper_id], [i].[Status], [i].[Subtotal], [i].[Total_quantity], [i].[Total_vat]
+    FROM [Invoice] AS [i]
+    WHERE [i].[Invoice_id] = @__id_0
+) AS [t]
+LEFT JOIN [Invoice_detail] AS [i0] ON [t].[Invoice_id] = [i0].[Invoice_id]
+ORDER BY [t].[Invoice_id]
+2025-04-04 16:11:13.688 +07:00 [INF] Executing RedirectResult, redirecting to https://sandbox.vnpayment.vn/paymentv2/vpcpay.html?vnp_Amount=14325000&vnp_Command=pay&vnp_CreateDate=20250404161113&vnp_CurrCode=VND&vnp_IpAddr=192.168.1.6&vnp_Locale=vn&vnp_OrderInfo=Khach+le+2+143250&vnp_OrderType=other&vnp_ReturnUrl=https%3A%2F%2Flocalhost%3A7257%2Fapi%2FInvoice%2FReturn&vnp_TmnCode=1MTJPPPJ&vnp_TxnRef=638793798736857057&vnp_Version=2.1.0&vnp_SecureHash=fbcf908d25ced438858cddc1eef6da6813d5255656bdf38496c01a7d9eefdd3b5d69dacd760566fcd9ea4acf8080313b1d2020c09211da197b8865de0e0aac66.
+2025-04-04 16:11:13.690 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API) in 88.5106ms
+2025-04-04 16:11:13.694 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API)'
+2025-04-04 16:11:13.699 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/api/Invoice/vnpay-url?Id=2 - - - 302 0 - 128.6141ms
+2025-04-04 16:11:40.532 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/api/Invoice/Return?vnp_Amount=14325000&vnp_BankCode=NCB&vnp_BankTranNo=VNP14890752&vnp_CardType=ATM&vnp_OrderInfo=Khach+le+2+143250&vnp_PayDate=20250404161141&vnp_ResponseCode=00&vnp_TmnCode=1MTJPPPJ&vnp_TransactionNo=14890752&vnp_TransactionStatus=00&vnp_TxnRef=638793798736857057&vnp_SecureHash=64f0827efabdedcd663da6eabc368616ee7c52f9623f9131c098d1a99a15135cb9f84a712386824ba75a4c428a143f7ef51efe5c37b9aea606574e33c6e9448f - -
+2025-04-04 16:11:40.539 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.PaymentCallbackVnpay (BepKhoiBackend.API)'
+2025-04-04 16:11:40.546 +07:00 [INF] Route matched with {action = "PaymentCallbackVnpay", controller = "Invoice"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PaymentCallbackVnpay() on controller BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController (BepKhoiBackend.API).
+2025-04-04 16:11:40.576 +07:00 [INF] Executing OkObjectResult, writing value of type 'PaymentResponseModel'.
+2025-04-04 16:11:40.585 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.PaymentCallbackVnpay (BepKhoiBackend.API) in 34.0339ms
+2025-04-04 16:11:40.589 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.PaymentCallbackVnpay (BepKhoiBackend.API)'
+2025-04-04 16:11:40.597 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/api/Invoice/Return?vnp_Amount=14325000&vnp_BankCode=NCB&vnp_BankTranNo=VNP14890752&vnp_CardType=ATM&vnp_OrderInfo=Khach+le+2+143250&vnp_PayDate=20250404161141&vnp_ResponseCode=00&vnp_TmnCode=1MTJPPPJ&vnp_TransactionNo=14890752&vnp_TransactionStatus=00&vnp_TxnRef=638793798736857057&vnp_SecureHash=64f0827efabdedcd663da6eabc368616ee7c52f9623f9131c098d1a99a15135cb9f84a712386824ba75a4c428a143f7ef51efe5c37b9aea606574e33c6e9448f - - - 200 - application/json;+charset=utf-8 65.4835ms
+2025-04-04 16:13:45.383 +07:00 [INF] User profile is available. Using 'C:\Users\abc\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-04 16:13:45.626 +07:00 [INF] Now listening on: https://localhost:7257
+2025-04-04 16:13:45.628 +07:00 [INF] Now listening on: http://localhost:5287
+2025-04-04 16:13:45.703 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-04 16:13:45.705 +07:00 [INF] Hosting environment: Development
+2025-04-04 16:13:45.708 +07:00 [INF] Content root path: D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\
+2025-04-04 16:13:46.327 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-04-04 16:13:46.515 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 191.5732ms
+2025-04-04 16:13:46.536 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-04-04 16:13:46.541 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 16521 application/javascript;+charset=utf-8 5.1560ms
+2025-04-04 16:13:46.804 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-04-04 16:13:46.848 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 44.0564ms
+2025-04-04 16:13:46.917 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-04-04 16:13:46.978 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 61.6898ms
+2025-04-04 16:13:51.415 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/api/Invoice/vnpay-url?Id=2 - -
+2025-04-04 16:13:51.492 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API)'
+2025-04-04 16:13:51.516 +07:00 [INF] Route matched with {action = "CreatePaymentUrlVnpay", controller = "Invoice"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CreatePaymentUrlVnpay(Int32) on controller BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController (BepKhoiBackend.API).
+2025-04-04 16:13:52.743 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-04 16:13:53.594 +07:00 [INF] Executed DbCommand (45ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Invoice_id], [t].[Amount_due], [t].[Cashier_id], [t].[Check_in_time], [t].[Check_out_time], [t].[Customer_id], [t].[Invoice_discount], [t].[Invoice_note], [t].[Order_id], [t].[Order_type_id], [t].[Other_payment], [t].[Payment_method_id], [t].[Room_id], [t].[Shipper_id], [t].[Status], [t].[Subtotal], [t].[Total_quantity], [t].[Total_vat], [i0].[Invoice_detail_id], [i0].[Invoice_id], [i0].[Price], [i0].[Product_id], [i0].[Product_name], [i0].[Product_note], [i0].[Product_vat], [i0].[Quantity]
+FROM (
+    SELECT TOP(1) [i].[Invoice_id], [i].[Amount_due], [i].[Cashier_id], [i].[Check_in_time], [i].[Check_out_time], [i].[Customer_id], [i].[Invoice_discount], [i].[Invoice_note], [i].[Order_id], [i].[Order_type_id], [i].[Other_payment], [i].[Payment_method_id], [i].[Room_id], [i].[Shipper_id], [i].[Status], [i].[Subtotal], [i].[Total_quantity], [i].[Total_vat]
+    FROM [Invoice] AS [i]
+    WHERE [i].[Invoice_id] = @__id_0
+) AS [t]
+LEFT JOIN [Invoice_detail] AS [i0] ON [t].[Invoice_id] = [i0].[Invoice_id]
+ORDER BY [t].[Invoice_id]
+2025-04-04 16:13:53.819 +07:00 [INF] Executing RedirectResult, redirecting to https://sandbox.vnpayment.vn/paymentv2/vpcpay.html?vnp_Amount=14325000&vnp_Command=pay&vnp_CreateDate=20250404161353&vnp_CurrCode=VND&vnp_IpAddr=192.168.1.6&vnp_Locale=vn&vnp_OrderInfo=Khach+le+2+143250&vnp_OrderType=other&vnp_ReturnUrl=https%3A%2F%2Flocalhost%3A7257%2Fapi%2FInvoice%2FReturn&vnp_TmnCode=1MTJPPPJ&vnp_TxnRef=638793800338057808&vnp_Version=2.1.0&vnp_SecureHash=4711a6a1984b65f11eba69338c2420c106bf9fbe4048f9c7a0a339ce3391909e5882955413e839d92beb2d90ec907e0aaf1d4eab3ada81ece8296a0af97345f6.
+2025-04-04 16:13:53.829 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API) in 2304.33ms
+2025-04-04 16:13:53.832 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API)'
+2025-04-04 16:13:53.844 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/api/Invoice/vnpay-url?Id=2 - - - 302 0 - 2428.1092ms
+2025-04-04 16:14:00.174 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/api/Invoice/vnpay-url?Id=2 - -
+2025-04-04 16:14:00.190 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API)'
+2025-04-04 16:14:00.193 +07:00 [INF] Route matched with {action = "CreatePaymentUrlVnpay", controller = "Invoice"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CreatePaymentUrlVnpay(Int32) on controller BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController (BepKhoiBackend.API).
+2025-04-04 16:14:00.214 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-04 16:14:00.240 +07:00 [INF] Executed DbCommand (11ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Invoice_id], [t].[Amount_due], [t].[Cashier_id], [t].[Check_in_time], [t].[Check_out_time], [t].[Customer_id], [t].[Invoice_discount], [t].[Invoice_note], [t].[Order_id], [t].[Order_type_id], [t].[Other_payment], [t].[Payment_method_id], [t].[Room_id], [t].[Shipper_id], [t].[Status], [t].[Subtotal], [t].[Total_quantity], [t].[Total_vat], [i0].[Invoice_detail_id], [i0].[Invoice_id], [i0].[Price], [i0].[Product_id], [i0].[Product_name], [i0].[Product_note], [i0].[Product_vat], [i0].[Quantity]
+FROM (
+    SELECT TOP(1) [i].[Invoice_id], [i].[Amount_due], [i].[Cashier_id], [i].[Check_in_time], [i].[Check_out_time], [i].[Customer_id], [i].[Invoice_discount], [i].[Invoice_note], [i].[Order_id], [i].[Order_type_id], [i].[Other_payment], [i].[Payment_method_id], [i].[Room_id], [i].[Shipper_id], [i].[Status], [i].[Subtotal], [i].[Total_quantity], [i].[Total_vat]
+    FROM [Invoice] AS [i]
+    WHERE [i].[Invoice_id] = @__id_0
+) AS [t]
+LEFT JOIN [Invoice_detail] AS [i0] ON [t].[Invoice_id] = [i0].[Invoice_id]
+ORDER BY [t].[Invoice_id]
+2025-04-04 16:14:00.251 +07:00 [INF] Executing RedirectResult, redirecting to https://sandbox.vnpayment.vn/paymentv2/vpcpay.html?vnp_Amount=14325000&vnp_Command=pay&vnp_CreateDate=20250404161400&vnp_CurrCode=VND&vnp_IpAddr=192.168.1.6&vnp_Locale=vn&vnp_OrderInfo=Khach+le+2+143250&vnp_OrderType=other&vnp_ReturnUrl=https%3A%2F%2Flocalhost%3A7257%2Fapi%2FInvoice%2FReturn&vnp_TmnCode=1MTJPPPJ&vnp_TxnRef=638793800402462772&vnp_Version=2.1.0&vnp_SecureHash=c51160c24181a69fcea6074551e278c265ac3a1cb5f9bf03f08cef22c96598da3d7d484f1c280a43d2dfc153e2858d71922dd880ad65e3d1e1edeab15a03a647.
+2025-04-04 16:14:00.255 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API) in 57.2624ms
+2025-04-04 16:14:00.259 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API)'
+2025-04-04 16:14:00.262 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/api/Invoice/vnpay-url?Id=2 - - - 302 0 - 87.4894ms
+2025-04-04 16:14:27.281 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/api/Invoice/Return?vnp_Amount=14325000&vnp_BankCode=NCB&vnp_BankTranNo=VNP14890765&vnp_CardType=ATM&vnp_OrderInfo=Khach+le+2+143250&vnp_PayDate=20250404161424&vnp_ResponseCode=00&vnp_TmnCode=1MTJPPPJ&vnp_TransactionNo=14890765&vnp_TransactionStatus=00&vnp_TxnRef=638793800402462772&vnp_SecureHash=de8680d7905b87a9aa5c1920e49861907deaa24b83d69b5a497346bfe78f21b6ef63b6e513967159473dcf3b936b31691e7568a0841c6cb5c349c523bdba9f3b - -
+2025-04-04 16:14:27.291 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.PaymentCallbackVnpay (BepKhoiBackend.API)'
+2025-04-04 16:14:27.297 +07:00 [INF] Route matched with {action = "PaymentCallbackVnpay", controller = "Invoice"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PaymentCallbackVnpay() on controller BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController (BepKhoiBackend.API).
+2025-04-04 16:14:27.324 +07:00 [INF] Executing OkObjectResult, writing value of type 'PaymentResponseModel'.
+2025-04-04 16:14:27.332 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.PaymentCallbackVnpay (BepKhoiBackend.API) in 31.447ms
+2025-04-04 16:14:27.335 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.PaymentCallbackVnpay (BepKhoiBackend.API)'
+2025-04-04 16:14:27.339 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/api/Invoice/Return?vnp_Amount=14325000&vnp_BankCode=NCB&vnp_BankTranNo=VNP14890765&vnp_CardType=ATM&vnp_OrderInfo=Khach+le+2+143250&vnp_PayDate=20250404161424&vnp_ResponseCode=00&vnp_TmnCode=1MTJPPPJ&vnp_TransactionNo=14890765&vnp_TransactionStatus=00&vnp_TxnRef=638793800402462772&vnp_SecureHash=de8680d7905b87a9aa5c1920e49861907deaa24b83d69b5a497346bfe78f21b6ef63b6e513967159473dcf3b936b31691e7568a0841c6cb5c349c523bdba9f3b - - - 200 - application/json;+charset=utf-8 57.4582ms
+2025-04-04 16:24:45.261 +07:00 [INF] User profile is available. Using 'C:\Users\abc\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-04 16:24:45.517 +07:00 [INF] Now listening on: https://localhost:7257
+2025-04-04 16:24:45.519 +07:00 [INF] Now listening on: http://localhost:5287
+2025-04-04 16:24:45.605 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-04 16:24:45.607 +07:00 [INF] Hosting environment: Development
+2025-04-04 16:24:45.609 +07:00 [INF] Content root path: D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\
+2025-04-04 16:24:45.876 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-04-04 16:24:46.105 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 232.6534ms
+2025-04-04 16:24:46.137 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-04-04 16:24:46.137 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-04-04 16:24:46.145 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 16521 application/javascript;+charset=utf-8 8.0438ms
+2025-04-04 16:24:46.185 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 48.3031ms
+2025-04-04 16:24:46.957 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-04-04 16:24:47.010 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 53.2088ms
+2025-04-04 16:25:05.453 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/api/Invoice/vnpay-url?Id=2 - -
+2025-04-04 16:25:05.536 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API)'
+2025-04-04 16:25:05.569 +07:00 [INF] Route matched with {action = "CreatePaymentUrlVnpay", controller = "Invoice"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CreatePaymentUrlVnpay(Int32) on controller BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController (BepKhoiBackend.API).
+2025-04-04 16:25:07.007 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-04 16:25:07.800 +07:00 [INF] Executed DbCommand (50ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Invoice_id], [t].[Amount_due], [t].[Cashier_id], [t].[Check_in_time], [t].[Check_out_time], [t].[Customer_id], [t].[Invoice_discount], [t].[Invoice_note], [t].[Order_id], [t].[Order_type_id], [t].[Other_payment], [t].[Payment_method_id], [t].[Room_id], [t].[Shipper_id], [t].[Status], [t].[Subtotal], [t].[Total_quantity], [t].[Total_vat], [i0].[Invoice_detail_id], [i0].[Invoice_id], [i0].[Price], [i0].[Product_id], [i0].[Product_name], [i0].[Product_note], [i0].[Product_vat], [i0].[Quantity]
+FROM (
+    SELECT TOP(1) [i].[Invoice_id], [i].[Amount_due], [i].[Cashier_id], [i].[Check_in_time], [i].[Check_out_time], [i].[Customer_id], [i].[Invoice_discount], [i].[Invoice_note], [i].[Order_id], [i].[Order_type_id], [i].[Other_payment], [i].[Payment_method_id], [i].[Room_id], [i].[Shipper_id], [i].[Status], [i].[Subtotal], [i].[Total_quantity], [i].[Total_vat]
+    FROM [Invoice] AS [i]
+    WHERE [i].[Invoice_id] = @__id_0
+) AS [t]
+LEFT JOIN [Invoice_detail] AS [i0] ON [t].[Invoice_id] = [i0].[Invoice_id]
+ORDER BY [t].[Invoice_id]
+2025-04-04 16:25:07.993 +07:00 [INF] Executing RedirectResult, redirecting to https://sandbox.vnpayment.vn/paymentv2/vpcpay.html?vnp_Amount=14325000&vnp_Command=pay&vnp_CreateDate=20250404162507&vnp_CurrCode=VND&vnp_IpAddr=192.168.1.6&vnp_Locale=vn&vnp_OrderInfo=Khach+le+2+143250&vnp_OrderType=other&vnp_ReturnUrl=https%3A%2F%2Flocalhost%3A7257%2Fapi%2FInvoice%2FReturn&vnp_TmnCode=1MTJPPPJ&vnp_TxnRef=638793807079773154&vnp_Version=2.1.0&vnp_SecureHash=7318863461e7b0a271914fd2e0b72ec4a8a1e8fc6c5e31ad77130682fcf302807ecc675763b7e2c4c45111bf993cba454b1c9721eeb6d1fae8a917153ba48204.
+2025-04-04 16:25:08.003 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API) in 2415.9266ms
+2025-04-04 16:25:08.009 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API)'
+2025-04-04 16:25:08.017 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/api/Invoice/vnpay-url?Id=2 - - - 302 0 - 2563.9459ms
+2025-04-04 16:25:14.723 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/api/Invoice/vnpay-url?Id=2 - -
+2025-04-04 16:25:14.735 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API)'
+2025-04-04 16:25:14.740 +07:00 [INF] Route matched with {action = "CreatePaymentUrlVnpay", controller = "Invoice"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CreatePaymentUrlVnpay(Int32) on controller BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController (BepKhoiBackend.API).
+2025-04-04 16:25:14.755 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-04 16:25:14.779 +07:00 [INF] Executed DbCommand (12ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Invoice_id], [t].[Amount_due], [t].[Cashier_id], [t].[Check_in_time], [t].[Check_out_time], [t].[Customer_id], [t].[Invoice_discount], [t].[Invoice_note], [t].[Order_id], [t].[Order_type_id], [t].[Other_payment], [t].[Payment_method_id], [t].[Room_id], [t].[Shipper_id], [t].[Status], [t].[Subtotal], [t].[Total_quantity], [t].[Total_vat], [i0].[Invoice_detail_id], [i0].[Invoice_id], [i0].[Price], [i0].[Product_id], [i0].[Product_name], [i0].[Product_note], [i0].[Product_vat], [i0].[Quantity]
+FROM (
+    SELECT TOP(1) [i].[Invoice_id], [i].[Amount_due], [i].[Cashier_id], [i].[Check_in_time], [i].[Check_out_time], [i].[Customer_id], [i].[Invoice_discount], [i].[Invoice_note], [i].[Order_id], [i].[Order_type_id], [i].[Other_payment], [i].[Payment_method_id], [i].[Room_id], [i].[Shipper_id], [i].[Status], [i].[Subtotal], [i].[Total_quantity], [i].[Total_vat]
+    FROM [Invoice] AS [i]
+    WHERE [i].[Invoice_id] = @__id_0
+) AS [t]
+LEFT JOIN [Invoice_detail] AS [i0] ON [t].[Invoice_id] = [i0].[Invoice_id]
+ORDER BY [t].[Invoice_id]
+2025-04-04 16:25:14.790 +07:00 [INF] Executing RedirectResult, redirecting to https://sandbox.vnpayment.vn/paymentv2/vpcpay.html?vnp_Amount=14325000&vnp_Command=pay&vnp_CreateDate=20250404162514&vnp_CurrCode=VND&vnp_IpAddr=192.168.1.6&vnp_Locale=vn&vnp_OrderInfo=Khach+le+2+143250&vnp_OrderType=other&vnp_ReturnUrl=https%3A%2F%2Flocalhost%3A7257%2Fapi%2FInvoice%2FReturn&vnp_TmnCode=1MTJPPPJ&vnp_TxnRef=638793807147877944&vnp_Version=2.1.0&vnp_SecureHash=04356b61f21f71ee75123c50def1d540c1ebf2fe090f755f8d719ea6af4eee2a3d85ac92a8c1dccd6e68e8b884e2439b0f5c3d9b6bbcf1014ec57d1e4521535c.
+2025-04-04 16:25:14.792 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API) in 48.9212ms
+2025-04-04 16:25:14.798 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API)'
+2025-04-04 16:25:14.802 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/api/Invoice/vnpay-url?Id=2 - - - 302 0 - 78.6673ms
+2025-04-04 16:25:48.897 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/api/Invoice/Return?vnp_Amount=14325000&vnp_BankCode=NCB&vnp_BankTranNo=VNP14890796&vnp_CardType=ATM&vnp_OrderInfo=Khach+le+2+143250&vnp_PayDate=20250404162550&vnp_ResponseCode=00&vnp_TmnCode=1MTJPPPJ&vnp_TransactionNo=14890796&vnp_TransactionStatus=00&vnp_TxnRef=638793807147877944&vnp_SecureHash=fe0be4c92fdf7168b2c94e2826a552b5dd39772c9dcaf751cd3defa8401c7f33e9e37416404e84c6e03284e3f08403bb87e5eaa0e71724bd50e56c2dfe967ca2 - -
+2025-04-04 16:25:48.902 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.PaymentCallbackVnpay (BepKhoiBackend.API)'
+2025-04-04 16:25:48.905 +07:00 [INF] Route matched with {action = "PaymentCallbackVnpay", controller = "Invoice"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PaymentCallbackVnpay() on controller BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController (BepKhoiBackend.API).
+2025-04-04 16:25:48.971 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-04 16:25:48.993 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[@__invoiceId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [i].[Invoice_id], [i].[Amount_due], [i].[Cashier_id], [i].[Check_in_time], [i].[Check_out_time], [i].[Customer_id], [i].[Invoice_discount], [i].[Invoice_note], [i].[Order_id], [i].[Order_type_id], [i].[Other_payment], [i].[Payment_method_id], [i].[Room_id], [i].[Shipper_id], [i].[Status], [i].[Subtotal], [i].[Total_quantity], [i].[Total_vat]
+FROM [Invoice] AS [i]
+WHERE [i].[Invoice_id] = @__invoiceId_0
+2025-04-04 16:25:49.008 +07:00 [INF] Executing OkObjectResult, writing value of type 'PaymentResponseModel'.
+2025-04-04 16:25:49.014 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.PaymentCallbackVnpay (BepKhoiBackend.API) in 105.4405ms
+2025-04-04 16:25:49.016 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.PaymentCallbackVnpay (BepKhoiBackend.API)'
+2025-04-04 16:25:49.017 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/api/Invoice/Return?vnp_Amount=14325000&vnp_BankCode=NCB&vnp_BankTranNo=VNP14890796&vnp_CardType=ATM&vnp_OrderInfo=Khach+le+2+143250&vnp_PayDate=20250404162550&vnp_ResponseCode=00&vnp_TmnCode=1MTJPPPJ&vnp_TransactionNo=14890796&vnp_TransactionStatus=00&vnp_TxnRef=638793807147877944&vnp_SecureHash=fe0be4c92fdf7168b2c94e2826a552b5dd39772c9dcaf751cd3defa8401c7f33e9e37416404e84c6e03284e3f08403bb87e5eaa0e71724bd50e56c2dfe967ca2 - - - 200 - application/json;+charset=utf-8 120.5136ms
+2025-04-04 16:31:00.269 +07:00 [INF] User profile is available. Using 'C:\Users\abc\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-04 16:31:00.425 +07:00 [INF] Now listening on: https://localhost:7257
+2025-04-04 16:31:00.426 +07:00 [INF] Now listening on: http://localhost:5287
+2025-04-04 16:31:00.498 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-04 16:31:00.499 +07:00 [INF] Hosting environment: Development
+2025-04-04 16:31:00.500 +07:00 [INF] Content root path: D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\
+2025-04-04 16:31:00.626 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-04-04 16:31:00.802 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 183.2977ms
+2025-04-04 16:31:00.826 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-04-04 16:31:00.826 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-04-04 16:31:00.830 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 16521 application/javascript;+charset=utf-8 4.2373ms
+2025-04-04 16:31:00.857 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 31.0920ms
+2025-04-04 16:31:01.566 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-04-04 16:31:01.609 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 43.0356ms
+2025-04-04 16:31:11.414 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/api/Invoice/vnpay-url?Id=2 - -
+2025-04-04 16:31:11.466 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API)'
+2025-04-04 16:31:11.490 +07:00 [INF] Route matched with {action = "CreatePaymentUrlVnpay", controller = "Invoice"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CreatePaymentUrlVnpay(Int32) on controller BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController (BepKhoiBackend.API).
+2025-04-04 16:31:12.514 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-04 16:31:13.234 +07:00 [INF] Executed DbCommand (30ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Invoice_id], [t].[Amount_due], [t].[Cashier_id], [t].[Check_in_time], [t].[Check_out_time], [t].[Customer_id], [t].[Invoice_discount], [t].[Invoice_note], [t].[Order_id], [t].[Order_type_id], [t].[Other_payment], [t].[Payment_method_id], [t].[Room_id], [t].[Shipper_id], [t].[Status], [t].[Subtotal], [t].[Total_quantity], [t].[Total_vat], [i0].[Invoice_detail_id], [i0].[Invoice_id], [i0].[Price], [i0].[Product_id], [i0].[Product_name], [i0].[Product_note], [i0].[Product_vat], [i0].[Quantity]
+FROM (
+    SELECT TOP(1) [i].[Invoice_id], [i].[Amount_due], [i].[Cashier_id], [i].[Check_in_time], [i].[Check_out_time], [i].[Customer_id], [i].[Invoice_discount], [i].[Invoice_note], [i].[Order_id], [i].[Order_type_id], [i].[Other_payment], [i].[Payment_method_id], [i].[Room_id], [i].[Shipper_id], [i].[Status], [i].[Subtotal], [i].[Total_quantity], [i].[Total_vat]
+    FROM [Invoice] AS [i]
+    WHERE [i].[Invoice_id] = @__id_0
+) AS [t]
+LEFT JOIN [Invoice_detail] AS [i0] ON [t].[Invoice_id] = [i0].[Invoice_id]
+ORDER BY [t].[Invoice_id]
+2025-04-04 16:31:13.371 +07:00 [INF] Executing RedirectResult, redirecting to https://sandbox.vnpayment.vn/paymentv2/vpcpay.html?vnp_Amount=14325000&vnp_Command=pay&vnp_CreateDate=20250404163113&vnp_CurrCode=VND&vnp_IpAddr=192.168.1.6&vnp_Locale=vn&vnp_OrderInfo=+2+143250&vnp_OrderType=other&vnp_ReturnUrl=https%3A%2F%2Flocalhost%3A7257%2Fapi%2FInvoice%2FReturn&vnp_TmnCode=1MTJPPPJ&vnp_TxnRef=638793810733611971&vnp_Version=2.1.0&vnp_SecureHash=edeacbe85c459be37af9f87f22fe25929f38758d6e4f0e88ade8861d226f30e2e16f8cc7ed1f955e28851cc32788cc2153722b9e05628b3a51a76482eb1e4bf5.
+2025-04-04 16:31:13.384 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API) in 1881.2326ms
+2025-04-04 16:31:13.389 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API)'
+2025-04-04 16:31:13.399 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/api/Invoice/vnpay-url?Id=2 - - - 302 0 - 1985.6197ms
+2025-04-04 16:31:27.544 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-04-04 16:31:27.551 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 7.0163ms
+2025-04-04 16:31:27.592 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-04-04 16:31:27.594 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 16521 application/javascript;+charset=utf-8 1.5052ms
+2025-04-04 16:31:27.885 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-04-04 16:31:27.893 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 8.6564ms
+2025-04-04 16:31:28.054 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-04-04 16:31:28.077 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 22.7776ms
+2025-04-04 16:31:33.924 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/api/Invoice/vnpay-url?Id=2 - -
+2025-04-04 16:31:33.933 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API)'
+2025-04-04 16:31:33.937 +07:00 [INF] Route matched with {action = "CreatePaymentUrlVnpay", controller = "Invoice"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CreatePaymentUrlVnpay(Int32) on controller BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController (BepKhoiBackend.API).
+2025-04-04 16:31:33.953 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-04 16:31:33.976 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Invoice_id], [t].[Amount_due], [t].[Cashier_id], [t].[Check_in_time], [t].[Check_out_time], [t].[Customer_id], [t].[Invoice_discount], [t].[Invoice_note], [t].[Order_id], [t].[Order_type_id], [t].[Other_payment], [t].[Payment_method_id], [t].[Room_id], [t].[Shipper_id], [t].[Status], [t].[Subtotal], [t].[Total_quantity], [t].[Total_vat], [i0].[Invoice_detail_id], [i0].[Invoice_id], [i0].[Price], [i0].[Product_id], [i0].[Product_name], [i0].[Product_note], [i0].[Product_vat], [i0].[Quantity]
+FROM (
+    SELECT TOP(1) [i].[Invoice_id], [i].[Amount_due], [i].[Cashier_id], [i].[Check_in_time], [i].[Check_out_time], [i].[Customer_id], [i].[Invoice_discount], [i].[Invoice_note], [i].[Order_id], [i].[Order_type_id], [i].[Other_payment], [i].[Payment_method_id], [i].[Room_id], [i].[Shipper_id], [i].[Status], [i].[Subtotal], [i].[Total_quantity], [i].[Total_vat]
+    FROM [Invoice] AS [i]
+    WHERE [i].[Invoice_id] = @__id_0
+) AS [t]
+LEFT JOIN [Invoice_detail] AS [i0] ON [t].[Invoice_id] = [i0].[Invoice_id]
+ORDER BY [t].[Invoice_id]
+2025-04-04 16:31:33.989 +07:00 [INF] Executing RedirectResult, redirecting to https://sandbox.vnpayment.vn/paymentv2/vpcpay.html?vnp_Amount=14325000&vnp_Command=pay&vnp_CreateDate=20250404163133&vnp_CurrCode=VND&vnp_IpAddr=192.168.1.6&vnp_Locale=vn&vnp_OrderInfo=+2+143250&vnp_OrderType=other&vnp_ReturnUrl=https%3A%2F%2Flocalhost%3A7257%2Fapi%2FInvoice%2FReturn&vnp_TmnCode=1MTJPPPJ&vnp_TxnRef=638793810939869647&vnp_Version=2.1.0&vnp_SecureHash=7facd16db092a64f2d5379355b0b3c5fff6252d4715603d0a861101d2673af2c172cb909354e4fd5c2fe029436744b58c3c2c872266856f207a79e0e46939396.
+2025-04-04 16:31:33.995 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API) in 49.7798ms
+2025-04-04 16:31:34.000 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API)'
+2025-04-04 16:31:34.002 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/api/Invoice/vnpay-url?Id=2 - - - 302 0 - 77.4931ms
+2025-04-04 16:31:42.274 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/api/Invoice/vnpay-url?Id=2 - -
+2025-04-04 16:31:42.280 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API)'
+2025-04-04 16:31:42.283 +07:00 [INF] Route matched with {action = "CreatePaymentUrlVnpay", controller = "Invoice"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CreatePaymentUrlVnpay(Int32) on controller BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController (BepKhoiBackend.API).
+2025-04-04 16:31:42.358 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-04 16:31:42.397 +07:00 [INF] Executed DbCommand (26ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Invoice_id], [t].[Amount_due], [t].[Cashier_id], [t].[Check_in_time], [t].[Check_out_time], [t].[Customer_id], [t].[Invoice_discount], [t].[Invoice_note], [t].[Order_id], [t].[Order_type_id], [t].[Other_payment], [t].[Payment_method_id], [t].[Room_id], [t].[Shipper_id], [t].[Status], [t].[Subtotal], [t].[Total_quantity], [t].[Total_vat], [i0].[Invoice_detail_id], [i0].[Invoice_id], [i0].[Price], [i0].[Product_id], [i0].[Product_name], [i0].[Product_note], [i0].[Product_vat], [i0].[Quantity]
+FROM (
+    SELECT TOP(1) [i].[Invoice_id], [i].[Amount_due], [i].[Cashier_id], [i].[Check_in_time], [i].[Check_out_time], [i].[Customer_id], [i].[Invoice_discount], [i].[Invoice_note], [i].[Order_id], [i].[Order_type_id], [i].[Other_payment], [i].[Payment_method_id], [i].[Room_id], [i].[Shipper_id], [i].[Status], [i].[Subtotal], [i].[Total_quantity], [i].[Total_vat]
+    FROM [Invoice] AS [i]
+    WHERE [i].[Invoice_id] = @__id_0
+) AS [t]
+LEFT JOIN [Invoice_detail] AS [i0] ON [t].[Invoice_id] = [i0].[Invoice_id]
+ORDER BY [t].[Invoice_id]
+2025-04-04 16:31:42.401 +07:00 [INF] Executing RedirectResult, redirecting to https://sandbox.vnpayment.vn/paymentv2/vpcpay.html?vnp_Amount=14325000&vnp_Command=pay&vnp_CreateDate=20250404163142&vnp_CurrCode=VND&vnp_IpAddr=192.168.1.6&vnp_Locale=vn&vnp_OrderInfo=+2+143250&vnp_OrderType=other&vnp_ReturnUrl=https%3A%2F%2Flocalhost%3A7257%2Fapi%2FInvoice%2FReturn&vnp_TmnCode=1MTJPPPJ&vnp_TxnRef=638793811024005581&vnp_Version=2.1.0&vnp_SecureHash=6269803de5e33e71c64b70aacf0295697d0906e7b0c2ca885a7209f87a7ccba2ff8855b613308cbcff91c90fc192e044b63712428a08ef8bf0ea4efb76fc625a.
+2025-04-04 16:31:42.402 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API) in 116.4961ms
+2025-04-04 16:31:42.403 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API)'
+2025-04-04 16:31:42.404 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/api/Invoice/vnpay-url?Id=2 - - - 302 0 - 130.3821ms
+2025-04-04 16:32:04.447 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/api/Invoice/Return?vnp_Amount=14325000&vnp_BankCode=NCB&vnp_BankTranNo=VNP14890810&vnp_CardType=ATM&vnp_OrderInfo=+2+143250&vnp_PayDate=20250404163205&vnp_ResponseCode=00&vnp_TmnCode=1MTJPPPJ&vnp_TransactionNo=14890810&vnp_TransactionStatus=00&vnp_TxnRef=638793811024005581&vnp_SecureHash=84efdf9e76e724d5db0397aa08a5272b835776f3e303bed8757facbaed3441a0c2fd5e43d3d1fad82405705bfdeb2290d7026f410a5a1c7c466a862f7c570f1a - -
+2025-04-04 16:32:04.451 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.PaymentCallbackVnpay (BepKhoiBackend.API)'
+2025-04-04 16:32:04.456 +07:00 [INF] Route matched with {action = "PaymentCallbackVnpay", controller = "Invoice"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PaymentCallbackVnpay() on controller BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController (BepKhoiBackend.API).
+2025-04-04 16:32:04.466 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-04 16:32:04.487 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[@__invoiceId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [i].[Invoice_id], [i].[Amount_due], [i].[Cashier_id], [i].[Check_in_time], [i].[Check_out_time], [i].[Customer_id], [i].[Invoice_discount], [i].[Invoice_note], [i].[Order_id], [i].[Order_type_id], [i].[Other_payment], [i].[Payment_method_id], [i].[Room_id], [i].[Shipper_id], [i].[Status], [i].[Subtotal], [i].[Total_quantity], [i].[Total_vat]
+FROM [Invoice] AS [i]
+WHERE [i].[Invoice_id] = @__invoiceId_0
+2025-04-04 16:32:04.501 +07:00 [INF] Executing OkObjectResult, writing value of type 'PaymentResponseModel'.
+2025-04-04 16:32:04.507 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.PaymentCallbackVnpay (BepKhoiBackend.API) in 47.1549ms
+2025-04-04 16:32:04.508 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.PaymentCallbackVnpay (BepKhoiBackend.API)'
+2025-04-04 16:32:04.510 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/api/Invoice/Return?vnp_Amount=14325000&vnp_BankCode=NCB&vnp_BankTranNo=VNP14890810&vnp_CardType=ATM&vnp_OrderInfo=+2+143250&vnp_PayDate=20250404163205&vnp_ResponseCode=00&vnp_TmnCode=1MTJPPPJ&vnp_TransactionNo=14890810&vnp_TransactionStatus=00&vnp_TxnRef=638793811024005581&vnp_SecureHash=84efdf9e76e724d5db0397aa08a5272b835776f3e303bed8757facbaed3441a0c2fd5e43d3d1fad82405705bfdeb2290d7026f410a5a1c7c466a862f7c570f1a - - - 200 - application/json;+charset=utf-8 62.6888ms
+2025-04-04 16:32:04.881 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/favicon.ico - -
+2025-04-04 16:32:04.885 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/favicon.ico - - - 404 0 - 4.2418ms
+2025-04-04 16:32:44.263 +07:00 [INF] User profile is available. Using 'C:\Users\abc\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-04 16:32:44.736 +07:00 [INF] Now listening on: https://localhost:7257
+2025-04-04 16:32:44.738 +07:00 [INF] Now listening on: http://localhost:5287
+2025-04-04 16:32:44.842 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-04 16:32:44.845 +07:00 [INF] Hosting environment: Development
+2025-04-04 16:32:44.849 +07:00 [INF] Content root path: D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\
+2025-04-04 16:32:45.535 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-04-04 16:32:45.938 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 408.8631ms
+2025-04-04 16:32:45.967 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-04-04 16:32:45.975 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 16521 application/javascript;+charset=utf-8 8.2153ms
+2025-04-04 16:32:46.224 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-04-04 16:32:46.309 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 84.6012ms
+2025-04-04 16:32:46.364 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-04-04 16:32:46.417 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 52.9975ms
+2025-04-04 16:39:19.390 +07:00 [INF] User profile is available. Using 'C:\Users\abc\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-04 16:39:19.580 +07:00 [INF] Now listening on: https://localhost:7257
+2025-04-04 16:39:19.584 +07:00 [INF] Now listening on: http://localhost:5287
+2025-04-04 16:39:19.662 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-04 16:39:19.663 +07:00 [INF] Hosting environment: Development
+2025-04-04 16:39:19.664 +07:00 [INF] Content root path: D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\
+2025-04-04 16:39:20.004 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-04-04 16:39:20.176 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 176.1964ms
+2025-04-04 16:39:20.194 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-04-04 16:39:20.199 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 16521 application/javascript;+charset=utf-8 5.2709ms
+2025-04-04 16:39:20.449 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-04-04 16:39:20.482 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 32.7870ms
+2025-04-04 16:39:20.569 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-04-04 16:39:20.620 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 50.7064ms
+2025-04-04 16:39:26.040 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/api/Invoice/vnpay-url?Id=2 - -
+2025-04-04 16:39:26.105 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API)'
+2025-04-04 16:39:26.126 +07:00 [INF] Route matched with {action = "CreatePaymentUrlVnpay", controller = "Invoice"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CreatePaymentUrlVnpay(Int32) on controller BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController (BepKhoiBackend.API).
+2025-04-04 16:39:27.072 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-04 16:39:27.733 +07:00 [INF] Executed DbCommand (59ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Invoice_id], [t].[Amount_due], [t].[Cashier_id], [t].[Check_in_time], [t].[Check_out_time], [t].[Customer_id], [t].[Invoice_discount], [t].[Invoice_note], [t].[Order_id], [t].[Order_type_id], [t].[Other_payment], [t].[Payment_method_id], [t].[Room_id], [t].[Shipper_id], [t].[Status], [t].[Subtotal], [t].[Total_quantity], [t].[Total_vat], [i0].[Invoice_detail_id], [i0].[Invoice_id], [i0].[Price], [i0].[Product_id], [i0].[Product_name], [i0].[Product_note], [i0].[Product_vat], [i0].[Quantity]
+FROM (
+    SELECT TOP(1) [i].[Invoice_id], [i].[Amount_due], [i].[Cashier_id], [i].[Check_in_time], [i].[Check_out_time], [i].[Customer_id], [i].[Invoice_discount], [i].[Invoice_note], [i].[Order_id], [i].[Order_type_id], [i].[Other_payment], [i].[Payment_method_id], [i].[Room_id], [i].[Shipper_id], [i].[Status], [i].[Subtotal], [i].[Total_quantity], [i].[Total_vat]
+    FROM [Invoice] AS [i]
+    WHERE [i].[Invoice_id] = @__id_0
+) AS [t]
+LEFT JOIN [Invoice_detail] AS [i0] ON [t].[Invoice_id] = [i0].[Invoice_id]
+ORDER BY [t].[Invoice_id]
+2025-04-04 16:39:27.931 +07:00 [INF] Executing RedirectResult, redirecting to https://sandbox.vnpayment.vn/paymentv2/vpcpay.html?vnp_Amount=14325000&vnp_Command=pay&vnp_CreateDate=20250404163927&vnp_CurrCode=VND&vnp_IpAddr=192.168.1.6&vnp_Locale=vn&vnp_OrderInfo=2&vnp_OrderType=other&vnp_ReturnUrl=https%3A%2F%2Flocalhost%3A7257%2Fapi%2FInvoice%2FReturn&vnp_TmnCode=1MTJPPPJ&vnp_TxnRef=638793815679164477&vnp_Version=2.1.0&vnp_SecureHash=6ecb6b7c7b37d589e3ccf5e37ed2d2a2ed231571257cd968fce6825e8b29323424f250867e8d8bff77279fd59c7b0a8f30b55e6f73038c2e54aa8222ffeb6c8f.
+2025-04-04 16:39:27.945 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API) in 1802.6785ms
+2025-04-04 16:39:27.949 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API)'
+2025-04-04 16:39:27.960 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/api/Invoice/vnpay-url?Id=2 - - - 302 0 - 1919.8871ms
+2025-04-04 16:39:37.036 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/api/Invoice/vnpay-url?Id=2 - -
+2025-04-04 16:39:37.047 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API)'
+2025-04-04 16:39:37.053 +07:00 [INF] Route matched with {action = "CreatePaymentUrlVnpay", controller = "Invoice"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CreatePaymentUrlVnpay(Int32) on controller BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController (BepKhoiBackend.API).
+2025-04-04 16:39:37.072 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-04 16:39:37.091 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Invoice_id], [t].[Amount_due], [t].[Cashier_id], [t].[Check_in_time], [t].[Check_out_time], [t].[Customer_id], [t].[Invoice_discount], [t].[Invoice_note], [t].[Order_id], [t].[Order_type_id], [t].[Other_payment], [t].[Payment_method_id], [t].[Room_id], [t].[Shipper_id], [t].[Status], [t].[Subtotal], [t].[Total_quantity], [t].[Total_vat], [i0].[Invoice_detail_id], [i0].[Invoice_id], [i0].[Price], [i0].[Product_id], [i0].[Product_name], [i0].[Product_note], [i0].[Product_vat], [i0].[Quantity]
+FROM (
+    SELECT TOP(1) [i].[Invoice_id], [i].[Amount_due], [i].[Cashier_id], [i].[Check_in_time], [i].[Check_out_time], [i].[Customer_id], [i].[Invoice_discount], [i].[Invoice_note], [i].[Order_id], [i].[Order_type_id], [i].[Other_payment], [i].[Payment_method_id], [i].[Room_id], [i].[Shipper_id], [i].[Status], [i].[Subtotal], [i].[Total_quantity], [i].[Total_vat]
+    FROM [Invoice] AS [i]
+    WHERE [i].[Invoice_id] = @__id_0
+) AS [t]
+LEFT JOIN [Invoice_detail] AS [i0] ON [t].[Invoice_id] = [i0].[Invoice_id]
+ORDER BY [t].[Invoice_id]
+2025-04-04 16:39:37.101 +07:00 [INF] Executing RedirectResult, redirecting to https://sandbox.vnpayment.vn/paymentv2/vpcpay.html?vnp_Amount=14325000&vnp_Command=pay&vnp_CreateDate=20250404163937&vnp_CurrCode=VND&vnp_IpAddr=192.168.1.6&vnp_Locale=vn&vnp_OrderInfo=2&vnp_OrderType=other&vnp_ReturnUrl=https%3A%2F%2Flocalhost%3A7257%2Fapi%2FInvoice%2FReturn&vnp_TmnCode=1MTJPPPJ&vnp_TxnRef=638793815770998193&vnp_Version=2.1.0&vnp_SecureHash=ac7b90afdd0f0dcc45029c0dbe29427a7c1158b25f5731b11928b59e91db47d5e8e098ca78cf43501bb00e988aa25e117f5f70b094acdf8ee7bc042b293bb310.
+2025-04-04 16:39:37.107 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API) in 48.6001ms
+2025-04-04 16:39:37.113 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.CreatePaymentUrlVnpay (BepKhoiBackend.API)'
+2025-04-04 16:39:37.116 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/api/Invoice/vnpay-url?Id=2 - - - 302 0 - 79.8404ms
+2025-04-04 16:39:59.789 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/api/Invoice/Return?vnp_Amount=14325000&vnp_BankCode=NCB&vnp_BankTranNo=VNP14890830&vnp_CardType=ATM&vnp_OrderInfo=2&vnp_PayDate=20250404164000&vnp_ResponseCode=00&vnp_TmnCode=1MTJPPPJ&vnp_TransactionNo=14890830&vnp_TransactionStatus=00&vnp_TxnRef=638793815770998193&vnp_SecureHash=ab244c123f203f654f0eca92dbf86b82c61944d2527fcb150d21e1284244bfb407ff4d5b60c07da20ce5551ed26f03fa371df7db836a8247d910d1a5bb7e4dfd - -
+2025-04-04 16:39:59.796 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.PaymentCallbackVnpay (BepKhoiBackend.API)'
+2025-04-04 16:39:59.801 +07:00 [INF] Route matched with {action = "PaymentCallbackVnpay", controller = "Invoice"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PaymentCallbackVnpay() on controller BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController (BepKhoiBackend.API).
+2025-04-04 16:39:59.865 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-04 16:39:59.884 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__invoiceId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [i].[Invoice_id], [i].[Amount_due], [i].[Cashier_id], [i].[Check_in_time], [i].[Check_out_time], [i].[Customer_id], [i].[Invoice_discount], [i].[Invoice_note], [i].[Order_id], [i].[Order_type_id], [i].[Other_payment], [i].[Payment_method_id], [i].[Room_id], [i].[Shipper_id], [i].[Status], [i].[Subtotal], [i].[Total_quantity], [i].[Total_vat]
+FROM [Invoice] AS [i]
+WHERE [i].[Invoice_id] = @__invoiceId_0
+2025-04-04 16:39:59.992 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Invoice] SET [Status] = @p0
+WHERE [Invoice_id] = @p1;
+SELECT @@ROWCOUNT;
+2025-04-04 16:40:00.025 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType3`4[[System.Boolean, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-04 16:40:00.033 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.PaymentCallbackVnpay (BepKhoiBackend.API) in 225.3036ms
+2025-04-04 16:40:00.037 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.PaymentCallbackVnpay (BepKhoiBackend.API)'
+2025-04-04 16:40:00.040 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/api/Invoice/Return?vnp_Amount=14325000&vnp_BankCode=NCB&vnp_BankTranNo=VNP14890830&vnp_CardType=ATM&vnp_OrderInfo=2&vnp_PayDate=20250404164000&vnp_ResponseCode=00&vnp_TmnCode=1MTJPPPJ&vnp_TransactionNo=14890830&vnp_TransactionStatus=00&vnp_TxnRef=638793815770998193&vnp_SecureHash=ab244c123f203f654f0eca92dbf86b82c61944d2527fcb150d21e1284244bfb407ff4d5b60c07da20ce5551ed26f03fa371df7db836a8247d910d1a5bb7e4dfd - - - 200 - application/json;+charset=utf-8 251.5349ms

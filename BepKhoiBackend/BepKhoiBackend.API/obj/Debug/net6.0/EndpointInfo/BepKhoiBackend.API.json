@@ -265,6 +265,13 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "responses": {
@@ -300,20 +307,10 @@
         }
       }
     },
-    "/api/cashiers/status/{status}": {
+    "/api/cashiers/export": {
       "get": {
         "tags": [
           "Cashier"
-        ],
-        "parameters": [
-          {
-            "name": "status",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "boolean"
-            }
-          }
         ],
         "responses": {
           "200": {
@@ -926,6 +923,63 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/api/Invoice/{id}/print-pdf": {
+      "get": {
+        "tags": [
+          "Invoice"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Invoice/vnpay-url": {
+      "get": {
+        "tags": [
+          "Invoice"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Invoice/Return": {
+      "get": {
+        "tags": [
+          "Invoice"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
           }
         }
       }
@@ -1947,6 +2001,29 @@
           },
           "500": {
             "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/api/orders/{orderId}/print-pdf-temp-Invoice": {
+      "get": {
+        "tags": [
+          "Order"
+        ],
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
           }
         }
       }
@@ -3295,6 +3372,13 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "responses": {
@@ -3330,20 +3414,10 @@
         }
       }
     },
-    "/api/Shipper/status/{status}": {
+    "/api/Shipper/export": {
       "get": {
         "tags": [
           "Shipper"
-        ],
-        "parameters": [
-          {
-            "name": "status",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "boolean"
-            }
-          }
         ],
         "responses": {
           "200": {

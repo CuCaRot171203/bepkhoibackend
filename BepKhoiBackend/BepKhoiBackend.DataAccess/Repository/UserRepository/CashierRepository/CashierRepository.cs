@@ -21,6 +21,7 @@ namespace BepKhoiBackend.DataAccess.Repository.UserRepository.CashierRepository
         {
             return _context.Users
                 .Include(u => u.UserInformation) // Load thông tin người dùng
+                .Include(u => u.InvoiceCashiers)
                 .Where(u => u.RoleId == 2 && (u.IsDelete == false || u.IsDelete == null))
                 .ToList();
         }
@@ -124,32 +125,29 @@ namespace BepKhoiBackend.DataAccess.Repository.UserRepository.CashierRepository
                 .Where(i => i.CashierId == cashierId && i.OrderTypeId == 2)
                 .ToList();
         }
-
-        // Tìm Cashier theo tên hoặc số điện thoại
-        public List<User> GetCashiersByNameOrPhone(string searchTerm)
+        public List<User> GetCashiers(string? searchTerm, bool? status)
         {
-            if (string.IsNullOrWhiteSpace(searchTerm))
+            var query = _context.Users
+                .Include(u => u.UserInformation)
+                .Where(u => u.RoleId == 2 && u.IsDelete == false);
+
+            // Nếu có searchTerm, lọc theo tên hoặc số điện thoại
+            if (!string.IsNullOrWhiteSpace(searchTerm))
             {
-                return new List<User>();
+                searchTerm = searchTerm.Trim();
+                query = query.Where(u =>
+                    EF.Functions.Like(u.UserInformation.UserName, $"%{searchTerm}%") ||
+                    EF.Functions.Like(u.Phone, $"%{searchTerm}%"));
             }
 
-            searchTerm = searchTerm.Trim();
-            return _context.Users
-                .Include(u => u.UserInformation)
-                .Where(u => u.RoleId == 2 &&
-                            (EF.Functions.Like(u.UserInformation.UserName, $"%{searchTerm}%") ||
-                             EF.Functions.Like(u.Phone, $"%{searchTerm}%")))
-                .ToList();
+            // Nếu có status, lọc theo trạng thái
+            if (status.HasValue)
+            {
+                query = query.Where(u => u.Status == status.Value);
+            }
+
+            return query.OrderBy(u => u.Status).ToList();
         }
 
-        // Lấy danh sách Cashier theo trạng thái (Status)
-        public List<User> GetCashiersSortedByStatus(bool status)
-        {
-            return _context.Users
-                .Include(u => u.UserInformation)
-                .Where(u => u.RoleId == 2 && u.IsDelete == false && u.Status == status)
-                .OrderBy(u => u.Status)
-                .ToList();
-        }
     }
 }

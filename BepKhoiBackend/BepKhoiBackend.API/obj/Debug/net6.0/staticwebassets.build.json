@@ -1,12 +1,125 @@
 {
   "Version": 1,
-  "Hash": "5FXeCRnLw+eUBbhg1QCYLB5RjJyDqgL/7+bwhPx9Pz8=",
+  "Hash": "YygvodRjA8V366hNS0CShdeHYMKG8jzl5ejOmvEn/S4=",
   "Source": "BepKhoiBackend.API",
   "BasePath": "_content/BepKhoiBackend.API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": [],
-  "Endpoints": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "BepKhoiBackend.API\\wwwroot",
+      "Source": "BepKhoiBackend.API",
+      "ContentRoot": "D:\\Doan-41\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.API\\wwwroot\\",
+      "BasePath": "_content/BepKhoiBackend.API",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\Doan-41\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.API\\wwwroot\\qrcodes\\QR_265a9880-6ac0-4c8c-8e22-3bd5d13a752c.png",
+      "SourceId": "BepKhoiBackend.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Doan-41\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.API\\wwwroot\\",
+      "BasePath": "_content/BepKhoiBackend.API",
+      "RelativePath": "qrcodes/QR_265a9880-6ac0-4c8c-8e22-3bd5d13a752c#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ht61vhk1t6",
+      "Integrity": "O0R/GcyO1gSGXcBcOempUSHvFAyrjInIaaal6E4OSUE=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\qrcodes\\QR_265a9880-6ac0-4c8c-8e22-3bd5d13a752c.png"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "qrcodes/QR_265a9880-6ac0-4c8c-8e22-3bd5d13a752c.ht61vhk1t6.png",
+      "AssetFile": "D:\\Doan-41\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.API\\wwwroot\\qrcodes\\QR_265a9880-6ac0-4c8c-8e22-3bd5d13a752c.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "10378854"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"O0R/GcyO1gSGXcBcOempUSHvFAyrjInIaaal6E4OSUE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 02 Apr 2025 18:53:05 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ht61vhk1t6"
+        },
+        {
+          "Name": "label",
+          "Value": "qrcodes/QR_265a9880-6ac0-4c8c-8e22-3bd5d13a752c.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-O0R/GcyO1gSGXcBcOempUSHvFAyrjInIaaal6E4OSUE="
+        }
+      ]
+    },
+    {
+      "Route": "qrcodes/QR_265a9880-6ac0-4c8c-8e22-3bd5d13a752c.png",
+      "AssetFile": "D:\\Doan-41\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.API\\wwwroot\\qrcodes\\QR_265a9880-6ac0-4c8c-8e22-3bd5d13a752c.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "10378854"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"O0R/GcyO1gSGXcBcOempUSHvFAyrjInIaaal6E4OSUE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 02 Apr 2025 18:53:05 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-O0R/GcyO1gSGXcBcOempUSHvFAyrjInIaaal6E4OSUE="
+        }
+      ]
+    }
+  ]
 }

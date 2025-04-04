@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\doan-ngocquan\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Test\\BepKhoiBackend.Test.csproj": {}
+    "D:\\Doan-41\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Test\\BepKhoiBackend.Test.csproj": {}
   },
   "projects": {
-    "D:\\doan-ngocquan\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Test\\BepKhoiBackend.Test.csproj": {
+    "D:\\Doan-41\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Test\\BepKhoiBackend.Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\doan-ngocquan\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Test\\BepKhoiBackend.Test.csproj",
+        "projectUniqueName": "D:\\Doan-41\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Test\\BepKhoiBackend.Test.csproj",
         "projectName": "BepKhoiBackend.Test",
-        "projectPath": "D:\\doan-ngocquan\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Test\\BepKhoiBackend.Test.csproj",
+        "projectPath": "D:\\Doan-41\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Test\\BepKhoiBackend.Test.csproj",
         "packagesPath": "C:\\Users\\abc\\.nuget\\packages\\",
-        "outputPath": "D:\\doan-ngocquan\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Test\\obj\\",
+        "outputPath": "D:\\Doan-41\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Test\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

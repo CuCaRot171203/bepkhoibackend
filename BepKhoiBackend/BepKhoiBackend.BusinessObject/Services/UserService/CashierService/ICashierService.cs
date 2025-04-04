@@ -18,7 +18,8 @@ namespace BepKhoiBackend.BusinessObject.Services.UserService.CashierService
                           string wardCommune, DateTime? dateOfBirth);
         void DeleteCashier(int userId);
         List<CashierInvoiceDTO> GetCashierInvoices(int cashierId);
-        List<CashierDTO> GetCashiersByNameOrPhone(string searchTerm);
-        List<CashierDTO> GetCashierByStatus(bool status);
+        List<CashierDTO> GetCashiers(string? searchTerm, bool? status);
+        byte[] ExportCashiersToExcel();
+
     }
 }

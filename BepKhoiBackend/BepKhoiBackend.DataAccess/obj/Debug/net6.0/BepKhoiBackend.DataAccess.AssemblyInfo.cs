@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BepKhoiBackend.DataAccess")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+31c9a9fff95b3a71e529fd53567afb69156d2a6a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ab852a4b69d07ffc7e2db54d8e06afeb8083f7e1")]
 [assembly: System.Reflection.AssemblyProductAttribute("BepKhoiBackend.DataAccess")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BepKhoiBackend.DataAccess")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

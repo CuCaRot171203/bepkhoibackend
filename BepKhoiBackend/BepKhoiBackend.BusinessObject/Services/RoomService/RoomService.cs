@@ -222,6 +222,7 @@ namespace BepKhoiBackend.BusinessObject.Services.RoomService
             }).ToList();
         }
 
+        /* ======== Room Service - Thanh Tung ========= */
 
         // Service get room for POS site
         public async Task<List<RoomDtoPos>> GetRoomAsyncForPos(int limit, int offset)

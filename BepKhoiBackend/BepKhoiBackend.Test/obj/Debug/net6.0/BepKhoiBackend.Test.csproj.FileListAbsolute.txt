@@ -92,15 +92,27 @@ D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\
 D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\refint\BepKhoiBackend.Test.dll
 D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\BepKhoiBackend.Test.pdb
 D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\ref\BepKhoiBackend.Test.dll
-D:\doan-ngocquan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\bin\Debug\net6.0\BepKhoiBackend.Test.deps.json
-D:\doan-ngocquan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\bin\Debug\net6.0\BepKhoiBackend.Test.dll
-D:\doan-ngocquan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\bin\Debug\net6.0\BepKhoiBackend.Test.pdb
-D:\doan-ngocquan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\BepKhoiBackend.Test.GeneratedMSBuildEditorConfig.editorconfig
-D:\doan-ngocquan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\BepKhoiBackend.Test.AssemblyInfoInputs.cache
-D:\doan-ngocquan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\BepKhoiBackend.Test.AssemblyInfo.cs
-D:\doan-ngocquan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\BepKhoiBackend.Test.csproj.CoreCompileInputs.cache
-D:\doan-ngocquan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\BepKhoiBackend.Test.sourcelink.json
-D:\doan-ngocquan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\BepKhoiBackend.Test.dll
-D:\doan-ngocquan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\refint\BepKhoiBackend.Test.dll
-D:\doan-ngocquan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\BepKhoiBackend.Test.pdb
-D:\doan-ngocquan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\ref\BepKhoiBackend.Test.dll
+E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\bin\Debug\net6.0\BepKhoiBackend.Test.deps.json
+E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\bin\Debug\net6.0\BepKhoiBackend.Test.dll
+E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\bin\Debug\net6.0\BepKhoiBackend.Test.pdb
+E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\BepKhoiBackend.Test.csproj.AssemblyReference.cache
+E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\BepKhoiBackend.Test.GeneratedMSBuildEditorConfig.editorconfig
+E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\BepKhoiBackend.Test.AssemblyInfoInputs.cache
+E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\BepKhoiBackend.Test.AssemblyInfo.cs
+E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\BepKhoiBackend.Test.csproj.CoreCompileInputs.cache
+E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\BepKhoiBackend.Test.dll
+E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\refint\BepKhoiBackend.Test.dll
+E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\BepKhoiBackend.Test.pdb
+E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\ref\BepKhoiBackend.Test.dll
+D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\bin\Debug\net6.0\BepKhoiBackend.Test.deps.json
+D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\bin\Debug\net6.0\BepKhoiBackend.Test.dll
+D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\bin\Debug\net6.0\BepKhoiBackend.Test.pdb
+D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\BepKhoiBackend.Test.GeneratedMSBuildEditorConfig.editorconfig
+D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\BepKhoiBackend.Test.AssemblyInfoInputs.cache
+D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\BepKhoiBackend.Test.AssemblyInfo.cs
+D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\BepKhoiBackend.Test.csproj.CoreCompileInputs.cache
+D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\BepKhoiBackend.Test.sourcelink.json
+D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\BepKhoiBackend.Test.dll
+D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\refint\BepKhoiBackend.Test.dll
+D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\BepKhoiBackend.Test.pdb
+D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.Test\obj\Debug\net6.0\ref\BepKhoiBackend.Test.dll
