@@ -28,18 +28,55 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
         }
 
         // Method create order
-        public async Task<OrderDto> CreateNewOrderAsync(CreateOrderRequest request)
+        public async Task<OrderDto> CreateNewOrderAsync(CreateOrderRequestDto request)
         {
+            // Kiểm tra OrderTypeId và OrderStatusId không null hoặc <= 0
             if (request.OrderTypeId <= 0 || request.OrderStatusId <= 0)
             {
-                throw new ArgumentException("OrderTypeId and OrderStatusId are required.");
+                throw new ArgumentException("OrderTypeId and OrderStatusId are required and must be greater than 0.");
             }
 
+            // Kiểm tra OrderStatusId chỉ được là 1, 2 hoặc 3
+            if (request.OrderStatusId is not (1 or 2 or 3))
+            {
+                throw new ArgumentException("OrderStatusId must be either 1, 2, or 3.");
+            }
+
+            // Kiểm tra OrderTypeId chỉ được là 1, 2 hoặc 3 và áp logic riêng
+            switch (request.OrderTypeId)
+            {
+                case 3: // Tại bàn
+                    if (request.ShipperId != null || request.RoomId == null)
+                    {
+                        throw new ArgumentException("OrderTypeId = 3 (Tại bàn) requires RoomId and must not have ShipperId.");
+                    }
+                    break;
+
+                case 2: // Mang về
+                    if (request.RoomId != null || request.ShipperId == null)
+                    {
+                        throw new ArgumentException("OrderTypeId = 2 requires ShipperId and must not have RoomId.");
+                    }
+                    break;
+
+                case 1: // Mua tại quầy
+                    if (request.RoomId != null || request.ShipperId != null)
+                    {
+                        throw new ArgumentException("OrderTypeId = 1 requires must not have RoomId and must not have ShipperId.");
+                    }
+                    break;
+
+                default:
+                    throw new ArgumentException("Invalid OrderTypeId. Must be 1, 2, or 3.");
+            }
+
+            // Mapping và tạo đơn
             var newOrder = _mapper.Map<Order>(request);
             var createdOrder = await _orderRepository.CreateOrderPosAsync(newOrder);
 
             return _mapper.Map<OrderDto>(createdOrder);
         }
+
 
         // Method add note to order async
         public async Task<OrderDto> AddOrderNoteToOrderPosAsync(AddNoteRequest request)

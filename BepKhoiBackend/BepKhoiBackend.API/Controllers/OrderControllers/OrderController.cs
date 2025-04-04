@@ -21,7 +21,7 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
 
         // Create order
         [HttpPost("create-order")]
-        public async Task<IActionResult> CreateNewOrder([FromBody] CreateOrderRequest request)
+        public async Task<IActionResult> CreateNewOrder([FromBody] CreateOrderRequestDto request)
         {
             try
             {
