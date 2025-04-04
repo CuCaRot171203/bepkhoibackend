@@ -123,4 +123,77 @@ public class MenuRepository : RepositoryBase, IMenuRepository
         _context.Menus.Update(menu);
         await _context.SaveChangesAsync();
     }
+
+    //Pham Son Tung
+    //Func for api GetAllMenuPos 
+    public async Task<IEnumerable<Menu>> GetAllMenuPos()
+    {
+        try
+        {
+            var menuList = await _context.Menus
+                .AsNoTracking()
+                .Where(m => (m.IsDelete == null || m.IsDelete == false))
+                .OrderBy(m => m.ProductName)
+                .Select(m => new Menu
+                {
+                    ProductId = m.ProductId,
+                    ProductName = m.ProductName,
+                    ProductCategoryId = m.ProductCategoryId,
+                    SellPrice = m.SellPrice,
+                    SalePrice = m.SalePrice,
+                    ProductVat = m.ProductVat,
+                    UnitId = m.UnitId,
+                    IsAvailable = m.IsAvailable,
+                    Status = m.Status,
+                    // Lấy ProductImage đầu tiên của mỗi sản phẩm, nếu có
+                    ProductImages = m.ProductImages.Any() ? new List<ProductImage> { m.ProductImages.FirstOrDefault() } : null
+                })
+                .ToListAsync();
+
+            return menuList;
+        }
+        catch (Exception ex)
+        {
+            throw new InvalidOperationException("An error occurred while retrieving the menu.", ex);
+        }
+    }
+
+    //Pham Son Tung
+    //Func for api FilterProductPos 
+    public async Task<IEnumerable<Menu>> FilterMenuPos(int? categoryId, bool? isAvailable)
+    {
+        try
+        {
+            var query = _context.Menus
+                .AsNoTracking()
+                .Where(m => m.IsDelete == false && m.Status == true);
+
+            if (categoryId.HasValue)
+                query = query.Where(m => m.ProductCategoryId == categoryId.Value);
+
+            if (isAvailable.HasValue)
+                query = query.Where(m => m.IsAvailable == isAvailable.Value);
+            return await query
+                .OrderBy(m => m.ProductName)
+                                .Select(m => new Menu
+                                {
+                                    ProductId = m.ProductId,
+                                    ProductName = m.ProductName,
+                                    ProductCategoryId = m.ProductCategoryId,
+                                    SellPrice = m.SellPrice,
+                                    SalePrice = m.SalePrice,
+                                    ProductVat = m.ProductVat,
+                                    UnitId = m.UnitId,
+                                    IsAvailable = m.IsAvailable,
+                                    Status = m.Status,
+                                    // Lấy ProductImage đầu tiên của mỗi sản phẩm, nếu có
+                                    ProductImages = m.ProductImages.Any() ? new List<ProductImage> { m.ProductImages.FirstOrDefault() } : null
+                                })
+                .ToListAsync();
+        }
+        catch (Exception ex)
+        {
+            throw new Exception("Error when filter from database.", ex);
+        }
+    }
 }

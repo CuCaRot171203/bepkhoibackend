@@ -14,5 +14,6 @@ namespace BepKhoiBackend.DataAccess.Abstract.OrderAbstract
         Task<Menu?> GetProductByIdAsync(int productId);
         Task<bool> MoveOrderPosRepoAsync(int orderId, int orderTypeId, int? roomId, int? userId);
         Task<bool> CombineOrderPosRepoAsync(int firstOrderId, int secondOrderId);
+        Task<IEnumerable<Order>> GetOrdersByTypePos(int? roomId, int? shipperId, int? orderTypeId);
     }
 }
