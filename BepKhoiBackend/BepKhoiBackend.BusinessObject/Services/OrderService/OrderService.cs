@@ -348,18 +348,6 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
                     AmountDue = o.AmountDue,
                     OrderStatusId = o.OrderStatusId,
                     OrderNote = o.OrderNote,
-                    // Chuyển đổi OrderDetails sang OrderDetailDtoPos
-                    OrderDetails = o.OrderDetails.Select(od => new OrderDetailDtoPos
-                    {
-                        OrderDetailId = od.OrderDetailId,
-                        OrderId = od.OrderId,
-                        Status = od.Status,
-                        ProductId = od.ProductId,
-                        ProductName = od.ProductName,
-                        Quantity = od.Quantity,
-                        Price = od.Price,
-                        ProductNote = od.ProductNote
-                    }).ToList()
                 }).ToList();
                 return orderDtos;
             }
@@ -419,6 +407,84 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
             {
                 // Logging hoặc xử lý lỗi khác nếu cần
                 throw new Exception("An error occurred in OrderService while assigning customer to order.", ex);
+            }
+        }
+
+        //pham son tung
+        public async Task<bool> RemoveCustomerFromOrderAsync(int orderId)
+        {
+            try
+            {
+                // Gọi phương thức từ repository để xóa CustomerId
+                var result = await _orderRepository.RemoveCustomerFromOrderAsync(orderId);
+
+                // Xử lý logic sau khi xóa (nếu cần, như log lỗi, thông báo thành công,...)
+                if (result)
+                {
+                    // Thành công
+                    return true;
+                }
+
+                // Nếu không tìm thấy đơn hàng hoặc gặp lỗi
+                return false;
+            }
+            catch (Exception ex)
+            {
+                // Xử lý lỗi xảy ra trong service
+                Console.Error.WriteLine($"Service error: {ex.Message}");
+                return false;
+            }
+        }
+
+        //pham son tung
+        public async Task<bool> RemoveOrderById(int orderId)
+        {
+            try
+            {
+                // Gọi repository để thực hiện xóa đơn hàng bằng cách cập nhật OrderStatusId thành 3
+                bool result = await _orderRepository.RemoveOrder(orderId);
+
+                if (result)
+                {
+                    // Nếu thành công, trả về true
+                    return true;
+                }
+                else
+                {
+                    // Nếu thất bại, ném exception
+                    throw new Exception($"Failed to remove order with ID {orderId}.");
+                }
+            }
+            catch (Exception ex)
+            {
+                // Ném lỗi ra ngoài với thông điệp chi tiết
+                throw new Exception($"An error occurred while removing the order: {ex.Message}", ex);
+            }
+        }
+
+        //Pham Son Tung
+        public async Task<IEnumerable<OrderDetailDtoPos>> GetOrderDetailsByOrderIdAsync(int orderId)
+        {
+            try
+            {
+                var orderDetails = await _orderRepository.GetOrderDetailsByOrderIdAsync(orderId);
+                var detailDtos = orderDetails.Select(od => new OrderDetailDtoPos
+                {
+                    OrderDetailId = od.OrderDetailId,
+                    OrderId = od.OrderId,
+                    Status = od.Status,
+                    ProductId = od.ProductId,
+                    ProductName = od.ProductName,
+                    Quantity = od.Quantity,
+                    Price = od.Price,
+                    ProductNote = od.ProductNote
+                });
+
+                return detailDtos;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An error occurred while retrieving order details.", ex);
             }
         }
 
