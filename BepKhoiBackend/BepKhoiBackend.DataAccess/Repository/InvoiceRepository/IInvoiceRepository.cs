@@ -17,5 +17,11 @@ namespace BepKhoiBackend.DataAccess.Repository.InvoiceRepository
         List<Invoice> GetInvoiceByPeriod(DateTime from, DateTime to);
         List<Invoice> GetInvoiceByStatus(bool status);
         List<Invoice> GetInvoiceByOrderMethod(string method);
+        
+        //------------------NgocQuan----------------------//
+        Invoice? GetInvoiceForPdf(int id);
+        Task<Invoice> GetInvoiceByIdAsync(int id);
+        bool UpdateInvoiceStatus(int invoiceId, bool status);
+
     }
 }

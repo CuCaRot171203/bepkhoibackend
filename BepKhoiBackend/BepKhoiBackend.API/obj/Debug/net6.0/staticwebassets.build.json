@@ -1,11 +1,12 @@
 {
   "Version": 1,
-  "Hash": "OVv31qHnqsAwHtVBcy1Epv058PItKDo3+KOT1N2H67w=",
+  "Hash": "5FXeCRnLw+eUBbhg1QCYLB5RjJyDqgL/7+bwhPx9Pz8=",
   "Source": "BepKhoiBackend.API",
   "BasePath": "_content/BepKhoiBackend.API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": []
+  "Assets": [],
+  "Endpoints": []
 }

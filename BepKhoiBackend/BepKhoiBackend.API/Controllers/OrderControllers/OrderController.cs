@@ -13,10 +13,11 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
     public class OrderController : ControllerBase
     {
         private readonly IOrderService _orderService;
-
-        public OrderController(IOrderService orderService)
+        private readonly PrintOrderPdfService _printOrderPdfService;
+        public OrderController(IOrderService orderService, PrintOrderPdfService printOrderPdfService)
         {
             _orderService = orderService;
+            _printOrderPdfService = printOrderPdfService;
         }
 
         // Create order
@@ -247,6 +248,25 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
             {
                 // Xử lý tất cả các lỗi khác, trả về lỗi server
                 return StatusCode(500, new { message = "An error occurred while processing your request.", details = ex.Message });
+            }
+        }
+
+        //-------------NgocQuan----------------//
+        [HttpGet("{orderId}/print-pdf-temp-Invoice")]
+        public async Task<IActionResult> GetTempInvoicePdf(int orderId)
+        {
+            try
+            {
+                var pdfBytes = await _printOrderPdfService.GenerateTempInvoicePdfAsync(orderId);
+                return File(pdfBytes, "application/pdf", $"Invoice_{orderId}.pdf");
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(new { message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Server error", error = ex.Message });
             }
         }
 

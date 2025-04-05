@@ -242,5 +242,13 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
             }
         }
 
+        //-------------NgocQuan---------------//
+        public async Task<Order?> GetOrderWithDetailsAsync(int orderId)
+        {
+            return await _context.Orders
+                .Include(o => o.OrderDetails)
+                .FirstOrDefaultAsync(o => o.OrderId == orderId);
+        }
+
     }
 }

@@ -142,7 +142,17 @@
   },
   {
     "ContainingType": "BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController",
-    "Method": "GetCashiersByNameOrPhone",
+    "Method": "ExportCashiersToExcel",
+    "RelativePath": "api/cashiers/export",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController",
+    "Method": "GetCashiers",
     "RelativePath": "api/cashiers/search",
     "HttpMethod": "GET",
     "IsController": true,
@@ -151,6 +161,11 @@
       {
         "Name": "searchTerm",
         "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "status",
+        "Type": "System.Nullable\u00601[[System.Boolean, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": false
       }
     ],
@@ -165,22 +180,6 @@
         "StatusCode": 200
       }
     ]
-  },
-  {
-    "ContainingType": "BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController",
-    "Method": "GetCashiersByStatus",
-    "RelativePath": "api/cashiers/status/{status}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "status",
-        "Type": "System.Boolean",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
   },
   {
     "ContainingType": "BepKhoiBackend.API.Controllers.CustomerControllers.CustomerController",
@@ -373,6 +372,22 @@
   },
   {
     "ContainingType": "BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController",
+    "Method": "GetInvoicePdf",
+    "RelativePath": "api/Invoice/{id}/print-pdf",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController",
     "Method": "GetInvoiceByCashier",
     "RelativePath": "api/Invoice/cashier/{keyword}",
     "HttpMethod": "GET",
@@ -508,6 +523,16 @@
   },
   {
     "ContainingType": "BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController",
+    "Method": "PaymentCallbackVnpay",
+    "RelativePath": "api/Invoice/Return",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController",
     "Method": "GetInvoiceByStatus",
     "RelativePath": "api/Invoice/status/{status}",
     "HttpMethod": "GET",
@@ -531,6 +556,22 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController",
+    "Method": "CreatePaymentUrlVnpay",
+    "RelativePath": "api/Invoice/vnpay-url",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "BepKhoiBackend.API.Controllers.UserControllers.ManagerControllers.ManagerController",
@@ -568,83 +609,6 @@
       }
     ],
     "ReturnTypes": []
-  },
-  {
-    "ContainingType": "BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController",
-    "Method": "FilterProductPos",
-    "RelativePath": "api/menu-pos/FilterProductPos",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "filterRequest",
-        "Type": "BepKhoiBackend.BusinessObject.dtos.MenuPOSDto.FilterProductPosRequest",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[BepKhoiBackend.BusinessObject.dtos.MenuPOSDto.MenuPOSDto, BepKhoiBackend.BusinessObject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController",
-    "Method": "GetAllMenuPos",
-    "RelativePath": "api/menu-pos/get-all",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "limit",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "offset",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[BepKhoiBackend.BusinessObject.dtos.MenuPOSDto.MenuPOSDto, BepKhoiBackend.BusinessObject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "BepKhoiBackend.API.Controllers.MenuPOSControllers.MenuPOSController",
-    "Method": "GetAllProductCategories",
-    "RelativePath": "api/menu-pos/GetAllProductCategories",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[BepKhoiBackend.BusinessObject.dtos.MenuPOSDto.ProductCategoryDTO, BepKhoiBackend.BusinessObject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
   },
   {
     "ContainingType": "BepKhoiBackend.API.Controllers.MenuControllers.MenuController",
@@ -782,6 +746,51 @@
   },
   {
     "ContainingType": "BepKhoiBackend.API.Controllers.MenuControllers.MenuController",
+    "Method": "FilterRoomPos",
+    "RelativePath": "api/Menu/filter-menu-pos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "categoryId",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "isAvailable",
+        "Type": "System.Nullable\u00601[[System.Boolean, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[BepKhoiBackend.BusinessObject.dtos.MenuDto.MenuPosDto, BepKhoiBackend.BusinessObject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 500
+      }
+    ]
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.MenuControllers.MenuController",
     "Method": "GetAllMenuAsync",
     "RelativePath": "api/Menu/get-all-menus",
     "HttpMethod": "GET",
@@ -860,6 +869,16 @@
         "StatusCode": 500
       }
     ]
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.MenuControllers.MenuController",
+    "Method": "GetMenu",
+    "RelativePath": "api/Menu/get-menu-pos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "BepKhoiBackend.API.Controllers.MenuControllers.MenuController",
@@ -1053,6 +1072,51 @@
   },
   {
     "ContainingType": "BepKhoiBackend.API.Controllers.OrderDetailControllers.OrderDetailControllers",
+    "Method": "ConfirmOrderPos",
+    "RelativePath": "api/order-detail/confirm/{orderId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "orderId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 500
+      }
+    ]
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.OrderDetailControllers.OrderDetailControllers",
     "Method": "RemoveOrderDetail",
     "RelativePath": "api/order-detail/remove-order-detail",
     "HttpMethod": "DELETE",
@@ -1095,6 +1159,66 @@
         "StatusCode": 500
       }
     ]
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.OrderDetailControllers.OrderDetailControllers",
+    "Method": "SplitOrderPos",
+    "RelativePath": "api/order-detail/SplitOrderPos",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "BepKhoiBackend.BusinessObject.dtos.OrderDetailDto.SplitOrderPosRquest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Object",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "System.Object",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "System.Object",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 500
+      }
+    ]
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.OrderControllers.OrderController",
+    "Method": "GetTempInvoicePdf",
+    "RelativePath": "api/orders/{orderId}/print-pdf-temp-Invoice",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "orderId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "BepKhoiBackend.API.Controllers.OrderControllers.OrderController",
@@ -1233,6 +1357,22 @@
   },
   {
     "ContainingType": "BepKhoiBackend.API.Controllers.OrderControllers.OrderController",
+    "Method": "CombineOrderPosAsync",
+    "RelativePath": "api/orders/combine-orders",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "BepKhoiBackend.BusinessObject.dtos.OrderDto.CombineOrderPosRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.OrderControllers.OrderController",
     "Method": "CreateNewOrder",
     "RelativePath": "api/orders/create-order",
     "HttpMethod": "POST",
@@ -1241,7 +1381,49 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "BepKhoiBackend.BusinessObject.dtos.OrderDto.CreateOrderRequest",
+        "Type": "BepKhoiBackend.BusinessObject.dtos.OrderDto.CreateOrderRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.OrderControllers.OrderController",
+    "Method": "GetOrdersByTypePosAsync",
+    "RelativePath": "api/orders/get-order-by-type-pos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "roomId",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "shipperId",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "orderTypeId",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.OrderControllers.OrderController",
+    "Method": "UpdateOrderType",
+    "RelativePath": "api/orders/MoveOrderPos",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "BepKhoiBackend.BusinessObject.dtos.OrderDto.MoveOrderPosRequestDto",
         "IsRequired": true
       }
     ],
@@ -1677,18 +1859,7 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [
-      {
-        "Name": "limit",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "offset",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
+    "Parameters": [],
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.List\u00601[[BepKhoiBackend.BusinessObject.dtos.RoomDto.RoomDtoPos, BepKhoiBackend.BusinessObject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
@@ -1752,52 +1923,19 @@
   },
   {
     "ContainingType": "BepKhoiBackend.API.Controllers.RoomController",
-    "Method": "SearchRoomPos",
-    "RelativePath": "api/rooms/search-room-pos",
-    "HttpMethod": "GET",
+    "Method": "UpdateRoomNote",
+    "RelativePath": "api/rooms/update-room-note",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "searchString",
-        "Type": "System.String",
-        "IsRequired": false
+        "Name": "dto",
+        "Type": "BepKhoiBackend.BusinessObject.dtos.RoomDto.RoomNoteUpdateDto",
+        "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[BepKhoiBackend.BusinessObject.dtos.RoomDto.RoomDtoPos, BepKhoiBackend.BusinessObject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 400
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      },
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 500
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "BepKhoiBackend.API.Controllers.RoomController",
@@ -1947,7 +2085,17 @@
   },
   {
     "ContainingType": "BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers.ShipperController",
-    "Method": "GetShippersByNameOrPhone",
+    "Method": "ExportShippersToExcel",
+    "RelativePath": "api/Shipper/export",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers.ShipperController",
+    "Method": "GetShippers",
     "RelativePath": "api/Shipper/search",
     "HttpMethod": "GET",
     "IsController": true,
@@ -1956,6 +2104,11 @@
       {
         "Name": "searchTerm",
         "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "status",
+        "Type": "System.Nullable\u00601[[System.Boolean, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": false
       }
     ],
@@ -1970,22 +2123,6 @@
         "StatusCode": 200
       }
     ]
-  },
-  {
-    "ContainingType": "BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers.ShipperController",
-    "Method": "GetShippersByStatus",
-    "RelativePath": "api/Shipper/status/{status}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "status",
-        "Type": "System.Boolean",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
   },
   {
     "ContainingType": "BepKhoiBackend.API.Controllers.ShippingOrderController.ShippingOrderController",

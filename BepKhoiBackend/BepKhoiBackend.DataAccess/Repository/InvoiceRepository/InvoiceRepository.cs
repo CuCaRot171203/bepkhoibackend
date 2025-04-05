@@ -84,5 +84,37 @@ namespace BepKhoiBackend.DataAccess.Repositories
                 .Where(i => i.PaymentMethod.PaymentMethodTitle.Contains(method))
                 .ToList();
         }
+
+        //------------------NgocQuan----------------------//
+        public Invoice? GetInvoiceForPdf(int id)
+        {
+            return _context.Invoices
+                .Include(i => i.InvoiceDetails)
+                .ThenInclude(d => d.Product)
+                .Include(i => i.Customer)
+                .FirstOrDefault(i => i.InvoiceId == id);
+        }
+        public async Task<Invoice> GetInvoiceByIdAsync(int id)
+        {
+            return await _context.Invoices.FirstOrDefaultAsync(i => i.InvoiceId == id);
+        }
+        public bool UpdateInvoiceStatus(int invoiceId, bool status)
+        {
+            var invoice = _context.Invoices.FirstOrDefault(i => i.InvoiceId == invoiceId);
+
+            // Nếu hóa đơn không tồn tại, trả về false
+            if (invoice == null)
+            {
+                return false;
+            }
+
+            // Cập nhật trạng thái của hóa đơn
+            invoice.Status = status;
+
+            // Lưu thay đổi vào cơ sở dữ liệu
+            _context.SaveChanges();
+
+            return true;
+        }
     }
 }

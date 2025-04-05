@@ -12,15 +12,20 @@ using BepKhoiBackend.API.Configurations;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Authorization;
 using BepKhoiBackend.BusinessObject.Mappings;
+using BepKhoiBackend.BusinessObject.Services.InvoiceService;
+using BepKhoiBackend.BusinessObject.Services;
 
 
 Log.Logger = new LoggerConfiguration()
-    .MinimumLevel.Debug() 
-    .WriteTo.Console() 
-    .WriteTo.File("logs/log-.txt", rollingInterval: RollingInterval.Day) 
+    .MinimumLevel.Debug()
+    .WriteTo.Console()
+    .WriteTo.File("logs/log-.txt", rollingInterval: RollingInterval.Day)
     .CreateLogger();
 
 var builder = WebApplication.CreateBuilder(args);
+
+
+
 
 // Scpace to call function
 LoggingConfig.ConfigureLogging();
@@ -62,9 +67,12 @@ builder.Services.AddSession(options =>
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddHttpContextAccessor();
 
-// Cấu hình CloudinaryService và QRCodeService
-builder.Services.AddSingleton<CloudinaryService>(); // Dùng Singleton vì chỉ cần 1 instance duy nhất
-builder.Services.AddScoped<QRCodeService>();
+
+//pdf print
+builder.Services.AddScoped<PrintInvoicePdfService>();
+builder.Services.AddScoped<PrintOrderPdfService>();
+//VnPay
+builder.Services.AddScoped<VnPayService>();
 
 
 builder.Services.AddAuthorization();
@@ -72,7 +80,6 @@ builder.Services.AddAuthorization();
 builder.Services.AddCorsPolicy(builder.Configuration);
 
 var app = builder.Build();
-
 // Configure the HTTP request pipeline.
 app.UseSwagger();
 app.UseSwaggerUI();
@@ -82,7 +89,7 @@ app.UseSession();
 app.UseHttpsRedirection();
 app.UseRouting();
 app.UseCors("AllowReactApp");
-app.UseAuthentication(); 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
