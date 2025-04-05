@@ -58,8 +58,15 @@ namespace BepKhoiBackend.DataAccess.Repository.CustomerRepository
         // func to create customer 
         public async Task CreateCustomerAsync(Customer customer)
         {
-            _context.Customers.Add(customer);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _context.Customers.Add(customer);
+                await _context.SaveChangesAsync();
+            }
+            catch(Exception ex)
+            {
+                throw;
+            }
         }
     }
 }

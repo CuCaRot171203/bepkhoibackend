@@ -159,6 +159,40 @@ public class MenuRepository : RepositoryBase, IMenuRepository
     }
 
     //Pham Son Tung
+    public async Task<IEnumerable<Menu>> GetAllMenuQr()
+    {
+        try
+        {
+            var menuList = await _context.Menus
+                .AsNoTracking()
+                .Include(m => m.ProductImages)
+                .Where(m => (m.IsDelete == null || m.IsDelete == false))
+                .OrderBy(m => m.ProductName)
+                .Select(m => new Menu
+                {
+                    ProductId = m.ProductId,
+                    ProductName = m.ProductName,
+                    ProductCategoryId = m.ProductCategoryId,
+                    SellPrice = m.SellPrice,
+                    SalePrice = m.SalePrice,
+                    ProductVat = m.ProductVat,
+                    UnitId = m.UnitId,
+                    IsAvailable = m.IsAvailable,
+                    Status = m.Status,
+                    // Lấy ProductImage đầu tiên của mỗi sản phẩm, nếu có
+                    ProductImages = m.ProductImages.ToList()
+                })
+                .ToListAsync();
+
+            return menuList;
+        }
+        catch (Exception ex)
+        {
+            throw new InvalidOperationException("An error occurred while retrieving the menu.", ex);
+        }
+    }
+
+    //Pham Son Tung
     //Func for api FilterProductPos 
     public async Task<IEnumerable<Menu>> FilterMenuPos(int? categoryId, bool? isAvailable)
     {

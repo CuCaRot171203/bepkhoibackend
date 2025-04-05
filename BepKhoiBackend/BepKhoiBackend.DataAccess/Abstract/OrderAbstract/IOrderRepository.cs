@@ -17,5 +17,7 @@ namespace BepKhoiBackend.DataAccess.Abstract.OrderAbstract
         Task<IEnumerable<Order>> GetOrdersByTypePos(int? roomId, int? shipperId, int? orderTypeId);
         //-------------NgocQuan---------------//
         Task<Order?> GetOrderWithDetailsAsync(int orderId);
+        Task<Customer> GetCustomerIdByOrderIdAsync(int orderId);
+        Task AssignCustomerToOrder(int orderId, int customerId);
     }
 }
