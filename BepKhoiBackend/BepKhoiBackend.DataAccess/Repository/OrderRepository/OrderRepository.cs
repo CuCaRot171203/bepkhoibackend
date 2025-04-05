@@ -319,5 +319,10 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
             }
         }
 
+        public async Task<List<Order>> GetAllAsync()
+        {
+            return await _context.Orders.ToListAsync();
+        }
+
     }
 }

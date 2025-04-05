@@ -9,6 +9,10 @@ namespace BepKhoiBackend.BusinessObject.Abstract.MenuBusinessAbstract
         Task<ResultWithList<Menu>> GetAllMenusAsync(
             string sortBy, string sortDirection,
             int? categoryId, bool? isActive, string? productNameOrId);
+
+        Task<ResultWithList<MenuCustomerDto>> GetAllMenusCustomerAsync(
+            string sortBy, string sortDirection,
+            int? categoryId, bool? isActive, string? productNameOrId);
         Task<PagedResult<Menu>> GetMenuByIdAsync(int pId);
         //Task<PagedResult<Menu>> AddMenuAsync(Menu menu);
         Task<PagedResult<MenuDto>> AddMenuAsync(CreateMenuDto menuDto);

@@ -227,6 +227,15 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderDetailRepository
                 throw new Exception("An unexpected error occurred while moving order details.", ex);
             }
         }
+        //ngocquan
+        public async Task<List<OrderDetail>> GetByOrderIdAsync(int orderId)
+        {
+            return await _context.OrderDetails
+                .Where(od => od.OrderId == orderId)
+                .Include(od => od.Product) 
+                .ToListAsync();
+        }
+
 
         //Pham Son Tung
         public async Task<bool> CreateAndSplitOrderDetailRepoAsync(int sourceOrderId, int orderTypeId, int? roomId, int? shipperId, List<SplitOrderPosExtendObject_ProductList> productList)

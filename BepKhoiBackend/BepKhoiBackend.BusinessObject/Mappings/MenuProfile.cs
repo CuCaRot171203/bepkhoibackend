@@ -9,7 +9,7 @@ namespace BepKhoiBackend.BusinessObject.Mappings
         public MenuProfile()
         {
             CreateMap<Menu, MenuDto>().ReverseMap();
-
+            CreateMap<Menu, MenuCustomerDto>();
             CreateMap<CreateMenuDto, Menu>();
             CreateMap<UpdateMenuDto, Menu>();
             CreateMap<UpdatePriceDto, Menu>();

@@ -2,6 +2,7 @@
 using BepKhoiBackend.BusinessObject.dtos.MenuDto;
 using BepKhoiBackend.BusinessObject.dtos.OrderDetailDto;
 using BepKhoiBackend.BusinessObject.dtos.OrderDto;
+using BepKhoiBackend.Shared.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace BepKhoiBackend.BusinessObject.Abstract.OrderAbstract
 {
     public interface IOrderService
     {
+
         Task<OrderDto> CreateNewOrderAsync(CreateOrderRequestDto request);
         Task<OrderDto> AddOrderNoteToOrderPosAsync(AddNoteRequest request);
         Task<OrderDetailDto> UpdateOrderDetailQuantiyPosAsync(UpdateOrderDetailQuantityRequest request);
@@ -22,5 +24,8 @@ namespace BepKhoiBackend.BusinessObject.Abstract.OrderAbstract
         Task<IEnumerable<OrderDtoPos>> GetOrdersByTypePosAsync(int? roomId, int? shipperId, int? orderTypeId);
         Task<CustomerPosDto> GetCustomerIdByOrderIdAsync(int orderId);
         Task AssignCustomerToOrderAsync(int orderId, int customerId);
+        Task<ResultWithList<OrderDto>> GetAllOrdersAsync();
+
+
     }
 }

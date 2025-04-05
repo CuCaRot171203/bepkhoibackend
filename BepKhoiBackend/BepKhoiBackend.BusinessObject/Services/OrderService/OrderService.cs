@@ -7,6 +7,7 @@ using BepKhoiBackend.BusinessObject.dtos.OrderDto;
 using BepKhoiBackend.DataAccess.Abstract.OrderAbstract;
 using BepKhoiBackend.DataAccess.Abstract.OrderDetailAbstract;
 using BepKhoiBackend.DataAccess.Models;
+using BepKhoiBackend.Shared.Helpers;
 using Org.BouncyCastle.Asn1.Ocsp;
 using System.ComponentModel.DataAnnotations;
 
@@ -422,6 +423,42 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
             }
         }
 
+        public async Task<ResultWithList<OrderDto>> GetAllOrdersAsync()
+        {
+            try
+            {
+                var orders = await _orderRepository.GetAllAsync();
 
+                var data = orders.Select(o => new OrderDto
+                {
+                    OrderId = o.OrderId,
+                    CustomerId = o.CustomerId,
+                    ShipperId = o.ShipperId,
+                    DeliveryInformationId = o.DeliveryInformationId,
+                    OrderTypeId = o.OrderTypeId,
+                    RoomId = o.RoomId,
+                    CreatedTime = o.CreatedTime,
+                    TotalQuantity = o.TotalQuantity,
+                    AmountDue = o.AmountDue,
+                    OrderStatusId = o.OrderStatusId,
+                    OrderNote = o.OrderNote
+                }).ToList();
+
+                return new ResultWithList<OrderDto>
+                {
+                    IsSuccess = true,
+                    Message = "Fetched all orders successfully.",
+                    Data = data
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ResultWithList<OrderDto>
+                {
+                    IsSuccess = false,
+                    Message = $"Error: {ex.Message}"
+                };
+            }
+        }
     }
 }

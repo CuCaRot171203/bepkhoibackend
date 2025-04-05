@@ -21,7 +21,21 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
             _orderService = orderService;
             _printOrderPdfService = printOrderPdfService;
         }
+        //get all
+        [HttpGet("get-all-orders")]
+        public async Task<IActionResult> GetAllOrdersAsync()
+        {
+            var result = await _orderService.GetAllOrdersAsync();
 
+            if (!result.IsSuccess)
+                return NotFound(new { message = result.Message });
+
+            return Ok(new
+            {
+                message = result.Message,
+                data = result.Data
+            });
+        }
         // Create order
         [HttpPost("create-order")]
         public async Task<IActionResult> CreateNewOrder([FromBody] CreateOrderRequestDto request)
