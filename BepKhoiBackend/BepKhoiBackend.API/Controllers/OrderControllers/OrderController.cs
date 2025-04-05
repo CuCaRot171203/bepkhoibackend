@@ -269,6 +269,10 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
             catch (Exception ex)
             {
                 return StatusCode(500, new { message = "Server error", error = ex.Message });
+                
+
+            }
+        }
         //Pham Son Tung
         [HttpGet("get-customer-of-order/{orderId}")]
         public async Task<IActionResult> GetCustomerOfOrder([FromRoute] int orderId)
@@ -372,6 +376,5 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
                 });
             }
         }
-
     }
 }

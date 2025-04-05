@@ -249,6 +249,7 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
             return await _context.Orders
                 .Include(o => o.OrderDetails)
                 .FirstOrDefaultAsync(o => o.OrderId == orderId);
+        }
         //Pham Son Tung
         public async Task<Customer> GetCustomerIdByOrderIdAsync(int orderId)
         {
