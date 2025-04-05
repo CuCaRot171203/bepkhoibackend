@@ -507,6 +507,37 @@ namespace BepKhoiBackend.BusinessObject.Services.MenuService
                 throw new InvalidOperationException("An error occurred while retrieving the menu in service layer.", ex);
             }
         }
+        //Pham Son Tung
+        public async Task<IEnumerable<MenuQrDto>> GetAllMenuQrAsync()
+        {
+            try
+            {
+                // Lấy danh sách menu từ repository
+                var menuList = await _menuRepository.GetAllMenuPos();
+
+                // Map từ Menu entity sang MenuPosDto
+                var menuDtoList = menuList.Select(m => new MenuQrDto
+                {
+                    ProductId = m.ProductId,
+                    ProductName = m.ProductName,
+                    ProductCategoryId = m.ProductCategoryId,
+                    SellPrice = m.SellPrice,
+                    SalePrice = m.SalePrice,
+                    ProductVat = m.ProductVat,
+                    UnitId = m.UnitId,
+                    IsAvailable = m.IsAvailable,
+                    Status = m.Status,
+                    ProductImageUrls = m.ProductImages?.Select(img => img.ProductImage1).ToList()
+                }).ToList();
+
+                return menuDtoList;
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException("An error occurred while retrieving the menu in service layer.", ex);
+            }
+        }
+
 
         //Pham Son Tung
         //Func for FilterProductPos API

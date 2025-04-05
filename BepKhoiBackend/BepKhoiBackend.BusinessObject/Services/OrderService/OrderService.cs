@@ -8,6 +8,7 @@ using BepKhoiBackend.DataAccess.Abstract.OrderAbstract;
 using BepKhoiBackend.DataAccess.Abstract.OrderDetailAbstract;
 using BepKhoiBackend.DataAccess.Models;
 using Org.BouncyCastle.Asn1.Ocsp;
+using System.ComponentModel.DataAnnotations;
 
 namespace BepKhoiBackend.BusinessObject.Services.OrderService
 {
@@ -373,5 +374,54 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
                 throw new Exception("An error occurred while processing your request.", ex);
             }
         }
+
+        //Pham Son Tung
+        public async Task<CustomerPosDto> GetCustomerIdByOrderIdAsync(int orderId)
+        {
+            try
+            {
+                var customer = await _orderRepository.GetCustomerIdByOrderIdAsync(orderId);
+
+                var customerPosDto = new CustomerPosDto
+                {
+                    customerId = customer.CustomerId,
+                    customerName = customer.CustomerName,
+                    phone = customer.Phone
+                };
+
+                return customerPosDto;
+            }
+            catch (KeyNotFoundException ex)
+            {
+                // Có thể log lại và ném ra lại cho Controller xử lý
+                throw new Exception($"Order with ID {orderId} not found.", ex);
+            }
+            catch (Exception ex)
+            {
+                // Logging hoặc xử lý thêm nếu cần
+                throw new Exception("An error occurred in OrderService while retrieving the customer.", ex);
+            }
+        }
+
+        //Pham Son Tung
+        public async Task AssignCustomerToOrderAsync(int orderId, int customerId)
+        {
+            try
+            {
+                await _orderRepository.AssignCustomerToOrder(orderId, customerId);
+            }
+            catch (KeyNotFoundException ex)
+            {
+                // Ghi log hoặc xử lý lỗi nếu cần
+                throw new Exception($"Order or Customer not found. {ex.Message}", ex);
+            }
+            catch (Exception ex)
+            {
+                // Logging hoặc xử lý lỗi khác nếu cần
+                throw new Exception("An error occurred in OrderService while assigning customer to order.", ex);
+            }
+        }
+
+
     }
 }

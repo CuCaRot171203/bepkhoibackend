@@ -4,6 +4,8 @@ using BepKhoiBackend.BusinessObject.dtos.MenuDto;
 using BepKhoiBackend.BusinessObject.dtos.OrderDetailDto;
 using BepKhoiBackend.BusinessObject.dtos.OrderDto;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Data.Common;
 
 namespace BepKhoiBackend.API.Controllers.OrderControllers
 {
@@ -247,6 +249,110 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
             {
                 // Xử lý tất cả các lỗi khác, trả về lỗi server
                 return StatusCode(500, new { message = "An error occurred while processing your request.", details = ex.Message });
+            }
+        }
+
+        //Pham Son Tung
+        [HttpGet("get-customer-of-order/{orderId}")]
+        public async Task<IActionResult> GetCustomerOfOrder([FromRoute] int orderId)
+        {
+            try
+            {
+                var customer = await _orderService.GetCustomerIdByOrderIdAsync(orderId); // Trả về CustomerPosDto
+
+                return Ok(new
+                {
+                    success = true,
+                    data = customer
+                });
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(new
+                {
+                    success = false,
+                    message = ex.Message
+                });
+            }
+            catch (DbUpdateException ex)
+            {
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = "A database update error occurred.",
+                    details = ex.Message
+                });
+            }
+            catch (DbException ex)
+            {
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = "A general database error occurred.",
+                    details = ex.Message
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = "An unexpected error occurred.",
+                    details = ex.Message
+                });
+            }
+        }
+
+        //Pham Son Tung
+        [HttpPost("assign-customer-to-order")]
+        public async Task<IActionResult> AssignCustomerToOrder(
+        [FromQuery] int orderId,
+        [FromQuery] int customerId)
+        {
+            try
+            {
+                await _orderService.AssignCustomerToOrderAsync(orderId, customerId);
+
+                return Ok(new
+                {
+                    success = true,
+                    message = $"Customer {customerId} has been assigned to order {orderId}."
+                });
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(new
+                {
+                    success = false,
+                    message = ex.Message
+                });
+            }
+            catch (DbUpdateException ex)
+            {
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = "A database update error occurred.",
+                    details = ex.Message
+                });
+            }
+            catch (DbException ex)
+            {
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = "A general database error occurred.",
+                    details = ex.Message
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = "An unexpected error occurred.",
+                    details = ex.Message
+                });
             }
         }
 

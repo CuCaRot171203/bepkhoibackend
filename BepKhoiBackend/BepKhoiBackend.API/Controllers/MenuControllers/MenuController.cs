@@ -363,5 +363,36 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
             }
         }
 
+
+        //Pham Son Tung
+        [HttpGet("get-all-menu-qr")]
+        public async Task<IActionResult> GetAllMenuQr()
+        {
+            try
+            {
+                IEnumerable<MenuQrDto> menus = await _menuService.GetAllMenuQrAsync();
+
+                return Ok(menus);
+            }
+            catch (InvalidOperationException ex)
+            {
+                // Log lỗi nếu cần
+                return StatusCode(500, new
+                {
+                    message = "Đã xảy ra lỗi khi lấy danh sách thực đơn.",
+                    detail = ex.Message
+                });
+            }
+            catch (Exception ex)
+            {
+                // Log lỗi không xác định
+                return StatusCode(500, new
+                {
+                    message = "Đã xảy ra lỗi không xác định.",
+                    detail = ex.Message
+                });
+            }
+        }
+
     }
 }

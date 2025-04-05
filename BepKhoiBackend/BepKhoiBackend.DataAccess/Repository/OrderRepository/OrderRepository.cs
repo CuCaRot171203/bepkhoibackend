@@ -1,6 +1,7 @@
 ﻿using BepKhoiBackend.DataAccess.Abstract.OrderAbstract;
 using BepKhoiBackend.DataAccess.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Data.Common;
 
 namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
 {
@@ -239,6 +240,75 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
             {
                 // Bắt tất cả các lỗi khác và ném lỗi tùy chỉnh
                 throw new Exception("An error occurred while fetching orders.", ex);
+            }
+        }
+
+        //Pham Son Tung
+        public async Task<Customer> GetCustomerIdByOrderIdAsync(int orderId)
+        {
+            try
+            {
+                var order = await _context.Orders
+                    .FirstOrDefaultAsync(o => o.OrderId == orderId);
+
+                if (order == null)
+                {
+                    throw new KeyNotFoundException($"Order with ID {orderId} was not found.");
+                }
+                var customer = await _context.Customers.FirstOrDefaultAsync(c=>c.CustomerId == order.CustomerId);
+                if (customer == null)
+                {
+                    throw new KeyNotFoundException($"customer with ID {order.Customer} was not found.");
+                }
+                return customer;
+            }
+            catch (DbUpdateException dbEx)
+            {
+                // Lỗi liên quan đến thao tác database (transaction, connection...)
+                throw new Exception("Database update error occurred while fetching the order.", dbEx);
+            }
+            catch (DbException dbEx)
+            {
+                // Các lỗi database khác (nếu dùng System.Data.Common)
+                throw new Exception("A database error occurred while retrieving the order.", dbEx);
+            }
+            catch (Exception ex)
+            {
+                // Catch all để tránh app crash
+                throw new Exception("An unexpected error occurred while getting the customer ID.", ex);
+            }
+        }
+
+        public async Task AssignCustomerToOrder(int orderId, int customerId)
+        {
+            try
+            {
+                var order = await _context.Orders.FirstOrDefaultAsync(o => o.OrderId == orderId);
+                if (order == null)
+                {
+                    throw new KeyNotFoundException($"Order with ID {orderId} was not found.");
+                }
+
+                var customer = await _context.Customers.FirstOrDefaultAsync(c => c.CustomerId == customerId);
+                if (customer == null)
+                {
+                    throw new KeyNotFoundException($"Customer with ID {customerId} was not found.");
+                }
+
+                order.CustomerId = customerId;
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException dbEx)
+            {
+                throw new Exception("Database update error occurred while assigning customer to order.", dbEx);
+            }
+            catch (DbException dbEx)
+            {
+                throw new Exception("A database error occurred while assigning customer to order.", dbEx);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An unexpected error occurred while assigning customer to order.", ex);
             }
         }
 

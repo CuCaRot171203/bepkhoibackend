@@ -21,5 +21,6 @@ namespace BepKhoiBackend.BusinessObject.Abstract.MenuBusinessAbstract
         Task<(bool IsSuccess, string Message, Menu Data)> UpdatePriceOfProductAsync(UpdatePriceDto dto);
         Task<IEnumerable<MenuPosDto>> GetAllMenuPosAsync();
         Task<List<MenuPosDto>> FilterMenuAsyncPos(int? categoryId, bool? isAvailable);
+        Task<IEnumerable<MenuQrDto>> GetAllMenuQrAsync();
     }
 }
