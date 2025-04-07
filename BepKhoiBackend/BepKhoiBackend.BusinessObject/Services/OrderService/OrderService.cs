@@ -100,25 +100,25 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
         // Method update order detail quantity pos
         public async Task<OrderDetailDto> UpdateOrderDetailQuantiyPosAsync(UpdateOrderDetailQuantityRequest request)
         {
+            // 1. Lấy dữ liệu OrderDetail
             var orderDetail = await _orderRepository.GetOrderDetailByIdAsync(request.OrderDetailId);
-
-            // check null
-            if(orderDetail == null)
+            if (orderDetail == null)
             {
                 throw new KeyNotFoundException("Order detail not found.");
             }
 
-            // Check quantity 
+            // 2. Ưu tiên xử lý theo Quantity nếu có
             if (request.Quantity.HasValue)
             {
-                if(request.Quantity <= 0)
+                if (request.Quantity <= 0)
                 {
                     throw new ArgumentException("Quantity must be greater than 0.");
                 }
 
                 orderDetail.Quantity = request.Quantity.Value;
             }
-            else if (request.Quantity.HasValue)
+            // 3. Nếu không có Quantity thì xét IsAdd
+            else if (request.IsAdd.HasValue)
             {
                 if (request.IsAdd.Value)
                 {
@@ -126,23 +126,24 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
                 }
                 else
                 {
-                    if(orderDetail.Quantity > 1)
+                    if (orderDetail.Quantity <= 1)
                     {
-                        orderDetail.Quantity -= 1;
+                        throw new ArgumentException("Quantity cannot be reduced to 0.");
                     }
-                    else
-                    {
-                        throw new ArgumentException("Quantity cannot be reduce to 0.");
-                    }
+
+                    orderDetail.Quantity -= 1;
                 }
             }
+            // 4. Nếu không có cả Quantity và IsAdd thì báo lỗi
             else
             {
-                throw new ArgumentException("Quantity or IsAdd must be provided.");
+                throw new ArgumentException("Either Quantity or IsAdd must be provided.");
             }
 
+            // 5. Lưu thay đổi
             await _orderRepository.UpdateOrderDetailAsync(orderDetail);
 
+            // 6. Trả về kết quả DTO
             return new OrderDetailDto
             {
                 OrderDetailId = orderDetail.OrderDetailId,
@@ -154,6 +155,7 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
                 ProductNote = orderDetail.ProductNote,
             };
         }
+
 
         // Method to add customer to order 
         public async Task<bool> AddCustomerToOrderAsync(AddCustomerToOrderRequest request)
@@ -382,7 +384,7 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
             catch (KeyNotFoundException ex)
             {
                 // Có thể log lại và ném ra lại cho Controller xử lý
-                throw new Exception($"Order with ID {orderId} not found.", ex);
+                throw new Exception($"Order with ID {orderId} not found at service.", ex);
             }
             catch (Exception ex)
             {

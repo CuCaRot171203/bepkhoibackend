@@ -259,12 +259,12 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
 
                 if (order == null)
                 {
-                    throw new KeyNotFoundException($"Order with ID {orderId} was not found.");
+                    throw new KeyNotFoundException($"Order with ID {orderId} was not found at repository.");
                 }
                 var customer = await _context.Customers.FirstOrDefaultAsync(c=>c.CustomerId == order.CustomerId);
                 if (customer == null)
                 {
-                    throw new KeyNotFoundException($"customer with ID {order.Customer} was not found.");
+                    throw new KeyNotFoundException($"customer with ID {order.Customer} was not found at repository.");
                 }
                 return customer;
             }
