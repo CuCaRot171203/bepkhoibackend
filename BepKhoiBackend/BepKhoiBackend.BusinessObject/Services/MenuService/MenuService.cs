@@ -116,9 +116,11 @@ namespace BepKhoiBackend.BusinessObject.Services.MenuService
                 if (isActive.HasValue)
                     query = query.Where(m => m.Status == isActive.Value);
 
+                // Filter theo productId, filter on DB
                 if (!string.IsNullOrEmpty(productNameOrId))
                 {
                     var searchValue = productNameOrId.Trim().ToLower();
+
                     if (ProductValidator.IsPositiveInteger(searchValue))
                     {
                         int id = int.Parse(searchValue);
@@ -131,16 +133,12 @@ namespace BepKhoiBackend.BusinessObject.Services.MenuService
 
                 var data = await query.ToListAsync();
 
-                // Accent-insensitive search
                 if (!string.IsNullOrEmpty(productNameOrId) && !ProductValidator.IsPositiveInteger(productNameOrId.Trim()))
                 {
                     var searchValue = productNameOrId.Trim().ToLower();
-                    var searchNoSign = DataAccess.Helpers.StringHelper.RemoveDiacritics(searchValue);
-
-                    data = data.Where(m =>
-                        DataAccess.Helpers.StringHelper.RemoveDiacritics(m.ProductName.ToLower()).Contains(searchNoSign)
-                    ).ToList();
+                    query = query.Where(m => m.ProductName.ToLower().Contains(searchValue));
                 }
+
 
                 var dataMenuImage = await query.Include(m => m.ProductImages).ToListAsync();
 

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BepKhoiBackend.Shared")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ad4bf92f0feeb92858c26973a719fc7a5e275e32")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cd6d265124521117f745abeb90be15840128adc5")]
 [assembly: System.Reflection.AssemblyProductAttribute("BepKhoiBackend.Shared")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BepKhoiBackend.Shared")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

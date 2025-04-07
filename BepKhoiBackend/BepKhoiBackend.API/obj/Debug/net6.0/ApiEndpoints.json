@@ -1472,6 +1472,22 @@
   },
   {
     "ContainingType": "BepKhoiBackend.API.Controllers.OrderControllers.OrderController",
+    "Method": "CreateOrder",
+    "RelativePath": "api/orders/create-order-customer",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "BepKhoiBackend.BusinessObject.dtos.OrderDto.OrderCreateDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.OrderControllers.OrderController",
     "Method": "GetAllOrdersAsync",
     "RelativePath": "api/orders/get-all-orders",
     "HttpMethod": "GET",

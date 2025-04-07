@@ -25,6 +25,8 @@ namespace BepKhoiBackend.BusinessObject.Abstract.OrderAbstract
         Task<CustomerPosDto> GetCustomerIdByOrderIdAsync(int orderId);
         Task AssignCustomerToOrderAsync(int orderId, int customerId);
         Task<ResultWithList<OrderDto>> GetAllOrdersAsync();
+        Task<string> CreateOrderAsync(OrderCreateDTO dto);
+
 
 
     }

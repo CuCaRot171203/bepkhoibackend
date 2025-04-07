@@ -20,6 +20,8 @@ namespace BepKhoiBackend.DataAccess.Abstract.OrderAbstract
         Task<Customer> GetCustomerIdByOrderIdAsync(int orderId);
         Task AssignCustomerToOrder(int orderId, int customerId);
         Task<List<Order>> GetAllAsync();
+        Task AddOrderAsync(Order order);
+        Task AddOrderDetailsAsync(List<OrderDetail> orderDetails);
 
 
     }

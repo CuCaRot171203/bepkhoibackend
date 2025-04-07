@@ -390,5 +390,15 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
                 });
             }
         }
+
+        [HttpPost("create-order-customer")]
+        public async Task<IActionResult> CreateOrder([FromBody] OrderCreateDTO request)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var result = await _orderService.CreateOrderAsync(request);
+            return Ok(new { message = result });
+        }
     }
 }
