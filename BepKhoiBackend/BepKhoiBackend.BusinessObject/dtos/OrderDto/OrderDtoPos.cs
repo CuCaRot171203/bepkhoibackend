@@ -15,6 +15,5 @@ namespace BepKhoiBackend.BusinessObject.dtos.OrderDto
         public decimal AmountDue { get; set; }
         public int OrderStatusId { get; set; }
         public string? OrderNote { get; set; }
-        public List<OrderDetailDtoPos> OrderDetails { get; set; } = new List<OrderDetailDtoPos>();
     }
 }

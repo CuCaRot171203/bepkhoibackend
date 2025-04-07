@@ -19,6 +19,9 @@ namespace BepKhoiBackend.DataAccess.Abstract.OrderAbstract
         Task<Order?> GetOrderWithDetailsAsync(int orderId);
         Task<Customer> GetCustomerIdByOrderIdAsync(int orderId);
         Task AssignCustomerToOrder(int orderId, int customerId);
+        Task<bool> RemoveCustomerFromOrderAsync(int orderId);
+        Task<bool> RemoveOrder(int orderId);
+        Task<IEnumerable<OrderDetail>> GetOrderDetailsByOrderIdAsync(int orderId);
         Task<List<Order>> GetAllAsync();
         Task AddOrderAsync(Order order);
         Task AddOrderDetailsAsync(List<OrderDetail> orderDetails);

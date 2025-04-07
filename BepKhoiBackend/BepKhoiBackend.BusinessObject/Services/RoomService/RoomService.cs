@@ -193,7 +193,6 @@ namespace BepKhoiBackend.BusinessObject.Services.RoomService
             room.OrdinalNumber = roomUpdateDto.OrdinalNumber;
             room.SeatNumber = roomUpdateDto.SeatNumber;
             room.RoomNote = roomUpdateDto.RoomNote;
-            room.QrCodeUrl = roomUpdateDto.QrCodeUrl;
             room.Status = roomUpdateDto.Status;
             room.IsUse = roomUpdateDto.IsUse;
             room.IsDelete = roomUpdateDto.IsDelete ?? false;

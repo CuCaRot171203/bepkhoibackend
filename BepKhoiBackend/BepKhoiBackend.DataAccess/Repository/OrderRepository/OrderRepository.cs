@@ -201,8 +201,7 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
                 throw new ArgumentException("orderTypeId is required.");
 
             IQueryable<Order> query = _context.Orders
-                .AsNoTracking()
-                .Include(o => o.OrderDetails); // Load OrderDetails cùng Order
+                .AsNoTracking();
 
             try
             {
@@ -260,12 +259,12 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
 
                 if (order == null)
                 {
-                    throw new KeyNotFoundException($"Order with ID {orderId} was not found.");
+                    throw new KeyNotFoundException($"Order with ID {orderId} was not found at repository.");
                 }
                 var customer = await _context.Customers.FirstOrDefaultAsync(c=>c.CustomerId == order.CustomerId);
                 if (customer == null)
                 {
-                    throw new KeyNotFoundException($"customer with ID {order.Customer} was not found.");
+                    throw new KeyNotFoundException($"customer with ID {order.Customer} was not found at repository.");
                 }
                 return customer;
             }
@@ -318,6 +317,99 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
                 throw new Exception("An unexpected error occurred while assigning customer to order.", ex);
             }
         }
+
+        //Pham Son Tung
+        public async Task<bool> RemoveCustomerFromOrderAsync(int orderId)
+        {
+            try
+            {
+                // Tìm đơn hàng với orderId
+                var order = await _context.Orders
+                                          .FirstOrDefaultAsync(o => o.OrderId == orderId);
+
+                // Kiểm tra xem đơn hàng có tồn tại không
+                if (order == null)
+                {
+                    return false; // Không tìm thấy đơn hàng
+                }
+
+                // Set CustomerId về null
+                order.CustomerId = null;
+
+                // Lưu thay đổi vào cơ sở dữ liệu
+                await _context.SaveChangesAsync();
+
+                return true; // Thành công
+            }
+            catch (DbUpdateException dbEx)
+            {
+                // Xử lý lỗi liên quan đến cập nhật cơ sở dữ liệu
+                Console.Error.WriteLine($"Database update error: {dbEx.Message}");
+                return false;
+            }
+            catch (Exception ex)
+            {
+                // Xử lý các lỗi khác
+                Console.Error.WriteLine($"An error occurred: {ex.Message}");
+                return false;
+            }
+        }
+
+        //Pham Son Tung
+        public async Task<bool> RemoveOrder(int orderId)
+        {
+            try
+            {
+                // Tìm kiếm đơn hàng theo orderId
+                var order = await _context.Orders
+                    .Where(o => o.OrderId == orderId)
+                    .FirstOrDefaultAsync();
+
+                // Nếu không tìm thấy đơn hàng
+                if (order == null)
+                {
+                    throw new Exception("Order not found");
+                }
+
+                // Chuyển OrderStatusId thành 3
+                order.OrderStatusId = 3;
+
+                // Cập nhật lại đơn hàng trong cơ sở dữ liệu
+                _context.Orders.Update(order);
+
+                // Lưu thay đổi vào cơ sở dữ liệu
+                await _context.SaveChangesAsync();
+                return true; // Thành công
+            }
+            catch (Exception ex)
+            {
+                // Ném lỗi ra ngoài nếu có lỗi xảy ra
+                throw new Exception($"Error removing order: {ex.Message}", ex);
+            }
+        }
+
+        //Pham Son Tung
+        public async Task<IEnumerable<OrderDetail>> GetOrderDetailsByOrderIdAsync(int orderId)
+        {
+            try
+            {
+                var orderDetails = await _context.OrderDetails
+                    .AsNoTracking()
+                    .Where(od => od.OrderId == orderId)
+                    .ToListAsync();
+
+                return orderDetails;
+            }
+            catch (ArgumentNullException argEx)
+            {
+                throw new ArgumentException("Order ID must not be null.", argEx);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An error occurred while fetching order details by orderId.", ex);
+            }
+        }
+
 
         public async Task<List<Order>> GetAllAsync()
         {

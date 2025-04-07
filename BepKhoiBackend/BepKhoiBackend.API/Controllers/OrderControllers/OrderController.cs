@@ -249,23 +249,26 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
         {
             try
             {
-                // Gọi service để lấy danh sách đơn hàng
                 var orders = await _orderService.GetOrdersByTypePosAsync(roomId, shipperId, orderTypeId);
-
-                // Trả về kết quả thành công với danh sách đơn hàng
                 return Ok(orders);
             }
             catch (ArgumentException argEx)
             {
-                // Nếu có lỗi về tham số, trả về lỗi với thông điệp chi tiết
-                return BadRequest(new { message = $"Invalid parameter: {argEx.Message}" });
+                return BadRequest(new
+                {
+                    message = $"Invalid parameter: {argEx.Message}"
+                });
             }
             catch (Exception ex)
             {
-                // Xử lý tất cả các lỗi khác, trả về lỗi server
-                return StatusCode(500, new { message = "An error occurred while processing your request.", details = ex.Message });
+                return StatusCode(500, new
+                {
+                    message = "An error occurred while processing your request.",
+                    details = ex.InnerException?.Message ?? ex.Message
+                });
             }
         }
+
 
         //-------------NgocQuan----------------//
         [HttpGet("{orderId}/print-pdf-temp-Invoice")]
@@ -391,6 +394,78 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
             }
         }
 
+        //pham son tung
+        [HttpPost("remove-customer/{orderId}")]
+        public async Task<IActionResult> RemoveCustomerFromOrder(int orderId)
+        {
+            // Gọi service để thực hiện xóa CustomerId khỏi đơn hàng
+            var result = await _orderService.RemoveCustomerFromOrderAsync(orderId);
+
+            // Kiểm tra kết quả và trả về phản hồi cho client
+            if (result)
+            {
+                // Nếu thành công
+                return Ok(new { Message = "Customer removed successfully from the order." });
+            }
+            else
+            {
+                // Nếu thất bại, có thể vì đơn hàng không tồn tại hoặc gặp lỗi
+                return BadRequest(new { Message = "Failed to remove customer from the order." });
+            }
+        }
+
+        //pham son tung
+        [HttpPost("remove-order/{orderId}")]
+        public async Task<IActionResult> RemoveOrder(int orderId)
+        {
+            try
+            {
+                // Gọi hàm service để thực hiện xóa đơn hàng
+                bool result = await _orderService.RemoveOrderById(orderId);
+
+                // Kiểm tra kết quả từ service
+                if (result)
+                {
+                    // Trả về phản hồi thành công nếu đơn hàng được xóa thành công
+                    return Ok(new { Message = "Order has been successfully removed." });
+                }
+                else
+                {
+                    // Nếu không thành công, trả về lỗi BadRequest
+                    return BadRequest(new { Message = "Failed to remove order." });
+                }
+            }
+            catch (Exception ex)
+            {
+                // Nếu có lỗi trong quá trình xử lý, trả về lỗi 500 (Internal Server Error)
+                return StatusCode(500, new { Message = $"Internal server error: {ex.Message}" });
+            }
+        }
+
+        //pham son tung
+        [HttpGet("get-order-details-by-order-id")]
+        public async Task<IActionResult> GetOrderDetailsByOrderIdAsync(int orderId)
+        {
+            try
+            {
+                // Gọi service để lấy danh sách order details theo orderId
+                var orderDetails = await _orderService.GetOrderDetailsByOrderIdAsync(orderId);
+
+                // Trả về kết quả thành công với danh sách order details
+                return Ok(orderDetails);
+            }
+            catch (ArgumentException argEx)
+            {
+                // Nếu có lỗi về tham số (ví dụ: orderId không hợp lệ), trả về lỗi với thông điệp chi tiết
+                return BadRequest(new { message = $"Invalid parameter: {argEx.Message}" });
+            }
+            catch (Exception ex)
+            {
+                // Xử lý tất cả các lỗi khác, trả về lỗi server với thông tin chi tiết
+                return StatusCode(500, new { message = "An error occurred while processing your request.", details = ex.Message });
+            }
+        }
+        
         [HttpPost("create-order-customer")]
         public async Task<IActionResult> CreateOrder([FromBody] OrderCreateDTO request)
         {
