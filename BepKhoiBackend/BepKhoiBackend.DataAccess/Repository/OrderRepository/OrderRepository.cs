@@ -411,5 +411,22 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
         }
 
 
+        public async Task<List<Order>> GetAllAsync()
+        {
+            return await _context.Orders.ToListAsync();
+        }
+
+        public async Task AddOrderAsync(Order order)
+        {
+            await _context.Orders.AddAsync(order);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task AddOrderDetailsAsync(List<OrderDetail> orderDetails)
+        {
+            await _context.OrderDetails.AddRangeAsync(orderDetails);
+            await _context.SaveChangesAsync();
+        }
+
     }
 }

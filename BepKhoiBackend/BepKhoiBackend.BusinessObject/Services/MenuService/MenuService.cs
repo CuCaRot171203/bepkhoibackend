@@ -95,6 +95,87 @@ namespace BepKhoiBackend.BusinessObject.Services.MenuService
             }
         }
 
+        //get menu for customer
+        public async Task<ResultWithList<MenuCustomerDto>> GetAllMenusCustomerAsync(
+        string sortBy, string sortDirection,
+        int? categoryId, bool? isActive, string? productNameOrId)
+            {
+            try
+            {
+                var allowedSortFields = new List<string> { "ProductId", "ProductName", "SellPrice", "CostPrice" };
+                if (!allowedSortFields.Contains(sortBy))
+                {
+                    return new ResultWithList<MenuCustomerDto> { IsSuccess = false, Message = $"Invalid sort field: {sortBy}" };
+                }
+
+                var query = await _menuRepository.GetMenusQueryableAsync();
+
+                if (categoryId.HasValue)
+                    query = query.Where(m => m.ProductCategoryId == categoryId.Value);
+
+                if (isActive.HasValue)
+                    query = query.Where(m => m.Status == isActive.Value);
+
+                // Filter theo productId, filter on DB
+                if (!string.IsNullOrEmpty(productNameOrId))
+                {
+                    var searchValue = productNameOrId.Trim().ToLower();
+
+                    if (ProductValidator.IsPositiveInteger(searchValue))
+                    {
+                        int id = int.Parse(searchValue);
+                        ProductValidator.ValidatePositiveProductId(id);
+                        query = query.Where(m => m.ProductId == id);
+                    }
+                }
+
+                query = MenuHelper.ApplySorting(query, sortBy, sortDirection);
+
+                var data = await query.ToListAsync();
+
+                if (!string.IsNullOrEmpty(productNameOrId) && !ProductValidator.IsPositiveInteger(productNameOrId.Trim()))
+                {
+                    var searchValue = productNameOrId.Trim().ToLower();
+                    query = query.Where(m => m.ProductName.ToLower().Contains(searchValue));
+                }
+
+
+                var dataMenuImage = await query.Include(m => m.ProductImages).ToListAsync();
+
+                var mappedData = dataMenuImage.Select(m => new MenuCustomerDto
+                {
+                    ProductId = m.ProductId,
+                    ProductName = m.ProductName,
+                    ProductCategoryId = m.ProductCategoryId,
+                    CostPrice = m.CostPrice,
+                    SellPrice = m.SellPrice,
+                    SalePrice = m.SalePrice,
+                    ProductVat = m.ProductVat,
+                    Description = m.Description,
+                    UnitId = m.UnitId,
+                    IsAvailable = m.IsAvailable,
+                    Status = m.Status,
+                    IsDelete = m.IsDelete,
+                    ProductImages = m.ProductImages.Select(img => new ProductImageDto
+                    {
+                        ImageUrl = img.ProductImage1
+                    }).ToList()
+                }).ToList();
+
+
+                return new ResultWithList<MenuCustomerDto>
+                {
+                    IsSuccess = mappedData.Any(),
+                    Message = mappedData.Any() ? "Get all menus successfully." : "No product matched the condition.",
+                    Data = mappedData
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ResultWithList<MenuCustomerDto> { IsSuccess = false, Message = $"Error: {ex.Message}" };
+            }
+        }
+
         // Method get menu by Id
         public async Task<PagedResult<Menu>> GetMenuByIdAsync(int pId)
         {

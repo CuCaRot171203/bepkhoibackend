@@ -2,6 +2,7 @@
 using BepKhoiBackend.BusinessObject.dtos.MenuDto;
 using BepKhoiBackend.BusinessObject.dtos.OrderDetailDto;
 using BepKhoiBackend.BusinessObject.dtos.OrderDto;
+using BepKhoiBackend.Shared.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace BepKhoiBackend.BusinessObject.Abstract.OrderAbstract
 {
     public interface IOrderService
     {
+
         Task<OrderDto> CreateNewOrderAsync(CreateOrderRequestDto request);
         Task<OrderDto> AddOrderNoteToOrderPosAsync(AddNoteRequest request);
         Task<OrderDetailDto> UpdateOrderDetailQuantiyPosAsync(UpdateOrderDetailQuantityRequest request);
@@ -25,5 +27,8 @@ namespace BepKhoiBackend.BusinessObject.Abstract.OrderAbstract
         Task<bool> RemoveCustomerFromOrderAsync(int orderId);
         Task<bool> RemoveOrderById(int orderId);
         Task<IEnumerable<OrderDetailDtoPos>> GetOrderDetailsByOrderIdAsync(int orderId);
+        Task<ResultWithList<OrderDto>> GetAllOrdersAsync();
+        Task<string> CreateOrderAsync(OrderCreateDTO dto);
+
     }
 }

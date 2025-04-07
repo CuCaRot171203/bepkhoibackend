@@ -18,6 +18,21 @@ namespace BepKhoiBackend.API.Controllers.OrderDetailControllers
             _orderDetailService = orderDetailService;
         }
 
+        [HttpGet("get-by-order-id/{orderId}")]
+        public async Task<IActionResult> GetOrderDetailsByOrderId(int orderId)
+        {
+            var result = await _orderDetailService.GetOrderDetailsByOrderIdAsync(orderId);
+
+            if (!result.IsSuccess)
+                return NotFound(new { message = result.Message });
+
+            return Ok(new
+            {
+                message = result.Message,
+                data = result.Data
+            });
+        }
+
         [HttpDelete("cancel-order-detail")]
         [ProducesResponseType(200)] // OK
         [ProducesResponseType(400)] // BadRequest

@@ -84,7 +84,7 @@ namespace BepKhoiBackend.BusinessObject.Services.RoomService
                 SeatNumber = roomCreateDto.SeatNumber,
                 RoomNote = roomCreateDto.RoomNote,
                 QrCodeUrl = null,
-                Status = false,
+                Status = true,
                 IsUse = false,
                 IsDelete = false
             };

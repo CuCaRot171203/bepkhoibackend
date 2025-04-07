@@ -53,6 +53,27 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
             });
         }
 
+        [HttpGet("get-all-menus-customer")]
+        public async Task<IActionResult> GetAllMenuCustomerAsync(
+    [FromQuery] string sortBy = "ProductId",
+    [FromQuery] string sortDirection = "asc",
+    [FromQuery] int? categoryId = null,
+    [FromQuery] bool? isActive = null,
+    [FromQuery] string? productNameOrId = null)
+        {
+            var result = await _menuService.GetAllMenusCustomerAsync(sortBy, sortDirection, categoryId, isActive, productNameOrId);
+
+            if (!result.IsSuccess)
+                return NotFound(new { message = result.Message });
+
+            return Ok(new
+            {
+                message = result.Message,
+                data = result.Data
+            });
+        }
+
+
         // API Get menu by ID
         [HttpGet("get-menu-by-id/{pid}")]
         [ProducesResponseType(200)] // OK

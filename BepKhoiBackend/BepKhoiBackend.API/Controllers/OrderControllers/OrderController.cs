@@ -21,7 +21,21 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
             _orderService = orderService;
             _printOrderPdfService = printOrderPdfService;
         }
+        //get all
+        [HttpGet("get-all-orders")]
+        public async Task<IActionResult> GetAllOrdersAsync()
+        {
+            var result = await _orderService.GetAllOrdersAsync();
 
+            if (!result.IsSuccess)
+                return NotFound(new { message = result.Message });
+
+            return Ok(new
+            {
+                message = result.Message,
+                data = result.Data
+            });
+        }
         // Create order
         [HttpPost("create-order")]
         public async Task<IActionResult> CreateNewOrder([FromBody] CreateOrderRequestDto request)
@@ -450,6 +464,16 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
                 // Xử lý tất cả các lỗi khác, trả về lỗi server với thông tin chi tiết
                 return StatusCode(500, new { message = "An error occurred while processing your request.", details = ex.Message });
             }
+        }
+        
+        [HttpPost("create-order-customer")]
+        public async Task<IActionResult> CreateOrder([FromBody] OrderCreateDTO request)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var result = await _orderService.CreateOrderAsync(request);
+            return Ok(new { message = result });
         }
     }
 }

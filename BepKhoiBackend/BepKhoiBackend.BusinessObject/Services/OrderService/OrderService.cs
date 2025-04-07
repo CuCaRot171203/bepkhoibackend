@@ -7,6 +7,8 @@ using BepKhoiBackend.BusinessObject.dtos.OrderDto;
 using BepKhoiBackend.DataAccess.Abstract.OrderAbstract;
 using BepKhoiBackend.DataAccess.Abstract.OrderDetailAbstract;
 using BepKhoiBackend.DataAccess.Models;
+using BepKhoiBackend.Shared.Helpers;
+using Microsoft.EntityFrameworkCore;
 using Org.BouncyCastle.Asn1.Ocsp;
 using System.ComponentModel.DataAnnotations;
 
@@ -490,6 +492,85 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
             }
         }
 
+        public async Task<ResultWithList<OrderDto>> GetAllOrdersAsync()
+        {
+            try
+            {
+                var orders = await _orderRepository.GetAllAsync();
 
+                var data = orders.Select(o => new OrderDto
+                {
+                    OrderId = o.OrderId,
+                    CustomerId = o.CustomerId,
+                    ShipperId = o.ShipperId,
+                    DeliveryInformationId = o.DeliveryInformationId,
+                    OrderTypeId = o.OrderTypeId,
+                    RoomId = o.RoomId,
+                    CreatedTime = o.CreatedTime,
+                    TotalQuantity = o.TotalQuantity,
+                    AmountDue = o.AmountDue,
+                    OrderStatusId = o.OrderStatusId,
+                    OrderNote = o.OrderNote
+                }).ToList();
+
+                return new ResultWithList<OrderDto>
+                {
+                    IsSuccess = true,
+                    Message = "Fetched all orders successfully.",
+                    Data = data
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ResultWithList<OrderDto>
+                {
+                    IsSuccess = false,
+                    Message = $"Error: {ex.Message}"
+                };
+            }
+        }
+
+        public async Task<string> CreateOrderAsync(OrderCreateDTO dto)
+        {
+            // 1) Map DTO → Entity Order
+            var order = new Order
+            {
+                CustomerId = dto.CustomerId,
+                OrderTypeId = dto.OrderTypeId,
+                RoomId = dto.RoomId,
+                CreatedTime = DateTime.UtcNow,
+                TotalQuantity = dto.TotalQuantity,
+                AmountDue = dto.AmountDue,
+                OrderStatusId = dto.OrderStatusId,
+                OrderNote = dto.OrderNote,
+            };
+
+            // 2) Gán chi tiết
+            order.OrderDetails = dto.OrderDetails
+                .Select(d => new OrderDetail
+                {
+                    ProductId = d.ProductId,
+                    ProductName = d.ProductName,
+                    Quantity = d.Quantity,
+                    Price = d.Price,
+                    ProductNote = d.ProductNote,
+                    Status = d.Status
+                })
+                .ToList();
+
+            // 3) Lưu 1 lần, EF tự gán OrderId cho từng detail
+            try
+            {
+                await _orderRepository.AddOrderAsync(order);
+            }
+            catch (DbUpdateException ex)
+            {
+                // Bắt lỗi để xem InnerException
+                throw new InvalidOperationException(
+                    "Lỗi khi lưu Order/OrderDetail: " + ex.InnerException?.Message, ex);
+            }
+
+            return $"Order {order.OrderId} created with {order.OrderDetails.Count} items.";
+        }
     }
 }

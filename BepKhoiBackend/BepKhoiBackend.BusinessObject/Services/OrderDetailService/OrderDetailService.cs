@@ -6,6 +6,7 @@ using BepKhoiBackend.DataAccess.Abstract.OrderDetailAbstract;
 using BepKhoiBackend.DataAccess.Models;
 using BepKhoiBackend.DataAccess.Models.ExtendObjects;
 using BepKhoiBackend.DataAccess.Repository.OrderRepository;
+using BepKhoiBackend.Shared.Helpers;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -195,6 +196,39 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderDetailService
                     request.OrderId,
                     request.SplitTo.Value,
                     productListRepo);
+            }
+        }
+        public async Task<ResultWithList<OrderDetailDto>> GetOrderDetailsByOrderIdAsync(int orderId)
+        {
+            try
+            {
+                var details = await _orderDetailRepository.GetByOrderIdAsync(orderId);
+
+                var result = details.Select(d => new OrderDetailDto
+                {
+                    OrderDetailId = d.OrderDetailId,
+                    OrderId = d.OrderId,
+                    ProductId = d.ProductId,
+                    ProductName = d.Product?.ProductName ?? "Unknown",
+                    Quantity = d.Quantity,
+                    Price = d.Price,
+                    ProductNote = d.ProductNote
+                }).ToList();
+
+                return new ResultWithList<OrderDetailDto>
+                {
+                    IsSuccess = true,
+                    Message = "Fetched order details successfully.",
+                    Data = result
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ResultWithList<OrderDetailDto>
+                {
+                    IsSuccess = false,
+                    Message = $"Error: {ex.Message}"
+                };
             }
         }
     }
