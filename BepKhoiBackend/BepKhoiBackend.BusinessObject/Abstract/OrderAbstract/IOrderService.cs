@@ -29,6 +29,7 @@ namespace BepKhoiBackend.BusinessObject.Abstract.OrderAbstract
         Task<IEnumerable<OrderDetailDtoPos>> GetOrderDetailsByOrderIdAsync(int orderId);
         Task<ResultWithList<OrderDto>> GetAllOrdersAsync();
         Task<string> CreateOrderAsync(OrderCreateDTO dto);
+        Task<OrderGeneralDataPosDto> GetOrderGeneralDataPosAsync(int orderId);
 
     }
 }

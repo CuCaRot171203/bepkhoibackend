@@ -143,7 +143,7 @@ namespace BepKhoiBackend.API.Controllers.OrderDetailControllers
                     return NotFound(new { message = "No order details found. Order may not exist." });
                 }
 
-                return Ok(new { message = "Order details confirmed successfully." });
+                return Ok(new { message = "Order confirmed successfully." });
             }
             catch (ArgumentException ex)
             {

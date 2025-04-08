@@ -475,5 +475,52 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
             var result = await _orderService.CreateOrderAsync(request);
             return Ok(new { message = result });
         }
+
+
+        //Pham Son Tung
+        [HttpGet("get-order-general-data/{orderId}")]
+        public async Task<IActionResult> GetOrderGeneralDataPosAsync([FromRoute] int orderId)
+        {
+            try
+            {
+                var result = await _orderService.GetOrderGeneralDataPosAsync(orderId);
+                return Ok(result);
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(new
+                {
+                    message = $"Order not found: {ex.Message}"
+                });
+            }
+            catch (DbUpdateException dbEx)
+            {
+                return StatusCode(500, new
+                {
+                    message = "A database query error occurred while retrieving order data.",
+                    detail = dbEx.InnerException?.Message ?? dbEx.Message
+                });
+            }
+            catch (InvalidOperationException invalidEx)
+            {
+                return StatusCode(500, new
+                {
+                    message = "An invalid operation occurred while retrieving order data.",
+                    detail = invalidEx.Message
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    message = "An unexpected error occurred while processing the request.",
+                    detail = ex.Message
+                });
+            }
+        }
+
+
+
+
     }
 }

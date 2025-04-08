@@ -428,5 +428,35 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
             await _context.SaveChangesAsync();
         }
 
+
+        //Pham Son Tung
+        public async Task<Order> GetAllOrderData(int orderId)
+        {
+            try
+            {
+                var order = await _context.Orders
+                    .Include(o => o.OrderDetails)
+                    .FirstOrDefaultAsync(o => o.OrderId == orderId);
+
+                if (order == null)
+                {
+                    throw new KeyNotFoundException($"Order with ID {orderId} was not found.");
+                }
+                return order;
+            }
+            catch (DbUpdateException dbEx)
+            {
+                throw new Exception("A database update error occurred while retrieving the order.", dbEx);
+            }
+            catch (InvalidOperationException invalidOpEx)
+            {
+                throw new Exception("An invalid operation occurred while retrieving the order.", invalidOpEx);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
     }
 }

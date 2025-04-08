@@ -572,5 +572,25 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
 
             return $"Order {order.OrderId} created with {order.OrderDetails.Count} items.";
         }
+
+
+
+        //Pham son tung
+        public async Task<OrderGeneralDataPosDto> GetOrderGeneralDataPosAsync(int orderId)
+        {
+            var order = await _orderRepository.GetAllOrderData(orderId);
+
+            var hasUnconfirmProducts = order.OrderDetails != null &&
+                                       order.OrderDetails.Any(od => od.Status == false);
+
+            return new OrderGeneralDataPosDto
+            {
+                OrderId = order.OrderId,
+                OrderNote = order.OrderNote,
+                TotalQuantity = order.TotalQuantity,
+                AmountDue = order.AmountDue,
+                HasUnconfirmProducts = hasUnconfirmProducts
+            };
+        }
     }
 }
