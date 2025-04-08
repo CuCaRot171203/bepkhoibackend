@@ -530,6 +530,45 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
             }
         }
 
+        public async Task<ResultWithList<OrderDto>> FilterOrdersByDateAsync(DateTime fromDate, DateTime toDate)
+        {
+            try
+            {
+                var orders = await _orderRepository.GetByDateRangeAsync(fromDate, toDate);
+
+                var data = orders.Select(o => new OrderDto
+                {
+                    OrderId = o.OrderId,
+                    CustomerId = o.CustomerId,
+                    ShipperId = o.ShipperId,
+                    DeliveryInformationId = o.DeliveryInformationId,
+                    OrderTypeId = o.OrderTypeId,
+                    RoomId = o.RoomId,
+                    CreatedTime = o.CreatedTime,
+                    TotalQuantity = o.TotalQuantity,
+                    AmountDue = o.AmountDue,
+                    OrderStatusId = o.OrderStatusId,
+                    OrderNote = o.OrderNote
+                }).ToList();
+
+                return new ResultWithList<OrderDto>
+                {
+                    IsSuccess = true,
+                    Message = "Filtered orders successfully.",
+                    Data = data
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ResultWithList<OrderDto>
+                {
+                    IsSuccess = false,
+                    Message = $"Error: {ex.Message}"
+                };
+            }
+        }
+
+
         public async Task<string> CreateOrderAsync(OrderCreateDTO dto)
         {
             // 1) Map DTO → Entity Order

@@ -13,6 +13,8 @@ namespace BepKhoiBackend.BusinessObject.Services.LoginService.Interface
         Task<bool> ForgotPassword(ForgotPasswordDto request);
         Task<string> ChangePassword(ChangePasswordDto request);
         bool IsValidEmail(string email);
+        Task<ResponseUserDto?> GetUserByIdAsync(int userId);
+
     }
 
 }

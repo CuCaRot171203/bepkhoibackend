@@ -416,6 +416,13 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
             return await _context.Orders.ToListAsync();
         }
 
+        public async Task<List<Order>> GetByDateRangeAsync(DateTime fromDate, DateTime toDate)
+        {
+            return await _context.Orders
+                .Where(o => o.CreatedTime >= fromDate && o.CreatedTime <= toDate)
+                .ToListAsync();
+        }
+
         public async Task AddOrderAsync(Order order)
         {
             await _context.Orders.AddAsync(order);
