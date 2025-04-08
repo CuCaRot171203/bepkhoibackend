@@ -36,6 +36,22 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
                 data = result.Data
             });
         }
+
+        [HttpGet("filter-by-date")]
+        public async Task<IActionResult> FilterOrdersByDateAsync([FromQuery] DateTime fromDate, [FromQuery] DateTime toDate)
+        {
+            var result = await _orderService.FilterOrdersByDateAsync(fromDate, toDate);
+
+            if (!result.IsSuccess)
+                return NotFound(new { message = result.Message });
+
+            return Ok(new
+            {
+                message = result.Message,
+                data = result.Data
+            });
+        }
+
         // Create order
         [HttpPost("create-order")]
         public async Task<IActionResult> CreateNewOrder([FromBody] CreateOrderRequestDto request)
