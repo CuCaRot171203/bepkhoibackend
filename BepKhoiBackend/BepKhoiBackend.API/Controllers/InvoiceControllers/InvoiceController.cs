@@ -109,7 +109,7 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
             try
             {
                 var url = _vnPayService.CreatePaymentUrl(model, HttpContext);
-                return Redirect(url);
+                return Ok(url);
             }
             catch (Exception ex)
             {

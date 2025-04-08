@@ -16,6 +16,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "BepKhoiBackend.API.Controllers.LoginControllers.AuthController",
+    "Method": "Logout",
+    "RelativePath": "api/Auth/logout",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "BepKhoiBackend.API.Controllers.UserControllers.CashierControllers.CashierController",
     "Method": "GetAllCashiers",
     "RelativePath": "api/cashiers",
