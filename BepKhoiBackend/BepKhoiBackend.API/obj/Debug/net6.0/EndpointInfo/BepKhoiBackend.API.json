@@ -2335,6 +2335,29 @@
         }
       }
     },
+    "/api/orders/get-order-general-data/{orderId}": {
+      "get": {
+        "tags": [
+          "Order"
+        ],
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/order-detail/get-by-order-id/{orderId}": {
       "get": {
         "tags": [

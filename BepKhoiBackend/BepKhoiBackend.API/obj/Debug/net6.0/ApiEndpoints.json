@@ -1587,6 +1587,22 @@
   },
   {
     "ContainingType": "BepKhoiBackend.API.Controllers.OrderControllers.OrderController",
+    "Method": "GetOrderGeneralDataPosAsync",
+    "RelativePath": "api/orders/get-order-general-data/{orderId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "orderId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BepKhoiBackend.API.Controllers.OrderControllers.OrderController",
     "Method": "UpdateOrderType",
     "RelativePath": "api/orders/MoveOrderPos",
     "HttpMethod": "PUT",
