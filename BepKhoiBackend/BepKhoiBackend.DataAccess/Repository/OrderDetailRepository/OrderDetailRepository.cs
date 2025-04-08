@@ -56,7 +56,7 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderDetailRepository
         public async Task<OrderDetail?> GetOrderDetailByProductAsync(int orderId, int productId)
         {
             return await _context.OrderDetails
-                .FirstOrDefaultAsync(od => od.OrderId == orderId && od.ProductId == productId);
+                .FirstOrDefaultAsync(od => od.OrderId == orderId && od.ProductId == productId && string.IsNullOrEmpty(od.ProductNote) && od.Status==false);
         }
 
         //Pham Son Tung

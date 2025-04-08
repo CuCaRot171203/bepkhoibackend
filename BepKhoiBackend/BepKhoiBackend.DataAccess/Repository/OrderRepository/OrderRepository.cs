@@ -465,5 +465,22 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
             }
         }
 
+        //Pham Son Tung
+        public async Task UpdateOrderAfterAddOrderDetailAsync(int orderId)
+        {
+            var order = await _context.Orders
+                .Include(o => o.OrderDetails)
+                .FirstOrDefaultAsync(o => o.OrderId == orderId);
+
+            if (order == null)
+            {
+                throw new KeyNotFoundException($"Order with ID {orderId} not found.");
+            }
+            order.TotalQuantity = order.OrderDetails.Sum(od => od.Quantity);
+            order.AmountDue = order.OrderDetails.Sum(od => od.Quantity * od.Price);
+            _context.Orders.Update(order);
+            await _context.SaveChangesAsync();
+        }
+
     }
 }

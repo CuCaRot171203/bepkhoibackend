@@ -145,7 +145,10 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
             // 5. Lưu thay đổi
             await _orderRepository.UpdateOrderDetailAsync(orderDetail);
 
-            // 6. Trả về kết quả DTO
+            // 6. Cập nhật lại tổng số lượng & tổng tiền của order
+            await _orderRepository.UpdateOrderAfterAddOrderDetailAsync(orderDetail.OrderId);
+
+            // 7. Trả về kết quả DTO
             return new OrderDetailDto
             {
                 OrderDetailId = orderDetail.OrderDetailId,
@@ -197,30 +200,29 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
             try
             {
                 var order = await _orderRepository.GetOrderByIdPosAsync(request.OrderId);
-
-                // check null
-                if(order == null)
+                if (order == null)
                 {
                     throw new KeyNotFoundException($"Order with ID {request.OrderId} not found.");
                 }
 
                 var product = await _orderRepository.GetProductByIdAsync(request.ProductId);
-
-                // Check null
                 if (product == null)
                 {
                     throw new KeyNotFoundException($"Product with ID {request.ProductId} not found.");
                 }
 
-                var existingOrderDetail = await _orderDetailRepository.GetOrderDetailByProductAsync(request.OrderId, request.ProductId);
-                if (existingOrderDetail != null && string.IsNullOrEmpty(existingOrderDetail.ProductNote))
+                var existingOrderDetail = await _orderDetailRepository
+                    .GetOrderDetailByProductAsync(request.OrderId, request.ProductId);
+
+                if (existingOrderDetail != null)
                 {
-                    // if OrderDetail exist and not have note, increase value quantity
+                    // Repo đã đảm bảo là ProductNote == null và Status == false
                     existingOrderDetail.Quantity += 1;
                     await _orderDetailRepository.UpdateOrderDetailAsync(existingOrderDetail);
                 }
                 else
                 {
+                    // Nếu không tìm thấy, thêm mới sản phẩm
                     var newOrderDetail = new OrderDetail
                     {
                         OrderId = request.OrderId,
@@ -234,7 +236,7 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
 
                     await _orderDetailRepository.AddOrderDetailAsync(newOrderDetail);
                 }
-
+                await _orderRepository.UpdateOrderAfterAddOrderDetailAsync(request.OrderId);
                 return true;
             }
             catch
@@ -242,6 +244,8 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
                 throw;
             }
         }
+
+
 
         //Pham Son Tung
         //Service Func for MoveOrderPos API
