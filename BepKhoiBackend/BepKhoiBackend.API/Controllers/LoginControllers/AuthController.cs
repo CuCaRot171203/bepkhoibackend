@@ -20,6 +20,32 @@ namespace BepKhoiBackend.API.Controllers.LoginControllers
             _authService = authService;
             _httpContextAccessor = httpContextAccessor;
         }
+        [HttpPost("logout")]
+        public IActionResult Logout()
+        {
+            try
+            {
+                // Xoá dữ liệu trong session
+                var session = _httpContextAccessor.HttpContext.Session;
+                session.Remove("Token");
+                session.Remove("UserId");
+                session.Remove("Phone");
+
+                // Hoặc xóa toàn bộ session
+                session.Clear();
+
+                return Ok(new { message = "Logout successful." });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new
+                {
+                    message = "An error occurred while logging out.",
+                    error = ex.Message
+                });
+            }
+        }
+
 
         [HttpPost("login")]
         public IActionResult Login([FromBody] LoginRequestDto loginRequest)

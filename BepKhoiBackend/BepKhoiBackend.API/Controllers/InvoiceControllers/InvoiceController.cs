@@ -109,7 +109,7 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
             try
             {
                 var url = _vnPayService.CreatePaymentUrl(model, HttpContext);
-                return Redirect(url);
+                return Ok(url);
             }
             catch (Exception ex)
             {
@@ -123,33 +123,32 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
         {
             var response = _vnPayService.PaymentExecute(Request.Query);
 
-            // Kiểm tra thanh toán thành công với mã "00"
             if (response.Success && response.VnPayResponseCode == "00")
             {
                 if (int.TryParse(response.InvoiceId, out int invoiceId))
                 {
                     _invoiceService.UpdateInvoiceStatus(invoiceId, true);
-                    return Ok(new
-                    {
-                        success = true,
-                        message = "Thanh toán thành công!",
-                        invoiceId = invoiceId,
-                        transactionId = response.TransactionId
-                    });
+
+                    // Redirect đến frontend (ví dụ: trang thanh toán thành công)
+                    var redirectUrl = $"https://facebook.com/";
+
+                    //var redirectUrl = $"https://yourfrontend.com/payment-success?invoiceId={invoiceId}&transactionId={response.TransactionId}";
+                    return Redirect(redirectUrl);
                 }
-                else
+            else
                 {
-                    return BadRequest("Không thể xác định ID hóa đơn.");
+                    var failUrl = $"https://www.facebook.com/reel/639253061931440";
+
+                    //var failUrl = $"https://yourfrontend.com/payment-failure?message=InvalidInvoiceId";
+                    return Redirect(failUrl);
                 }
             }
 
-            return BadRequest(new
-            {
-                success = false,
-                message = "Thanh toán thất bại hoặc bị hủy.",
-                code = response.VnPayResponseCode
-            });
-        }
+            // Redirect đến trang thất bại
+           var redirectFail = $"https://www.facebook.com/reel/639253061931440";
 
+            //var redirectFail = $"https://yourfrontend.com/payment-failure?code={response.VnPayResponseCode}";
+            return Redirect(redirectFail);
+        }
     }
 }
