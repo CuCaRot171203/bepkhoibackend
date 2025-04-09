@@ -33,6 +33,8 @@ namespace BepKhoiBackend.BusinessObject.Abstract.OrderAbstract
 
         Task<string> CreateOrderAsync(OrderCreateDTO dto);
         Task<OrderGeneralDataPosDto> GetOrderGeneralDataPosAsync(int orderId);
+        Task DeleteOrderDetailAsync(int orderId, int orderDetailId);
+        Task DeleteConfirmedOrderDetailAsync(DeleteConfirmedOrderDetailRequestDto request);
 
     }
 }

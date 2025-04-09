@@ -28,6 +28,7 @@ namespace BepKhoiBackend.DataAccess.Abstract.OrderAbstract
         Task AddOrderDetailsAsync(List<OrderDetail> orderDetails);
         Task<Order> GetAllOrderData(int orderId);
         Task UpdateOrderAfterAddOrderDetailAsync(int orderId);
-
+        Task DeleteOrderDetailAsync(int orderId, int orderDetailId);
+        Task DeleteConfirmedOrderDetailAsync(int orderId, int orderDetailId, OrderCancellationHistory cancellation);
     }
 }

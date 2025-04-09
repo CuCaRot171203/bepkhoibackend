@@ -535,6 +535,111 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
             }
         }
 
+        //Pham Son Tung
+        [HttpDelete("delete-order-detail")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> DeleteOrderDetail([FromQuery] string? orderId, [FromQuery] string? orderDetailId)
+        {
+            try
+            {
+                // Validate query parameters
+                if (string.IsNullOrWhiteSpace(orderId) || !int.TryParse(orderId, out int orderIdParsed))
+                {
+                    return BadRequest(new { message = "Invalid 'orderId' parameter." });
+                }
+
+                if (string.IsNullOrWhiteSpace(orderDetailId) || !int.TryParse(orderDetailId, out int orderDetailIdParsed))
+                {
+                    return BadRequest(new { message = "Invalid 'orderDetailId' parameter." });
+                }
+
+                // Call service to delete
+                await _orderService.DeleteOrderDetailAsync(orderIdParsed, orderDetailIdParsed);
+
+                return Ok(new { message = "Order detail deleted successfully." });
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(new { message = ex.Message });
+            }
+            catch (InvalidOperationException ex)
+            {
+                return StatusCode(500, new
+                {
+                    message = "Failed to delete order detail. The item may have already been processed or a database error occurred.",
+                    error = ex.Message
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    message = "An unexpected error occurred while deleting the order detail.",
+                    error = ex.Message
+                });
+            }
+        }
+
+        //Pham Son Tung
+        [HttpDelete("delete-confirmed-order-detail")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> DeleteConfirmedOrderDetail(
+            [FromQuery] int? orderId,
+            [FromQuery] int? orderDetailId,
+            [FromQuery] int? cashierId,
+            [FromQuery] string? reason)
+        {
+            try
+            {
+                // Validate parameters
+                if (orderId is null || orderId <= 0)
+                    return BadRequest(new { message = "Parameter 'orderId' is required and must be a positive integer." });
+
+                if (orderDetailId is null || orderDetailId <= 0)
+                    return BadRequest(new { message = "Parameter 'orderDetailId' is required and must be a positive integer." });
+
+                if (cashierId is null || cashierId <= 0)
+                    return BadRequest(new { message = "Parameter 'cashierId' is required and must be a positive integer." });
+
+                if (string.IsNullOrWhiteSpace(reason))
+                    return BadRequest(new { message = "Parameter 'reason' is required and must not be empty." });
+                var request = new DeleteConfirmedOrderDetailRequestDto
+                {
+                    OrderId = orderId.Value,
+                    OrderDetailId = orderDetailId.Value,
+                    CashierId = cashierId.Value,
+                    Reason = reason.Trim()
+                };
+                await _orderService.DeleteConfirmedOrderDetailAsync(request);
+                return Ok(new { message = "Confirmed order detail was deleted and cancellation logged successfully." });
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(new { message = ex.Message });
+            }
+            catch (InvalidOperationException ex)
+            {
+                return StatusCode(500, new { message = "An operation error occurred while deleting the order detail.", error = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "An unexpected error occurred.", error = ex.Message });
+            }
+        }
 
 
 

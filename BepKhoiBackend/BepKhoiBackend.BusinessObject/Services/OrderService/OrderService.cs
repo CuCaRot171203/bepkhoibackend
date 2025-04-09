@@ -635,5 +635,82 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
                 HasUnconfirmProducts = hasUnconfirmProducts
             };
         }
+
+        //Pham Son Tung
+        public async Task DeleteOrderDetailAsync(int orderId, int orderDetailId)
+        {
+            // 1. Validate input
+            if (orderId <= 0)
+            {
+                throw new ArgumentException("OrderId must be greater than 0.");
+            }
+
+            if (orderDetailId <= 0)
+            {
+                throw new ArgumentException("OrderDetailId must be greater than 0.");
+            }
+
+            try
+            {
+                // 2. Call repository to delete
+                await _orderRepository.DeleteOrderDetailAsync(orderId, orderDetailId);
+            }
+            catch (InvalidOperationException ex)
+            {
+                // Can be due to Status == true or DB update issue
+                throw new InvalidOperationException("Failed to delete order detail. The item may have already been processed or a database error occurred.", ex);
+            }
+            catch (KeyNotFoundException ex)
+            {
+                // If OrderDetail is not found
+                throw new KeyNotFoundException("Order detail not found for deletion.", ex);
+            }
+            catch (Exception)
+            {
+                // Rethrow unexpected errors
+                throw;
+            }
+        }
+        public async Task DeleteConfirmedOrderDetailAsync(DeleteConfirmedOrderDetailRequestDto request)
+        {
+            // 1. Kiểm tra đầu vào
+            if (request.OrderId <= 0)
+                throw new ArgumentException("OrderId must be greater than 0.");
+            if (request.OrderDetailId <= 0)
+                throw new ArgumentException("OrderDetailId must be greater than 0.");
+            if (request.CashierId <= 0)
+                throw new ArgumentException("CashierId must be greater than 0.");
+            if (string.IsNullOrWhiteSpace(request.Reason))
+                throw new ArgumentException("Reason must not be empty.");
+            try
+            {
+                // 2. Mapping sang entity OrderCancellationHistory
+                var cancellation = new OrderCancellationHistory
+                {
+                    CashierId = request.CashierId,
+                    Reason = request.Reason
+                    // OrderId, ProductId, Quantity sẽ được gán trong repo
+                };
+
+                // 3. Gọi repository để thực hiện xoá có lưu lịch sử
+                await _orderRepository.DeleteConfirmedOrderDetailAsync(request.OrderId, request.OrderDetailId, cancellation);
+            }
+            catch (KeyNotFoundException ex)
+            {
+                throw new KeyNotFoundException("OrderDetail not found.", ex);
+            }
+            catch (InvalidOperationException ex)
+            {
+                throw new InvalidOperationException("Failed to delete confirmed OrderDetail.", ex);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+
+
+
     }
 }

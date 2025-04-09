@@ -208,7 +208,7 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
                 switch (orderTypeId)
                 {
                     case 1:
-                        query = query.Where(o => o.OrderStatusId == 1);
+                        query = query.Where(o => o.OrderStatusId == 1 && o.OrderTypeId == 1);
                         break;
 
                     case 2:
@@ -481,6 +481,103 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
             _context.Orders.Update(order);
             await _context.SaveChangesAsync();
         }
+
+        //Pham Son Tung
+        public async Task UpdateOrderAfterDeleteOrderDetailAsync(int orderId)
+        {
+            var order = await _context.Orders
+                .Include(o => o.OrderDetails)
+                .FirstOrDefaultAsync(o => o.OrderId == orderId);
+
+            if (order == null)
+            {
+                throw new KeyNotFoundException($"Order with ID {orderId} not found.");
+            }
+            order.TotalQuantity = order.OrderDetails.Sum(od => od.Quantity);
+            order.AmountDue = order.OrderDetails.Sum(od => od.Quantity * od.Price);
+            _context.Orders.Update(order);
+            await _context.SaveChangesAsync();
+        }
+
+        //Pham Son Tung
+        public async Task DeleteOrderDetailAsync(int orderId, int orderDetailId)
+        {
+            try
+            {
+                var orderDetail = await _context.OrderDetails
+                    .FirstOrDefaultAsync(od => od.OrderId == orderId && od.OrderDetailId == orderDetailId);
+
+                if (orderDetail == null)
+                {
+                    throw new KeyNotFoundException($"OrderDetail with ID {orderDetailId} for Order {orderId} not found.");
+                }
+                if (orderDetail.Status == true)
+                {
+                    throw new InvalidOperationException($"Can not delete OrderDetail ID {orderDetailId} because status is true.");
+                }
+                _context.OrderDetails.Remove(orderDetail);
+                await _context.SaveChangesAsync();
+                await UpdateOrderAfterDeleteOrderDetailAsync(orderId);
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                throw new InvalidOperationException("A concurrency error occurred while deleting the OrderDetail.", ex);
+            }
+            catch (DbUpdateException ex)
+            {
+                throw new InvalidOperationException("An error occurred while updating the database during deletion.", ex);
+            }
+            catch (InvalidOperationException ex)
+            {
+                throw new InvalidOperationException("An unexpected error occurred during deletion.", ex);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        //Pham Son Tung
+        public async Task DeleteConfirmedOrderDetailAsync(int orderId, int orderDetailId, OrderCancellationHistory cancellation)
+        {
+            try
+            {
+                var orderDetail = await _context.OrderDetails
+                    .FirstOrDefaultAsync(od => od.OrderId == orderId && od.OrderDetailId == orderDetailId);
+
+                if (orderDetail == null)
+                {
+                    throw new KeyNotFoundException($"OrderDetail with ID {orderDetailId} for Order {orderId} not found.");
+                }
+
+                // Gán lại thông tin từ OrderDetail nếu cần
+                cancellation.OrderId = orderId;
+                cancellation.ProductId = orderDetail.ProductId;
+                cancellation.Quantity = orderDetail.Quantity;
+
+                await _context.OrderCancellationHistories.AddAsync(cancellation);
+
+                _context.OrderDetails.Remove(orderDetail);
+
+                await _context.SaveChangesAsync();
+
+                await UpdateOrderAfterDeleteOrderDetailAsync(orderId);
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                throw new InvalidOperationException("A concurrency error occurred while deleting the confirmed OrderDetail.", ex);
+            }
+            catch (DbUpdateException ex)
+            {
+                throw new InvalidOperationException("A database error occurred while deleting the confirmed OrderDetail.", ex);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+
 
     }
 }
