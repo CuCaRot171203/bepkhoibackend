@@ -128,6 +128,26 @@ public class UserService : IUserService
     }
 
 
-    
+    public async Task<ResponseUserDto?> GetUserByIdAsync(int userId)
+    {
+        var user = await _userRepository.GetUserByIdAsync(userId);
+
+        if (user == null) return null;
+
+        return new ResponseUserDto
+        {
+            UserId = user.UserId,
+            UserName = user.UserInformation?.UserName,
+            RoleName = user.Role?.RoleName,
+            Phone = user.Phone,
+            Email = user.Email,
+            Address = user.UserInformation?.Address,
+            Province_City = user.UserInformation?.ProvinceCity,
+            District = user.UserInformation?.District,
+            Ward_Commune = user.UserInformation?.WardCommune,
+            Date_of_Birth = user.UserInformation?.DateOfBirth
+        };
+    }
+
 
 }

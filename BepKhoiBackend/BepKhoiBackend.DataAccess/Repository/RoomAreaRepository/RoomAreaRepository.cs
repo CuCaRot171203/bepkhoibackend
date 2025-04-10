@@ -70,7 +70,7 @@ namespace BepKhoiBackend.DataAccess.Repository.RoomAreaRepository
 
             if (!string.IsNullOrWhiteSpace(name))
             {
-                query = query.Where(r => r.RoomAreaName.Contains(name.Trim()));
+                query = query.Where(r => r.RoomAreaName.Contains(name.Trim()) && r.IsDelete==false);
             }
             return await query
                 .OrderBy(r => r.RoomAreaId)

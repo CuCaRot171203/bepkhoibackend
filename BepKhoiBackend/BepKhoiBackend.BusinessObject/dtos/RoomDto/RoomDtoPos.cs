@@ -11,6 +11,5 @@ namespace BepKhoiBackend.BusinessObject.dtos.RoomDto
         public int? SeatNumber { get; set; }
         public string? RoomNote { get; set; }
         public bool? IsUse { get; set; }
-        public List<OrderDtoPos> OrderList { get; set; } = new();
     }
 }

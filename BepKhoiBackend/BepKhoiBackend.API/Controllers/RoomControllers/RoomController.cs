@@ -124,11 +124,11 @@ namespace BepKhoiBackend.API.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> TestGetRooms([FromQuery] int limit = 10, [FromQuery] int offset = 0)
+        public async Task<IActionResult> TestGetRooms()
         {
             try
             {
-                var result = await _roomService.GetRoomAsyncForPos(limit, offset);
+                var result = await _roomService.GetRoomAsyncForPos();
                 if (result == null || !result.Any())
                 {
                     return NotFound(new { message = "Không tìm thấy dữ liệu phòng." });
@@ -174,31 +174,85 @@ namespace BepKhoiBackend.API.Controllers
         }
 
         // controller for searching by username and room name
-        [HttpGet("search-room-pos")]
-        [ProducesResponseType(typeof(List<RoomDtoPos>), 200)]
-        [ProducesResponseType(400)]
-        [ProducesResponseType(404)]
-        [ProducesResponseType(500)]
-        public async Task<IActionResult> SearchRoomPos([FromQuery] string searchString)
+        //[HttpGet("search-room-pos")]
+        //[ProducesResponseType(typeof(List<RoomDtoPos>), 200)]
+        //[ProducesResponseType(400)]
+        //[ProducesResponseType(404)]
+        //[ProducesResponseType(500)]
+        //public async Task<IActionResult> SearchRoomPos([FromQuery] string searchString)
+        //{
+        //    try
+        //    {
+        //        var result = await _roomService.SearchRoomPosAsync(searchString);
+        //        if (result == null || !result.Any())
+        //        {
+        //            return NotFound(new { message = "Can't find username or roomname." });
+        //        }
+
+        //        return Ok(result);
+        //    }
+        //    catch (ArgumentException ex)
+        //    {
+        //        return BadRequest(new { message = ex.Message });
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return StatusCode(500, new { message = "Error server.", error = ex.Message });
+        //    }
+        //}
+
+
+
+        [HttpPut("update-room-note")]
+        public async Task<IActionResult> UpdateRoomNote([FromBody] RoomNoteUpdateDto dto)
         {
             try
             {
-                var result = await _roomService.SearchRoomPosAsync(searchString);
-                if (result == null || !result.Any())
+                // Kiểm tra nếu DTO không hợp lệ
+                if (dto == null)
                 {
-                    return NotFound(new { message = "Can't find username or roomname." });
+                    return BadRequest(new { success = false, message = "Request body cannot be null." });
                 }
 
-                return Ok(result);
+                // Gọi service để xử lý logic cập nhật ghi chú phòng
+                bool isUpdated = await _roomService.UpdateRoomNoteAsync(dto);
+
+                // Nếu không thành công (isUpdated là false), trả về thông báo lỗi
+                if (!isUpdated)
+                {
+                    return StatusCode(500, new { success = false, message = "Update room note failed." });
+                }
+
+                // Nếu cập nhật thành công, trả về kết quả
+                return Ok(new { success = true, message = "Room note updated successfully." });
+            }
+            catch (ArgumentNullException ex)
+            {
+                // Xử lý lỗi nếu DTO không hợp lệ
+                return BadRequest(new { success = false, message = ex.Message });
             }
             catch (ArgumentException ex)
             {
-                return BadRequest(new { message = ex.Message });
+                // Xử lý lỗi khi phòng note rỗng
+                return BadRequest(new { success = false, message = ex.Message });
+            }
+            catch (KeyNotFoundException ex)
+            {
+                // Xử lý khi phòng không tìm thấy (đã được ném từ repo hoặc service)
+                return NotFound(new { success = false, message = ex.Message });
+            }
+            catch (InvalidOperationException ex)
+            {
+                // Xử lý lỗi khi có vấn đề với cơ sở dữ liệu hoặc cập nhật không thành công
+                return StatusCode(500, new { success = false, message = "Database error occurred while updating the room note.", details = ex.Message });
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { message = "Error server.", error = ex.Message });
+                // Xử lý lỗi không xác định
+                return StatusCode(500, new { success = false, message = "An unexpected error occurred while updating the room note.", details = ex.Message });
             }
         }
+
+
     }
 }

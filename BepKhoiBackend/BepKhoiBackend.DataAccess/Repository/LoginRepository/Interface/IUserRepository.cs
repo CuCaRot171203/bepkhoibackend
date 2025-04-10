@@ -7,5 +7,7 @@ namespace BepKhoiBackend.DataAccess.Repository.LoginRepository.Interface
     {
         User GetUserByEmail(string email);
         void UpdateUser(User user);
+        Task<User?> GetUserByIdAsync(int userId);
+
     }
 }

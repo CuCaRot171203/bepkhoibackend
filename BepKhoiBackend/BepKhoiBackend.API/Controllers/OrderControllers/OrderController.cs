@@ -1,9 +1,13 @@
-﻿using BepKhoiBackend.BusinessObject.Abstract.OrderAbstract;
+﻿using BepKhoiBackend.API.Hubs;
+using BepKhoiBackend.BusinessObject.Abstract.OrderAbstract;
 using BepKhoiBackend.BusinessObject.dtos.CustomerDto;
 using BepKhoiBackend.BusinessObject.dtos.MenuDto;
 using BepKhoiBackend.BusinessObject.dtos.OrderDetailDto;
 using BepKhoiBackend.BusinessObject.dtos.OrderDto;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
+using Microsoft.EntityFrameworkCore;
+using System.Data.Common;
 
 namespace BepKhoiBackend.API.Controllers.OrderControllers
 {
@@ -14,17 +18,49 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
     {
         private readonly IOrderService _orderService;
         private readonly PrintOrderPdfService _printOrderPdfService;
-        public OrderController(IOrderService orderService, PrintOrderPdfService printOrderPdfService)
+        private readonly IHubContext<OrderHub> _hubContext;
+
+        public OrderController(IOrderService orderService, PrintOrderPdfService printOrderPdfService, IHubContext<OrderHub> hubContext)
         {
             _orderService = orderService;
             _printOrderPdfService = printOrderPdfService;
+            _hubContext = hubContext;
+
+        }
+        //get all
+        [HttpGet("get-all-orders")]
+        public async Task<IActionResult> GetAllOrdersAsync()
+        {
+            var result = await _orderService.GetAllOrdersAsync();
+
+            if (!result.IsSuccess)
+                return NotFound(new { message = result.Message });
+
+            return Ok(new
+            {
+                message = result.Message,
+                data = result.Data
+            });
         }
 
-        
+        [HttpGet("filter-by-date")]
+        public async Task<IActionResult> FilterOrdersByDateAsync([FromQuery] DateTime fromDate, [FromQuery] DateTime toDate)
+        {
+            var result = await _orderService.FilterOrdersByDateAsync(fromDate, toDate);
+
+            if (!result.IsSuccess)
+                return NotFound(new { message = result.Message });
+
+            return Ok(new
+            {
+                message = result.Message,
+                data = result.Data
+            });
+        }
 
         // Create order
         [HttpPost("create-order")]
-        public async Task<IActionResult> CreateNewOrder([FromBody] CreateOrderRequest request)
+        public async Task<IActionResult> CreateNewOrder([FromBody] CreateOrderRequestDto request)
         {
             try
             {
@@ -169,6 +205,96 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
             }
         }
 
+
+        //Pham Son Tung
+        [HttpPut("MoveOrderPos")]
+        public async Task<IActionResult> UpdateOrderType([FromBody] MoveOrderPosRequestDto request)
+        {
+            try
+            {
+                bool result = await _orderService.ChangeOrderTypeServiceAsync(request);
+                return result
+                    ? Ok(new { message = "Order type updated successfully." })
+                    : BadRequest(new { message = "Failed to update order type." });
+            }
+            catch (ArgumentException ex) // Lỗi do tham số đầu vào không hợp lệ (service)
+            {
+                return BadRequest(new { message = "Invalid input parameters.", error = ex.Message });
+            }
+            catch (KeyNotFoundException ex) // Lỗi do không tìm thấy Order, Room hoặc User (repo)
+            {
+                return NotFound(new { message = "Resource not found.", error = ex.Message });
+            }
+            catch (Exception ex) // Các lỗi khác (bao gồm lỗi ở repository)
+            {
+                return StatusCode(500, new { message = "An internal server error occurred.", error = ex.Message });
+            }
+        }
+
+        //Pham Son Tung
+        [HttpPut("combine-orders")]
+        public async Task<IActionResult> CombineOrderPosAsync([FromBody] CombineOrderPosRequestDto request)
+        {
+            try
+            {
+                bool result = await _orderService.CombineOrderPosServiceAsync(request);
+
+                return result
+                    ? Ok(new { message = "Orders combined successfully." })
+                    : BadRequest(new { message = "Failed to combine orders." });
+            }
+            catch (ArgumentNullException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(new { message = ex.Message });
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "An internal server error occurred.", error = ex.Message });
+            }
+        }
+
+        //Pham Son Tung
+        [HttpGet("get-order-by-type-pos")]
+        public async Task<IActionResult> GetOrdersByTypePosAsync(int? roomId, int? shipperId, int? orderTypeId)
+        {
+            try
+            {
+                var orders = await _orderService.GetOrdersByTypePosAsync(roomId, shipperId, orderTypeId);
+
+                await _hubContext.Clients.All.SendAsync("ReceiveOrderUpdate", orders);
+
+                return Ok(orders);
+            }
+            catch (ArgumentException argEx)
+            {
+                return BadRequest(new
+                {
+                    message = $"Invalid parameter: {argEx.Message}"
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    message = "An error occurred while processing your request.",
+                    details = ex.InnerException?.Message ?? ex.Message
+                });
+            }
+        }
+
+
         //-------------NgocQuan----------------//
         [HttpGet("{orderId}/print-pdf-temp-Invoice")]
         public async Task<IActionResult> GetTempInvoicePdf(int orderId)
@@ -185,8 +311,241 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
             catch (Exception ex)
             {
                 return StatusCode(500, new { message = "Server error", error = ex.Message });
+                
+
             }
         }
+        //Pham Son Tung
+        [HttpGet("get-customer-of-order/{orderId}")]
+        public async Task<IActionResult> GetCustomerOfOrder([FromRoute] int orderId)
+        {
+            try
+            {
+                var customer = await _orderService.GetCustomerIdByOrderIdAsync(orderId); // Trả về CustomerPosDto
+
+                return Ok(new
+                {
+                    success = true,
+                    data = customer
+                });
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(new
+                {
+                    success = false,
+                    message = ex.Message
+                });
+            }
+            catch (DbUpdateException ex)
+            {
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = "A database update error occurred.",
+                    details = ex.Message
+                });
+            }
+            catch (DbException ex)
+            {
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = "A general database error occurred.",
+                    details = ex.Message
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = "An unexpected error occurred.",
+                    details = ex.Message
+                });
+            }
+        }
+
+        //Pham Son Tung
+        [HttpPost("assign-customer-to-order")]
+        public async Task<IActionResult> AssignCustomerToOrder(
+        [FromQuery] int orderId,
+        [FromQuery] int customerId)
+        {
+            try
+            {
+                await _orderService.AssignCustomerToOrderAsync(orderId, customerId);
+
+                return Ok(new
+                {
+                    success = true,
+                    message = $"Customer {customerId} has been assigned to order {orderId}."
+                });
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(new
+                {
+                    success = false,
+                    message = ex.Message
+                });
+            }
+            catch (DbUpdateException ex)
+            {
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = "A database update error occurred.",
+                    details = ex.Message
+                });
+            }
+            catch (DbException ex)
+            {
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = "A general database error occurred.",
+                    details = ex.Message
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = "An unexpected error occurred.",
+                    details = ex.Message
+                });
+            }
+        }
+
+        //pham son tung
+        [HttpPost("remove-customer/{orderId}")]
+        public async Task<IActionResult> RemoveCustomerFromOrder(int orderId)
+        {
+            // Gọi service để thực hiện xóa CustomerId khỏi đơn hàng
+            var result = await _orderService.RemoveCustomerFromOrderAsync(orderId);
+
+            // Kiểm tra kết quả và trả về phản hồi cho client
+            if (result)
+            {
+                // Nếu thành công
+                return Ok(new { Message = "Customer removed successfully from the order." });
+            }
+            else
+            {
+                // Nếu thất bại, có thể vì đơn hàng không tồn tại hoặc gặp lỗi
+                return BadRequest(new { Message = "Failed to remove customer from the order." });
+            }
+        }
+
+        //pham son tung
+        [HttpPost("remove-order/{orderId}")]
+        public async Task<IActionResult> RemoveOrder(int orderId)
+        {
+            try
+            {
+                // Gọi hàm service để thực hiện xóa đơn hàng
+                bool result = await _orderService.RemoveOrderById(orderId);
+
+                // Kiểm tra kết quả từ service
+                if (result)
+                {
+                    // Trả về phản hồi thành công nếu đơn hàng được xóa thành công
+                    return Ok(new { Message = "Order has been successfully removed." });
+                }
+                else
+                {
+                    // Nếu không thành công, trả về lỗi BadRequest
+                    return BadRequest(new { Message = "Failed to remove order." });
+                }
+            }
+            catch (Exception ex)
+            {
+                // Nếu có lỗi trong quá trình xử lý, trả về lỗi 500 (Internal Server Error)
+                return StatusCode(500, new { Message = $"Internal server error: {ex.Message}" });
+            }
+        }
+
+        //pham son tung
+        [HttpGet("get-order-details-by-order-id")]
+        public async Task<IActionResult> GetOrderDetailsByOrderIdAsync(int orderId)
+        {
+            try
+            {
+                // Gọi service để lấy danh sách order details theo orderId
+                var orderDetails = await _orderService.GetOrderDetailsByOrderIdAsync(orderId);
+
+                // Trả về kết quả thành công với danh sách order details
+                return Ok(orderDetails);
+            }
+            catch (ArgumentException argEx)
+            {
+                // Nếu có lỗi về tham số (ví dụ: orderId không hợp lệ), trả về lỗi với thông điệp chi tiết
+                return BadRequest(new { message = $"Invalid parameter: {argEx.Message}" });
+            }
+            catch (Exception ex)
+            {
+                // Xử lý tất cả các lỗi khác, trả về lỗi server với thông tin chi tiết
+                return StatusCode(500, new { message = "An error occurred while processing your request.", details = ex.Message });
+            }
+        }
+        
+        [HttpPost("create-order-customer")]
+        public async Task<IActionResult> CreateOrder([FromBody] OrderCreateDTO request)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var result = await _orderService.CreateOrderAsync(request);
+            return Ok(new { message = result });
+        }
+
+
+        //Pham Son Tung
+        [HttpGet("get-order-general-data/{orderId}")]
+        public async Task<IActionResult> GetOrderGeneralDataPosAsync([FromRoute] int orderId)
+        {
+            try
+            {
+                var result = await _orderService.GetOrderGeneralDataPosAsync(orderId);
+                return Ok(result);
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(new
+                {
+                    message = $"Order not found: {ex.Message}"
+                });
+            }
+            catch (DbUpdateException dbEx)
+            {
+                return StatusCode(500, new
+                {
+                    message = "A database query error occurred while retrieving order data.",
+                    detail = dbEx.InnerException?.Message ?? dbEx.Message
+                });
+            }
+            catch (InvalidOperationException invalidEx)
+            {
+                return StatusCode(500, new
+                {
+                    message = "An invalid operation occurred while retrieving order data.",
+                    detail = invalidEx.Message
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    message = "An unexpected error occurred while processing the request.",
+                    detail = ex.Message
+                });
+            }
+        }
+
+
+
 
     }
 }

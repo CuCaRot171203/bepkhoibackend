@@ -1,11 +1,8 @@
 ﻿using BepKhoiBackend.BusinessObject.dtos.InvoiceDto;
 using BepKhoiBackend.DataAccess.Models;
 using BepKhoiBackend.DataAccess.Repository.InvoiceRepository;
-using DocumentFormat.OpenXml.Office2010.Excel;
-using QRCoder;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 
 namespace BepKhoiBackend.BusinessObject.Services.InvoiceService
@@ -13,6 +10,7 @@ namespace BepKhoiBackend.BusinessObject.Services.InvoiceService
     public class InvoiceService : IInvoiceService
     {
         private readonly IInvoiceRepository _invoiceRepository;
+
         public InvoiceService(IInvoiceRepository invoiceRepository)
         {
             _invoiceRepository = invoiceRepository;
@@ -170,6 +168,7 @@ namespace BepKhoiBackend.BusinessObject.Services.InvoiceService
                     }).ToList()
                 }).ToList();
         }
+
         //------------------NgocQuan----------------------//
         public InvoicePdfDTO GetInvoiceForPdf(int id)
         {
@@ -194,7 +193,7 @@ namespace BepKhoiBackend.BusinessObject.Services.InvoiceService
                 }).ToList()
             };
         }
-        
+
 
         public Invoice? GetInvoiceByInvoiceId(int invoiceId)
         {
@@ -217,6 +216,5 @@ namespace BepKhoiBackend.BusinessObject.Services.InvoiceService
             // Trả về true nếu việc cập nhật thành công
             return true;
         }
-
     }
 }

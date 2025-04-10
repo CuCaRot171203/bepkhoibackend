@@ -16,7 +16,6 @@ namespace BepKhoiBackend.BusinessObject.Services.InvoiceService
         private readonly SortedList<string, string> _requestData = new SortedList<string, string>(new VnPayCompare());
         private readonly SortedList<string, string> _responseData = new SortedList<string, string>(new VnPayCompare());
 
-
         public PaymentResponseModel GetFullResponseData(IQueryCollection collection, string hashSecret)
         {
             var vnPay = new VnPayLibrary();
@@ -27,30 +26,19 @@ namespace BepKhoiBackend.BusinessObject.Services.InvoiceService
                     vnPay.AddResponseData(key, value);
                 }
             }
-
-            // Kiểm tra giá trị đầu vào trước khi chuyển đổi
-            string orderIdStr = vnPay.GetResponseData("vnp_TxnRef");
-            string vnPayTranIdStr = vnPay.GetResponseData("vnp_TransactionNo");
-            string vnpResponseCode = vnPay.GetResponseData("vnp_ResponseCode");
-            string vnpSecureHash = collection.FirstOrDefault(k => k.Key == "vnp_SecureHash").Value;
-            string orderInfo = vnPay.GetResponseData("vnp_OrderInfo");
-
-            if (string.IsNullOrEmpty(orderIdStr) || string.IsNullOrEmpty(vnPayTranIdStr))
-            {
-                return new PaymentResponseModel() { Success = false, Message = "Thiếu dữ liệu giao dịch" };
-            }
-
-            if (!long.TryParse(orderIdStr, out long orderId) || !long.TryParse(vnPayTranIdStr, out long vnPayTranId))
-            {
-                return new PaymentResponseModel() { Success = false, Message = "Dữ liệu giao dịch không hợp lệ" };
-            }
-
-            bool checkSignature = vnPay.ValidateSignature(vnpSecureHash, hashSecret);
+            var orderId = Convert.ToInt64(vnPay.GetResponseData("vnp_TxnRef"));
+            var vnPayTranId = Convert.ToInt64(vnPay.GetResponseData("vnp_TransactionNo"));
+            var vnpResponseCode = vnPay.GetResponseData("vnp_ResponseCode");
+            var vnpSecureHash =
+                collection.FirstOrDefault(k => k.Key == "vnp_SecureHash").Value; //hash của dữ liệu trả về
+            var orderInfo = vnPay.GetResponseData("vnp_OrderInfo");
+            var checkSignature =
+                vnPay.ValidateSignature(vnpSecureHash, hashSecret); //check Signature
             if (!checkSignature)
-            {
-                return new PaymentResponseModel() { Success = false, Message = "Chữ ký không hợp lệ" };
-            }
-
+                return new PaymentResponseModel()
+                {
+                    Success = false
+                };
             return new PaymentResponseModel()
             {
                 Success = true,
@@ -63,8 +51,6 @@ namespace BepKhoiBackend.BusinessObject.Services.InvoiceService
                 VnPayResponseCode = vnpResponseCode
             };
         }
-
-
 
         public string GetIpAddress(HttpContext context)
         {
@@ -93,7 +79,6 @@ namespace BepKhoiBackend.BusinessObject.Services.InvoiceService
 
             return "127.0.0.1";
         }
-
 
         public void AddRequestData(string key, string value)
         {
@@ -188,21 +173,23 @@ namespace BepKhoiBackend.BusinessObject.Services.InvoiceService
 
             return data.ToString();
         }
+    }
 
-        public class VnPayCompare : IComparer<string>
+    public class VnPayCompare : IComparer<string>
+    {
+        public int Compare(string x, string y)
         {
-            public int Compare(string x, string y)
-            {
-                if (x == y) return 0;
-                if (x == null) return -1;
-                if (y == null) return 1;
-                var vnpCompare = CompareInfo.GetCompareInfo("en-US");
-                return vnpCompare.Compare(x, y, CompareOptions.Ordinal);
-            }
+            if (x == y) return 0;
+            if (x == null) return -1;
+            if (y == null) return 1;
+            var vnpCompare = CompareInfo.GetCompareInfo("en-US");
+            return vnpCompare.Compare(x, y, CompareOptions.Ordinal);
         }
-
     }
 
 
 }
+
+
+
 

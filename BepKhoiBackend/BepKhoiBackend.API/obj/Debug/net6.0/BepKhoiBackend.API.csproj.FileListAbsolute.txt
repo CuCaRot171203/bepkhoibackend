@@ -1,1045 +1,266 @@
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\appsettings.Development.json
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\appsettings.json
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.exe
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.deps.json
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.runtimeconfig.json
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.dll
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.pdb
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.OpenApi.dll
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.csproj.AssemblyReference.cache
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.AssemblyInfoInputs.cache
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.AssemblyInfo.cs
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.csproj.CoreCompileInputs.cache
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.build.json
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.development.json
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.BepKhoiBackend.API.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.build.BepKhoiBackend.API.props
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.BepKhoiBackend.API.props
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.BepKhoiBackend.API.props
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.pack.json
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\scopedcss\bundle\BepKhoiBackend.API.styles.css
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiB.7057CD75.Up2Date
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.dll
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\refint\BepKhoiBackend.API.dll
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.pdb
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.genruntimeconfig.cache
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\ref\BepKhoiBackend.API.dll
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Identity.Client.dll
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Drawing.Common.dll
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Runtime.Caching.dll
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Security.Permissions.dll
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Windows.Extensions.dll
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.BusinessObject.dll
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.DataAccess.dll
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Test.dll
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.BusinessObject.pdb
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.DataAccess.pdb
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Test.pdb
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\appsettings.Development.json
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\appsettings.json
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.staticwebassets.endpoints.json
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.exe
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.deps.json
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.runtimeconfig.json
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.dll
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.pdb
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Identity.Client.dll
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.OpenApi.dll
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Drawing.Common.dll
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Runtime.Caching.dll
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Security.Permissions.dll
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Windows.Extensions.dll
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.BusinessObject.dll
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.DataAccess.dll
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Shared.dll
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Test.dll
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.BusinessObject.pdb
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.DataAccess.pdb
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Test.pdb
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Shared.pdb
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.csproj.AssemblyReference.cache
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.GeneratedMSBuildEditorConfig.editorconfig
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.AssemblyInfoInputs.cache
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.AssemblyInfo.cs
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.csproj.CoreCompileInputs.cache
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.MvcApplicationPartsAssemblyInfo.cs
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.MvcApplicationPartsAssemblyInfo.cache
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.sourcelink.json
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\scopedcss\bundle\BepKhoiBackend.API.styles.css
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.build.json
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.development.json
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.build.endpoints.json
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.BepKhoiBackend.API.Microsoft.AspNetCore.StaticWebAssets.props
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.BepKhoiBackend.API.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.build.BepKhoiBackend.API.props
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.BepKhoiBackend.API.props
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.BepKhoiBackend.API.props
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.pack.json
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiB.7057CD75.Up2Date
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.dll
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\refint\BepKhoiBackend.API.dll
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.pdb
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.genruntimeconfig.cache
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\ref\BepKhoiBackend.API.dll
-D:\Do An\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.upToDateCheck.txt
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\appsettings.Development.json
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\appsettings.json
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.staticwebassets.endpoints.json
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.exe
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.deps.json
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.runtimeconfig.json
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.dll
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.pdb
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Identity.Client.dll
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.OpenApi.dll
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Drawing.Common.dll
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Runtime.Caching.dll
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Security.Permissions.dll
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Windows.Extensions.dll
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.BusinessObject.dll
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.DataAccess.dll
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Shared.dll
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Test.dll
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.BusinessObject.pdb
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.DataAccess.pdb
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Test.pdb
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Shared.pdb
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.csproj.AssemblyReference.cache
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.GeneratedMSBuildEditorConfig.editorconfig
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.AssemblyInfoInputs.cache
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.AssemblyInfo.cs
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.csproj.CoreCompileInputs.cache
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.MvcApplicationPartsAssemblyInfo.cs
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.MvcApplicationPartsAssemblyInfo.cache
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.sourcelink.json
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\scopedcss\bundle\BepKhoiBackend.API.styles.css
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.build.json
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.development.json
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.build.endpoints.json
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.BepKhoiBackend.API.Microsoft.AspNetCore.StaticWebAssets.props
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.BepKhoiBackend.API.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.build.BepKhoiBackend.API.props
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.BepKhoiBackend.API.props
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.BepKhoiBackend.API.props
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.pack.json
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.upToDateCheck.txt
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiB.7057CD75.Up2Date
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.dll
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\refint\BepKhoiBackend.API.dll
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.pdb
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.genruntimeconfig.cache
-D:\DoAn_NgocQuan\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\ref\BepKhoiBackend.API.dll
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Shared.dll
-C:\Users\TungNT\Downloads\Compressed\bepkhoibackend-NgocQuan\bepkhoibackend-NgocQuan\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Shared.pdb
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.csproj.AssemblyReference.cache
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.GeneratedMSBuildEditorConfig.editorconfig
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.AssemblyInfoInputs.cache
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.AssemblyInfo.cs
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.csproj.CoreCompileInputs.cache
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.MvcApplicationPartsAssemblyInfo.cs
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.MvcApplicationPartsAssemblyInfo.cache
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.sourcelink.json
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\appsettings.Development.json
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\appsettings.json
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.exe
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.deps.json
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.runtimeconfig.json
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.pdb
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\AutoMapper.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Identity.Client.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.OpenApi.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.AspNetCore.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Extensions.Hosting.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Extensions.Logging.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Formatting.Compact.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Settings.Configuration.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Sinks.Console.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Sinks.Debug.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Sinks.File.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Drawing.Common.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Runtime.Caching.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Security.Permissions.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Windows.Extensions.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.BusinessObject.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.DataAccess.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Shared.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Test.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.BusinessObject.pdb
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.DataAccess.pdb
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Test.pdb
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Shared.pdb
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.build.json
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.development.json
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.BepKhoiBackend.API.Microsoft.AspNetCore.StaticWebAssets.props
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.build.BepKhoiBackend.API.props
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.BepKhoiBackend.API.props
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.BepKhoiBackend.API.props
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.pack.json
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\scopedcss\bundle\BepKhoiBackend.API.styles.css
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiB.7057CD75.Up2Date
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\refint\BepKhoiBackend.API.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.pdb
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.genruntimeconfig.cache
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\ref\BepKhoiBackend.API.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\ClosedXML.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\ClosedXML.Parser.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\DocumentFormat.OpenXml.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\DocumentFormat.OpenXml.Framework.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\ExcelNumberFormat.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\RBush.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\SixLabors.Fonts.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.IO.Packaging.dll
-B:\DO_AN\THANH_TUNG\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Linq.Dynamic.Core.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.csproj.AssemblyReference.cache
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.GeneratedMSBuildEditorConfig.editorconfig
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.AssemblyInfoInputs.cache
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.AssemblyInfo.cs
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.csproj.CoreCompileInputs.cache
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.MvcApplicationPartsAssemblyInfo.cs
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.MvcApplicationPartsAssemblyInfo.cache
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\refint\BepKhoiBackend.API.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.pdb
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\appsettings.Development.json
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\appsettings.json
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.exe
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.deps.json
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.runtimeconfig.json
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.pdb
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\AutoMapper.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\ClosedXML.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\ClosedXML.Parser.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\DocumentFormat.OpenXml.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\DocumentFormat.OpenXml.Framework.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\ExcelNumberFormat.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Identity.Client.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.OpenApi.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\RBush.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.AspNetCore.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Extensions.Hosting.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Extensions.Logging.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Formatting.Compact.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Settings.Configuration.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Sinks.Console.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Sinks.Debug.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Sinks.File.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\SixLabors.Fonts.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Drawing.Common.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.IO.Packaging.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Linq.Dynamic.Core.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Runtime.Caching.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Security.Permissions.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Windows.Extensions.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.BusinessObject.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.DataAccess.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Shared.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Test.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.BusinessObject.pdb
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.DataAccess.pdb
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Test.pdb
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Shared.pdb
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.build.json
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.development.json
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.BepKhoiBackend.API.Microsoft.AspNetCore.StaticWebAssets.props
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.build.BepKhoiBackend.API.props
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.BepKhoiBackend.API.props
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.BepKhoiBackend.API.props
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.pack.json
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\scopedcss\bundle\BepKhoiBackend.API.styles.css
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiB.7057CD75.Up2Date
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.genruntimeconfig.cache
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\ref\BepKhoiBackend.API.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BouncyCastle.Cryptography.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\EPPlus.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\EPPlus.Interfaces.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\EPPlus.System.Drawing.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Bcl.Cryptography.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.Configuration.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.Configuration.FileExtensions.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Json.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Abstractions.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Physical.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.FileSystemGlobbing.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IO.RecyclableMemoryStream.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\MimeKit.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Formats.Asn1.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.IO.Pipelines.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Security.Cryptography.Pkcs.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Text.Encoding.CodePages.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Text.Encodings.Web.dll
-B:\DO_AN\BACKEND_CHUNG\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Text.Json.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\appsettings.Development.json
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\appsettings.json
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.exe
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.deps.json
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.runtimeconfig.json
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.pdb
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\AutoMapper.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BouncyCastle.Cryptography.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\ClosedXML.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\ClosedXML.Parser.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\DocumentFormat.OpenXml.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\DocumentFormat.OpenXml.Framework.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\EPPlus.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\EPPlus.Interfaces.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\EPPlus.System.Drawing.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\ExcelNumberFormat.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Bcl.Cryptography.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.Configuration.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.Configuration.FileExtensions.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Json.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Abstractions.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Physical.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.FileSystemGlobbing.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Identity.Client.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IO.RecyclableMemoryStream.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.OpenApi.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\MimeKit.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\RBush.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.AspNetCore.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Extensions.Hosting.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Extensions.Logging.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Formatting.Compact.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Settings.Configuration.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Sinks.Console.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Sinks.Debug.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Sinks.File.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\SixLabors.Fonts.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Drawing.Common.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Formats.Asn1.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.IO.Packaging.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.IO.Pipelines.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Linq.Dynamic.Core.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Runtime.Caching.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Security.Cryptography.Pkcs.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Security.Permissions.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Text.Encoding.CodePages.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Text.Encodings.Web.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Text.Json.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Windows.Extensions.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.BusinessObject.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.DataAccess.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Shared.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Test.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.BusinessObject.pdb
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.DataAccess.pdb
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Test.pdb
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Shared.pdb
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.csproj.AssemblyReference.cache
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.GeneratedMSBuildEditorConfig.editorconfig
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.AssemblyInfoInputs.cache
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.AssemblyInfo.cs
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.csproj.CoreCompileInputs.cache
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.MvcApplicationPartsAssemblyInfo.cs
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.MvcApplicationPartsAssemblyInfo.cache
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.BepKhoiBackend.API.Microsoft.AspNetCore.StaticWebAssets.props
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.build.BepKhoiBackend.API.props
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.BepKhoiBackend.API.props
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.BepKhoiBackend.API.props
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.pack.json
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.build.json
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.development.json
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\scopedcss\bundle\BepKhoiBackend.API.styles.css
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.csproj.CopyComplete
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\refint\BepKhoiBackend.API.dll
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.pdb
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.genruntimeconfig.cache
-E:\SPRING25\DoAn4\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\ref\BepKhoiBackend.API.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\appsettings.Development.json
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\appsettings.json
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.exe
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.deps.json
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.runtimeconfig.json
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.pdb
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\AutoMapper.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BouncyCastle.Cryptography.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\ClosedXML.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\ClosedXML.Parser.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\DocumentFormat.OpenXml.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\DocumentFormat.OpenXml.Framework.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\EPPlus.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\EPPlus.Interfaces.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\EPPlus.System.Drawing.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\ExcelNumberFormat.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Bcl.Cryptography.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.Configuration.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.Configuration.FileExtensions.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Json.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Abstractions.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Physical.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.FileSystemGlobbing.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Identity.Client.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IO.RecyclableMemoryStream.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.OpenApi.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\MimeKit.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\RBush.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.AspNetCore.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Extensions.Hosting.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Extensions.Logging.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Formatting.Compact.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Settings.Configuration.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Sinks.Console.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Sinks.Debug.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Sinks.File.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\SixLabors.Fonts.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Drawing.Common.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Formats.Asn1.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.IO.Packaging.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.IO.Pipelines.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Linq.Dynamic.Core.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Runtime.Caching.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Security.Cryptography.Pkcs.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Security.Permissions.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Text.Encoding.CodePages.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Text.Encodings.Web.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Text.Json.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Windows.Extensions.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.BusinessObject.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.DataAccess.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Shared.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Test.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.BusinessObject.pdb
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.DataAccess.pdb
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Test.pdb
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Shared.pdb
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.csproj.AssemblyReference.cache
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.AssemblyInfoInputs.cache
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.AssemblyInfo.cs
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.csproj.CoreCompileInputs.cache
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.sourcelink.json
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.build.json
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.development.json
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.BepKhoiBackend.API.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.build.BepKhoiBackend.API.props
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.BepKhoiBackend.API.props
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.BepKhoiBackend.API.props
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.pack.json
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\scopedcss\bundle\BepKhoiBackend.API.styles.css
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiB.7057CD75.Up2Date
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\refint\BepKhoiBackend.API.dll
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.pdb
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.genruntimeconfig.cache
-C:\Users\TungNT\OneDrive\Documents\GitHub\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\ref\BepKhoiBackend.API.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\appsettings.Development.json
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\appsettings.json
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.staticwebassets.endpoints.json
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.exe
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.deps.json
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.runtimeconfig.json
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.pdb
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\AutoMapper.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BouncyCastle.Cryptography.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\ClosedXML.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\ClosedXML.Parser.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\CloudinaryDotNet.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\DocumentFormat.OpenXml.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\DocumentFormat.OpenXml.Framework.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\EPPlus.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\EPPlus.Interfaces.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\EPPlus.System.Drawing.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\ExcelNumberFormat.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Bcl.Cryptography.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.Configuration.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.Configuration.FileExtensions.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Json.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Abstractions.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Physical.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.FileSystemGlobbing.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Identity.Client.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IO.RecyclableMemoryStream.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.OpenApi.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\MimeKit.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Newtonsoft.Json.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\QRCoder.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\RBush.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.AspNetCore.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Extensions.Hosting.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Extensions.Logging.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Formatting.Compact.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Settings.Configuration.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Sinks.Console.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Sinks.Debug.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Sinks.File.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\SixLabors.Fonts.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Drawing.Common.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Formats.Asn1.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.IO.Packaging.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.IO.Pipelines.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Linq.Dynamic.Core.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Runtime.Caching.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Security.Cryptography.Pkcs.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Security.Permissions.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Text.Encoding.CodePages.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Text.Encodings.Web.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Text.Json.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Windows.Extensions.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.BusinessObject.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.DataAccess.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Shared.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Test.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.BusinessObject.pdb
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.DataAccess.pdb
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Test.pdb
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Shared.pdb
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.csproj.AssemblyReference.cache
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.GeneratedMSBuildEditorConfig.editorconfig
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.AssemblyInfoInputs.cache
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.AssemblyInfo.cs
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.csproj.CoreCompileInputs.cache
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.MvcApplicationPartsAssemblyInfo.cs
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.MvcApplicationPartsAssemblyInfo.cache
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.sourcelink.json
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\scopedcss\bundle\BepKhoiBackend.API.styles.css
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.build.json
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.development.json
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.build.endpoints.json
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.BepKhoiBackend.API.Microsoft.AspNetCore.StaticWebAssets.props
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.BepKhoiBackend.API.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.build.BepKhoiBackend.API.props
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.BepKhoiBackend.API.props
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.BepKhoiBackend.API.props
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.pack.json
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.upToDateCheck.txt
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiB.7057CD75.Up2Date
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\refint\BepKhoiBackend.API.dll
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.pdb
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.genruntimeconfig.cache
-D:\DoAN - update QR\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\ref\BepKhoiBackend.API.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\appsettings.Development.json
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\appsettings.json
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.exe
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.deps.json
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.runtimeconfig.json
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.pdb
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\AutoMapper.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BouncyCastle.Cryptography.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\ClosedXML.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\ClosedXML.Parser.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\CloudinaryDotNet.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\DocumentFormat.OpenXml.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\DocumentFormat.OpenXml.Framework.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\EPPlus.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\EPPlus.Interfaces.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\EPPlus.System.Drawing.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\ExcelNumberFormat.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Bcl.Cryptography.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.Configuration.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.Configuration.FileExtensions.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Json.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Abstractions.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Physical.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.FileSystemGlobbing.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Identity.Client.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IO.RecyclableMemoryStream.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.OpenApi.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\MimeKit.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Newtonsoft.Json.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\QRCoder.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\RBush.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.AspNetCore.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Extensions.Hosting.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Extensions.Logging.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Formatting.Compact.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Settings.Configuration.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Sinks.Console.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Sinks.Debug.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Sinks.File.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\SixLabors.Fonts.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Drawing.Common.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Formats.Asn1.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.IO.Packaging.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.IO.Pipelines.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Linq.Dynamic.Core.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Runtime.Caching.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Security.Cryptography.Pkcs.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Security.Permissions.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Text.Encoding.CodePages.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Text.Encodings.Web.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Text.Json.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Windows.Extensions.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.BusinessObject.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.DataAccess.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Shared.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Test.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.BusinessObject.pdb
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.DataAccess.pdb
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Test.pdb
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Shared.pdb
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.csproj.AssemblyReference.cache
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.GeneratedMSBuildEditorConfig.editorconfig
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.AssemblyInfoInputs.cache
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.AssemblyInfo.cs
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.csproj.CoreCompileInputs.cache
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.MvcApplicationPartsAssemblyInfo.cs
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.MvcApplicationPartsAssemblyInfo.cache
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.BepKhoiBackend.API.Microsoft.AspNetCore.StaticWebAssets.props
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.build.BepKhoiBackend.API.props
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.BepKhoiBackend.API.props
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.BepKhoiBackend.API.props
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.pack.json
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.build.json
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.development.json
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\scopedcss\bundle\BepKhoiBackend.API.styles.css
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.csproj.CopyComplete
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\refint\BepKhoiBackend.API.dll
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.pdb
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.genruntimeconfig.cache
-E:\SPRING25\DoAn5\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\ref\BepKhoiBackend.API.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\appsettings.Development.json
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\appsettings.json
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.staticwebassets.endpoints.json
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.exe
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.deps.json
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.runtimeconfig.json
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.pdb
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\AutoMapper.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BouncyCastle.Cryptography.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\ClosedXML.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\ClosedXML.Parser.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\CloudinaryDotNet.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\DocumentFormat.OpenXml.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\DocumentFormat.OpenXml.Framework.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\EPPlus.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\EPPlus.Interfaces.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\EPPlus.System.Drawing.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\ExcelNumberFormat.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Bcl.Cryptography.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.Configuration.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.Configuration.FileExtensions.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Json.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Abstractions.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Physical.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.FileSystemGlobbing.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Identity.Client.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IO.RecyclableMemoryStream.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.OpenApi.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\MimeKit.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Newtonsoft.Json.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\QRCoder.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\RBush.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.AspNetCore.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Extensions.Hosting.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Extensions.Logging.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Formatting.Compact.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Settings.Configuration.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Sinks.Console.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Sinks.Debug.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Sinks.File.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\SixLabors.Fonts.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Drawing.Common.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Formats.Asn1.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.IO.Packaging.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.IO.Pipelines.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Linq.Dynamic.Core.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Runtime.Caching.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Security.Cryptography.Pkcs.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Security.Permissions.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Text.Encoding.CodePages.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Text.Encodings.Web.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Text.Json.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Windows.Extensions.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.BusinessObject.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.DataAccess.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Shared.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Test.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.BusinessObject.pdb
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.DataAccess.pdb
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Test.pdb
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Shared.pdb
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.csproj.AssemblyReference.cache
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.GeneratedMSBuildEditorConfig.editorconfig
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.AssemblyInfoInputs.cache
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.AssemblyInfo.cs
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.csproj.CoreCompileInputs.cache
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.MvcApplicationPartsAssemblyInfo.cs
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.MvcApplicationPartsAssemblyInfo.cache
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.sourcelink.json
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\scopedcss\bundle\BepKhoiBackend.API.styles.css
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.build.json
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.development.json
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.build.endpoints.json
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.BepKhoiBackend.API.Microsoft.AspNetCore.StaticWebAssets.props
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.BepKhoiBackend.API.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.build.BepKhoiBackend.API.props
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.BepKhoiBackend.API.props
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.BepKhoiBackend.API.props
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.pack.json
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.upToDateCheck.txt
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiB.7057CD75.Up2Date
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\refint\BepKhoiBackend.API.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.pdb
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.genruntimeconfig.cache
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\ref\BepKhoiBackend.API.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\iTextSharp.LGPLv2.Core.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\SkiaSharp.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\osx\native\libSkiaSharp.dylib
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-arm64\native\libSkiaSharp.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-x64\native\libSkiaSharp.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-x86\native\libSkiaSharp.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\itext.barcodes.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\itext.bouncy-castle-connector.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\itext.forms.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\itext.io.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\itext.kernel.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\itext.layout.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\itext.pdfa.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\itext.pdfua.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\itext.sign.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\itext.styledxmlparser.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\itext.svg.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\itext.commons.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\PdfSharp.Charting.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\PdfSharp.Quality.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\PdfSharp.Snippets.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\PdfSharp.System.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\PdfSharp.WPFonts.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\PdfSharp.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\de\PdfSharp.Charting.resources.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\de\PdfSharp.resources.dll
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.staticwebassets.runtime.json
-D:\Doan-41\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\VNPAY.NET.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.csproj.AssemblyReference.cache
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.GeneratedMSBuildEditorConfig.editorconfig
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.AssemblyInfoInputs.cache
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.AssemblyInfo.cs
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.csproj.CoreCompileInputs.cache
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.MvcApplicationPartsAssemblyInfo.cache
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.sourcelink.json
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\appsettings.Development.json
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\appsettings.json
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.staticwebassets.endpoints.json
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.exe
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.deps.json
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.runtimeconfig.json
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.pdb
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\AutoMapper.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BouncyCastle.Cryptography.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\ClosedXML.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\ClosedXML.Parser.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\CloudinaryDotNet.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\DocumentFormat.OpenXml.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\DocumentFormat.OpenXml.Framework.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\EPPlus.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\EPPlus.Interfaces.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\EPPlus.System.Drawing.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\ExcelNumberFormat.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\iTextSharp.LGPLv2.Core.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Bcl.Cryptography.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.Configuration.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.Configuration.FileExtensions.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Json.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Physical.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.FileSystemGlobbing.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Identity.Client.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IO.RecyclableMemoryStream.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.OpenApi.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\MimeKit.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Newtonsoft.Json.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\PdfSharp.Charting.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\PdfSharp.Quality.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\PdfSharp.Snippets.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\PdfSharp.System.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\PdfSharp.WPFonts.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\PdfSharp.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\QRCoder.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\RBush.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.AspNetCore.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Extensions.Hosting.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Extensions.Logging.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Formatting.Compact.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Settings.Configuration.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Sinks.Console.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Sinks.Debug.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Sinks.File.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\SixLabors.Fonts.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\SkiaSharp.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Drawing.Common.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Formats.Asn1.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.IO.Packaging.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.IO.Pipelines.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Linq.Dynamic.Core.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Runtime.Caching.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Security.Cryptography.Pkcs.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Security.Permissions.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Text.Encoding.CodePages.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Text.Encodings.Web.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Text.Json.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Windows.Extensions.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\VNPAY.NET.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\de\PdfSharp.Charting.resources.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\de\PdfSharp.resources.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\osx\native\libSkiaSharp.dylib
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-arm64\native\libSkiaSharp.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-x64\native\libSkiaSharp.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-x86\native\libSkiaSharp.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.BusinessObject.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.DataAccess.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Shared.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Test.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.BusinessObject.pdb
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.DataAccess.pdb
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Test.pdb
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Shared.pdb
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\scopedcss\bundle\BepKhoiBackend.API.styles.css
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.build.json
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.development.json
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.build.endpoints.json
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.BepKhoiBackend.API.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.BepKhoiBackend.API.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.build.BepKhoiBackend.API.props
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.BepKhoiBackend.API.props
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.BepKhoiBackend.API.props
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.pack.json
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.upToDateCheck.txt
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiB.7057CD75.Up2Date
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\refint\BepKhoiBackend.API.dll
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.pdb
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.genruntimeconfig.cache
+D:\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\ref\BepKhoiBackend.API.dll
+D:\DOan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\appsettings.json
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.exe
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.deps.json
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.runtimeconfig.json
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.API.pdb
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BouncyCastle.Cryptography.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\ClosedXML.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\ClosedXML.Parser.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\CloudinaryDotNet.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\DocumentFormat.OpenXml.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\DocumentFormat.OpenXml.Framework.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\EPPlus.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\EPPlus.Interfaces.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\EPPlus.System.Drawing.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\ExcelNumberFormat.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\iTextSharp.LGPLv2.Core.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Bcl.Cryptography.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.Configuration.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Json.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Physical.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.Identity.Client.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\MimeKit.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\PdfSharp.Charting.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\PdfSharp.Quality.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\PdfSharp.Snippets.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\PdfSharp.System.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\PdfSharp.WPFonts.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\PdfSharp.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\QRCoder.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\RBush.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.AspNetCore.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Extensions.Hosting.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Extensions.Logging.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Formatting.Compact.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Settings.Configuration.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Sinks.Console.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Sinks.Debug.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Serilog.Sinks.File.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\SixLabors.Fonts.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\SkiaSharp.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Drawing.Common.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Formats.Asn1.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.IO.Packaging.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.IO.Pipelines.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Linq.Dynamic.Core.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Runtime.Caching.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Security.Permissions.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Text.Encoding.CodePages.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Text.Encodings.Web.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Text.Json.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\System.Windows.Extensions.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\VNPAY.NET.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\de\PdfSharp.Charting.resources.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\de\PdfSharp.resources.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\osx\native\libSkiaSharp.dylib
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-arm64\native\libSkiaSharp.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-x64\native\libSkiaSharp.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win-x86\native\libSkiaSharp.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.BusinessObject.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.DataAccess.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Shared.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Test.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.BusinessObject.pdb
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.DataAccess.pdb
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Test.pdb
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\bin\Debug\net6.0\BepKhoiBackend.Shared.pdb
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.csproj.AssemblyReference.cache
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.AssemblyInfoInputs.cache
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.AssemblyInfo.cs
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.csproj.CoreCompileInputs.cache
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.sourcelink.json
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.BepKhoiBackend.API.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.build.BepKhoiBackend.API.props
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.BepKhoiBackend.API.props
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.BepKhoiBackend.API.props
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\scopedcss\bundle\BepKhoiBackend.API.styles.css
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiB.7057CD75.Up2Date
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\refint\BepKhoiBackend.API.dll
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.pdb
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.genruntimeconfig.cache
+C:\Users\phams\Desktop\Do an SP25\Backend\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\ref\BepKhoiBackend.API.dll

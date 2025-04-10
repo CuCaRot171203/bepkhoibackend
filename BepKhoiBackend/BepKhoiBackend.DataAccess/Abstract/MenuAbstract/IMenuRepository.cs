@@ -18,5 +18,8 @@ namespace BepKhoiBackend.DataAccess.Abstract.MenuAbstract
         Task<IQueryable<Menu>> GetFilteredMenusAsync(int? categoryId);
         Task<bool> CheckMenuExistByName(string name);
         Task UpdateMenuPriceAsync(Menu menu);
+        Task<IEnumerable<Menu>> GetAllMenuPos();
+        Task<IEnumerable<Menu>> FilterMenuPos(int? categoryId, bool? isAvailable);
+        Task<IEnumerable<Menu>> GetAllMenuQr();
     }
 }

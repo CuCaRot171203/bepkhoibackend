@@ -84,6 +84,7 @@ namespace BepKhoiBackend.DataAccess.Repositories
                 .Where(i => i.PaymentMethod.PaymentMethodTitle.Contains(method))
                 .ToList();
         }
+
         //------------------NgocQuan----------------------//
         public Invoice? GetInvoiceForPdf(int id)
         {
@@ -115,7 +116,5 @@ namespace BepKhoiBackend.DataAccess.Repositories
 
             return true;
         }
-
-
     }
 }

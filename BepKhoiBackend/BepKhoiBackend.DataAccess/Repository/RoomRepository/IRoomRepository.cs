@@ -13,10 +13,11 @@ namespace BepKhoiBackend.DataAccess.Repository.RoomRepository.Interface
         Task UpdateAsync(Room room);
         Task<bool> SoftDeleteAsync(int id);
 
-        Task<IEnumerable<Room>> SearchByNameAsync(string roomName, int limit, int offset);        // ✅ Thêm hàm Search
+        Task<IEnumerable<Room>> SearchByNameAsync(string roomName, int limit, int offset);        
         // Room Repo - Thanh Tung
-        Task<List<Room>> GetRoomsAsyncPOS(int limit, int offset);
+        Task<List<Room>> GetRoomsAsyncPOS();
         Task<List<Room>> FilterRoomPosAsync(int? roolAreaId, bool? isUse);
         Task<List<Room>> SearchRoomPosAsync(string searchString);
+        Task<bool> UpdateRoomNote(int roomId, string roomNote);
     }
 }

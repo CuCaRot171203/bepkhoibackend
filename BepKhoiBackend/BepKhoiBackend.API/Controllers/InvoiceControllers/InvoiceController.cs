@@ -1,11 +1,8 @@
 ﻿using BepKhoiBackend.BusinessObject.dtos.InvoiceDto;
-using BepKhoiBackend.BusinessObject.Services;
 using BepKhoiBackend.BusinessObject.Services.InvoiceService;
-using BepKhoiBackend.DataAccess.Repository.InvoiceRepository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using BepKhoiBackend.DataAccess.Models;
-using Microsoft.IdentityModel.Tokens;
+
 namespace BepKhoiBackend.API.Controllers.InvoiceControllers
 {
     [Route("api/[controller]")]
@@ -13,16 +10,14 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
     public class InvoiceController : ControllerBase
     {
         private readonly IInvoiceService _invoiceService;
-        private readonly PrintInvoicePdfService _pdfService;
         private readonly VnPayService _vnPayService;
-
-        public InvoiceController(IInvoiceService invoiceService, PrintInvoicePdfService pdfService, VnPayService vnPayService)
+        private readonly PrintInvoicePdfService _pdfService;
+        public InvoiceController(IInvoiceService invoiceService, VnPayService vnPayService, PrintInvoicePdfService pdfService)
         {
             _invoiceService = invoiceService;
+            _vnPayService = vnPayService;
             _pdfService = pdfService;
-            _vnPayService = vnPayService; // Added VnPayService to constructor
         }
-
 
         [HttpGet]
         public ActionResult<List<InvoiceDTO>> GetAllInvoices()
@@ -106,15 +101,15 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
             var model = new PaymentInformationModel
             {
                 OrderType = "other",
-                Amount = (double)invoice.AmountDue,
+                Amount = (int)invoice.AmountDue,
                 InvoiceId = invoice.InvoiceId.ToString(),
-                Name = invoice.Customer?.CustomerName 
+                Name = invoice.Customer?.CustomerName ?? "Khách Lẻ"
             };
 
             try
             {
                 var url = _vnPayService.CreatePaymentUrl(model, HttpContext);
-                return Redirect(url);
+                return Ok(url);
             }
             catch (Exception ex)
             {
@@ -128,37 +123,32 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
         {
             var response = _vnPayService.PaymentExecute(Request.Query);
 
-            // Kiểm tra thanh toán thành công với mã "00"
             if (response.Success && response.VnPayResponseCode == "00")
             {
                 if (int.TryParse(response.InvoiceId, out int invoiceId))
                 {
                     _invoiceService.UpdateInvoiceStatus(invoiceId, true);
-                    return Ok(new
-                    {
-                        success = true,
-                        message = "Thanh toán thành công!",
-                        invoiceId = invoiceId,
-                        transactionId = response.TransactionId
-                    });
+
+                    // Redirect đến frontend (ví dụ: trang thanh toán thành công)
+                    var redirectUrl = $"https://facebook.com/";
+
+                    //var redirectUrl = $"https://yourfrontend.com/payment-success?invoiceId={invoiceId}&transactionId={response.TransactionId}";
+                    return Redirect(redirectUrl);
                 }
-                else
+            else
                 {
-                    return BadRequest("Không thể xác định ID hóa đơn.");
+                    var failUrl = $"https://www.facebook.com/reel/639253061931440";
+
+                    //var failUrl = $"https://yourfrontend.com/payment-failure?message=InvalidInvoiceId";
+                    return Redirect(failUrl);
                 }
             }
 
-            return BadRequest(new
-            {
-                success = false,
-                message = "Thanh toán thất bại hoặc bị hủy.",
-                code = response.VnPayResponseCode
-            });
+            // Redirect đến trang thất bại
+           var redirectFail = $"https://www.facebook.com/reel/639253061931440";
+
+            //var redirectFail = $"https://yourfrontend.com/payment-failure?code={response.VnPayResponseCode}";
+            return Redirect(redirectFail);
         }
-
-
-
-
-
     }
 }

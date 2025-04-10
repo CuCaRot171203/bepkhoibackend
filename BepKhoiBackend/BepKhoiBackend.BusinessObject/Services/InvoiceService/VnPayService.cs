@@ -27,6 +27,7 @@ namespace BepKhoiBackend.BusinessObject.Services.InvoiceService
             var tick = DateTime.Now.Ticks.ToString();
             var pay = new VnPayLibrary();
             var urlCallBack = _configuration["Vnpay:PaymentBackReturnUrl"];
+
             pay.AddRequestData("vnp_Version", _configuration["Vnpay:Version"]);
             pay.AddRequestData("vnp_Command", _configuration["Vnpay:Command"]);
             pay.AddRequestData("vnp_TmnCode", _configuration["Vnpay:TmnCode"]);
@@ -35,7 +36,7 @@ namespace BepKhoiBackend.BusinessObject.Services.InvoiceService
             pay.AddRequestData("vnp_CurrCode", _configuration["Vnpay:CurrCode"]);
             pay.AddRequestData("vnp_IpAddr", pay.GetIpAddress(context));
             pay.AddRequestData("vnp_Locale", _configuration["Vnpay:Locale"]);
-            pay.AddRequestData("vnp_OrderInfo", model.InvoiceId); // chỉ truyền ID
+            pay.AddRequestData("vnp_OrderInfo", model.InvoiceId);
             pay.AddRequestData("vnp_OrderType", model.OrderType);
             pay.AddRequestData("vnp_ReturnUrl", urlCallBack);
             pay.AddRequestData("vnp_TxnRef", tick);
@@ -54,10 +55,5 @@ namespace BepKhoiBackend.BusinessObject.Services.InvoiceService
 
             return response;
         }
-
-
-
-
-
     }
 }

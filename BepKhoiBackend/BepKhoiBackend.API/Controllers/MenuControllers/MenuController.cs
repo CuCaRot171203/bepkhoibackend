@@ -5,6 +5,7 @@ using BepKhoiBackend.BusinessObject.dtos.MenuDto;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using BepKhoiBackend.BusinessObject.Abstract.MenuBusinessAbstract;
+using BepKhoiBackend.BusinessObject.dtos.RoomDto;
 
 namespace BepKhoiBackend.API.Controllers.MenuControllers
 {
@@ -51,6 +52,27 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
                 data = mappedData
             });
         }
+
+        [HttpGet("get-all-menus-customer")]
+        public async Task<IActionResult> GetAllMenuCustomerAsync(
+    [FromQuery] string sortBy = "ProductId",
+    [FromQuery] string sortDirection = "asc",
+    [FromQuery] int? categoryId = null,
+    [FromQuery] bool? isActive = null,
+    [FromQuery] string? productNameOrId = null)
+        {
+            var result = await _menuService.GetAllMenusCustomerAsync(sortBy, sortDirection, categoryId, isActive, productNameOrId);
+
+            if (!result.IsSuccess)
+                return NotFound(new { message = result.Message });
+
+            return Ok(new
+            {
+                message = result.Message,
+                data = result.Data
+            });
+        }
+
 
         // API Get menu by ID
         [HttpGet("get-menu-by-id/{pid}")]
@@ -300,5 +322,98 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
                 return StatusCode(500, new { message = "Internal server error while updating product price." });
             }
         }
+
+
+
+
+        //Pham Son Tung
+        [HttpGet("get-menu-pos")]
+        public async Task<IActionResult> GetMenu()
+        {
+            try
+            {
+                // Gọi service để lấy danh sách món ăn
+                var menuList = await _menuService.GetAllMenuPosAsync();
+
+                // Kiểm tra nếu không có món ăn nào
+                if (menuList == null || !menuList.Any())
+                {
+                    return NotFound(new { success = false, message = "No menu items found." });
+                }
+
+                // Trả về kết quả thành công với danh sách món ăn
+                return Ok(new { success = true, data = menuList });
+            }
+            catch (InvalidOperationException ex)
+            {
+                // Xử lý lỗi từ service layer
+                return StatusCode(500, new { success = false, message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                // Xử lý các lỗi khác
+                return StatusCode(500, new { success = false, message = "An error occurred while retrieving the menu.", details = ex.Message });
+            }
+        }
+
+        //Pham Son Tung
+        // controller for filter by roomAreaId and isUse
+        [HttpGet("filter-menu-pos")]
+        [ProducesResponseType(typeof(List<MenuPosDto>), 200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(500)]
+        public async Task<IActionResult> FilterRoomPos([FromQuery] int? categoryId, [FromQuery] bool? isAvailable)
+        {
+            try
+            {
+                var result = await _menuService.FilterMenuAsyncPos(categoryId, isAvailable);
+                if (result == null || !result.Any())
+                {
+                    return NotFound(new { message = "Can't find data of product." });
+                }
+
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Error server.", error = ex.Message });
+            }
+        }
+
+
+        //Pham Son Tung
+        [HttpGet("get-all-menu-qr")]
+        public async Task<IActionResult> GetAllMenuQr()
+        {
+            try
+            {
+                IEnumerable<MenuQrDto> menus = await _menuService.GetAllMenuQrAsync();
+
+                return Ok(menus);
+            }
+            catch (InvalidOperationException ex)
+            {
+                // Log lỗi nếu cần
+                return StatusCode(500, new
+                {
+                    message = "Đã xảy ra lỗi khi lấy danh sách thực đơn.",
+                    detail = ex.Message
+                });
+            }
+            catch (Exception ex)
+            {
+                // Log lỗi không xác định
+                return StatusCode(500, new
+                {
+                    message = "Đã xảy ra lỗi không xác định.",
+                    detail = ex.Message
+                });
+            }
+        }
+
     }
 }

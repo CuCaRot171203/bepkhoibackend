@@ -14,12 +14,13 @@ using Microsoft.AspNetCore.Authorization;
 using BepKhoiBackend.BusinessObject.Mappings;
 using BepKhoiBackend.BusinessObject.Services.InvoiceService;
 using BepKhoiBackend.BusinessObject.Services;
+using BepKhoiBackend.API.Hubs;
 
 
 Log.Logger = new LoggerConfiguration()
-    .MinimumLevel.Debug() 
-    .WriteTo.Console() 
-    .WriteTo.File("logs/log-.txt", rollingInterval: RollingInterval.Day) 
+    .MinimumLevel.Debug()
+    .WriteTo.Console()
+    .WriteTo.File("logs/log-.txt", rollingInterval: RollingInterval.Day)
     .CreateLogger();
 
 var builder = WebApplication.CreateBuilder(args);
@@ -68,25 +69,41 @@ builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddHttpContextAccessor();
 
 
-
+//pdf print
+builder.Services.AddScoped<PrintInvoicePdfService>();
+builder.Services.AddScoped<PrintOrderPdfService>();
+//VnPay
+builder.Services.AddScoped<VnPayService>();
 
 
 builder.Services.AddAuthorization();
 
 builder.Services.AddCorsPolicy(builder.Configuration);
 
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.WithOrigins("http://localhost:3000")
+              .AllowAnyHeader()
+              .AllowAnyMethod()
+              .AllowCredentials(); // Quan trọng cho SignalR
+    });
+});
 var app = builder.Build();
+app.MapHub<OrderHub>("/orderHub"); // Đăng ký đường dẫn của Hub
 
 // Configure the HTTP request pipeline.
 app.UseSwagger();
 app.UseSwaggerUI();
 app.UseMiddleware<ExceptionMiddleware>(); // Use to solve problemss
 app.UseSession();
+app.UseCors();
 
 app.UseHttpsRedirection();
 app.UseRouting();
 app.UseCors("AllowReactApp");
-app.UseAuthentication(); 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

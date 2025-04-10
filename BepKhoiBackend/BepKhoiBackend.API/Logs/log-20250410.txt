@@ -1,0 +1,29 @@
+2025-04-10 11:19:10.297 +07:00 [INF] User profile is available. Using 'C:\Users\abc\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-10 11:19:10.567 +07:00 [INF] Now listening on: https://localhost:7257
+2025-04-10 11:19:10.569 +07:00 [INF] Now listening on: http://localhost:5287
+2025-04-10 11:19:10.748 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-10 11:19:10.749 +07:00 [INF] Hosting environment: Development
+2025-04-10 11:19:10.751 +07:00 [INF] Content root path: D:\DOan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\
+2025-04-10 11:19:12.006 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-04-10 11:19:12.334 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 334.8086ms
+2025-04-10 11:19:12.352 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-04-10 11:19:12.360 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 16521 application/javascript;+charset=utf-8 7.6181ms
+2025-04-10 11:19:12.842 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-04-10 11:19:12.909 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 66.8641ms
+2025-04-10 11:19:13.133 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-04-10 11:19:13.186 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 53.1229ms
+2025-04-10 11:19:17.163 +07:00 [INF] Application is shutting down...
+2025-04-10 11:19:24.273 +07:00 [INF] User profile is available. Using 'C:\Users\abc\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-10 11:19:24.512 +07:00 [INF] Now listening on: https://localhost:7257
+2025-04-10 11:19:24.515 +07:00 [INF] Now listening on: http://localhost:5287
+2025-04-10 11:19:24.697 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-10 11:19:24.699 +07:00 [INF] Hosting environment: Development
+2025-04-10 11:19:24.702 +07:00 [INF] Content root path: D:\DOan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\
+2025-04-10 11:19:25.116 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-04-10 11:19:25.334 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 223.3920ms
+2025-04-10 11:19:25.351 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-04-10 11:19:25.356 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 16521 application/javascript;+charset=utf-8 4.7878ms
+2025-04-10 11:19:25.672 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-04-10 11:19:25.719 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 46.9998ms
+2025-04-10 11:19:25.913 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-04-10 11:19:25.974 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 60.2704ms

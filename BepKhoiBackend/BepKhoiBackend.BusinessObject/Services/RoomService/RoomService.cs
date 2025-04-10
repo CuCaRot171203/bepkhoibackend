@@ -4,6 +4,8 @@ using BepKhoiBackend.BusinessObject.dtos.RoomDto;
 using BepKhoiBackend.DataAccess.Models;
 using BepKhoiBackend.DataAccess.Repository.RoomRepository;
 using BepKhoiBackend.DataAccess.Repository.RoomRepository.Interface;
+using DocumentFormat.OpenXml.Drawing;
+using DocumentFormat.OpenXml.Math;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -82,7 +84,7 @@ namespace BepKhoiBackend.BusinessObject.Services.RoomService
                 SeatNumber = roomCreateDto.SeatNumber,
                 RoomNote = roomCreateDto.RoomNote,
                 QrCodeUrl = null,
-                Status = false,
+                Status = true,
                 IsUse = false,
                 IsDelete = false
             };
@@ -191,7 +193,6 @@ namespace BepKhoiBackend.BusinessObject.Services.RoomService
             room.OrdinalNumber = roomUpdateDto.OrdinalNumber;
             room.SeatNumber = roomUpdateDto.SeatNumber;
             room.RoomNote = roomUpdateDto.RoomNote;
-            room.QrCodeUrl = roomUpdateDto.QrCodeUrl;
             room.Status = roomUpdateDto.Status;
             room.IsUse = roomUpdateDto.IsUse;
             room.IsDelete = roomUpdateDto.IsDelete ?? false;
@@ -225,14 +226,9 @@ namespace BepKhoiBackend.BusinessObject.Services.RoomService
         /* ======== Room Service - Thanh Tung ========= */
 
         // Service get room for POS site
-        public async Task<List<RoomDtoPos>> GetRoomAsyncForPos(int limit, int offset)
+        public async Task<List<RoomDtoPos>> GetRoomAsyncForPos()
         {
-            if (limit <= 0 || offset < 0)
-            {
-                throw new ArgumentOutOfRangeException("limit and offset are negative integer");
-            }
-
-            var rooms = await _roomRepository.GetRoomsAsyncPOS(limit, offset);
+            var rooms = await _roomRepository.GetRoomsAsyncPOS();
 
             if (rooms == null)
             {
@@ -248,20 +244,6 @@ namespace BepKhoiBackend.BusinessObject.Services.RoomService
                 SeatNumber = r.SeatNumber,
                 RoomNote = r.RoomNote,
                 IsUse = r.IsUse,
-                OrderList = r.Orders.Select(o => new OrderDtoPos
-                {
-                    OrderId = o.OrderId,
-                    CustomerId = o.CustomerId,
-                    CreatedTime = o.CreatedTime,
-                    AmountDue = o.AmountDue,
-                    OrderDetails = o.OrderDetails.Select(od => new OrderDetailDtoPos
-                    {
-                        OrderDetailId = od.OrderDetailId,
-                        ProductId = od.ProductId,
-                        Quantity = od.Quantity,
-                        Price = od.Price
-                    }).ToList() ?? new List<OrderDetailDtoPos>()
-                }).ToList() ?? new List<OrderDtoPos>()
             }).ToList();
         }
 
@@ -269,9 +251,9 @@ namespace BepKhoiBackend.BusinessObject.Services.RoomService
         public async Task<List<RoomDtoPos>> FilterRoomAsyncPos(int? roomAreaId, bool? isUse)
         {
 
-            if (roomAreaId < 0)
+            if (roomAreaId <= 0)
             {
-                throw new ArgumentOutOfRangeException("roomAreaId are negative integer");
+                throw new ArgumentOutOfRangeException("RoomAreaId must greater than 0");
             }
 
             var rooms = await _roomRepository.FilterRoomPosAsync(roomAreaId, isUse);
@@ -285,51 +267,56 @@ namespace BepKhoiBackend.BusinessObject.Services.RoomService
                 SeatNumber = r.SeatNumber,
                 RoomNote = r.RoomNote,
                 IsUse = r.IsUse,
-                OrderList = r.Orders.Select(o => new OrderDtoPos
-                {
-                    OrderId = o.OrderId,
-                    CustomerId = o.CustomerId,
-                    CreatedTime = o.CreatedTime,
-                    AmountDue = o.AmountDue,
-                    OrderDetails = o.OrderDetails.Select(od => new OrderDetailDtoPos
-                    {
-                        OrderDetailId = od.OrderDetailId,
-                        ProductId = od.ProductId,
-                        Quantity = od.Quantity,
-                        Price = od.Price,
-                    }).ToList() ?? new List<OrderDetailDtoPos>()
-                }).ToList() ?? new List<OrderDtoPos>()
             }).ToList();
         }
 
         // Service for searching by username or room name
-        public async Task<List<RoomDtoPos>> SearchRoomPosAsync(string searchString)
-        {
-            var rooms = await _roomRepository.SearchRoomPosAsync(searchString);
+        //public async Task<List<RoomDtoPos>> SearchRoomPosAsync(string searchString)
+        //{
+        //    var rooms = await _roomRepository.SearchRoomPosAsync(searchString);
 
-            return rooms.Select(r => new RoomDtoPos
+        //    return rooms.Select(r => new RoomDtoPos
+        //    {
+        //        RoomId = r.RoomId,
+        //        RoomName = r.RoomName,
+        //        RoomAreaId = r.RoomAreaId,
+        //        OrdinalNumber = r.OrdinalNumber,
+        //        RoomNote = r.RoomNote,
+        //        IsUse = r.IsUse,
+        //        OrderList = r.Orders.Select(o => new OrderDtoPos
+        //        {
+        //            OrderId = o.OrderId,
+        //            CustomerId = o.CustomerId,
+        //            CreatedTime = o.CreatedTime,
+        //            AmountDue = o.AmountDue,
+        //            OrderDetails = o.OrderDetails.Select(od => new OrderDetailDtoPos
+        //            {
+        //                OrderDetailId = od.OrderDetailId,
+        //                ProductId = od.ProductId,
+        //                Quantity = od.Quantity,
+        //                Price = od.Price
+        //            }).ToList() ?? new List<OrderDetailDtoPos>()
+        //        }).ToList() ?? new List<OrderDtoPos>()
+        //    }).ToList();
+        //}
+
+
+
+        //Pham Son Tung
+        //Func to add note to room
+        public async Task<bool> UpdateRoomNoteAsync(RoomNoteUpdateDto dto)
+        {
+            if (dto == null)
             {
-                RoomId = r.RoomId,
-                RoomName = r.RoomName,
-                RoomAreaId = r.RoomAreaId,
-                OrdinalNumber = r.OrdinalNumber,
-                RoomNote = r.RoomNote,
-                IsUse = r.IsUse,
-                OrderList = r.Orders.Select(o => new OrderDtoPos
-                {
-                    OrderId = o.OrderId,
-                    CustomerId = o.CustomerId,
-                    CreatedTime = o.CreatedTime,
-                    AmountDue = o.AmountDue,
-                    OrderDetails = o.OrderDetails.Select(od => new OrderDetailDtoPos
-                    {
-                        OrderDetailId = od.OrderDetailId,
-                        ProductId = od.ProductId,
-                        Quantity = od.Quantity,
-                        Price = od.Price
-                    }).ToList() ?? new List<OrderDetailDtoPos>()
-                }).ToList() ?? new List<OrderDtoPos>()
-            }).ToList();
+                throw new ArgumentNullException(nameof(dto), "Request data cannot be null.");
+            }
+
+            if (string.IsNullOrWhiteSpace(dto.RoomNote) || dto.RoomNote==null)
+            {
+                return await _roomRepository.UpdateRoomNote(dto.RoomId, "");
+            }
+
+            return await _roomRepository.UpdateRoomNote(dto.RoomId, dto.RoomNote);
         }
 
     }
