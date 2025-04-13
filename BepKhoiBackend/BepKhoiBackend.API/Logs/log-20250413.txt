@@ -1,0 +1,36 @@
+2025-04-13 12:03:11.394 +07:00 [INF] User profile is available. Using 'C:\Users\TungNT\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-13 12:03:11.702 +07:00 [INF] Now listening on: https://localhost:7257
+2025-04-13 12:03:11.703 +07:00 [INF] Now listening on: http://localhost:5287
+2025-04-13 12:03:11.876 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-13 12:03:11.877 +07:00 [INF] Hosting environment: Development
+2025-04-13 12:03:11.878 +07:00 [INF] Content root path: B:\DO_AN\backend\bepkhoibackend-main\BepKhoiBackend\BepKhoiBackend.API\
+2025-04-13 12:03:12.471 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-04-13 12:03:12.726 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 258.1574ms
+2025-04-13 12:03:12.753 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-04-13 12:03:12.757 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 12368 application/javascript;+charset=utf-8 4.5529ms
+2025-04-13 12:03:12.774 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-04-13 12:03:12.853 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 79.5645ms
+2025-04-13 12:03:12.882 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-04-13 12:03:13.122 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 240.1899ms
+2025-04-13 12:03:24.472 +07:00 [INF] User profile is available. Using 'C:\Users\TungNT\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-13 12:03:24.758 +07:00 [INF] Now listening on: https://localhost:7257
+2025-04-13 12:03:24.758 +07:00 [INF] Now listening on: http://localhost:5287
+2025-04-13 12:03:24.908 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-13 12:03:24.909 +07:00 [INF] Hosting environment: Development
+2025-04-13 12:03:24.909 +07:00 [INF] Content root path: B:\DO_AN\backend\bepkhoibackend-main\BepKhoiBackend\BepKhoiBackend.API\
+2025-04-13 12:03:25.329 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-04-13 12:03:25.554 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 229.5175ms
+2025-04-13 12:03:25.574 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-04-13 12:03:25.579 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 12368 application/javascript;+charset=utf-8 4.9696ms
+2025-04-13 12:03:25.595 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-04-13 12:03:25.664 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 68.5901ms
+2025-04-13 12:03:25.697 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-04-13 12:03:25.887 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 190.2665ms
+2025-04-13 12:03:35.795 +07:00 [INF] User profile is available. Using 'C:\Users\TungNT\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-13 12:03:35.905 +07:00 [INF] Now listening on: https://localhost:7257
+2025-04-13 12:03:35.906 +07:00 [INF] Now listening on: http://localhost:5287
+2025-04-13 12:03:35.998 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-13 12:03:36.000 +07:00 [INF] Hosting environment: Development
+2025-04-13 12:03:36.001 +07:00 [INF] Content root path: B:\DO_AN\backend\bepkhoibackend-main\BepKhoiBackend\BepKhoiBackend.API\
+2025-04-13 12:03:41.115 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/ - -
+2025-04-13 12:03:41.931 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/ - - - 404 0 - 818.5783ms
