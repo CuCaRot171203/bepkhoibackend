@@ -390,7 +390,7 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
             catch (KeyNotFoundException ex)
             {
                 // Có thể log lại và ném ra lại cho Controller xử lý
-                throw new Exception($"Order with ID {orderId} not found at service.", ex);
+                throw new KeyNotFoundException($"Order with ID {orderId} not found at service.", ex);
             }
             catch (Exception ex)
             {

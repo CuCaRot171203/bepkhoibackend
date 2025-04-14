@@ -322,7 +322,7 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
             }
             catch (KeyNotFoundException ex)
             {
-                return NotFound(new
+                return Ok(new
                 {
                     success = false,
                     message = ex.Message

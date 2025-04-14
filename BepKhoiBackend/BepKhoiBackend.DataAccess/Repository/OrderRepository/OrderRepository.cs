@@ -177,7 +177,8 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
 
                 // Lưu thay đổi vào database
                 await _context.SaveChangesAsync();
-
+                await UpdateOrderAfterUpdateOrderDetailAsync(firstOrderId);
+                await UpdateOrderAfterUpdateOrderDetailAsync(secondOrderId);
                 return true;
             }
             catch (KeyNotFoundException ex)
@@ -250,39 +251,57 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
                 .FirstOrDefaultAsync(o => o.OrderId == orderId);
         }
         //Pham Son Tung
+        //public async Task<Customer> GetCustomerIdByOrderIdAsync(int orderId)
+        //{
+        //    try
+        //    {
+        //        var order = await _context.Orders
+        //            .FirstOrDefaultAsync(o => o.OrderId == orderId);
+
+        //        if (order == null)
+        //        {
+        //            throw new KeyNotFoundException($"Order with ID {orderId} was not found at repository.");
+        //        }
+        //        var customer = await _context.Customers.FirstOrDefaultAsync(c=>c.CustomerId == order.CustomerId);
+        //        if (customer == null)
+        //        {
+        //            throw new KeyNotFoundException($"customer with ID {order.Customer} was not found at repository.");
+        //        }
+        //        return customer;
+        //    }
+        //    catch (DbUpdateException dbEx)
+        //    {
+        //        // Lỗi liên quan đến thao tác database (transaction, connection...)
+        //        throw new Exception("Database update error occurred while fetching the order.", dbEx);
+        //    }
+        //    catch (DbException dbEx)
+        //    {
+        //        // Các lỗi database khác (nếu dùng System.Data.Common)
+        //        throw new Exception("A database error occurred while retrieving the order.", dbEx);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        // Catch all để tránh app crash
+        //        throw new Exception("An unexpected error occurred while getting the customer ID.", ex);
+        //    }
+        //}
         public async Task<Customer> GetCustomerIdByOrderIdAsync(int orderId)
         {
-            try
-            {
-                var order = await _context.Orders
-                    .FirstOrDefaultAsync(o => o.OrderId == orderId);
+            var order = await _context.Orders
+                .FirstOrDefaultAsync(o => o.OrderId == orderId);
 
-                if (order == null)
-                {
-                    throw new KeyNotFoundException($"Order with ID {orderId} was not found at repository.");
-                }
-                var customer = await _context.Customers.FirstOrDefaultAsync(c=>c.CustomerId == order.CustomerId);
-                if (customer == null)
-                {
-                    throw new KeyNotFoundException($"customer with ID {order.Customer} was not found at repository.");
-                }
-                return customer;
-            }
-            catch (DbUpdateException dbEx)
+            if (order == null)
             {
-                // Lỗi liên quan đến thao tác database (transaction, connection...)
-                throw new Exception("Database update error occurred while fetching the order.", dbEx);
+                throw new KeyNotFoundException($"Order with ID {orderId} was not found at repository.");
             }
-            catch (DbException dbEx)
+
+            var customer = await _context.Customers.FirstOrDefaultAsync(c => c.CustomerId == order.CustomerId);
+            if (customer == null)
             {
-                // Các lỗi database khác (nếu dùng System.Data.Common)
-                throw new Exception("A database error occurred while retrieving the order.", dbEx);
+                throw new KeyNotFoundException($"Customer with ID {order.CustomerId} was not found at repository.");
             }
-            catch (Exception ex)
-            {
-                // Catch all để tránh app crash
-                throw new Exception("An unexpected error occurred while getting the customer ID.", ex);
-            }
+
+            return customer;
         }
 
         public async Task AssignCustomerToOrder(int orderId, int customerId)
@@ -484,6 +503,23 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
 
         //Pham Son Tung
         public async Task UpdateOrderAfterDeleteOrderDetailAsync(int orderId)
+        {
+            var order = await _context.Orders
+                .Include(o => o.OrderDetails)
+                .FirstOrDefaultAsync(o => o.OrderId == orderId);
+
+            if (order == null)
+            {
+                throw new KeyNotFoundException($"Order with ID {orderId} not found.");
+            }
+            order.TotalQuantity = order.OrderDetails.Sum(od => od.Quantity);
+            order.AmountDue = order.OrderDetails.Sum(od => od.Quantity * od.Price);
+            _context.Orders.Update(order);
+            await _context.SaveChangesAsync();
+        }
+
+        //Pham Son Tung
+        public async Task UpdateOrderAfterUpdateOrderDetailAsync(int orderId)
         {
             var order = await _context.Orders
                 .Include(o => o.OrderDetails)
