@@ -233,16 +233,13 @@ namespace BepKhoiBackend.BusinessObject.Services.MenuService
             }
         }
 
-        // Method add menu
-        public async Task<PagedResult<MenuDto>> AddMenuAsync(CreateMenuDto menuDto)
+        public async Task<PagedResult<MenuDto>> AddMenuAsync(CreateMenuDto menuDto, List<string> imageUrls)
         {
             try
             {
-                // Check null
                 if (menuDto == null)
                     throw new ArgumentException("Menu data must not be null.");
 
-                // Check logic name
                 bool isExistName = await _menuRepository.CheckMenuExistByName(menuDto.ProductName);
                 if (isExistName)
                 {
@@ -257,13 +254,21 @@ namespace BepKhoiBackend.BusinessObject.Services.MenuService
                     };
                 }
 
-                // Mapping DTO to Entity
+                // Map DTO to Entity
                 var menuEntity = _mapper.Map<Menu>(menuDto);
 
-                // Save to Database
+                // Thêm danh sách ảnh vào menuEntity
+                if (imageUrls != null && imageUrls.Any())
+                {
+                    menuEntity.ProductImages = imageUrls.Select(url => new ProductImage
+                    {
+                        ProductImage1 = url
+                    }).ToList();
+                }
+
+                // Save to database
                 var addedMenu = await _menuRepository.AddMenuAsync(menuEntity);
 
-                // Map to MenuDto to return
                 var addedMenuDto = _mapper.Map<MenuDto>(addedMenu);
 
                 return new PagedResult<MenuDto>
@@ -301,6 +306,7 @@ namespace BepKhoiBackend.BusinessObject.Services.MenuService
                 };
             }
         }
+
 
         // Method to update menu
         public async Task<Result<Menu>> UpdateMenuAsync(int productId, UpdateMenuDto dto)

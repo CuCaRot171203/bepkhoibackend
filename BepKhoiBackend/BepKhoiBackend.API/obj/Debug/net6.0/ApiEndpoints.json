@@ -702,9 +702,59 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "menuDto",
-        "Type": "BepKhoiBackend.BusinessObject.dtos.MenuDto.CreateMenuDto",
-        "IsRequired": true
+        "Name": "ProductName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ProductCategoryId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "CostPrice",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "SellPrice",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "SalePrice",
+        "Type": "System.Nullable\u00601[[System.Decimal, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "ProductVat",
+        "Type": "System.Nullable\u00601[[System.Decimal, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "UnitId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "IsAvailable",
+        "Type": "System.Nullable\u00601[[System.Boolean, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Status",
+        "Type": "System.Nullable\u00601[[System.Boolean, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Images",
+        "Type": "System.Collections.Generic.List\u00601[[Microsoft.AspNetCore.Http.IFormFile, Microsoft.AspNetCore.Http.Features, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [

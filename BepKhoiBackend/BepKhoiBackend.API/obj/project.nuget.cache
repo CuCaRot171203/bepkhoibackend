@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/Bm4wRTqs88=",
+  "dgSpecHash": "uVkqBzb1NFQ=",
   "success": true,
-  "projectFilePath": "C:\\Users\\abc\\Desktop\\New folder\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.API\\BepKhoiBackend.API.csproj",
+  "projectFilePath": "C:\\Users\\abc\\Desktop\\New folder (2)\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.API\\BepKhoiBackend.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\abc\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\abc\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",

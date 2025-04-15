@@ -1302,19 +1302,103 @@
         ],
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/CreateMenuDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateMenuDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateMenuDto"
+                "required": [
+                  "CostPrice",
+                  "ProductCategoryId",
+                  "ProductName",
+                  "SellPrice",
+                  "UnitId"
+                ],
+                "type": "object",
+                "properties": {
+                  "ProductName": {
+                    "maxLength": 100,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "ProductCategoryId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "CostPrice": {
+                    "minimum": 0,
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "SellPrice": {
+                    "minimum": 0,
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "SalePrice": {
+                    "minimum": 0,
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "ProductVat": {
+                    "maximum": 100,
+                    "minimum": 0,
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Description": {
+                    "type": "string"
+                  },
+                  "UnitId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "IsAvailable": {
+                    "type": "boolean"
+                  },
+                  "Status": {
+                    "type": "boolean"
+                  },
+                  "Images": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "binary"
+                    }
+                  }
+                }
+              },
+              "encoding": {
+                "ProductName": {
+                  "style": "form"
+                },
+                "ProductCategoryId": {
+                  "style": "form"
+                },
+                "CostPrice": {
+                  "style": "form"
+                },
+                "SellPrice": {
+                  "style": "form"
+                },
+                "SalePrice": {
+                  "style": "form"
+                },
+                "ProductVat": {
+                  "style": "form"
+                },
+                "Description": {
+                  "style": "form"
+                },
+                "UnitId": {
+                  "style": "form"
+                },
+                "IsAvailable": {
+                  "style": "form"
+                },
+                "Status": {
+                  "style": "form"
+                },
+                "Images": {
+                  "style": "form"
+                }
               }
             }
           }
@@ -4206,67 +4290,6 @@
           },
           "userName": {
             "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "CreateMenuDto": {
-        "required": [
-          "costPrice",
-          "productCategoryId",
-          "productName",
-          "sellPrice",
-          "unitId"
-        ],
-        "type": "object",
-        "properties": {
-          "productName": {
-            "maxLength": 100,
-            "minLength": 0,
-            "type": "string"
-          },
-          "productCategoryId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "costPrice": {
-            "minimum": 0,
-            "type": "number",
-            "format": "double"
-          },
-          "sellPrice": {
-            "minimum": 0,
-            "type": "number",
-            "format": "double"
-          },
-          "salePrice": {
-            "minimum": 0,
-            "type": "number",
-            "format": "double",
-            "nullable": true
-          },
-          "productVat": {
-            "maximum": 100,
-            "minimum": 0,
-            "type": "number",
-            "format": "double",
-            "nullable": true
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "unitId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "isAvailable": {
-            "type": "boolean",
-            "nullable": true
-          },
-          "status": {
-            "type": "boolean",
             "nullable": true
           }
         },
