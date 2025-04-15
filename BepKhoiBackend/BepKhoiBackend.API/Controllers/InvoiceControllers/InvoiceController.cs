@@ -1,4 +1,5 @@
 ﻿using BepKhoiBackend.BusinessObject.dtos.InvoiceDto;
+using BepKhoiBackend.BusinessObject.dtos.InvoiceDto.VnPay;
 using BepKhoiBackend.BusinessObject.Services.InvoiceService;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -86,25 +87,18 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
         }
 
         [HttpGet("vnpay-url")]
-        public IActionResult CreatePaymentUrlVnpay([FromQuery] int Id)
+        public IActionResult CreatePaymentUrlVnpay([FromQuery] RequestDto request)
         {
-            var invoice = _invoiceService.GetInvoiceByInvoiceId(Id);
-            if (invoice == null)
-            {
-                return NotFound($"Không tìm thấy hóa đơn với ID {Id}");
-            }
+          
 
-            if (invoice.AmountDue == null || invoice.AmountDue <= 0)
-            {
-                return BadRequest("Số tiền thanh toán không hợp lệ.");
-            }
+            
 
             var model = new PaymentInformationModel
             {
                 OrderType = "other",
-                Amount = (int)invoice.AmountDue,
-                InvoiceId = invoice.InvoiceId.ToString(),
-                Name = invoice.Customer?.CustomerName ?? "Khách Lẻ"
+                Amount = (int)request.amountDue,
+                InvoiceId = request.orderId,
+                Name = request.customerName
             };
 
             try
