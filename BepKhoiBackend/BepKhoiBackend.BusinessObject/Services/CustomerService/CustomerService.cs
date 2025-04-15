@@ -48,7 +48,7 @@ namespace BepKhoiBackend.BusinessObject.Services.CustomerService
                 CustomerId = customer.CustomerId,
                 CustomerName = customer.CustomerName,
                 Phone = customer.Phone,
-                TotalAmountSpent = customer.Invoices.Sum(i => i.AmountDue) // Tính tổng tiền từ hóa đơn
+                TotalAmountSpent = customer.Invoices.Sum(i => i.AmountDue)
             };
         }
         public List<CustomerInvoiceDto> GetInvoicesByCustomerId(int customerId)
@@ -88,7 +88,7 @@ namespace BepKhoiBackend.BusinessObject.Services.CustomerService
                     worksheet.Cells[row, 1].Value = customer.CustomerId;
                     worksheet.Cells[row, 2].Value = customer.CustomerName;
                     worksheet.Cells[row, 3].Value = customer.Phone;
-                    worksheet.Cells[row, 4].Value = customer.Invoices.Sum(i => i.AmountDue); // Tính tổng tiền
+                    worksheet.Cells[row, 4].Value = customer.Invoices.Sum(i => i.AmountDue);
                     row++;
                 }
 

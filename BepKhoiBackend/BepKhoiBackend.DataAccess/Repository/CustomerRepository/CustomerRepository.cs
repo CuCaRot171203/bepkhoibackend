@@ -21,7 +21,7 @@ namespace BepKhoiBackend.DataAccess.Repository.CustomerRepository
         public List<Customer> GetAllCustomers()
         {
             return _context.Customers
-                .Include(c => c.Invoices) // Load danh sách hóa đơn
+                .Include(c => c.Invoices)
                 .Where(c => c.IsDelete == false || c.IsDelete == null)
                 .ToList();
         }
@@ -29,7 +29,7 @@ namespace BepKhoiBackend.DataAccess.Repository.CustomerRepository
         public Customer? GetCustomerById(int customerId)
         {
             return _context.Customers
-                .Include(c => c.Invoices) // Load danh sách hóa đơn
+                .Include(c => c.Invoices)
                 .FirstOrDefault(c => c.CustomerId == customerId && (c.IsDelete == false || c.IsDelete == null));
         }
 
@@ -39,7 +39,7 @@ namespace BepKhoiBackend.DataAccess.Repository.CustomerRepository
             keyword = keyword.Trim();
 
             return _context.Customers
-                .Include(c => c.Invoices) // Load danh sách hóa đơn
+                .Include(c => c.Invoices)
                 .Where(c => (c.CustomerName.Contains(keyword) || c.Phone.Contains(keyword))
                             && (c.IsDelete == false || c.IsDelete == null))
                 .ToList();

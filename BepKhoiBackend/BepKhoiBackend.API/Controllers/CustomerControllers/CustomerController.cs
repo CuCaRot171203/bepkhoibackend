@@ -2,6 +2,7 @@
 using BepKhoiBackend.BusinessObject.Services.CustomerService;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 
 namespace BepKhoiBackend.API.Controllers.CustomerControllers
 {
@@ -16,9 +17,6 @@ namespace BepKhoiBackend.API.Controllers.CustomerControllers
             _customerService = customerService;
         }
 
-        /// <summary>
-        /// Lấy danh sách tất cả khách hàng
-        /// </summary>
         [HttpGet]
         public ActionResult<List<CustomerDTO>> GetAllCustomers()
         {
@@ -26,29 +24,77 @@ namespace BepKhoiBackend.API.Controllers.CustomerControllers
             return Ok(customers);
         }
 
-        /// <summary>
-        /// Tìm khách hàng theo ID
-        /// </summary>
         [HttpGet("{id}")]
+        [ProducesResponseType(typeof(CustomerDTO), 200)] // OK
+        [ProducesResponseType(400)] // BadRequest
+        [ProducesResponseType(404)] // NotFound
+        [ProducesResponseType(500)] // Internal Server Error
         public ActionResult<CustomerDTO> GetCustomerById(int id)
         {
-            var customer = _customerService.GetCustomerById(id);
-            if (customer == null)
+            //var customer = _customerService.GetCustomerById(id);
+            //if (customer == null)
+            //{
+            //    return NotFound(new { message = "Khách hàng không tồn tại!" });
+            //}
+            //return Ok(customer);
+
+            try
             {
-                return NotFound(new { message = "Khách hàng không tồn tại!" });
+                if (id <= 0)
+                {
+                    return BadRequest(new { message = "Id phải là số nguyên dương lớn hơn 0." });
+                }
+                var customer = _customerService.GetCustomerById(id);
+                if (customer == null)
+                {
+                    return NotFound(new { message = "Khách hàng không tồn tại!" });
+                }
+                return Ok(customer);
             }
-            return Ok(customer);
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+            catch (InvalidOperationException ex)
+            {
+                return StatusCode(409, new { message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Lỗi server", error = ex.Message });
+            }
         }
 
-        /// <summary>
-        /// Tìm kiếm khách hàng theo tên
-        /// </summary>
         [HttpGet("search")]
+        [ProducesResponseType(typeof(List<CustomerDTO>), 200)] // OK
+        [ProducesResponseType(400)] // BadRequest
+        [ProducesResponseType(500)] // Internal Server Error
         public ActionResult<List<CustomerDTO>> SearchCustomersByNameOrPhone([FromQuery] string searchTerm)
         {
-            var customers = _customerService.SearchCustomers(searchTerm);
-            return Ok(customers);
+            //var customers = _customerService.SearchCustomers(searchTerm);
+            //return Ok(customers);
+
+            try
+            {
+                // Kiểm tra điều kiện đầu vào
+                if (string.IsNullOrWhiteSpace(searchTerm))
+                {
+                    throw new ValidationException("Từ khóa tìm kiếm không được để trống.");
+                }
+
+                var customers = _customerService.SearchCustomers(searchTerm);
+                return Ok(customers);
+            }
+            catch (ValidationException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Lỗi server", error = ex.Message });
+            }
         }
+
         [HttpGet("{customerId}/invoices")]
         public IActionResult GetInvoicesByCustomerId(int customerId)
         {
@@ -59,6 +105,8 @@ namespace BepKhoiBackend.API.Controllers.CustomerControllers
             }
             return Ok(invoices);
         }
+
+
         [HttpGet("export")]
         public IActionResult ExportCustomers()
         {
