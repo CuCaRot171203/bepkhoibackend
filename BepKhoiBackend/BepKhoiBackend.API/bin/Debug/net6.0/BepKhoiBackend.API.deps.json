@@ -1480,7 +1480,7 @@
         },
         "runtime": {
           "BepKhoiBackend.BusinessObject.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
@@ -1496,7 +1496,7 @@
         },
         "runtime": {
           "BepKhoiBackend.DataAccess.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
@@ -1504,7 +1504,7 @@
       "BepKhoiBackend.Shared/1.0.0": {
         "runtime": {
           "BepKhoiBackend.Shared.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
@@ -1512,7 +1512,7 @@
       "BepKhoiBackend.Test/1.0.0": {
         "runtime": {
           "BepKhoiBackend.Test.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }

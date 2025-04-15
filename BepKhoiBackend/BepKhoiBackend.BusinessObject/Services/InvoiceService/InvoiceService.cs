@@ -1,7 +1,6 @@
 ﻿using BepKhoiBackend.BusinessObject.dtos.InvoiceDto;
 using BepKhoiBackend.DataAccess.Models;
 using BepKhoiBackend.DataAccess.Repository.InvoiceRepository;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -217,69 +216,5 @@ namespace BepKhoiBackend.BusinessObject.Services.InvoiceService
             // Trả về true nếu việc cập nhật thành công
             return true;
         }
-
-        //Phạm sơn tùng
-        public async Task<bool> CreateInvoiceForPaymentServiceAsync(InvoiceForPaymentDto invoiceDto,List<InvoiceDetailForPaymentDto> detailDtos)
-        {
-            if (invoiceDto == null) throw new ArgumentNullException(nameof(invoiceDto));
-            if (detailDtos == null || !detailDtos.Any()) throw new ArgumentException("Chi tiết hóa đơn không được để trống.");
-
-            try
-            {
-                // 1. Tạo thực thể Invoice từ DTO
-                var invoice = new Invoice
-                {
-                    PaymentMethodId = invoiceDto.PaymentMethodId,
-                    OrderId = invoiceDto.OrderId,
-                    OrderTypeId = invoiceDto.OrderTypeId,
-                    CashierId = invoiceDto.CashierId,
-                    ShipperId = invoiceDto.ShipperId,
-                    CustomerId = invoiceDto.CustomerId,
-                    RoomId = invoiceDto.RoomId,
-                    CheckInTime = invoiceDto.CheckInTime,
-                    CheckOutTime = invoiceDto.CheckOutTime,
-                    TotalQuantity = invoiceDto.TotalQuantity,
-                    Subtotal = invoiceDto.Subtotal,
-                    OtherPayment = invoiceDto.OtherPayment,
-                    InvoiceDiscount = invoiceDto.InvoiceDiscount,
-                    TotalVat = invoiceDto.TotalVat,
-                    AmountDue = invoiceDto.AmountDue,
-                    Status = invoiceDto.Status ?? true,
-                    InvoiceNote = invoiceDto.InvoiceNote
-                };
-
-                // 2. Gọi repo để lưu Invoice
-                var createdInvoice = await _invoiceRepository.CreateInvoiceForPaymentAsync(invoice);
-
-                // 3. Chuyển đổi detailDtos sang danh sách InvoiceDetail với invoiceId vừa tạo
-                var invoiceDetails = detailDtos.Select(d => new InvoiceDetail
-                {
-                    InvoiceId = createdInvoice.InvoiceId,
-                    ProductId = d.ProductId,
-                    ProductName = d.ProductName,
-                    Quantity = d.Quantity,
-                    Price = d.Price,
-                    ProductVat = d.ProductVat,
-                    ProductNote = d.ProductNote
-                }).ToList();
-
-                // 4. Gọi repo để lưu các InvoiceDetail
-                var isDetailSaved = await _invoiceRepository.AddInvoiceDetailForPaymentsAsync(invoiceDetails);
-                await _invoiceRepository.ChangeOrderStatusAfterPayment(invoiceDto.OrderId);
-                return isDetailSaved;
-            }
-            catch (DbUpdateException dbEx)
-            {
-                throw new DbUpdateException("Database update error in service in CreateInvoiceForPaymentAsync.", dbEx);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Undefined Error in service in CreateInvoiceForPaymentAsync..", ex);
-            }
-        }  
-
-
-
-
     }
 }

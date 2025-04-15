@@ -51,7 +51,7 @@ builder.Host.UseSerilog();
 
 // Config Authentication Jwt
 JwtConfig.ConfigureJwtAuthentication(builder.Services, builder.Configuration);
-
+JwtConfig.ConfigureSwagger(builder.Services);
 // Add Application Services (custom config DI)
 builder.Services.AddApplicationServices(builder.Configuration);
 

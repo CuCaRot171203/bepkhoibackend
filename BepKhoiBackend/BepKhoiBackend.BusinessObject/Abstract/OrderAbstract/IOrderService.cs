@@ -2,7 +2,6 @@
 using BepKhoiBackend.BusinessObject.dtos.MenuDto;
 using BepKhoiBackend.BusinessObject.dtos.OrderDetailDto;
 using BepKhoiBackend.BusinessObject.dtos.OrderDto;
-using BepKhoiBackend.BusinessObject.dtos.OrderDto.PaymentDto;
 using BepKhoiBackend.Shared.Helpers;
 using System;
 using System.Collections.Generic;
@@ -34,8 +33,6 @@ namespace BepKhoiBackend.BusinessObject.Abstract.OrderAbstract
 
         Task<string> CreateOrderAsync(OrderCreateDTO dto);
         Task<OrderGeneralDataPosDto> GetOrderGeneralDataPosAsync(int orderId);
-        Task DeleteOrderDetailAsync(int orderId, int orderDetailId);
-        Task DeleteConfirmedOrderDetailAsync(DeleteConfirmedOrderDetailRequestDto request);
-        Task<OrderPaymentDto?> GetOrderPaymentDtoByIdAsync(int orderId);
+
     }
 }
