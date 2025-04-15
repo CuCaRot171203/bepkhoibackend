@@ -219,7 +219,7 @@ namespace BepKhoiBackend.BusinessObject.Services.InvoiceService
         }
 
         //Phạm sơn tùng
-        public async Task<bool> CreateInvoiceForPaymentServiceAsync(InvoiceForPaymentDto invoiceDto,List<InvoiceDetailForPaymentDto> detailDtos)
+        public async Task<int> CreateInvoiceForPaymentServiceAsync(InvoiceForPaymentDto invoiceDto,List<InvoiceDetailForPaymentDto> detailDtos)
         {
             if (invoiceDto == null) throw new ArgumentNullException(nameof(invoiceDto));
             if (detailDtos == null || !detailDtos.Any()) throw new ArgumentException("Chi tiết hóa đơn không được để trống.");
@@ -266,7 +266,7 @@ namespace BepKhoiBackend.BusinessObject.Services.InvoiceService
                 // 4. Gọi repo để lưu các InvoiceDetail
                 var isDetailSaved = await _invoiceRepository.AddInvoiceDetailForPaymentsAsync(invoiceDetails);
                 await _invoiceRepository.ChangeOrderStatusAfterPayment(invoiceDto.OrderId);
-                return isDetailSaved;
+                return createdInvoice.InvoiceId;
             }
             catch (DbUpdateException dbEx)
             {
@@ -277,8 +277,6 @@ namespace BepKhoiBackend.BusinessObject.Services.InvoiceService
                 throw new Exception("Undefined Error in service in CreateInvoiceForPaymentAsync..", ex);
             }
         }  
-
-
 
 
     }

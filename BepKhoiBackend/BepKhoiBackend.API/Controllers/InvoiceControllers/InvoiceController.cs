@@ -169,49 +169,60 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
                 {
                     return BadRequest(new { message = "Dữ liệu hóa đơn không hợp lệ." });
                 }
+
                 var invoice = request.InvoiceInfo;
-                // Kiểm tra giá trị hợp lệ cho PaymentMethodId (chỉ được 1 hoặc 2)
+
+                // Kiểm tra các điều kiện hợp lệ
                 if (invoice.PaymentMethodId != 1 && invoice.PaymentMethodId != 2)
                     return BadRequest(new { message = "Phương thức thanh toán không hợp lệ. Chỉ chấp nhận 1 hoặc 2." });
-                // Kiểm tra OrderTypeId chỉ được 1, 2 hoặc 3
+
                 if (invoice.OrderTypeId < 1 || invoice.OrderTypeId > 3)
                     return BadRequest(new { message = "Loại đơn hàng không hợp lệ. Chỉ chấp nhận 1, 2 hoặc 3." });
-                // Các ID phải > 0
+
                 if (invoice.OrderId <= 0)
                     return BadRequest(new { message = "Mã đơn hàng không hợp lệ." });
+
                 if (invoice.CashierId <= 0)
                     return BadRequest(new { message = "Mã thu ngân không hợp lệ." });
+
                 if (invoice.CustomerId.HasValue && invoice.CustomerId <= 0)
                     return BadRequest(new { message = "Mã khách hàng không hợp lệ." });
+
                 if (invoice.RoomId.HasValue && invoice.RoomId <= 0)
                     return BadRequest(new { message = "Mã phòng không hợp lệ." });
+
                 if (invoice.ShipperId.HasValue && invoice.ShipperId <= 0)
                     return BadRequest(new { message = "Mã shipper không hợp lệ." });
-                // Kiểm tra thời gian
+
                 if (invoice.CheckInTime == default || invoice.CheckOutTime == default)
                     return BadRequest(new { message = "Thời gian check-in hoặc check-out không hợp lệ." });
-                // Kiểm tra số lượng và tiền
+
                 if (invoice.TotalQuantity <= 0)
                     return BadRequest(new { message = "Tổng số lượng sản phẩm phải lớn hơn 0." });
-                // Kiểm tra từng chi tiết hóa đơn
+
                 foreach (var detail in request.InvoiceDetails)
                 {
                     if (detail.ProductId <= 0)
                         return BadRequest(new { message = "Mã sản phẩm không hợp lệ." });
+
                     if (string.IsNullOrWhiteSpace(detail.ProductName))
                         return BadRequest(new { message = "Tên sản phẩm không được để trống." });
+
                     if (detail.Quantity <= 0)
                         return BadRequest(new { message = $"Số lượng của sản phẩm '{detail.ProductName}' phải lớn hơn 0." });
                 }
-                // Gọi service xử lý
-                bool isSuccess = await _invoiceService.CreateInvoiceForPaymentServiceAsync(
+
+                // Gọi service để tạo hóa đơn, nhận lại ID
+                int createdInvoiceId = await _invoiceService.CreateInvoiceForPaymentServiceAsync(
                     request.InvoiceInfo,
                     request.InvoiceDetails
                 );
 
-                return isSuccess
-                    ? Ok(new { message = "Tạo hóa đơn thanh toán thành công." })
-                    : BadRequest(new { message = "Tạo hóa đơn thất bại." });
+                return Ok(new
+                {
+                    message = "Tạo hóa đơn thanh toán thành công.",
+                    invoiceId = createdInvoiceId
+                });
             }
             catch (ArgumentNullException ex)
             {

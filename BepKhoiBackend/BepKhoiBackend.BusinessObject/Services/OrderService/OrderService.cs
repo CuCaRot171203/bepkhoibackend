@@ -246,7 +246,9 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
                         ProductId = request.ProductId,
                         ProductName = product.ProductName,
                         Quantity = 1,
-                        Price = product.SellPrice,
+                        Price = (product.SalePrice.HasValue && product.SalePrice > 0)
+                                   ? product.SalePrice.Value
+                                   : product.SellPrice,
                         ProductNote = null,
                         Status = false
                     };
