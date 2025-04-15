@@ -362,7 +362,7 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
         [ProducesResponseType(typeof(List<MenuPosDto>), 200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> FilterRoomPos([FromQuery] int? categoryId, [FromQuery] bool? isAvailable)
+        public async Task<IActionResult> FilterMenuPos([FromQuery] int? categoryId, [FromQuery] bool? isAvailable)
         {
             try
             {

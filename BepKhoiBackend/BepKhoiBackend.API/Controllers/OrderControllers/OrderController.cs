@@ -4,6 +4,7 @@ using BepKhoiBackend.BusinessObject.dtos.MenuDto;
 using BepKhoiBackend.BusinessObject.dtos.OrderDetailDto;
 using BepKhoiBackend.BusinessObject.dtos.OrderDto;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System.Data.Common;
 
@@ -641,6 +642,48 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
             }
         }
 
+        //Phạm Sơn Tùng
+        [HttpGet("Get-order-payment-information/{orderId}")]
+        public async Task<IActionResult> GetOrderPaymentInfo(string orderId)
+        {
+            try
+            {
+                // Kiểm tra input: null, rỗng, không phải số
+                if (string.IsNullOrWhiteSpace(orderId))
+                {
+                    return BadRequest("Order ID must not be empty.");
+                }
+
+                if (!int.TryParse(orderId, out int parsedOrderId))
+                {
+                    return BadRequest("Order ID must be a valid integer.");
+                }
+
+                // Gọi service
+                var orderDto = await _orderService.GetOrderPaymentDtoByIdAsync(parsedOrderId);
+                if (orderDto == null)
+                {
+                    return NotFound($"Order with ID {parsedOrderId} not found.");
+                }
+
+                return Ok(orderDto);
+            }
+            catch (SqlException sqlEx)
+            {
+                // Lỗi kết nối SQL (truy xuất từ repo)
+                return StatusCode(500, $"Database connection error: {sqlEx.Message}");
+            }
+            catch (DbException dbEx)
+            {
+                // Lỗi truy vấn CSDL (truy xuất từ repo)
+                return StatusCode(500, $"Database query error: {dbEx.Message}");
+            }
+            catch (Exception ex)
+            {
+                // Lỗi không xác định (trong service hoặc chung)
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
 
 
     }

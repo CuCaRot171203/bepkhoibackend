@@ -1,5 +1,6 @@
 ﻿using BepKhoiBackend.DataAccess.Abstract.OrderAbstract;
 using BepKhoiBackend.DataAccess.Models;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System.Data.Common;
 
@@ -26,6 +27,29 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
             catch (Exception ex)
             {
                 throw new Exception("Error while saving the order to database.", ex);
+            }
+        }
+
+        //Update isUse value
+        public async Task UpdateRoomIsUseByRoomIdAsync(int roomId)
+        {
+            try
+            {
+                var room = await _context.Rooms
+                 .Include(r => r.Orders)
+                 .FirstOrDefaultAsync(r => r.RoomId == roomId);
+                if (room == null)
+                {
+                    return;
+                }
+                bool hasActiveOrder = room.Orders.Any(order => order.OrderStatusId == 1);
+                room.IsUse = hasActiveOrder;
+                _context.Rooms.Update(room);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception)
+            {
+                return;
             }
         }
 
@@ -146,39 +170,67 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
         {
             try
             {
-                // Kiểm tra xem cả hai đơn hàng có tồn tại không
+                // Kiểm tra cả hai đơn hàng có tồn tại không
                 var firstOrder = await _context.Orders.FindAsync(firstOrderId);
                 var secondOrder = await _context.Orders.FindAsync(secondOrderId);
 
                 if (firstOrder == null)
-                {
                     throw new KeyNotFoundException($"Order with ID {firstOrderId} not found.");
-                }
                 if (secondOrder == null)
-                {
                     throw new KeyNotFoundException($"Order with ID {secondOrderId} not found.");
-                }
 
-                // Lấy danh sách OrderDetail của đơn hàng thứ nhất
-                var orderDetails = await _context.OrderDetails
-                                                 .Where(od => od.OrderId == firstOrderId)
-                                                 .ToListAsync();
+                // Lấy danh sách chi tiết đơn hàng từ cả hai đơn
+                var firstOrderDetails = await _context.OrderDetails
+                    .Where(od => od.OrderId == firstOrderId)
+                    .ToListAsync();
 
-                if (!orderDetails.Any())
-                {
+                var secondOrderDetails = await _context.OrderDetails
+                    .Where(od => od.OrderId == secondOrderId)
+                    .ToListAsync();
+
+                if (!firstOrderDetails.Any())
                     throw new InvalidOperationException($"Order with ID {firstOrderId} has no order details to transfer.");
-                }
 
-                // Cập nhật OrderId của OrderDetail từ firstOrderId sang secondOrderId
-                foreach (var detail in orderDetails)
+                foreach (var sourceDetail in firstOrderDetails.ToList()) // clone tránh modify khi đang loop
                 {
-                    detail.OrderId = secondOrderId;
-                }
+                    var matchingTarget = secondOrderDetails.FirstOrDefault(target =>
+                        target.ProductId == sourceDetail.ProductId &&
+                        target.ProductNote == null &&
+                        sourceDetail.ProductNote == null &&
+                        target.Status == sourceDetail.Status
+                    );
 
-                // Lưu thay đổi vào database
+                    if (matchingTarget != null)
+                    {
+                        // Gộp số lượng nếu trùng và thỏa điều kiện
+                        matchingTarget.Quantity += sourceDetail.Quantity;
+
+                        // Xóa detail gốc trong đơn hàng đầu
+                        _context.OrderDetails.Remove(sourceDetail);
+                    }
+                    else
+                    {
+                        // Tạo mới OrderDetail trong đơn hàng đích
+                        var newOrderDetail = new OrderDetail
+                        {
+                            OrderId = secondOrderId,
+                            ProductId = sourceDetail.ProductId,
+                            ProductName = sourceDetail.ProductName,
+                            Quantity = sourceDetail.Quantity,
+                            Price = sourceDetail.Price,
+                            ProductNote = sourceDetail.ProductNote,
+                            Status = sourceDetail.Status
+                        };
+                        await _context.OrderDetails.AddAsync(newOrderDetail);
+                        _context.OrderDetails.Remove(sourceDetail); // Xóa khỏi đơn cũ
+                    }
+                }
+                // Lưu thay đổi
                 await _context.SaveChangesAsync();
+                // Cập nhật lại tổng số lượng và thành tiền của cả hai đơn
                 await UpdateOrderAfterUpdateOrderDetailAsync(firstOrderId);
                 await UpdateOrderAfterUpdateOrderDetailAsync(secondOrderId);
+
                 return true;
             }
             catch (KeyNotFoundException ex)
@@ -194,6 +246,7 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
                 throw new Exception("An error occurred while combining orders.", ex);
             }
         }
+
 
         //Pham Son Tung
         public async Task<IEnumerable<Order>> GetOrdersByTypePos(int? roomId, int? shipperId, int? orderTypeId)
@@ -375,7 +428,7 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
         }
 
         //Pham Son Tung
-        public async Task<bool> RemoveOrder(int orderId)
+        public async Task<Order> RemoveOrder(int orderId)
         {
             try
             {
@@ -398,7 +451,7 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
 
                 // Lưu thay đổi vào cơ sở dữ liệu
                 await _context.SaveChangesAsync();
-                return true; // Thành công
+                return order; // Thành công
             }
             catch (Exception ex)
             {
@@ -610,6 +663,34 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
             catch (Exception)
             {
                 throw;
+            }
+        }
+
+        //Pham Son Tung
+        public async Task<Order?> GetFullOrderByIdAsync(int orderId)
+        {
+            try
+            {
+                return await _context.Orders
+                    .Include(o => o.Customer)
+                    .Include(o => o.OrderDetails)
+                        .ThenInclude(od => od.Product) 
+                    .FirstOrDefaultAsync(o => o.OrderId == orderId);
+            }
+            catch (SqlException sqlEx)
+            {
+                // Lỗi liên quan đến kết nối SQL
+                throw new Exception($"Database connect error: {sqlEx.Message}", sqlEx);
+            }
+            catch (DbException dbEx)
+            {
+                // Lỗi chung liên quan đến truy vấn CSDL
+                throw new Exception($"Database connect error: {dbEx.Message}", dbEx);
+            }
+            catch (Exception ex)
+            {
+                // Bắt tất cả lỗi còn lại
+                throw new Exception($"Undefined Error: {ex.Message}", ex);
             }
         }
 
