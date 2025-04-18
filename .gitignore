@@ -1,0 +1,27 @@
+# Ignore build output and user-specific files
+**/bin/
+**/obj/
+
+# User-specific files
+**/*.user
+**/*.suo
+**/*.userosscache
+**/*.sln.docstates
+
+# VS Code & Rider
+.vscode/
+.idea/
+
+# IIS / ASP.NET stuff
+**/.vs/
+**/*.dbmdl
+**/*.log
+
+# Secrets
+
+
+# Others
+*.ncrunch*
+*.localhistory/
+*.resharper/
+_ReSharper*/
