@@ -17,8 +17,10 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
         private readonly IMapper _mapper;
         private readonly IMenuService _menuService;
         private readonly ILogger<MenuController> _logger;
+        private readonly CloudinaryService _cloudinaryService;
 
         public MenuController(
+            CloudinaryService cloudinaryService,
             IMenuRepository menuRepository,
             IMapper mapper,
             ILogger<MenuController> logger,
@@ -28,8 +30,10 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
             _menuService = menuService;
             _mapper = mapper;
             _logger = logger;
+            _cloudinaryService = cloudinaryService;
         }
-        
+
+
         /*========== NEW MENU API CONTROLLER =======*/
         // API - MenuController.cs
         [HttpGet("get-all-menus")]
@@ -122,7 +126,7 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> AddMenu([FromBody] CreateMenuDto menuDto)
+        public async Task<IActionResult> AddMenu([FromForm] CreateMenuDto menuDto)
         {
             try
             {
@@ -131,9 +135,16 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
                     _logger.LogWarning("Invalid menu data received.");
                     return BadRequest(ModelState);
                 }
-
+                var imageUrls = new List<string>();
+                if (menuDto.Image != null)
+                {
+                    var imageUrl = await _cloudinaryService.UploadImageAsync(menuDto.Image);
+                    imageUrls.Add(imageUrl);
+                }
                 // Call service
-                var result = await _menuService.AddMenuAsync(menuDto);
+                var result = await _menuService.AddMenuAsync(menuDto, imageUrls);
+
+                // Upload images to Cloudinary
 
                 if (!result.IsSuccess)
                 {
@@ -146,12 +157,12 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
                 // Return result successfully
                 return CreatedAtAction(
                     nameof(GetMenuById),
-                    new { pId = addedMenuDto.ProductId},
+                    new { pId = addedMenuDto.ProductId },
                     new
-                {
-                    message = result.Message,
-                    data = addedMenuDto
-                });
+                    {
+                        message = result.Message,
+                        data = addedMenuDto
+                    });
             }
             catch (Exception ex)
             {
@@ -159,6 +170,7 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
                 return StatusCode(500, new { message = "An unexpected error occurred while adding the menu." });
             }
         }
+
 
         // API to update product by Id
         [HttpPut("update-menu/{id}")]
