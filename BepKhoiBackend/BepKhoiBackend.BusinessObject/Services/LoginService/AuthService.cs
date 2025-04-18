@@ -33,8 +33,7 @@ namespace BepKhoiBackend.BusinessObject.Services.LoginService
             {
                 UserId = user.UserId,
                 Email = user.Email,
-                IsVerify = user.IsVerify,
-                RoleName = user.Role.RoleName?? ""
+                IsVerify = user.IsVerify
             };
         }
         // Hàm kiểm tra định dạng email hợp lệ
@@ -59,9 +58,7 @@ namespace BepKhoiBackend.BusinessObject.Services.LoginService
                 Subject = new ClaimsIdentity(new[]
                 {
                     new Claim(ClaimTypes.NameIdentifier, user.UserId.ToString()),
-                    new Claim(ClaimTypes.Name, user.Email),
-                    new Claim(ClaimTypes.Role, user.RoleName)
-
+                    new Claim(ClaimTypes.Name, user.Email)
                 }),
                 Expires = DateTime.UtcNow.AddHours(2),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256)

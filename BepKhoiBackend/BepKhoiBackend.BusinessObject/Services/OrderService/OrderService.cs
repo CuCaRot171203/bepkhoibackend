@@ -4,13 +4,16 @@ using BepKhoiBackend.BusinessObject.dtos.CustomerDto;
 using BepKhoiBackend.BusinessObject.dtos.MenuDto;
 using BepKhoiBackend.BusinessObject.dtos.OrderDetailDto;
 using BepKhoiBackend.BusinessObject.dtos.OrderDto;
+using BepKhoiBackend.BusinessObject.dtos.OrderDto.PaymentDto;
 using BepKhoiBackend.DataAccess.Abstract.OrderAbstract;
 using BepKhoiBackend.DataAccess.Abstract.OrderDetailAbstract;
 using BepKhoiBackend.DataAccess.Models;
 using BepKhoiBackend.Shared.Helpers;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Org.BouncyCastle.Asn1.Ocsp;
 using System.ComponentModel.DataAnnotations;
+using System.Data.Common;
 
 namespace BepKhoiBackend.BusinessObject.Services.OrderService
 {
@@ -21,7 +24,7 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
         private readonly IMapper _mapper;
 
         public OrderService(
-            IOrderRepository orderRepository, 
+            IOrderRepository orderRepository,
             IOrderDetailRepository orderDetailRepository,
             IMapper mapper)
         {
@@ -33,52 +36,66 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
         // Method create order
         public async Task<OrderDto> CreateNewOrderAsync(CreateOrderRequestDto request)
         {
-            // Kiểm tra OrderTypeId và OrderStatusId không null hoặc <= 0
-            if (request.OrderTypeId <= 0 || request.OrderStatusId <= 0)
+            try
             {
-                throw new ArgumentException("OrderTypeId and OrderStatusId are required and must be greater than 0.");
-            }
+                // Validate các trường bắt buộc
+                if (request.OrderTypeId <= 0 || request.OrderStatusId <= 0)
+                {
+                    throw new ArgumentException("OrderTypeId and OrderStatusId are required and must be greater than 0.");
+                }
 
-            // Kiểm tra OrderStatusId chỉ được là 1, 2 hoặc 3
-            if (request.OrderStatusId is not (1 or 2 or 3))
+                if (request.OrderStatusId is not (1 or 2 or 3))
+                {
+                    throw new ArgumentException("OrderStatusId must be either 1, 2, or 3.");
+                }
+
+                // Tạo đơn hàng từ DTO
+                var newOrder = _mapper.Map<Order>(request);
+
+                switch (request.OrderTypeId)
+                {
+                    case 3: // Tại bàn
+                        if (request.ShipperId != null || request.RoomId == null)
+                        {
+                            throw new ArgumentException("OrderTypeId = 3 (Tại bàn) requires RoomId and must not have ShipperId.");
+                        }
+
+                        var createdTableOrder = await _orderRepository.CreateOrderPosAsync(newOrder);
+
+                        // Cập nhật phòng
+                        await _orderRepository.UpdateRoomIsUseByRoomIdAsync(request.RoomId.Value);
+
+                        return _mapper.Map<OrderDto>(createdTableOrder);
+
+                    case 2: // Giao đi
+                        if (request.RoomId != null || request.ShipperId == null)
+                        {
+                            throw new ArgumentException("OrderTypeId = 2 (Giao đi) requires ShipperId and must not have RoomId.");
+                        }
+
+                        var createdDeliveryOrder = await _orderRepository.CreateOrderPosAsync(newOrder);
+                        return _mapper.Map<OrderDto>(createdDeliveryOrder);
+
+                    case 1: // Tại quầy
+                        if (request.RoomId != null || request.ShipperId != null)
+                        {
+                            throw new ArgumentException("OrderTypeId = 1 (Tại quầy) must not have RoomId or ShipperId.");
+                        }
+
+                        var createdCounterOrder = await _orderRepository.CreateOrderPosAsync(newOrder);
+                        return _mapper.Map<OrderDto>(createdCounterOrder);
+
+                    default:
+                        throw new ArgumentException("Invalid OrderTypeId. Must be 1, 2, or 3.");
+                }
+            }
+            catch (Exception ex)
             {
-                throw new ArgumentException("OrderStatusId must be either 1, 2, or 3.");
+                // Có thể log lại nếu muốn
+                throw new Exception($"Tạo đơn hàng thất bại: {ex.Message}", ex);
             }
-
-            // Kiểm tra OrderTypeId chỉ được là 1, 2 hoặc 3 và áp logic riêng
-            switch (request.OrderTypeId)
-            {
-                case 3: // Tại bàn
-                    if (request.ShipperId != null || request.RoomId == null)
-                    {
-                        throw new ArgumentException("OrderTypeId = 3 (Tại bàn) requires RoomId and must not have ShipperId.");
-                    }
-                    break;
-
-                case 2: // Mang về
-                    if (request.RoomId != null || request.ShipperId == null)
-                    {
-                        throw new ArgumentException("OrderTypeId = 2 requires ShipperId and must not have RoomId.");
-                    }
-                    break;
-
-                case 1: // Mua tại quầy
-                    if (request.RoomId != null || request.ShipperId != null)
-                    {
-                        throw new ArgumentException("OrderTypeId = 1 requires must not have RoomId and must not have ShipperId.");
-                    }
-                    break;
-
-                default:
-                    throw new ArgumentException("Invalid OrderTypeId. Must be 1, 2, or 3.");
-            }
-
-            // Mapping và tạo đơn
-            var newOrder = _mapper.Map<Order>(request);
-            var createdOrder = await _orderRepository.CreateOrderPosAsync(newOrder);
-
-            return _mapper.Map<OrderDto>(createdOrder);
         }
+
 
 
         // Method add note to order async
@@ -86,7 +103,7 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
         {
             var order = await _orderRepository.GetOrderByIdPosAsync(request.OrderId);
             //check null
-            if(order == null)
+            if (order == null)
             {
                 throw new ArgumentException($"Order with Id {request.OrderId} not found.");
             }
@@ -392,7 +409,7 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
             catch (KeyNotFoundException ex)
             {
                 // Có thể log lại và ném ra lại cho Controller xử lý
-                throw new Exception($"Order with ID {orderId} not found at service.", ex);
+                throw new KeyNotFoundException($"Order with ID {orderId} not found at service.", ex);
             }
             catch (Exception ex)
             {
@@ -427,14 +444,12 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
             {
                 // Gọi phương thức từ repository để xóa CustomerId
                 var result = await _orderRepository.RemoveCustomerFromOrderAsync(orderId);
-
                 // Xử lý logic sau khi xóa (nếu cần, như log lỗi, thông báo thành công,...)
                 if (result)
                 {
                     // Thành công
                     return true;
                 }
-
                 // Nếu không tìm thấy đơn hàng hoặc gặp lỗi
                 return false;
             }
@@ -451,24 +466,18 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
         {
             try
             {
-                // Gọi repository để thực hiện xóa đơn hàng bằng cách cập nhật OrderStatusId thành 3
-                bool result = await _orderRepository.RemoveOrder(orderId);
-
-                if (result)
+                // Gọi hàm từ repository để thực hiện "xóa mềm"
+                var removedOrder = await _orderRepository.RemoveOrder(orderId);
+                // Nếu có RoomId thì cập nhật lại trạng thái phòng
+                if (removedOrder.RoomId.HasValue)
                 {
-                    // Nếu thành công, trả về true
-                    return true;
+                    await _orderRepository.UpdateRoomIsUseByRoomIdAsync(removedOrder.RoomId.Value);
                 }
-                else
-                {
-                    // Nếu thất bại, ném exception
-                    throw new Exception($"Failed to remove order with ID {orderId}.");
-                }
+                return true;
             }
             catch (Exception ex)
             {
-                // Ném lỗi ra ngoài với thông điệp chi tiết
-                throw new Exception($"An error occurred while removing the order: {ex.Message}", ex);
+                throw new Exception($"Error in RemoveOrderAsync: {ex.Message}", ex);
             }
         }
 
@@ -849,8 +858,5 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
                 throw;
             }
         }
-
-
-        
     }
 }
