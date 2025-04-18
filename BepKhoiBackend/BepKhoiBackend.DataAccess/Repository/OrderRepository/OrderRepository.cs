@@ -694,6 +694,84 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
             }
         }
 
+        //Pham Son Tung
+        public async Task<bool> CreateDeliveryInformationAsync(int orderId, string receiverName, string receiverPhone, string receiverAddress, string? deliveryNote)
+        {
+            // Kiểm tra OrderId có tồn tại không
+            var order = await _context.Orders.FindAsync(orderId);
+            if (order == null)
+            {
+                throw new InvalidOperationException($"Can not find order with ID {orderId}.");
+            }
+            try
+            {
+                if (order.DeliveryInformationId.HasValue)
+                {
+                    var existingDeliveryInfo = await _context.DeliveryInformations.FindAsync(order.DeliveryInformationId.Value);
+
+                    if (existingDeliveryInfo != null)
+                    {
+                        // Cập nhật thông tin giao hàng
+                        existingDeliveryInfo.ReceiverName = receiverName;
+                        existingDeliveryInfo.ReceiverPhone = receiverPhone;
+                        existingDeliveryInfo.ReceiverAddress = receiverAddress;
+                        existingDeliveryInfo.DeliveryNote = deliveryNote;
+
+                        _context.DeliveryInformations.Update(existingDeliveryInfo);
+                        await _context.SaveChangesAsync();
+                        return true;
+                    }
+                }
+                var deliveryInfo = new DeliveryInformation
+                {
+                    ReceiverName = receiverName,
+                    ReceiverPhone = receiverPhone,
+                    ReceiverAddress = receiverAddress,
+                    DeliveryNote = deliveryNote
+                };
+
+                _context.DeliveryInformations.Add(deliveryInfo);
+                await _context.SaveChangesAsync();
+                order.DeliveryInformationId = deliveryInfo.DeliveryInformationId;
+                _context.Orders.Update(order);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch (DbUpdateException dbEx)
+            {
+                throw new DbUpdateException("Database error.", dbEx);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Undefined error has been occur.", ex);
+            }
+        }
+
+        //Phạm Sơn Tùng
+        public async Task<DeliveryInformation?> GetDeliveryInformationByOrderIdAsync(int orderId)
+        {
+            try
+            {
+                var order = await _context.Orders
+                    .Include(o => o.DeliveryInformation)
+                    .FirstOrDefaultAsync(o => o.OrderId == orderId);
+
+                if (order == null)
+                {
+                    throw new InvalidOperationException($"Cannot find order with ID {orderId}.");
+                }
+
+                return order.DeliveryInformation;
+            }
+            catch (DbUpdateException dbEx)
+            {
+                throw new DbUpdateException("Database error occurred while retrieving DeliveryInformation.", dbEx);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
 
 
     }

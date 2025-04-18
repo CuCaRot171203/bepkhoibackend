@@ -4,6 +4,7 @@ using BepKhoiBackend.DataAccess.Models;
 using Microsoft.EntityFrameworkCore;
 using BepKhoiBackend.DataAccess.Repository.Base;
 using Microsoft.Extensions.Logging;
+using System.Linq.Dynamic.Core;
 
 public class MenuRepository : RepositoryBase, IMenuRepository
 {
@@ -133,6 +134,7 @@ public class MenuRepository : RepositoryBase, IMenuRepository
             var menuList = await _context.Menus
                 .AsNoTracking()
                 .Where(m => (m.IsDelete == null || m.IsDelete == false))
+                .Where(m => m.Status == true)
                 .OrderBy(m => m.ProductName)
                 .Select(m => new Menu
                 {

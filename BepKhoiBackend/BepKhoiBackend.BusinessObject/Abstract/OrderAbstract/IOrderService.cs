@@ -37,5 +37,7 @@ namespace BepKhoiBackend.BusinessObject.Abstract.OrderAbstract
         Task DeleteOrderDetailAsync(int orderId, int orderDetailId);
         Task DeleteConfirmedOrderDetailAsync(DeleteConfirmedOrderDetailRequestDto request);
         Task<OrderPaymentDto?> GetOrderPaymentDtoByIdAsync(int orderId);
+        Task<bool> CreateDeliveryInformationServiceAsync(DeliveryInformationCreateDto dto);
+        Task<DeliveryInformationDto?> GetDeliveryInformationByOrderIdAsync(int orderId);
     }
 }

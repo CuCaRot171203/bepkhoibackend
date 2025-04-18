@@ -778,6 +778,70 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
             }
         }
 
+        //Phạm Sơn Tùng
+        public async Task<bool> CreateDeliveryInformationServiceAsync(DeliveryInformationCreateDto dto)
+        {
+            if (dto == null) throw new ArgumentNullException(nameof(dto));
+
+            try
+            {
+                var result = await _orderRepository.CreateDeliveryInformationAsync(
+                    dto.OrderId,
+                    dto.ReceiverName.Trim(),
+                    dto.ReceiverPhone.Trim(),
+                    dto.ReceiverAddress.Trim(),
+                    (dto.DeliveryNote!=null? dto.DeliveryNote.Trim() : "")
+                );
+                return result;
+            }
+            catch (InvalidOperationException ex)
+            {
+                throw new InvalidOperationException("Invalid request data: " + ex.Message, ex);
+            }
+            catch (DbUpdateException dbEx)
+            {
+                throw new DbUpdateException("Database Error.", dbEx);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Undefined error.", ex);
+            }
+        }
+
+        //Phạm Sơn Tùng
+        public async Task<DeliveryInformationDto?> GetDeliveryInformationByOrderIdAsync(int orderId)
+        {
+            try
+            {
+                var deliveryInfo = await _orderRepository.GetDeliveryInformationByOrderIdAsync(orderId);
+
+                if (deliveryInfo == null)
+                {
+                    return null; 
+                }
+
+                return new DeliveryInformationDto
+                {
+                    DeliveryInformationId = deliveryInfo.DeliveryInformationId,
+                    ReceiverName = deliveryInfo.ReceiverName,
+                    ReceiverPhone = deliveryInfo.ReceiverPhone,
+                    ReceiverAddress = deliveryInfo.ReceiverAddress,
+                    DeliveryNote = deliveryInfo.DeliveryNote
+                };
+            }
+            catch (InvalidOperationException)
+            {
+                throw;
+            }
+            catch (DbUpdateException dbEx)
+            {
+                throw new DbUpdateException("Database error occurred while retrieving DeliveryInformation.", dbEx);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
 
 
     }

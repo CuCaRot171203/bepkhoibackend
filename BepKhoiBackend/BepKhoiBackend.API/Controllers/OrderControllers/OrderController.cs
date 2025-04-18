@@ -685,6 +685,120 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
             }
         }
 
+        //Pham Son Tung
+        [HttpPost("add-order-delivery-information")]
+        public async Task<IActionResult> AddOrderDeliveryInformationAsync([FromBody] DeliveryInformationCreateDto request)
+        {
+            if (request == null)
+            {
+                return BadRequest(new { message = "Request body không được null." });
+            }
+            if (request.OrderId <= 0)
+            {
+                return BadRequest(new { message = "OrderId không hợp lệ. Phải là số lớn hơn 0." });
+            }
+
+            if (string.IsNullOrWhiteSpace(request.ReceiverName))
+            {
+                return BadRequest(new { message = "ReceiverName không được để trống." });
+            }
+
+            if (request.ReceiverName.Length > 100)
+            {
+                return BadRequest(new { message = "ReceiverName không được vượt quá 100 ký tự." });
+            }
+
+            if (string.IsNullOrWhiteSpace(request.ReceiverPhone))
+            {
+                return BadRequest(new { message = "ReceiverPhone không được để trống." });
+            }
+
+            if (request.ReceiverPhone.Length > 20)
+            {
+                return BadRequest(new { message = "ReceiverPhone không được vượt quá 20 ký tự." });
+            }
+
+            if (string.IsNullOrWhiteSpace(request.ReceiverAddress))
+            {
+                return BadRequest(new { message = "ReceiverAddress không được để trống." });
+            }
+
+            if (request.ReceiverAddress.Length > 255)
+            {
+                return BadRequest(new { message = "ReceiverAddress không được vượt quá 255 ký tự." });
+            }
+            if (!string.IsNullOrEmpty(request.DeliveryNote) && request.DeliveryNote.Length > 255)
+            {
+                return BadRequest(new { message = "ReceiverAddress không được vượt quá 255 ký tự." });
+            }
+
+            try
+            {
+                var success = await _orderService.CreateDeliveryInformationServiceAsync(request);
+
+                if (success)
+                {
+                    return Ok(new { message = "Tạo thông tin giao hàng thành công." });
+                }
+                else
+                {
+                    return StatusCode(500, new { message = "Tạo thông tin giao hàng thất bại." });
+                }
+            }
+            catch (InvalidOperationException ex)
+            {
+                return NotFound(new { message = ex.Message });
+            }
+            catch (DbUpdateException ex)
+            {
+                return StatusCode(500, new { message = "Lỗi khi thao tác với cơ sở dữ liệu.", error = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Đã xảy ra lỗi không xác định.", error = ex.Message });
+            }
+        }
+
+        //Phạm Sơn Tùng
+        [HttpGet("delivery-information/{orderId}")]
+        public async Task<IActionResult> GetDeliveryInformationByOrderId(int orderId)
+        {
+            if (orderId <= 0)
+            {
+                return BadRequest(new { message = "OrderId không hợp lệ. Phải là số lớn hơn 0." });
+            }
+
+            try
+            {
+                var deliveryInfoDto = await _orderService.GetDeliveryInformationByOrderIdAsync(orderId);
+
+                if (deliveryInfoDto == null)
+                {
+                    return NotFound(new { message = $"Không tìm thấy thông tin giao hàng cho order ID {orderId}." });
+                }
+
+                return Ok(new
+                {
+                    message = "Lấy thông tin giao hàng thành công.",
+                    data = deliveryInfoDto
+                });
+            }
+            catch (InvalidOperationException ex)
+            {
+                return NotFound(new { message = ex.Message });
+            }
+            catch (DbUpdateException dbEx)
+            {
+                return StatusCode(500, new { message = "Lỗi khi thao tác với cơ sở dữ liệu.", error = dbEx.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Đã xảy ra lỗi không xác định.", error = ex.Message });
+            }
+        }
+
+
+
 
     }
 }
