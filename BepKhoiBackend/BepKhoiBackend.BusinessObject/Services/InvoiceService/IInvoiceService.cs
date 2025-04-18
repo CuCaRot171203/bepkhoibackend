@@ -18,8 +18,6 @@ namespace BepKhoiBackend.BusinessObject.Services.InvoiceService
         List<InvoiceDTO> GetInvoiceByPeriod(DateTime from, DateTime to);
         List<InvoiceDTO> GetInvoiceByStatus(bool status);
         List<InvoiceDTO> GetInvoiceByOrderMethod(string method);
-
-        //------------------NgocQuan----------------------//
         InvoicePdfDTO GetInvoiceForPdf(int id);
         Invoice? GetInvoiceByInvoiceId(int id);
         bool UpdateInvoiceStatus(int invoiceId, bool status);

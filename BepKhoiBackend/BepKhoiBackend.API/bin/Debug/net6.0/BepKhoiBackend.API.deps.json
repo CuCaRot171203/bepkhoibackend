@@ -1479,7 +1479,10 @@
           "iTextSharp.LGPLv2.Core": "3.7.1"
         },
         "runtime": {
-          "BepKhoiBackend.BusinessObject.dll": {}
+          "BepKhoiBackend.BusinessObject.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "BepKhoiBackend.DataAccess/1.0.0": {
@@ -1492,17 +1495,26 @@
           "System.Linq.Dynamic.Core": "1.6.0.2"
         },
         "runtime": {
-          "BepKhoiBackend.DataAccess.dll": {}
+          "BepKhoiBackend.DataAccess.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "BepKhoiBackend.Shared/1.0.0": {
         "runtime": {
-          "BepKhoiBackend.Shared.dll": {}
+          "BepKhoiBackend.Shared.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "BepKhoiBackend.Test/1.0.0": {
         "runtime": {
-          "BepKhoiBackend.Test.dll": {}
+          "BepKhoiBackend.Test.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }

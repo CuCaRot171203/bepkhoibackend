@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http;
 using System;
 using DocumentFormat.OpenXml.Office2016.Excel;
 using BepKhoiBackend.BusinessObject.Services.LoginService.Interface;
+using System.Security.Claims;
 
 namespace BepKhoiBackend.API.Controllers.LoginControllers
 {
@@ -94,8 +95,9 @@ namespace BepKhoiBackend.API.Controllers.LoginControllers
                 session.SetString("Token", token);
                 session.SetString("UserId", user.UserId.ToString());
                 session.SetString("Phone", user.Email);
+                var role = User.FindFirst(ClaimTypes.Role)?.Value;
 
-                return Ok(new { message = "successful", token, userId = user.UserId });
+                return Ok(new { message = "successful", token, userId = user.UserId, userRoleName = user.RoleName });
             }
             catch (Exception ex)
             {

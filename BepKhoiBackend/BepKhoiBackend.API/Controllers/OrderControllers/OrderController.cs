@@ -4,7 +4,6 @@ using BepKhoiBackend.BusinessObject.dtos.MenuDto;
 using BepKhoiBackend.BusinessObject.dtos.OrderDetailDto;
 using BepKhoiBackend.BusinessObject.dtos.OrderDto;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System.Data.Common;
 
@@ -323,7 +322,7 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
             }
             catch (KeyNotFoundException ex)
             {
-                return Ok(new
+                return NotFound(new
                 {
                     success = false,
                     message = ex.Message
@@ -563,154 +562,7 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
             }
         }
 
-        //Pham Son Tung
-        [HttpDelete("delete-order-detail")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> DeleteOrderDetail([FromQuery] string? orderId, [FromQuery] string? orderDetailId)
-        {
-            try
-            {
-                // Validate query parameters
-                if (string.IsNullOrWhiteSpace(orderId) || !int.TryParse(orderId, out int orderIdParsed))
-                {
-                    return BadRequest(new { message = "Invalid 'orderId' parameter." });
-                }
 
-                if (string.IsNullOrWhiteSpace(orderDetailId) || !int.TryParse(orderDetailId, out int orderDetailIdParsed))
-                {
-                    return BadRequest(new { message = "Invalid 'orderDetailId' parameter." });
-                }
-
-                // Call service to delete
-                await _orderService.DeleteOrderDetailAsync(orderIdParsed, orderDetailIdParsed);
-
-                return Ok(new { message = "Order detail deleted successfully." });
-            }
-            catch (ArgumentException ex)
-            {
-                return BadRequest(new { message = ex.Message });
-            }
-            catch (KeyNotFoundException ex)
-            {
-                return NotFound(new { message = ex.Message });
-            }
-            catch (InvalidOperationException ex)
-            {
-                return StatusCode(500, new
-                {
-                    message = "Failed to delete order detail. The item may have already been processed or a database error occurred.",
-                    error = ex.Message
-                });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new
-                {
-                    message = "An unexpected error occurred while deleting the order detail.",
-                    error = ex.Message
-                });
-            }
-        }
-
-        //Pham Son Tung
-        [HttpDelete("delete-confirmed-order-detail")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> DeleteConfirmedOrderDetail(
-            [FromQuery] int? orderId,
-            [FromQuery] int? orderDetailId,
-            [FromQuery] int? cashierId,
-            [FromQuery] string? reason)
-        {
-            try
-            {
-                // Validate parameters
-                if (orderId is null || orderId <= 0)
-                    return BadRequest(new { message = "Parameter 'orderId' is required and must be a positive integer." });
-
-                if (orderDetailId is null || orderDetailId <= 0)
-                    return BadRequest(new { message = "Parameter 'orderDetailId' is required and must be a positive integer." });
-
-                if (cashierId is null || cashierId <= 0)
-                    return BadRequest(new { message = "Parameter 'cashierId' is required and must be a positive integer." });
-
-                if (string.IsNullOrWhiteSpace(reason))
-                    return BadRequest(new { message = "Parameter 'reason' is required and must not be empty." });
-                var request = new DeleteConfirmedOrderDetailRequestDto
-                {
-                    OrderId = orderId.Value,
-                    OrderDetailId = orderDetailId.Value,
-                    CashierId = cashierId.Value,
-                    Reason = reason.Trim()
-                };
-                await _orderService.DeleteConfirmedOrderDetailAsync(request);
-                return Ok(new { message = "Confirmed order detail was deleted and cancellation logged successfully." });
-            }
-            catch (ArgumentException ex)
-            {
-                return BadRequest(new { message = ex.Message });
-            }
-            catch (KeyNotFoundException ex)
-            {
-                return NotFound(new { message = ex.Message });
-            }
-            catch (InvalidOperationException ex)
-            {
-                return StatusCode(500, new { message = "An operation error occurred while deleting the order detail.", error = ex.Message });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { message = "An unexpected error occurred.", error = ex.Message });
-            }
-        }
-
-        //Phạm Sơn Tùng
-        [HttpGet("Get-order-payment-information/{orderId}")]
-        public async Task<IActionResult> GetOrderPaymentInfo(string orderId)
-        {
-            try
-            {
-                // Kiểm tra input: null, rỗng, không phải số
-                if (string.IsNullOrWhiteSpace(orderId))
-                {
-                    return BadRequest("Order ID must not be empty.");
-                }
-
-                if (!int.TryParse(orderId, out int parsedOrderId))
-                {
-                    return BadRequest("Order ID must be a valid integer.");
-                }
-
-                // Gọi service
-                var orderDto = await _orderService.GetOrderPaymentDtoByIdAsync(parsedOrderId);
-                if (orderDto == null)
-                {
-                    return NotFound($"Order with ID {parsedOrderId} not found.");
-                }
-
-                return Ok(orderDto);
-            }
-            catch (SqlException sqlEx)
-            {
-                // Lỗi kết nối SQL (truy xuất từ repo)
-                return StatusCode(500, $"Database connection error: {sqlEx.Message}");
-            }
-            catch (DbException dbEx)
-            {
-                // Lỗi truy vấn CSDL (truy xuất từ repo)
-                return StatusCode(500, $"Database query error: {dbEx.Message}");
-            }
-            catch (Exception ex)
-            {
-                // Lỗi không xác định (trong service hoặc chung)
-                return StatusCode(500, $"Internal server error: {ex.Message}");
-            }
-        }
 
         //Pham Son Tung
         [HttpPost("add-order-delivery-information")]

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations;
 
 namespace BepKhoiBackend.BusinessObject.dtos.MenuDto
 {
@@ -24,5 +25,8 @@ namespace BepKhoiBackend.BusinessObject.dtos.MenuDto
         public int UnitId { get; set; }
         public bool? IsAvailable { get; set; }
         public bool? Status { get; set; }
+
+        public List<IFormFile>? Images { get; set; }
+
     }
 }

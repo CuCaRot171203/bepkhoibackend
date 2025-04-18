@@ -1,9 +1,7 @@
 ﻿using BepKhoiBackend.DataAccess.Abstract.OrderAbstract;
 using BepKhoiBackend.DataAccess.Models;
-using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System.Data.Common;
-using System.Runtime.InteropServices;
 
 namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
 {
@@ -28,29 +26,6 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
             catch (Exception ex)
             {
                 throw new Exception("Error while saving the order to database.", ex);
-            }
-        }
-
-        //Update isUse value
-        public async Task UpdateRoomIsUseByRoomIdAsync(int roomId)
-        {
-            try
-            {
-                var room = await _context.Rooms
-                 .Include(r => r.Orders)
-                 .FirstOrDefaultAsync(r => r.RoomId == roomId);
-                if (room == null)
-                {
-                    return;
-                }
-                bool hasActiveOrder = room.Orders.Any(order => order.OrderStatusId == 1);
-                room.IsUse = hasActiveOrder;
-                _context.Rooms.Update(room);
-                await _context.SaveChangesAsync();
-            }
-            catch (Exception)
-            {
-                return;
             }
         }
 
@@ -91,18 +66,11 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
                 .FirstOrDefaultAsync(c => c.CustomerId == customerId);
         }
 
-        // Pham Son Tung - Func to update order
+        // Func to update order
         public async Task UpdateOrderAsync(Order order)
         {
-            try
-            {
-                _context.Orders.Update(order);
-                await _context.SaveChangesAsync();
-            }
-            catch(Exception)
-            {
-                throw;
-            }
+            _context.Orders.Update(order);
+            await _context.SaveChangesAsync();
         }
 
         // Func to get product by Id
@@ -178,66 +146,37 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
         {
             try
             {
-                // Kiểm tra cả hai đơn hàng có tồn tại không
+                // Kiểm tra xem cả hai đơn hàng có tồn tại không
                 var firstOrder = await _context.Orders.FindAsync(firstOrderId);
                 var secondOrder = await _context.Orders.FindAsync(secondOrderId);
 
                 if (firstOrder == null)
-                    throw new KeyNotFoundException($"Order with ID {firstOrderId} not found.");
-                if (secondOrder == null)
-                    throw new KeyNotFoundException($"Order with ID {secondOrderId} not found.");
-
-                // Lấy danh sách chi tiết đơn hàng từ cả hai đơn
-                var firstOrderDetails = await _context.OrderDetails
-                    .Where(od => od.OrderId == firstOrderId)
-                    .ToListAsync();
-
-                var secondOrderDetails = await _context.OrderDetails
-                    .Where(od => od.OrderId == secondOrderId)
-                    .ToListAsync();
-
-                if (!firstOrderDetails.Any())
-                    throw new InvalidOperationException($"Order with ID {firstOrderId} has no order details to transfer.");
-
-                foreach (var sourceDetail in firstOrderDetails.ToList()) // clone tránh modify khi đang loop
                 {
-                    var matchingTarget = secondOrderDetails.FirstOrDefault(target =>
-                        target.ProductId == sourceDetail.ProductId &&
-                        target.ProductNote == null &&
-                        sourceDetail.ProductNote == null &&
-                        target.Status == sourceDetail.Status
-                    );
-
-                    if (matchingTarget != null)
-                    {
-                        // Gộp số lượng nếu trùng và thỏa điều kiện
-                        matchingTarget.Quantity += sourceDetail.Quantity;
-
-                        // Xóa detail gốc trong đơn hàng đầu
-                        _context.OrderDetails.Remove(sourceDetail);
-                    }
-                    else
-                    {
-                        // Tạo mới OrderDetail trong đơn hàng đích
-                        var newOrderDetail = new OrderDetail
-                        {
-                            OrderId = secondOrderId,
-                            ProductId = sourceDetail.ProductId,
-                            ProductName = sourceDetail.ProductName,
-                            Quantity = sourceDetail.Quantity,
-                            Price = sourceDetail.Price,
-                            ProductNote = sourceDetail.ProductNote,
-                            Status = sourceDetail.Status
-                        };
-                        await _context.OrderDetails.AddAsync(newOrderDetail);
-                        _context.OrderDetails.Remove(sourceDetail); // Xóa khỏi đơn cũ
-                    }
+                    throw new KeyNotFoundException($"Order with ID {firstOrderId} not found.");
                 }
-                // Lưu thay đổi
+                if (secondOrder == null)
+                {
+                    throw new KeyNotFoundException($"Order with ID {secondOrderId} not found.");
+                }
+
+                // Lấy danh sách OrderDetail của đơn hàng thứ nhất
+                var orderDetails = await _context.OrderDetails
+                                                 .Where(od => od.OrderId == firstOrderId)
+                                                 .ToListAsync();
+
+                if (!orderDetails.Any())
+                {
+                    throw new InvalidOperationException($"Order with ID {firstOrderId} has no order details to transfer.");
+                }
+
+                // Cập nhật OrderId của OrderDetail từ firstOrderId sang secondOrderId
+                foreach (var detail in orderDetails)
+                {
+                    detail.OrderId = secondOrderId;
+                }
+
+                // Lưu thay đổi vào database
                 await _context.SaveChangesAsync();
-                // Cập nhật lại tổng số lượng và thành tiền của cả hai đơn
-                await UpdateOrderAfterUpdateOrderDetailAsync(firstOrderId);
-                await UpdateOrderAfterUpdateOrderDetailAsync(secondOrderId);
 
                 return true;
             }
@@ -255,7 +194,6 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
             }
         }
 
-
         //Pham Son Tung
         public async Task<IEnumerable<Order>> GetOrdersByTypePos(int? roomId, int? shipperId, int? orderTypeId)
         {
@@ -270,7 +208,7 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
                 switch (orderTypeId)
                 {
                     case 1:
-                        query = query.Where(o => o.OrderStatusId == 1 && o.OrderTypeId == 1);
+                        query = query.Where(o => o.OrderStatusId == 1);
                         break;
 
                     case 2:
@@ -304,27 +242,6 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
             }
         }
 
-        //Pham Son Tung
-        public async Task<List<int>> GetOrderIdsForQrSiteAsync(int roomId, int customerId)
-        {
-            try
-            {
-                return await _context.Orders
-                    .AsNoTracking()
-                    .Where(o => o.RoomId == roomId && o.CustomerId == customerId && o.OrderStatusId == 1)
-                    .Select(o => o.OrderId)
-                    .ToListAsync();
-            }
-            catch (DbUpdateException dbEx)
-            {
-                throw new DbUpdateException("Database update error occurred while fetching order IDs.", dbEx);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
         //-------------NgocQuan---------------//
         public async Task<Order?> GetOrderWithDetailsAsync(int orderId)
         {
@@ -333,57 +250,39 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
                 .FirstOrDefaultAsync(o => o.OrderId == orderId);
         }
         //Pham Son Tung
-        //public async Task<Customer> GetCustomerIdByOrderIdAsync(int orderId)
-        //{
-        //    try
-        //    {
-        //        var order = await _context.Orders
-        //            .FirstOrDefaultAsync(o => o.OrderId == orderId);
-
-        //        if (order == null)
-        //        {
-        //            throw new KeyNotFoundException($"Order with ID {orderId} was not found at repository.");
-        //        }
-        //        var customer = await _context.Customers.FirstOrDefaultAsync(c=>c.CustomerId == order.CustomerId);
-        //        if (customer == null)
-        //        {
-        //            throw new KeyNotFoundException($"customer with ID {order.Customer} was not found at repository.");
-        //        }
-        //        return customer;
-        //    }
-        //    catch (DbUpdateException dbEx)
-        //    {
-        //        // Lỗi liên quan đến thao tác database (transaction, connection...)
-        //        throw new Exception("Database update error occurred while fetching the order.", dbEx);
-        //    }
-        //    catch (DbException dbEx)
-        //    {
-        //        // Các lỗi database khác (nếu dùng System.Data.Common)
-        //        throw new Exception("A database error occurred while retrieving the order.", dbEx);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        // Catch all để tránh app crash
-        //        throw new Exception("An unexpected error occurred while getting the customer ID.", ex);
-        //    }
-        //}
         public async Task<Customer> GetCustomerIdByOrderIdAsync(int orderId)
         {
-            var order = await _context.Orders
-                .FirstOrDefaultAsync(o => o.OrderId == orderId);
-
-            if (order == null)
+            try
             {
-                throw new KeyNotFoundException($"Order with ID {orderId} was not found at repository.");
-            }
+                var order = await _context.Orders
+                    .FirstOrDefaultAsync(o => o.OrderId == orderId);
 
-            var customer = await _context.Customers.FirstOrDefaultAsync(c => c.CustomerId == order.CustomerId);
-            if (customer == null)
+                if (order == null)
+                {
+                    throw new KeyNotFoundException($"Order with ID {orderId} was not found at repository.");
+                }
+                var customer = await _context.Customers.FirstOrDefaultAsync(c=>c.CustomerId == order.CustomerId);
+                if (customer == null)
+                {
+                    throw new KeyNotFoundException($"customer with ID {order.Customer} was not found at repository.");
+                }
+                return customer;
+            }
+            catch (DbUpdateException dbEx)
             {
-                throw new KeyNotFoundException($"Customer with ID {order.CustomerId} was not found at repository.");
+                // Lỗi liên quan đến thao tác database (transaction, connection...)
+                throw new Exception("Database update error occurred while fetching the order.", dbEx);
             }
-
-            return customer;
+            catch (DbException dbEx)
+            {
+                // Các lỗi database khác (nếu dùng System.Data.Common)
+                throw new Exception("A database error occurred while retrieving the order.", dbEx);
+            }
+            catch (Exception ex)
+            {
+                // Catch all để tránh app crash
+                throw new Exception("An unexpected error occurred while getting the customer ID.", ex);
+            }
         }
 
         public async Task AssignCustomerToOrder(int orderId, int customerId)
@@ -457,7 +356,7 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
         }
 
         //Pham Son Tung
-        public async Task<Order> RemoveOrder(int orderId)
+        public async Task<bool> RemoveOrder(int orderId)
         {
             try
             {
@@ -480,7 +379,7 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
 
                 // Lưu thay đổi vào cơ sở dữ liệu
                 await _context.SaveChangesAsync();
-                return order; // Thành công
+                return true; // Thành công
             }
             catch (Exception ex)
             {
@@ -524,85 +423,11 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
                 .ToListAsync();
         }
 
-        //public async Task AddOrderAsync(Order order)
-        //{
-        //    await _context.Orders.AddAsync(order);
-        //    await _context.SaveChangesAsync();
-        //}
-        //Pham Son Tung
-        public async Task<Order?> GetOrderByIdAsync(int orderId)
+        public async Task AddOrderAsync(Order order)
         {
-            try
-            {
-                return await _context.Orders.Include(o => o.OrderDetails).FirstOrDefaultAsync(o => o.OrderId == orderId);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            await _context.Orders.AddAsync(order);
+            await _context.SaveChangesAsync();
         }
-        //Pham Son Tung
-        public async Task<bool> UpdateOrderCustomerAsync(Order order)
-        {
-            try
-            {
-                _context.Orders.Update(order);
-                await _context.SaveChangesAsync();
-                return true;
-            }
-            catch (DbUpdateException ex)
-            {
-                throw new DbUpdateException("Failed to update order: " + ex.InnerException?.Message, ex);
-            }
-        }
-        //Pham Son Tung
-        public async Task<bool> AddOrUpdateOrderDetailsAsync(Order order, List<OrderDetail> newDetails)
-        {
-            try
-            {
-                foreach (var newDetail in newDetails)
-                {
-                    var existingDetails = order.OrderDetails
-                        .Where(od => od.ProductId == newDetail.ProductId)
-                        .ToList();
-
-                    // Check if note exists → create new
-                    if (!string.IsNullOrWhiteSpace(newDetail.ProductNote))
-                    {
-                        _context.OrderDetails.Add(newDetail);
-                        continue;
-                    }
-
-                    var sameWithoutNote = existingDetails
-                        .FirstOrDefault(od => string.IsNullOrEmpty(od.ProductNote));
-
-                    if (sameWithoutNote != null)
-                    {
-                        if (sameWithoutNote.Status == false)
-                        {
-                            sameWithoutNote.Quantity += newDetail.Quantity;
-                            _context.OrderDetails.Update(sameWithoutNote);
-                        }
-                        else
-                        {
-                            _context.OrderDetails.Add(newDetail);
-                        }
-                    }
-                    else
-                    {
-                        _context.OrderDetails.Add(newDetail);
-                    }
-                }
-
-                await _context.SaveChangesAsync();
-                return true;
-            }
-            catch (DbUpdateException ex)
-            {
-                throw new DbUpdateException("Failed to update order details: " + ex.InnerException?.Message, ex);
-            }
-        }
-
 
         public async Task AddOrderDetailsAsync(List<OrderDetail> orderDetails)
         {
@@ -655,225 +480,6 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
             order.AmountDue = order.OrderDetails.Sum(od => od.Quantity * od.Price);
             _context.Orders.Update(order);
             await _context.SaveChangesAsync();
-        }
-
-        //Pham Son Tung
-        public async Task UpdateOrderAfterDeleteOrderDetailAsync(int orderId)
-        {
-            var order = await _context.Orders
-                .Include(o => o.OrderDetails)
-                .FirstOrDefaultAsync(o => o.OrderId == orderId);
-
-            if (order == null)
-            {
-                throw new KeyNotFoundException($"Order with ID {orderId} not found.");
-            }
-            order.TotalQuantity = order.OrderDetails.Sum(od => od.Quantity);
-            order.AmountDue = order.OrderDetails.Sum(od => od.Quantity * od.Price);
-            _context.Orders.Update(order);
-            await _context.SaveChangesAsync();
-        }
-
-        //Pham Son Tung
-        public async Task UpdateOrderAfterUpdateOrderDetailAsync(int orderId)
-        {
-            var order = await _context.Orders
-                .Include(o => o.OrderDetails)
-                .FirstOrDefaultAsync(o => o.OrderId == orderId);
-
-            if (order == null)
-            {
-                throw new KeyNotFoundException($"Order with ID {orderId} not found.");
-            }
-            order.TotalQuantity = order.OrderDetails.Sum(od => od.Quantity);
-            order.AmountDue = order.OrderDetails.Sum(od => od.Quantity * od.Price);
-            _context.Orders.Update(order);
-            await _context.SaveChangesAsync();
-        }
-
-        //Pham Son Tung
-        public async Task DeleteOrderDetailAsync(int orderId, int orderDetailId)
-        {
-            try
-            {
-                var orderDetail = await _context.OrderDetails
-                    .FirstOrDefaultAsync(od => od.OrderId == orderId && od.OrderDetailId == orderDetailId);
-
-                if (orderDetail == null)
-                {
-                    throw new KeyNotFoundException($"OrderDetail with ID {orderDetailId} for Order {orderId} not found.");
-                }
-                if (orderDetail.Status == true)
-                {
-                    throw new InvalidOperationException($"Can not delete OrderDetail ID {orderDetailId} because status is true.");
-                }
-                _context.OrderDetails.Remove(orderDetail);
-                await _context.SaveChangesAsync();
-                await UpdateOrderAfterDeleteOrderDetailAsync(orderId);
-            }
-            catch (DbUpdateConcurrencyException ex)
-            {
-                throw new InvalidOperationException("A concurrency error occurred while deleting the OrderDetail.", ex);
-            }
-            catch (DbUpdateException ex)
-            {
-                throw new InvalidOperationException("An error occurred while updating the database during deletion.", ex);
-            }
-            catch (InvalidOperationException ex)
-            {
-                throw new InvalidOperationException("An unexpected error occurred during deletion.", ex);
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-        }
-
-        //Pham Son Tung
-        public async Task DeleteConfirmedOrderDetailAsync(int orderId, int orderDetailId, OrderCancellationHistory cancellation)
-        {
-            try
-            {
-                var orderDetail = await _context.OrderDetails
-                    .FirstOrDefaultAsync(od => od.OrderId == orderId && od.OrderDetailId == orderDetailId);
-
-                if (orderDetail == null)
-                {
-                    throw new KeyNotFoundException($"OrderDetail with ID {orderDetailId} for Order {orderId} not found.");
-                }
-
-                // Gán lại thông tin từ OrderDetail nếu cần
-                cancellation.OrderId = orderId;
-                cancellation.ProductId = orderDetail.ProductId;
-                cancellation.Quantity = orderDetail.Quantity;
-
-                await _context.OrderCancellationHistories.AddAsync(cancellation);
-
-                _context.OrderDetails.Remove(orderDetail);
-
-                await _context.SaveChangesAsync();
-
-                await UpdateOrderAfterDeleteOrderDetailAsync(orderId);
-            }
-            catch (DbUpdateConcurrencyException ex)
-            {
-                throw new InvalidOperationException("A concurrency error occurred while deleting the confirmed OrderDetail.", ex);
-            }
-            catch (DbUpdateException ex)
-            {
-                throw new InvalidOperationException("A database error occurred while deleting the confirmed OrderDetail.", ex);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        //Pham Son Tung
-        public async Task<Order?> GetFullOrderByIdAsync(int orderId)
-        {
-            try
-            {
-                return await _context.Orders
-                    .Include(o => o.Customer)
-                    .Include(o => o.OrderDetails)
-                        .ThenInclude(od => od.Product) 
-                    .FirstOrDefaultAsync(o => o.OrderId == orderId);
-            }
-            catch (SqlException sqlEx)
-            {
-                // Lỗi liên quan đến kết nối SQL
-                throw new Exception($"Database connect error: {sqlEx.Message}", sqlEx);
-            }
-            catch (DbException dbEx)
-            {
-                // Lỗi chung liên quan đến truy vấn CSDL
-                throw new Exception($"Database connect error: {dbEx.Message}", dbEx);
-            }
-            catch (Exception ex)
-            {
-                // Bắt tất cả lỗi còn lại
-                throw new Exception($"Undefined Error: {ex.Message}", ex);
-            }
-        }
-
-        //Pham Son Tung
-        public async Task<bool> CreateDeliveryInformationAsync(int orderId, string receiverName, string receiverPhone, string receiverAddress, string? deliveryNote)
-        {
-            // Kiểm tra OrderId có tồn tại không
-            var order = await _context.Orders.FindAsync(orderId);
-            if (order == null)
-            {
-                throw new InvalidOperationException($"Can not find order with ID {orderId}.");
-            }
-            try
-            {
-                if (order.DeliveryInformationId.HasValue)
-                {
-                    var existingDeliveryInfo = await _context.DeliveryInformations.FindAsync(order.DeliveryInformationId.Value);
-
-                    if (existingDeliveryInfo != null)
-                    {
-                        // Cập nhật thông tin giao hàng
-                        existingDeliveryInfo.ReceiverName = receiverName;
-                        existingDeliveryInfo.ReceiverPhone = receiverPhone;
-                        existingDeliveryInfo.ReceiverAddress = receiverAddress;
-                        existingDeliveryInfo.DeliveryNote = deliveryNote;
-
-                        _context.DeliveryInformations.Update(existingDeliveryInfo);
-                        await _context.SaveChangesAsync();
-                        return true;
-                    }
-                }
-                var deliveryInfo = new DeliveryInformation
-                {
-                    ReceiverName = receiverName,
-                    ReceiverPhone = receiverPhone,
-                    ReceiverAddress = receiverAddress,
-                    DeliveryNote = deliveryNote
-                };
-
-                _context.DeliveryInformations.Add(deliveryInfo);
-                await _context.SaveChangesAsync();
-                order.DeliveryInformationId = deliveryInfo.DeliveryInformationId;
-                _context.Orders.Update(order);
-                await _context.SaveChangesAsync();
-                return true;
-            }
-            catch (DbUpdateException dbEx)
-            {
-                throw new DbUpdateException("Database error.", dbEx);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Undefined error has been occur.", ex);
-            }
-        }
-
-        //Phạm Sơn Tùng
-        public async Task<DeliveryInformation?> GetDeliveryInformationByOrderIdAsync(int orderId)
-        {
-            try
-            {
-                var order = await _context.Orders
-                    .Include(o => o.DeliveryInformation)
-                    .FirstOrDefaultAsync(o => o.OrderId == orderId);
-
-                if (order == null)
-                {
-                    throw new InvalidOperationException($"Cannot find order with ID {orderId}.");
-                }
-
-                return order.DeliveryInformation;
-            }
-            catch (DbUpdateException dbEx)
-            {
-                throw new DbUpdateException("Database error occurred while retrieving DeliveryInformation.", dbEx);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
         }
 
     }

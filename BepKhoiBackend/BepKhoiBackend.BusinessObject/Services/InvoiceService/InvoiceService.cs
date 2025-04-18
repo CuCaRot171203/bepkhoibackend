@@ -1,7 +1,6 @@
 ﻿using BepKhoiBackend.BusinessObject.dtos.InvoiceDto;
 using BepKhoiBackend.DataAccess.Models;
 using BepKhoiBackend.DataAccess.Repository.InvoiceRepository;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;

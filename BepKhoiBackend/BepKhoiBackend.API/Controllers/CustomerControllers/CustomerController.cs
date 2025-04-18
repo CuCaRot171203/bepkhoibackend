@@ -1,11 +1,13 @@
 ﻿using BepKhoiBackend.BusinessObject.dtos.CustomerDto;
 using BepKhoiBackend.BusinessObject.Services.CustomerService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 
 namespace BepKhoiBackend.API.Controllers.CustomerControllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class CustomerController : ControllerBase
@@ -16,6 +18,8 @@ namespace BepKhoiBackend.API.Controllers.CustomerControllers
         {
             _customerService = customerService;
         }
+
+        [Authorize(Roles = "manager")]
 
         [HttpGet]
         public ActionResult<List<CustomerDTO>> GetAllCustomers()
