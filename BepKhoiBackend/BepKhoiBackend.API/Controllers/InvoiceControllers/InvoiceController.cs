@@ -2,6 +2,7 @@
 using BepKhoiBackend.BusinessObject.Services.InvoiceService;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BepKhoiBackend.API.Controllers.InvoiceControllers
 {
@@ -150,6 +151,8 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
             //var redirectFail = $"https://yourfrontend.com/payment-failure?code={response.VnPayResponseCode}";
             return Redirect(redirectFail);
         }
+
+
 
         //Phạm Sơn Tùng
         public class InvoicePaymentRequestDto

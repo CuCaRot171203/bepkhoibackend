@@ -22,6 +22,9 @@ namespace BepKhoiBackend.DataAccess.Repository.InvoiceRepository
         Invoice? GetInvoiceForPdf(int id);
         Task<Invoice> GetInvoiceByIdAsync(int id);
         bool UpdateInvoiceStatus(int invoiceId, bool status);
+        Task<Invoice> CreateInvoiceForPaymentAsync(Invoice invoice);
+        Task<bool> AddInvoiceDetailForPaymentsAsync(List<InvoiceDetail> invoiceDetails);
+        Task ChangeOrderStatusAfterPayment(int orderId);
 
     }
 }

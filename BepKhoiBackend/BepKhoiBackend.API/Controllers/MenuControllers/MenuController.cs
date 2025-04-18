@@ -17,9 +17,8 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
         private readonly IMapper _mapper;
         private readonly IMenuService _menuService;
         private readonly ILogger<MenuController> _logger;
-        private readonly CloudinaryService _cloudinaryService;
+
         public MenuController(
-            CloudinaryService cloudinaryService,
             IMenuRepository menuRepository,
             IMapper mapper,
             ILogger<MenuController> logger,
@@ -29,7 +28,6 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
             _menuService = menuService;
             _mapper = mapper;
             _logger = logger;
-            _cloudinaryService = cloudinaryService;
         }
         
         /*========== NEW MENU API CONTROLLER =======*/
@@ -57,11 +55,11 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
 
         [HttpGet("get-all-menus-customer")]
         public async Task<IActionResult> GetAllMenuCustomerAsync(
-            [FromQuery] string sortBy = "ProductId",
-            [FromQuery] string sortDirection = "asc",
-            [FromQuery] int? categoryId = null,
-            [FromQuery] bool? isActive = null,
-            [FromQuery] string? productNameOrId = null)
+    [FromQuery] string sortBy = "ProductId",
+    [FromQuery] string sortDirection = "asc",
+    [FromQuery] int? categoryId = null,
+    [FromQuery] bool? isActive = null,
+    [FromQuery] string? productNameOrId = null)
         {
             var result = await _menuService.GetAllMenusCustomerAsync(sortBy, sortDirection, categoryId, isActive, productNameOrId);
 
@@ -124,7 +122,7 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> AddMenu([FromForm] CreateMenuDto menuDto)
+        public async Task<IActionResult> AddMenu([FromBody] CreateMenuDto menuDto)
         {
             try
             {
@@ -133,19 +131,9 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
                     _logger.LogWarning("Invalid menu data received.");
                     return BadRequest(ModelState);
                 }
-                var imageUrls = new List<string>();
-                if (menuDto.Images != null && menuDto.Images.Any())
-                {
-                    foreach (var image in menuDto.Images)
-                    {
-                        var imageUrl = await _cloudinaryService.UploadImageAsync(image);
-                        imageUrls.Add(imageUrl);
-                    }
-                }
-                // Call service
-                var result = await _menuService.AddMenuAsync(menuDto, imageUrls);
 
-                // Upload images to Cloudinary
+                // Call service
+                var result = await _menuService.AddMenuAsync(menuDto);
 
                 if (!result.IsSuccess)
                 {
@@ -374,7 +362,7 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
         [ProducesResponseType(typeof(List<MenuPosDto>), 200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> FilterRoomPos([FromQuery] int? categoryId, [FromQuery] bool? isAvailable)
+        public async Task<IActionResult> FilterMenuPos([FromQuery] int? categoryId, [FromQuery] bool? isAvailable)
         {
             try
             {

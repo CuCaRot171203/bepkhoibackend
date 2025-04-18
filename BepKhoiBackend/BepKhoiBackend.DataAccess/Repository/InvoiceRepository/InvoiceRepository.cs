@@ -116,5 +116,74 @@ namespace BepKhoiBackend.DataAccess.Repositories
 
             return true;
         }
+
+        //Phạm Sơn Tùng
+        public async Task<Invoice> CreateInvoiceForPaymentAsync(Invoice invoice)
+        {
+            if (invoice == null)
+            {
+                throw new ArgumentNullException(nameof(invoice), "Invoice object cannot be null.");
+            }
+
+            try
+            {
+                await _context.Invoices.AddAsync(invoice);
+                await _context.SaveChangesAsync();
+                return invoice;
+            }
+            catch (DbUpdateException dbEx)
+            {
+                throw new DbUpdateException("Database update error while creating invoice.", dbEx);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An unexpected error occurred while creating invoice.", ex);
+            }
+        }
+
+        //phạm sơn tùng
+        public async Task<bool> AddInvoiceDetailForPaymentsAsync(List<InvoiceDetail> invoiceDetails)
+        {
+            try
+            {
+                if (invoiceDetails == null || !invoiceDetails.Any())
+                    throw new ArgumentException("Empty invoice detail list.");
+                await _context.InvoiceDetails.AddRangeAsync(invoiceDetails);
+                await _context.SaveChangesAsync();
+
+                return true;
+            }
+            catch (DbUpdateException dbEx)
+            {
+                throw new DbUpdateException("Database error occur when saving invoice detail.", dbEx);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An unexpected error has been occur when saving invoice detail.", ex);
+            }
+        }
+        //Phạm Sơn Tùng
+        public async Task ChangeOrderStatusAfterPayment(int orderId)
+        {
+            try
+            {
+                var order = await _context.Orders.FirstOrDefaultAsync(o => o.OrderId == orderId);
+
+                if (order == null)
+                {
+                    throw new InvalidOperationException($"Order with ID {orderId} not found.");
+                }
+                order.OrderStatusId = 2;
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException dbEx)
+            {
+                throw new Exception("An error occurred while updating the order status in the database.", dbEx);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An error occurred while updating the order status.", ex);
+            }
+        }
     }
 }
