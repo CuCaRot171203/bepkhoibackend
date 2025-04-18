@@ -483,14 +483,41 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
             }
         }
         
-        [HttpPost("create-order-customer")]
-        public async Task<IActionResult> CreateOrder([FromBody] OrderCreateDTO request)
+        //Phạm Sơn Tùng
+        [HttpPut("update-order-customer")]
+        public async Task<IActionResult> UpdateOrderCustomer([FromBody] OrderUpdateDTO request)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var result = await _orderService.CreateOrderAsync(request);
-            return Ok(new { message = result });
+            if (request.OrderId <= 0)
+                return BadRequest("OrderId không hợp lệ.");
+
+            if (request.OrderTypeId <= 0)
+                return BadRequest("OrderTypeId không hợp lệ.");
+
+            if (request.AmountDue < 0 || request.TotalQuantity < 0)
+                return BadRequest("Số lượng và số tiền không thể âm.");
+
+            try
+            {
+                var result = await _orderService.UpdateOrderWithDetailsAsync(request);
+                if (!result)
+                    return StatusCode(500, "Cập nhật thất bại.");
+                return Ok(new { message = "Cập nhật thành công." });
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+            catch (DbUpdateException ex)
+            {
+                return StatusCode(500, new { message = "Lỗi cơ sở dữ liệu: " + ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Lỗi hệ thống: " + ex.Message });
+            }
         }
 
 
@@ -797,7 +824,37 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
             }
         }
 
+        //Phạm Sơn Tùng
+        [HttpGet("order-ids-for-qr")]
+        public async Task<IActionResult> GetOrderIdsForQrSite([FromQuery] string roomId, [FromQuery] string customerId)
+        {
+            try
+            {
+                // Kiểm tra null, rỗng, kiểu dữ liệu không hợp lệ
+                if (string.IsNullOrWhiteSpace(roomId) || !int.TryParse(roomId, out int roomIdInt) || roomIdInt <= 0)
+                {
+                    return BadRequest("roomId không hợp lệ. Vui lòng cung cấp một số nguyên dương hợp lệ.");
+                }
 
+                if (string.IsNullOrWhiteSpace(customerId) || !int.TryParse(customerId, out int customerIdInt) || customerIdInt <= 0)
+                {
+                    return BadRequest("customerId không hợp lệ. Vui lòng cung cấp một số nguyên dương hợp lệ.");
+                }
+
+                // Gọi service
+                var orderIds = await _orderService.GetOrderIdsForQrSiteAsync(roomIdInt, customerIdInt);
+
+                return Ok(orderIds);
+            }
+            catch (DbUpdateException ex)
+            {
+                return StatusCode(500, $"Lỗi cơ sở dữ liệu: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Đã xảy ra lỗi: {ex.Message}");
+            }
+        }
 
 
     }

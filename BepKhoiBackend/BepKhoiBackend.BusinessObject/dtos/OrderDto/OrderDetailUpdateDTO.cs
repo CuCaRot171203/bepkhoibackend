@@ -6,18 +6,16 @@ using System.Threading.Tasks;
 
 namespace BepKhoiBackend.BusinessObject.dtos.OrderDto
 {
-    // OrderDetailCreateDTO.cs
-    public class OrderDetailCreateDTO
+    public class OrderDetailUpdateDTO
     {
         public int ProductId { get; set; }
         public string ProductName { get; set; } = string.Empty;
         public int Quantity { get; set; }
         public decimal Price { get; set; }
         public string? ProductNote { get; set; }
-        public bool? Status { get; set; } = true;
     }
 
-    
+
 
 
 }

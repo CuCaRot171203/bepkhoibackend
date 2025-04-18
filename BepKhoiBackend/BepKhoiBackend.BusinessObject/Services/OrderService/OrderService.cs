@@ -583,49 +583,48 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
             }
         }
 
-
-        public async Task<string> CreateOrderAsync(OrderCreateDTO dto)
+        //Pham Son Tung
+        public async Task<bool> UpdateOrderWithDetailsAsync(OrderUpdateDTO dto)
         {
-            // 1) Map DTO → Entity Order
-            var order = new Order
+            try
             {
-                CustomerId = dto.CustomerId,
-                OrderTypeId = dto.OrderTypeId,
-                RoomId = dto.RoomId,
-                CreatedTime = DateTime.UtcNow,
-                TotalQuantity = dto.TotalQuantity,
-                AmountDue = dto.AmountDue,
-                OrderStatusId = dto.OrderStatusId,
-                OrderNote = dto.OrderNote,
-            };
+                var order = await _orderRepository.GetOrderByIdAsync(dto.OrderId);
+                if (order == null)
+                    throw new ArgumentException("Order ID không tồn tại.");
 
-            // 2) Gán chi tiết
-            order.OrderDetails = dto.OrderDetails
-                .Select(d => new OrderDetail
+                // Update main order info
+                order.CustomerId = dto.CustomerId;
+                order.OrderTypeId = dto.OrderTypeId;
+                order.RoomId = dto.RoomId;
+                order.TotalQuantity = dto.TotalQuantity;
+                order.AmountDue = dto.AmountDue;
+                order.OrderStatusId = dto.OrderStatusId;
+                order.OrderNote = dto.OrderNote;
+                order.CreatedTime = DateTime.UtcNow;
+
+                var updateOrderResult = await _orderRepository.UpdateOrderCustomerAsync(order);
+                if (!updateOrderResult) return false;
+
+                // Map DTO → List<OrderDetail>
+                var newDetails = dto.OrderDetails.Select(d => new OrderDetail
                 {
+                    OrderId = dto.OrderId,
                     ProductId = d.ProductId,
                     ProductName = d.ProductName,
                     Quantity = d.Quantity,
                     Price = d.Price,
                     ProductNote = d.ProductNote,
-                    Status = d.Status
-                })
-                .ToList();
+                    Status = false
+                }).ToList();
 
-            // 3) Lưu 1 lần, EF tự gán OrderId cho từng detail
-            try
-            {
-                await _orderRepository.AddOrderAsync(order);
+                return await _orderRepository.AddOrUpdateOrderDetailsAsync(order, newDetails);
             }
-            catch (DbUpdateException ex)
+            catch (Exception)
             {
-                // Bắt lỗi để xem InnerException
-                throw new InvalidOperationException(
-                    "Lỗi khi lưu Order/OrderDetail: " + ex.InnerException?.Message, ex);
+                throw;
             }
-
-            return $"Order {order.OrderId} created with {order.OrderDetails.Count} items.";
         }
+
 
 
 
@@ -843,6 +842,21 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
             }
         }
 
-
+        //Pham Son Tung
+        public async Task<List<int>> GetOrderIdsForQrSiteAsync(int roomId, int customerId)
+        {
+            try
+            {
+                return await _orderRepository.GetOrderIdsForQrSiteAsync(roomId, customerId);
+            }
+            catch (DbUpdateException dbEx)
+            {
+                throw new DbUpdateException("Database update error occurred while fetching order IDs.", dbEx);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace BepKhoiBackend.BusinessObject.dtos.OrderDto
 {
-    public class OrderCreateDTO
+    public class OrderUpdateDTO
     {
+        public int OrderId { get; set; }
         public int? CustomerId { get; set; }
         public int OrderTypeId { get; set; }
         public int? RoomId { get; set; }
@@ -15,8 +16,7 @@ namespace BepKhoiBackend.BusinessObject.dtos.OrderDto
         public decimal AmountDue { get; set; }
         public int OrderStatusId { get; set; }
         public string? OrderNote { get; set; }
-
-        public List<OrderDetailCreateDTO> OrderDetails { get; set; } = new();
+        public List<OrderDetailUpdateDTO> OrderDetails { get; set; } = new();
     }
 
 }

@@ -3,6 +3,7 @@ using BepKhoiBackend.DataAccess.Models;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System.Data.Common;
+using System.Runtime.InteropServices;
 
 namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
 {
@@ -90,11 +91,18 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
                 .FirstOrDefaultAsync(c => c.CustomerId == customerId);
         }
 
-        // Func to update order
+        // Pham Son Tung - Func to update order
         public async Task UpdateOrderAsync(Order order)
         {
-            _context.Orders.Update(order);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _context.Orders.Update(order);
+                await _context.SaveChangesAsync();
+            }
+            catch(Exception)
+            {
+                throw;
+            }
         }
 
         // Func to get product by Id
@@ -293,6 +301,27 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
             {
                 // Bắt tất cả các lỗi khác và ném lỗi tùy chỉnh
                 throw new Exception("An error occurred while fetching orders.", ex);
+            }
+        }
+
+        //Pham Son Tung
+        public async Task<List<int>> GetOrderIdsForQrSiteAsync(int roomId, int customerId)
+        {
+            try
+            {
+                return await _context.Orders
+                    .AsNoTracking()
+                    .Where(o => o.RoomId == roomId && o.CustomerId == customerId && o.OrderStatusId == 1)
+                    .Select(o => o.OrderId)
+                    .ToListAsync();
+            }
+            catch (DbUpdateException dbEx)
+            {
+                throw new DbUpdateException("Database update error occurred while fetching order IDs.", dbEx);
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
 
@@ -495,11 +524,85 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
                 .ToListAsync();
         }
 
-        public async Task AddOrderAsync(Order order)
+        //public async Task AddOrderAsync(Order order)
+        //{
+        //    await _context.Orders.AddAsync(order);
+        //    await _context.SaveChangesAsync();
+        //}
+        //Pham Son Tung
+        public async Task<Order?> GetOrderByIdAsync(int orderId)
         {
-            await _context.Orders.AddAsync(order);
-            await _context.SaveChangesAsync();
+            try
+            {
+                return await _context.Orders.Include(o => o.OrderDetails).FirstOrDefaultAsync(o => o.OrderId == orderId);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
+        //Pham Son Tung
+        public async Task<bool> UpdateOrderCustomerAsync(Order order)
+        {
+            try
+            {
+                _context.Orders.Update(order);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch (DbUpdateException ex)
+            {
+                throw new DbUpdateException("Failed to update order: " + ex.InnerException?.Message, ex);
+            }
+        }
+        //Pham Son Tung
+        public async Task<bool> AddOrUpdateOrderDetailsAsync(Order order, List<OrderDetail> newDetails)
+        {
+            try
+            {
+                foreach (var newDetail in newDetails)
+                {
+                    var existingDetails = order.OrderDetails
+                        .Where(od => od.ProductId == newDetail.ProductId)
+                        .ToList();
+
+                    // Check if note exists → create new
+                    if (!string.IsNullOrWhiteSpace(newDetail.ProductNote))
+                    {
+                        _context.OrderDetails.Add(newDetail);
+                        continue;
+                    }
+
+                    var sameWithoutNote = existingDetails
+                        .FirstOrDefault(od => string.IsNullOrEmpty(od.ProductNote));
+
+                    if (sameWithoutNote != null)
+                    {
+                        if (sameWithoutNote.Status == false)
+                        {
+                            sameWithoutNote.Quantity += newDetail.Quantity;
+                            _context.OrderDetails.Update(sameWithoutNote);
+                        }
+                        else
+                        {
+                            _context.OrderDetails.Add(newDetail);
+                        }
+                    }
+                    else
+                    {
+                        _context.OrderDetails.Add(newDetail);
+                    }
+                }
+
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch (DbUpdateException ex)
+            {
+                throw new DbUpdateException("Failed to update order details: " + ex.InnerException?.Message, ex);
+            }
+        }
+
 
         public async Task AddOrderDetailsAsync(List<OrderDetail> orderDetails)
         {
@@ -772,7 +875,6 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
                 throw;
             }
         }
-
 
     }
 }

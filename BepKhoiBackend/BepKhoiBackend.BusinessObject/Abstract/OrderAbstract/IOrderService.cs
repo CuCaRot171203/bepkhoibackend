@@ -31,13 +31,13 @@ namespace BepKhoiBackend.BusinessObject.Abstract.OrderAbstract
         Task<IEnumerable<OrderDetailDtoPos>> GetOrderDetailsByOrderIdAsync(int orderId);
         Task<ResultWithList<OrderDto>> GetAllOrdersAsync();
         Task<ResultWithList<OrderDto>> FilterOrdersByDateAsync(DateTime fromDate, DateTime toDate);
-
-        Task<string> CreateOrderAsync(OrderCreateDTO dto);
         Task<OrderGeneralDataPosDto> GetOrderGeneralDataPosAsync(int orderId);
         Task DeleteOrderDetailAsync(int orderId, int orderDetailId);
         Task DeleteConfirmedOrderDetailAsync(DeleteConfirmedOrderDetailRequestDto request);
         Task<OrderPaymentDto?> GetOrderPaymentDtoByIdAsync(int orderId);
         Task<bool> CreateDeliveryInformationServiceAsync(DeliveryInformationCreateDto dto);
         Task<DeliveryInformationDto?> GetDeliveryInformationByOrderIdAsync(int orderId);
+        Task<List<int>> GetOrderIdsForQrSiteAsync(int roomId, int customerId);
+        Task<bool> UpdateOrderWithDetailsAsync(OrderUpdateDTO dto);
     }
 }
