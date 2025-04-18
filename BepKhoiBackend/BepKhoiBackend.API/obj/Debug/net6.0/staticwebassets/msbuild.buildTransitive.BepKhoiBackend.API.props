@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\BepKhoiBackend.API.props" />
-</Project>
