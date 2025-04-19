@@ -1,11 +1,13 @@
 ﻿using BepKhoiBackend.BusinessObject.dtos.CustomerDto;
 using BepKhoiBackend.BusinessObject.Services.CustomerService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 
 namespace BepKhoiBackend.API.Controllers.CustomerControllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class CustomerController : ControllerBase
@@ -17,6 +19,7 @@ namespace BepKhoiBackend.API.Controllers.CustomerControllers
             _customerService = customerService;
         }
 
+        [Authorize(Roles = "manager")]
         [HttpGet]
         public ActionResult<List<CustomerDTO>> GetAllCustomers()
         {
@@ -24,6 +27,7 @@ namespace BepKhoiBackend.API.Controllers.CustomerControllers
             return Ok(customers);
         }
 
+        [Authorize(Roles = "manager")]
         [HttpGet("{id}")]
         [ProducesResponseType(typeof(CustomerDTO), 200)] // OK
         [ProducesResponseType(400)] // BadRequest
@@ -65,6 +69,7 @@ namespace BepKhoiBackend.API.Controllers.CustomerControllers
             }
         }
 
+        [Authorize(Roles = "manager")]
         [HttpGet("search")]
         [ProducesResponseType(typeof(List<CustomerDTO>), 200)] // OK
         [ProducesResponseType(400)] // BadRequest
@@ -95,6 +100,7 @@ namespace BepKhoiBackend.API.Controllers.CustomerControllers
             }
         }
 
+        [Authorize(Roles = "manager")]
         [HttpGet("{customerId}/invoices")]
         public IActionResult GetInvoicesByCustomerId(int customerId)
         {
@@ -106,7 +112,7 @@ namespace BepKhoiBackend.API.Controllers.CustomerControllers
             return Ok(invoices);
         }
 
-
+        [Authorize(Roles = "manager")]
         [HttpGet("export")]
         public IActionResult ExportCustomers()
         {
@@ -114,6 +120,7 @@ namespace BepKhoiBackend.API.Controllers.CustomerControllers
             return File(fileContents, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Customers.xlsx");
         }
 
+        [Authorize(Roles = "manager, cashier")]
         [HttpPost("create-new-customer")]
         [ProducesResponseType(200)] // OK
         [ProducesResponseType(400)] // BadRequest

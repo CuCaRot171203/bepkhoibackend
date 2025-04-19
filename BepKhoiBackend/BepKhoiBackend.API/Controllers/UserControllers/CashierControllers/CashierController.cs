@@ -1,10 +1,12 @@
 ﻿using BepKhoiBackend.BusinessObject.dtos.UserDto.CashierDto;
 using BepKhoiBackend.BusinessObject.Services.UserService.CashierService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BepKhoiBackend.API.Controllers.UserControllers.CashierControllers
 {
+    [Authorize]
     [Route("api/cashiers")]
     [ApiController]
     public class CashierController : ControllerBase
@@ -16,6 +18,7 @@ namespace BepKhoiBackend.API.Controllers.UserControllers.CashierControllers
             _cashierService = cashierService;
         }
 
+        [Authorize(Roles = "manager")]
         // Lấy danh sách tất cả Cashier
         [HttpGet]
         public ActionResult<IEnumerable<CashierDTO>> GetAllCashiers()
@@ -24,6 +27,7 @@ namespace BepKhoiBackend.API.Controllers.UserControllers.CashierControllers
             return Ok(cashiers);
         }
 
+        [Authorize(Roles = "manager")]
         // Lấy thông tin Cashier theo ID
         [HttpGet("{id}")]
         public ActionResult<CashierDTO> GetCashierById(int id)
@@ -35,6 +39,8 @@ namespace BepKhoiBackend.API.Controllers.UserControllers.CashierControllers
             }
             return Ok(cashier);
         }
+
+        [Authorize(Roles = "manager")]
         [HttpPost]
         //[Authorize(Roles = "Admin, Manager")]
         public IActionResult CreateCashier([FromBody] CreateCashierDTO newCashier)
@@ -47,6 +53,8 @@ namespace BepKhoiBackend.API.Controllers.UserControllers.CashierControllers
             _cashierService.CreateCashier(newCashier.Email, newCashier.Password, newCashier.Phone, newCashier.UserName);
             return Ok("Cashier đã được tạo thành công.");
         }
+
+
 
         [HttpPut("{id}")]
         // [Authorize(Roles = "Admin, Manager")]
@@ -77,7 +85,7 @@ namespace BepKhoiBackend.API.Controllers.UserControllers.CashierControllers
             return Ok($"Cashier có ID {id} đã được cập nhật thành công.");
         }
 
-
+        [Authorize(Roles = "manager")]
         [HttpDelete("{id}")]
         //[Authorize(Roles = "Admin")]
         public IActionResult DeleteCashier(int id)
@@ -86,6 +94,7 @@ namespace BepKhoiBackend.API.Controllers.UserControllers.CashierControllers
             return Ok($"Cashier có ID {id} đã bị xóa.");
         }
 
+        [Authorize(Roles = "manager")]
         [HttpGet("{id}/invoices")]
         public ActionResult<IEnumerable<CashierInvoiceDTO>> GetCashierInvoices(int id)
         {
@@ -97,12 +106,15 @@ namespace BepKhoiBackend.API.Controllers.UserControllers.CashierControllers
             return Ok(new { CashierId = id, Invoices = invoices });
         }
 
+        [Authorize(Roles = "manager")]
         [HttpGet("search")]
         public ActionResult<List<CashierDTO>> GetCashiers([FromQuery] string? searchTerm, [FromQuery] bool? status)
         {
             var cashiers = _cashierService.GetCashiers(searchTerm, status);
             return Ok(cashiers);
         }
+
+        [Authorize(Roles = "manager")]
         // Xuất danh sách Cashiers ra Excel
         [HttpGet("export")]
         public IActionResult ExportCashiersToExcel()

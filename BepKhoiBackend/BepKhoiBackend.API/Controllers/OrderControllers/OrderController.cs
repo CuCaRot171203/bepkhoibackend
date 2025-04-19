@@ -4,6 +4,7 @@ using BepKhoiBackend.BusinessObject.dtos.CustomerDto;
 using BepKhoiBackend.BusinessObject.dtos.MenuDto;
 using BepKhoiBackend.BusinessObject.dtos.OrderDetailDto;
 using BepKhoiBackend.BusinessObject.dtos.OrderDto;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Data.SqlClient;
@@ -27,6 +28,8 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
             _printOrderPdfService = printOrderPdfService;
         }
         //get all
+        [Authorize]
+        [Authorize(Roles = "manager")]
         [HttpGet("get-all-orders")]
         public async Task<IActionResult> GetAllOrdersAsync()
         {
@@ -42,6 +45,8 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
             });
         }
 
+        [Authorize]
+        [Authorize(Roles = "manager")]
         [HttpGet("filter-by-date")]
         public async Task<IActionResult> FilterOrdersByDateAsync([FromQuery] DateTime fromDate, [FromQuery] DateTime toDate)
         {
@@ -57,6 +62,8 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
             });
         }
 
+        [Authorize]
+        [Authorize(Roles = "manager, cashier")]
         // Create order
         [HttpPost("create-order")]
         public async Task<IActionResult> CreateNewOrder([FromBody] CreateOrderRequestDto request)
@@ -77,6 +84,8 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
         }
 
         // Method to add note to OrderId
+        [Authorize]
+        [Authorize(Roles = "manager, cashier")]
         [HttpPut("add-note")]
         [ProducesResponseType(200)] // OK
         [ProducesResponseType(400)] // BadRequest
@@ -109,6 +118,8 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
             }
         }
 
+        [Authorize]
+        [Authorize(Roles = "manager, cashier")]
         [HttpPut("update-order-detail-quantity")]
         [ProducesResponseType(200)] // OK
         [ProducesResponseType(400)] // BadRequest
@@ -140,6 +151,8 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
             }
         }
 
+        [Authorize]
+        [Authorize(Roles = "manager, cashier")]
         [HttpPost("add-customer-to-order")]
         [ProducesResponseType(200)] // OK
         [ProducesResponseType(400)] // Bad Request
@@ -172,6 +185,8 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
             }
         }
 
+        [Authorize]
+        [Authorize(Roles = "manager, cashier")]
         [HttpPost("add-product-to-order")]
         [ProducesResponseType(200)] // OK
         [ProducesResponseType(400)] // Bad Request
@@ -206,6 +221,8 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
 
 
         //Pham Son Tung
+        [Authorize]
+        [Authorize(Roles = "manager, cashier")]
         [HttpPut("MoveOrderPos")]
         public async Task<IActionResult> UpdateOrderType([FromBody] MoveOrderPosRequestDto request)
         {
@@ -231,6 +248,8 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
         }
 
         //Pham Son Tung
+        [Authorize]
+        [Authorize(Roles = "manager, cashier")]
         [HttpPut("combine-orders")]
         public async Task<IActionResult> CombineOrderPosAsync([FromBody] CombineOrderPosRequestDto request)
         {
@@ -265,6 +284,8 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
         }
 
         //Pham Son Tung
+        [Authorize]
+        [Authorize(Roles = "manager, cashier")]
         [HttpGet("get-order-by-type-pos")]
         public async Task<IActionResult> GetOrdersByTypePosAsync(int? roomId, int? shipperId, int? orderTypeId)
         {
@@ -312,6 +333,8 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
             }
         }
         //Pham Son Tung
+        [Authorize]
+        [Authorize(Roles = "manager, cashier")]
         [HttpGet("get-customer-of-order/{orderId}")]
         public async Task<IActionResult> GetCustomerOfOrder([FromRoute] int orderId)
         {
@@ -363,6 +386,8 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
         }
 
         //Pham Son Tung
+        [Authorize]
+        [Authorize(Roles = "manager, cashier")]
         [HttpPost("assign-customer-to-order")]
         public async Task<IActionResult> AssignCustomerToOrder(
         [FromQuery] int orderId,
@@ -416,6 +441,8 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
         }
 
         //pham son tung
+        [Authorize]
+        [Authorize(Roles = "manager, cashier")]
         [HttpPost("remove-customer/{orderId}")]
         public async Task<IActionResult> RemoveCustomerFromOrder(int orderId)
         {
@@ -436,6 +463,8 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
         }
 
         //pham son tung
+        [Authorize]
+        [Authorize(Roles = "manager, cashier")]
         [HttpPost("remove-order/{orderId}")]
         public async Task<IActionResult> RemoveOrder(int orderId)
         {
@@ -464,6 +493,8 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
         }
 
         //pham son tung
+        [Authorize]
+        [Authorize(Roles = "manager, cashier")]
         [HttpGet("get-order-details-by-order-id")]
         public async Task<IActionResult> GetOrderDetailsByOrderIdAsync(int orderId)
         {
@@ -486,8 +517,9 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
                 return StatusCode(500, new { message = "An error occurred while processing your request.", details = ex.Message });
             }
         }
-        
+
         //Phạm Sơn Tùng
+       
         [HttpPut("update-order-customer")]
         public async Task<IActionResult> UpdateOrderCustomer([FromBody] OrderUpdateDTO request)
         {
@@ -522,6 +554,8 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
 
 
         //Pham Son Tung
+        [Authorize]
+        [Authorize(Roles = "manager, cashier")]
         [HttpGet("get-order-general-data/{orderId}")]
         public async Task<IActionResult> GetOrderGeneralDataPosAsync([FromRoute] int orderId)
         {
@@ -564,6 +598,8 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
         }
 
         //Pham Son Tung
+        [Authorize]
+        [Authorize(Roles = "manager, cashier")]
         [HttpDelete("delete-order-detail")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -616,6 +652,8 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
         }
 
         //Pham Son Tung
+        [Authorize]
+        [Authorize(Roles = "manager, cashier")]
         [HttpDelete("delete-confirmed-order-detail")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -670,6 +708,8 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
         }
 
         //Phạm Sơn Tùng
+        [Authorize]
+        [Authorize(Roles = "manager, cashier")]
         [HttpGet("Get-order-payment-information/{orderId}")]
         public async Task<IActionResult> GetOrderPaymentInfo(string orderId)
         {
@@ -713,6 +753,8 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
         }
 
         //Pham Son Tung
+        [Authorize]
+        [Authorize(Roles = "manager, cashier")]
         [HttpPost("add-order-delivery-information")]
         public async Task<IActionResult> AddOrderDeliveryInformationAsync([FromBody] DeliveryInformationCreateDto request)
         {
@@ -787,6 +829,8 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
         }
 
         //Phạm Sơn Tùng
+        [Authorize]
+        [Authorize(Roles = "manager, cashier")]
         [HttpGet("delivery-information/{orderId}")]
         public async Task<IActionResult> GetDeliveryInformationByOrderId(int orderId)
         {

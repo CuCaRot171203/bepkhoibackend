@@ -1,4 +1,5 @@
 ﻿using BepKhoiBackend.BusinessObject.Abstract.ProductCategoryAbstract;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BepKhoiBackend.API.Controllers.ProductCategoryControllers
@@ -13,7 +14,7 @@ namespace BepKhoiBackend.API.Controllers.ProductCategoryControllers
         {
             _productCategoryService = productCategoryService;
         }
-
+     
         [HttpGet("get-all-categories")]
         public async Task<IActionResult> GetAllCategories()
         {

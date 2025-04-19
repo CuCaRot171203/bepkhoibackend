@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using BepKhoiBackend.BusinessObject.Abstract.MenuBusinessAbstract;
 using BepKhoiBackend.BusinessObject.dtos.RoomDto;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BepKhoiBackend.API.Controllers.MenuControllers
 {
@@ -36,6 +37,8 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
 
         /*========== NEW MENU API CONTROLLER =======*/
         // API - MenuController.cs
+        [Authorize]
+        [Authorize(Roles = "manager")]
         [HttpGet("get-all-menus")]
         public async Task<IActionResult> GetAllMenuAsync(
             [FromQuery] string sortBy = "ProductId",
@@ -56,7 +59,6 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
                 data = mappedData
             });
         }
-
         [HttpGet("get-all-menus-customer")]
         public async Task<IActionResult> GetAllMenuCustomerAsync(
     [FromQuery] string sortBy = "ProductId",
@@ -77,7 +79,8 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
             });
         }
 
-
+        [Authorize]
+        [Authorize(Roles = "manager")]
         // API Get menu by ID
         [HttpGet("get-menu-by-id/{pid}")]
         [ProducesResponseType(200)] // OK
@@ -122,6 +125,8 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
         }
 
         // API add product to Menu list
+        [Authorize]
+        [Authorize(Roles = "manager")]
         [HttpPost("add")]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
@@ -173,6 +178,8 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
 
 
         // API to update product by Id
+        [Authorize]
+        [Authorize(Roles = "manager")]
         [HttpPut("update-menu/{id}")]
         [ProducesResponseType(200)] // OK
         [ProducesResponseType(400)] // BadRequest
@@ -226,6 +233,8 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
         }
 
         // API to delete product
+        [Authorize]
+        [Authorize(Roles = "manager")]
         [HttpDelete("{productId}")]
         [ProducesResponseType(204)] // No Content
         [ProducesResponseType(404)] // Not Found
@@ -258,6 +267,8 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
         }
 
         // API to export products list to excel
+        [Authorize]
+        [Authorize(Roles = "manager")]
         [HttpGet("export-products-excel")]
         public async Task<IActionResult> ExportProductsToExcel(
             [FromQuery] string sortBy = "ProductId",
@@ -276,9 +287,11 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
 
             return File(fileContent, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", fileName);
         }
-        
+
 
         // API to export products price list to excel
+        [Authorize]
+        [Authorize(Roles = "manager")]
         [HttpGet("export-product-price-excel")]
         public async Task<IActionResult> ExportProductPriceToExcel(
             [FromQuery] string sortBy = "ProductId",
@@ -301,6 +314,8 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
         }
 
         // API to update price of product
+        [Authorize]
+        [Authorize(Roles = "manager")]
         [HttpPut("update-price/{productId}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
@@ -339,6 +354,8 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
 
 
         //Pham Son Tung
+        [Authorize]
+        [Authorize(Roles = "manager, cashier")]
         [HttpGet("get-menu-pos")]
         public async Task<IActionResult> GetMenu()
         {
@@ -370,6 +387,8 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
 
         //Pham Son Tung
         // controller for filter by roomAreaId and isUse
+        [Authorize]
+        [Authorize(Roles = "manager, cashier")]
         [HttpGet("filter-menu-pos")]
         [ProducesResponseType(typeof(List<MenuPosDto>), 200)]
         [ProducesResponseType(400)]
@@ -398,6 +417,8 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
 
 
         //Pham Son Tung
+        [Authorize]
+        [Authorize(Roles = "manager")]
         [HttpGet("get-all-menu-qr")]
         public async Task<IActionResult> GetAllMenuQr()
         {

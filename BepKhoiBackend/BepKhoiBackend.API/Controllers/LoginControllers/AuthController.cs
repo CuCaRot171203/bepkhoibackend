@@ -6,10 +6,10 @@ using System;
 using DocumentFormat.OpenXml.Office2016.Excel;
 using BepKhoiBackend.BusinessObject.Services.LoginService.Interface;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BepKhoiBackend.API.Controllers.LoginControllers
 {
-    [Route("api/[controller]")]
     [ApiController]
     public class AuthController : ControllerBase
     {
@@ -21,6 +21,7 @@ namespace BepKhoiBackend.API.Controllers.LoginControllers
             _authService = authService;
             _httpContextAccessor = httpContextAccessor;
         }
+
         [HttpPost("logout")]
         public IActionResult Logout()
         {
