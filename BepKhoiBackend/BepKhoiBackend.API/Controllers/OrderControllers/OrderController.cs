@@ -1,9 +1,11 @@
-﻿using BepKhoiBackend.BusinessObject.Abstract.OrderAbstract;
+﻿using BepKhoiBackend.API.Hubs;
+using BepKhoiBackend.BusinessObject.Abstract.OrderAbstract;
 using BepKhoiBackend.BusinessObject.dtos.CustomerDto;
 using BepKhoiBackend.BusinessObject.dtos.MenuDto;
 using BepKhoiBackend.BusinessObject.dtos.OrderDetailDto;
 using BepKhoiBackend.BusinessObject.dtos.OrderDto;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System.Data.Common;
@@ -15,10 +17,12 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
     [Route("api/orders")]
     public class OrderController : ControllerBase
     {
+        private readonly IHubContext<OrderHub> _hubContext;
         private readonly IOrderService _orderService;
         private readonly PrintOrderPdfService _printOrderPdfService;
-        public OrderController(IOrderService orderService, PrintOrderPdfService printOrderPdfService)
+        public OrderController(IHubContext<OrderHub> hubContext, IOrderService orderService, PrintOrderPdfService printOrderPdfService)
         {
+            _hubContext = hubContext;
             _orderService = orderService;
             _printOrderPdfService = printOrderPdfService;
         }
@@ -496,6 +500,8 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
             try
             {
                 var result = await _orderService.UpdateOrderWithDetailsAsync(request);
+                await _hubContext.Clients.All.SendAsync("ReceiveOrderUpdate", request.OrderId);
+
                 if (!result)
                     return StatusCode(500, "Cập nhật thất bại.");
                 return Ok(new { message = "Cập nhật thành công." });

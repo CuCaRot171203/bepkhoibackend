@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Authorization;
 using BepKhoiBackend.BusinessObject.Mappings;
 using BepKhoiBackend.BusinessObject.Services.InvoiceService;
 using BepKhoiBackend.BusinessObject.Services;
+using BepKhoiBackend.API.Hubs;
 
 
 Log.Logger = new LoggerConfiguration()
@@ -78,8 +79,23 @@ builder.Services.AddScoped<VnPayService>();
 builder.Services.AddAuthorization();
 
 builder.Services.AddCorsPolicy(builder.Configuration);
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.WithOrigins("http://localhost:3000")
+              .AllowAnyHeader()
+              .AllowAnyMethod()
+              .AllowCredentials(); // Quan trọng cho SignalR
+    });
+});
+
+builder.Services.AddSignalR();
 
 var app = builder.Build();
+
+app.MapHub<OrderHub>("/orderHub"); // Đăng ký đường dẫn của Hub
+
 // Configure the HTTP request pipeline.
 app.UseSwagger();
 app.UseSwaggerUI();
