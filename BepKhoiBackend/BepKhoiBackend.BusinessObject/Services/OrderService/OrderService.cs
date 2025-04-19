@@ -590,17 +590,12 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
             {
                 var order = await _orderRepository.GetOrderByIdAsync(dto.OrderId);
                 if (order == null)
-                    throw new ArgumentException("Order ID không tồn tại.");
+                    throw new ArgumentException("Order ID not exist.");
 
                 // Update main order info
                 order.CustomerId = dto.CustomerId;
-                order.OrderTypeId = dto.OrderTypeId;
                 order.RoomId = dto.RoomId;
-                order.TotalQuantity = dto.TotalQuantity;
-                order.AmountDue = dto.AmountDue;
-                order.OrderStatusId = dto.OrderStatusId;
-                order.OrderNote = dto.OrderNote;
-                order.CreatedTime = DateTime.UtcNow;
+                order.OrderTypeId = 3;
 
                 var updateOrderResult = await _orderRepository.UpdateOrderCustomerAsync(order);
                 if (!updateOrderResult) return false;
@@ -618,6 +613,10 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
                 }).ToList();
 
                 return await _orderRepository.AddOrUpdateOrderDetailsAsync(order, newDetails);
+            }
+            catch (ArgumentException)
+            {
+                throw;
             }
             catch (Exception)
             {

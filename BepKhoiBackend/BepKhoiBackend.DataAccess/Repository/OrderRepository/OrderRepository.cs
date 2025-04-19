@@ -560,6 +560,19 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
         {
             try
             {
+                if (order.OrderDetails == null)
+                {
+                    order.OrderDetails = new List<OrderDetail>();
+                }
+                var validProductIds = await _context.Menus
+                     .Where(m => m.Status == true && m.IsAvailable==true && m.IsDelete != true)
+                     .Select(m => m.ProductId)
+                     .ToListAsync();
+                var hasInvalid = newDetails.Any(detail => !validProductIds.Contains(detail.ProductId));
+                if (hasInvalid)
+                {
+                    throw new ArgumentException("Product Detail list not valid");
+                }
                 foreach (var newDetail in newDetails)
                 {
                     var existingDetails = order.OrderDetails
@@ -595,6 +608,7 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
                 }
 
                 await _context.SaveChangesAsync();
+                await UpdateOrderAfterUpdateOrderDetailAsync(order.OrderId);
                 return true;
             }
             catch (DbUpdateException ex)

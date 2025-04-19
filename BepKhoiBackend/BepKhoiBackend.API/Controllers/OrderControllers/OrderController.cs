@@ -493,12 +493,6 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
             if (request.OrderId <= 0)
                 return BadRequest("OrderId không hợp lệ.");
 
-            if (request.OrderTypeId <= 0)
-                return BadRequest("OrderTypeId không hợp lệ.");
-
-            if (request.AmountDue < 0 || request.TotalQuantity < 0)
-                return BadRequest("Số lượng và số tiền không thể âm.");
-
             try
             {
                 var result = await _orderService.UpdateOrderWithDetailsAsync(request);
