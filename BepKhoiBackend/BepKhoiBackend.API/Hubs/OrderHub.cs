@@ -8,11 +8,15 @@ namespace BepKhoiBackend.API.Hubs
         //{
         //    await Clients.All.SendAsync("ReceiveOrderUpdate", order);
         //}
-
-        public async Task SendOrderUpdate(int orderId)
+        public async Task JoinOrderGroup(string orderId)
         {
-            // Gửi lại cho tất cả client sự kiện 'ReceiveOrderUpdate'
-            await Clients.All.SendAsync("ReceiveOrderUpdate", orderId);
+            await Groups.AddToGroupAsync(Context.ConnectionId, $"order-{orderId}");
         }
+
+        public async Task LeaveOrderGroup(string orderId)
+        {
+            await Groups.RemoveFromGroupAsync(Context.ConnectionId, $"order-{orderId}");
+        }
+
     }
 }

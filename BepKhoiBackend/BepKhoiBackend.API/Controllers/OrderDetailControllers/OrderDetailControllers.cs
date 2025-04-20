@@ -2,6 +2,7 @@
 using BepKhoiBackend.BusinessObject.Abstract.OrderDetailAbstract;
 using BepKhoiBackend.BusinessObject.dtos.OrderDetailDto;
 using BepKhoiBackend.BusinessObject.Services.OrderService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,6 +19,7 @@ namespace BepKhoiBackend.API.Controllers.OrderDetailControllers
             _orderDetailService = orderDetailService;
         }
 
+
         [HttpGet("get-by-order-id/{orderId}")]
         public async Task<IActionResult> GetOrderDetailsByOrderId(int orderId)
         {
@@ -33,6 +35,8 @@ namespace BepKhoiBackend.API.Controllers.OrderDetailControllers
             });
         }
 
+        [Authorize]
+        [Authorize(Roles = "manager, cashier")]
         [HttpDelete("cancel-order-detail")]
         [ProducesResponseType(200)] // OK
         [ProducesResponseType(400)] // BadRequest
@@ -65,6 +69,8 @@ namespace BepKhoiBackend.API.Controllers.OrderDetailControllers
         }
 
         // API to remove order detail
+        [Authorize]
+        [Authorize(Roles = "manager, cashier")]
         [HttpDelete("remove-order-detail")]
         [ProducesResponseType(200)] // OK
         [ProducesResponseType(400)] // BadRequest
@@ -93,6 +99,8 @@ namespace BepKhoiBackend.API.Controllers.OrderDetailControllers
             }
         }
 
+        [Authorize]
+        [Authorize(Roles = "manager, cashier")]
         [HttpPut("add-note-to-order-detail")]
         [ProducesResponseType(200)] // OK
         [ProducesResponseType(400)] // Bad Request
@@ -127,6 +135,8 @@ namespace BepKhoiBackend.API.Controllers.OrderDetailControllers
 
         //Pham Son Tung
         //Api ConfirmOrderPos of POS site 
+        [Authorize]
+        [Authorize(Roles = "manager, cashier")]
         [HttpPut("confirm/{orderId}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
@@ -157,6 +167,8 @@ namespace BepKhoiBackend.API.Controllers.OrderDetailControllers
 
         //Pham Son Tung
         //Api SplitOrderPos of POS site
+        [Authorize]
+        [Authorize(Roles = "manager, cashier")]
         [HttpPost("SplitOrderPos")]
         [ProducesResponseType(typeof(object), 200)] // Thành công
         [ProducesResponseType(typeof(object), 400)] // Bad Request

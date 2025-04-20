@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using BepKhoiBackend.BusinessObject.DTOs;
 using BepKhoiBackend.BusinessObject.Services.LoginService.Interface;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BepKhoiBackend.API.Controllers.LoginControllers
 {
@@ -25,6 +26,8 @@ namespace BepKhoiBackend.API.Controllers.LoginControllers
             _httpContextAccessor = httpContextAccessor;
         }
 
+        [Authorize]
+        [Authorize(Roles = "manager, cashier")]
         [HttpPost("send-otp")]
         public async Task<IActionResult> SendOtp([FromBody] EmailDto request)
         {
@@ -75,7 +78,8 @@ namespace BepKhoiBackend.API.Controllers.LoginControllers
 
 
 
-
+        [Authorize]
+        [Authorize(Roles = "manager, cashier")]
         [HttpPost("verify")]
         public async Task<IActionResult> VerifyUser([FromBody] VerifyOtpDto request)
         {
@@ -146,7 +150,8 @@ namespace BepKhoiBackend.API.Controllers.LoginControllers
             }
         }
 
-
+        [Authorize]
+        [Authorize(Roles = "manager, cashier")]
         [HttpPost("forgot-password")]
         public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordDto request)
         {
@@ -201,7 +206,8 @@ namespace BepKhoiBackend.API.Controllers.LoginControllers
             }
         }
 
-
+        [Authorize]
+        [Authorize(Roles = "manager, cashier")]
         [HttpPost("change-password")]
         public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordDto request)
         {

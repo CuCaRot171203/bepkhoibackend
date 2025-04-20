@@ -27,6 +27,7 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
             _orderService = orderService;
             _printOrderPdfService = printOrderPdfService;
         }
+
         //get all
         [Authorize]
         [Authorize(Roles = "manager")]
@@ -71,6 +72,9 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
             try
             {
                 var result = await _orderService.CreateNewOrderAsync(request);
+                // Gửi thông báo đến các client đang xem đơn hàng này
+                 await _hubContext.Clients.Group($"order").SendAsync("ReceiveOrderCreate");
+
                 return Ok(new { message = "Order created successfully", data = result });
             }
             catch (ArgumentException ex)
@@ -202,6 +206,7 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
                 }
 
                 var result = await _orderService.AddProductToOrderAsync(request);
+                await _hubContext.Clients.Group($"order").SendAsync("ReceiveOrderCreate", new {OrderId = request.OrderId});
 
                 return Ok(new { message = "Product added to order successfully", data = result });
             }
