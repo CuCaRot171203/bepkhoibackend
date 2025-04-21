@@ -23,7 +23,9 @@ namespace BepKhoiBackend.BusinessObject.Services.InvoiceService
         InvoicePdfDTO GetInvoiceForPdf(int id);
         Invoice? GetInvoiceByInvoiceId(int id);
         bool UpdateInvoiceStatus(int invoiceId, bool status);
-        Task<int> CreateInvoiceForPaymentServiceAsync(InvoiceForPaymentDto invoiceDto, List<InvoiceDetailForPaymentDto> detailDtos);
+        Task<(int invoiceId, int? roomId, bool? isUse)> CreateInvoiceForPaymentServiceAsync(
+            InvoiceForPaymentDto invoiceDto,
+            List<InvoiceDetailForPaymentDto> detailDtos);
 
     }
 

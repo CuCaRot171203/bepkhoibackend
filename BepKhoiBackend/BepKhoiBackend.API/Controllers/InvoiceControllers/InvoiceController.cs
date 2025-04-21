@@ -187,9 +187,7 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
                 {
                     return BadRequest(new { message = "Dữ liệu hóa đơn không hợp lệ." });
                 }
-
                 var invoice = request.InvoiceInfo;
-
                 // Kiểm tra các điều kiện hợp lệ
                 if (invoice.PaymentMethodId != 1 && invoice.PaymentMethodId != 2)
                     return BadRequest(new { message = "Phương thức thanh toán không hợp lệ. Chỉ chấp nhận 1 hoặc 2." });
@@ -229,25 +227,31 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
                     if (detail.Quantity <= 0)
                         return BadRequest(new { message = $"Số lượng của sản phẩm '{detail.ProductName}' phải lớn hơn 0." });
                 }
-
-                // Gọi service để tạo hóa đơn, nhận lại ID
-                int createdInvoiceId = await _invoiceService.CreateInvoiceForPaymentServiceAsync(
+                var (invoiceId, roomId, isUse) = await _invoiceService.CreateInvoiceForPaymentServiceAsync(
                     request.InvoiceInfo,
                     request.InvoiceDetails
                 );
-                if (request.InvoiceInfo.Status == true)
+                if (invoice.Status == true)
                 {
                     await _hubContext.Clients.Group("order").SendAsync("OrderListUpdate", new
                     {
-                        roomId = request.InvoiceInfo.RoomId,
-                        shipperId = request.InvoiceInfo.ShipperId,
-                        orderStatusId = request.InvoiceInfo.OrderTypeId
+                        roomId = invoice.RoomId,
+                        shipperId = invoice.ShipperId,
+                        orderStatusId = invoice.OrderTypeId
+                    });
+                }
+                if (roomId.HasValue && isUse.HasValue)
+                {
+                    await _hubContext.Clients.Group("room").SendAsync("RoomStatusUpdate", new
+                    {
+                        roomId = roomId.Value,
+                        isUse = isUse.Value
                     });
                 }
                 return Ok(new
                 {
                     message = "Tạo hóa đơn thanh toán thành công.",
-                    invoiceId = createdInvoiceId
+                    invoiceId = invoiceId
                 });
             }
             catch (ArgumentNullException ex)
@@ -267,6 +271,7 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
                 return StatusCode(500, new { message = "Lỗi không xác định.", error = ex.Message });
             }
         }
+
 
 
 

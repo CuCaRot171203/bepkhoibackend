@@ -1,7 +1,9 @@
 ﻿using BepKhoiBackend.BusinessObject.dtos.InvoiceDto;
+using BepKhoiBackend.DataAccess.Abstract.OrderAbstract;
 using BepKhoiBackend.DataAccess.Models;
 using BepKhoiBackend.DataAccess.Repository.InvoiceRepository;
 using Microsoft.EntityFrameworkCore;
+using Org.BouncyCastle.Asn1.Ocsp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +13,11 @@ namespace BepKhoiBackend.BusinessObject.Services.InvoiceService
     public class InvoiceService : IInvoiceService
     {
         private readonly IInvoiceRepository _invoiceRepository;
-
-        public InvoiceService(IInvoiceRepository invoiceRepository)
+        private readonly IOrderRepository _orderRepository;
+        public InvoiceService(IInvoiceRepository invoiceRepository, IOrderRepository orderRepository)
         {
             _invoiceRepository = invoiceRepository;
+            _orderRepository = orderRepository;
         }
 
         public List<InvoiceDTO> GetAllInvoices()
@@ -219,14 +222,15 @@ namespace BepKhoiBackend.BusinessObject.Services.InvoiceService
         }
 
         //Phạm sơn tùng
-        public async Task<int> CreateInvoiceForPaymentServiceAsync(InvoiceForPaymentDto invoiceDto,List<InvoiceDetailForPaymentDto> detailDtos)
+        public async Task<(int invoiceId, int? roomId, bool? isUse)> CreateInvoiceForPaymentServiceAsync(
+            InvoiceForPaymentDto invoiceDto,
+            List<InvoiceDetailForPaymentDto> detailDtos)
         {
             if (invoiceDto == null) throw new ArgumentNullException(nameof(invoiceDto));
             if (detailDtos == null || !detailDtos.Any()) throw new ArgumentException("Chi tiết hóa đơn không được để trống.");
 
             try
             {
-                // 1. Tạo thực thể Invoice từ DTO
                 var invoice = new Invoice
                 {
                     PaymentMethodId = invoiceDto.PaymentMethodId,
@@ -248,10 +252,8 @@ namespace BepKhoiBackend.BusinessObject.Services.InvoiceService
                     InvoiceNote = invoiceDto.InvoiceNote
                 };
 
-                // 2. Gọi repo để lưu Invoice
                 var createdInvoice = await _invoiceRepository.CreateInvoiceForPaymentAsync(invoice);
 
-                // 3. Chuyển đổi detailDtos sang danh sách InvoiceDetail với invoiceId vừa tạo
                 var invoiceDetails = detailDtos.Select(d => new InvoiceDetail
                 {
                     InvoiceId = createdInvoice.InvoiceId,
@@ -263,10 +265,21 @@ namespace BepKhoiBackend.BusinessObject.Services.InvoiceService
                     ProductNote = d.ProductNote
                 }).ToList();
 
-                // 4. Gọi repo để lưu các InvoiceDetail
-                var isDetailSaved = await _invoiceRepository.AddInvoiceDetailForPaymentsAsync(invoiceDetails);
+                await _invoiceRepository.AddInvoiceDetailForPaymentsAsync(invoiceDetails);
+
                 await _invoiceRepository.ChangeOrderStatusAfterPayment(invoiceDto.OrderId);
-                return createdInvoice.InvoiceId;
+
+                // Nếu là đơn tại bàn thì cập nhật trạng thái phòng
+                int? updatedRoomId = null;
+                bool? isUse = null;
+                if (invoiceDto.OrderTypeId == 3 && invoiceDto.RoomId.HasValue)
+                {
+                    var result = await _orderRepository.UpdateRoomIsUseByRoomIdAsync(invoiceDto.RoomId.Value);
+                    updatedRoomId = result.roomId;
+                    isUse = result.isUse;
+                }
+
+                return (createdInvoice.InvoiceId, updatedRoomId, isUse);
             }
             catch (DbUpdateException dbEx)
             {
@@ -274,9 +287,10 @@ namespace BepKhoiBackend.BusinessObject.Services.InvoiceService
             }
             catch (Exception ex)
             {
-                throw new Exception("Undefined Error in service in CreateInvoiceForPaymentAsync..", ex);
+                throw new Exception("Undefined Error in service in CreateInvoiceForPaymentAsync.", ex);
             }
-        }  
+        }
+
 
 
     }

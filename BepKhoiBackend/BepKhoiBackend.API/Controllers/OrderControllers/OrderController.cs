@@ -72,13 +72,26 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
         {
             try
             {
-                var result = await _orderService.CreateNewOrderAsync(request);
+                var (result, roomId, isUse) = await _orderService.CreateNewOrderAsync(request);
+
+                // Gửi sự kiện cập nhật phòng nếu có
+                if (roomId.HasValue && isUse.HasValue)
+                {
+                    await _hubContext.Clients.Group("room").SendAsync("RoomStatusUpdate", new
+                    {
+                        roomId = roomId.Value,
+                        isUse = isUse.Value
+                    });
+                }
+
+                // Gửi sự kiện cập nhật danh sách đơn
                 await _hubContext.Clients.Group("order").SendAsync("OrderListUpdate", new
                 {
-                    roomId = request.RoomId,
-                    shipperId = request.ShipperId,
-                    orderStatusId = request.OrderStatusId
+                    roomId = result.RoomId,
+                    shipperId = result.ShipperId,
+                    orderStatusId = result.OrderStatusId
                 });
+
                 return Ok(new { message = "Order created successfully", data = result });
             }
             catch (ArgumentException ex)
@@ -268,6 +281,7 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
                 if (result)
                 {
                     await _hubContext.Clients.Group("order").SendAsync("OrderUpdate", request.FirstOrderId);
+                    await _hubContext.Clients.Group("order").SendAsync("OrderUpdate", request.SecondOrderId);
                 }
                 return result
                     ? Ok(new { message = "Orders combined successfully." })
@@ -557,7 +571,7 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
                 {
                     return StatusCode(500, "Cập nhật thất bại.");
                 }
-                await _hubContext.Clients.Group("order").SendAsync("OrderUpdate", request.OrderId);
+                await _hubContext.Clients.Group("order").SendAsync("CustomerUpdateOrder", request.OrderId);
                 return Ok(new { message = "Cập nhật thành công." });
             }
             catch (ArgumentException ex)
