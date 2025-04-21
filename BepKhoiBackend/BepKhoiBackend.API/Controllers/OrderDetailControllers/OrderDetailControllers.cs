@@ -1,10 +1,12 @@
-﻿using BepKhoiBackend.BusinessObject.Abstract.OrderAbstract;
+﻿using BepKhoiBackend.API.Hubs;
+using BepKhoiBackend.BusinessObject.Abstract.OrderAbstract;
 using BepKhoiBackend.BusinessObject.Abstract.OrderDetailAbstract;
 using BepKhoiBackend.BusinessObject.dtos.OrderDetailDto;
 using BepKhoiBackend.BusinessObject.Services.OrderService;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
+using Org.BouncyCastle.Asn1.Ocsp;
 
 namespace BepKhoiBackend.API.Controllers.OrderDetailControllers
 {
@@ -12,13 +14,14 @@ namespace BepKhoiBackend.API.Controllers.OrderDetailControllers
     [Route("api/order-detail")]
     public class OrderDetailControllers : ControllerBase
     {
+        private readonly IHubContext<SignalrHub> _hubContext;
         private readonly IOrderDetailService _orderDetailService;
 
-        public OrderDetailControllers(IOrderDetailService orderDetailService)
+        public OrderDetailControllers(IOrderDetailService orderDetailService, IHubContext<SignalrHub> hubContext)
         {
+            _hubContext = hubContext;
             _orderDetailService = orderDetailService;
         }
-
 
         [HttpGet("get-by-order-id/{orderId}")]
         public async Task<IActionResult> GetOrderDetailsByOrderId(int orderId)
@@ -35,8 +38,6 @@ namespace BepKhoiBackend.API.Controllers.OrderDetailControllers
             });
         }
 
-        [Authorize]
-        [Authorize(Roles = "manager, cashier")]
         [HttpDelete("cancel-order-detail")]
         [ProducesResponseType(200)] // OK
         [ProducesResponseType(400)] // BadRequest
@@ -69,8 +70,6 @@ namespace BepKhoiBackend.API.Controllers.OrderDetailControllers
         }
 
         // API to remove order detail
-        [Authorize]
-        [Authorize(Roles = "manager, cashier")]
         [HttpDelete("remove-order-detail")]
         [ProducesResponseType(200)] // OK
         [ProducesResponseType(400)] // BadRequest
@@ -99,8 +98,6 @@ namespace BepKhoiBackend.API.Controllers.OrderDetailControllers
             }
         }
 
-        [Authorize]
-        [Authorize(Roles = "manager, cashier")]
         [HttpPut("add-note-to-order-detail")]
         [ProducesResponseType(200)] // OK
         [ProducesResponseType(400)] // Bad Request
@@ -135,8 +132,6 @@ namespace BepKhoiBackend.API.Controllers.OrderDetailControllers
 
         //Pham Son Tung
         //Api ConfirmOrderPos of POS site 
-        [Authorize]
-        [Authorize(Roles = "manager, cashier")]
         [HttpPut("confirm/{orderId}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
@@ -152,7 +147,7 @@ namespace BepKhoiBackend.API.Controllers.OrderDetailControllers
                 {
                     return NotFound(new { message = "No order details found. Order may not exist." });
                 }
-
+                await _hubContext.Clients.Group("order").SendAsync("OrderUpdate", orderId);
                 return Ok(new { message = "Order confirmed successfully." });
             }
             catch (ArgumentException ex)
@@ -167,8 +162,6 @@ namespace BepKhoiBackend.API.Controllers.OrderDetailControllers
 
         //Pham Son Tung
         //Api SplitOrderPos of POS site
-        [Authorize]
-        [Authorize(Roles = "manager, cashier")]
         [HttpPost("SplitOrderPos")]
         [ProducesResponseType(typeof(object), 200)] // Thành công
         [ProducesResponseType(typeof(object), 400)] // Bad Request
@@ -185,6 +178,7 @@ namespace BepKhoiBackend.API.Controllers.OrderDetailControllers
                 bool result = await _orderDetailService.SplitOrderPosServiceAsync(request);
                 if (result)
                 {
+                    await _hubContext.Clients.Group("order").SendAsync("OrderUpdate", request.OrderId);
                     return Ok(new { message = "Order split successfully." });
                 }
                 return BadRequest(new { message = "Failed to split order." });

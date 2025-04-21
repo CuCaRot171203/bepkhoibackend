@@ -26,8 +26,7 @@ namespace BepKhoiBackend.BusinessObject.Abstract.OrderAbstract
         Task<CustomerPosDto> GetCustomerIdByOrderIdAsync(int orderId);
         Task AssignCustomerToOrderAsync(int orderId, int customerId);
         Task<bool> RemoveCustomerFromOrderAsync(int orderId);
-        Task<bool> RemoveOrderById(int orderId);
-
+        Task<(OrderDto orderDto, int? roomId, bool? isUse)> RemoveOrderById(int orderId);
         Task<IEnumerable<OrderDetailDtoPos>> GetOrderDetailsByOrderIdAsync(int orderId);
         Task<ResultWithList<OrderDto>> GetAllOrdersAsync();
         Task<ResultWithList<OrderDto>> FilterOrdersByDateAsync(DateTime fromDate, DateTime toDate);

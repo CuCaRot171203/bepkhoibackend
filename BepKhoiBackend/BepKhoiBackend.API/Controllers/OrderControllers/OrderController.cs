@@ -4,11 +4,13 @@ using BepKhoiBackend.BusinessObject.dtos.CustomerDto;
 using BepKhoiBackend.BusinessObject.dtos.MenuDto;
 using BepKhoiBackend.BusinessObject.dtos.OrderDetailDto;
 using BepKhoiBackend.BusinessObject.dtos.OrderDto;
+using DocumentFormat.OpenXml.Office2016.Excel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using Org.BouncyCastle.Asn1.Ocsp;
 using System.Data.Common;
 
 namespace BepKhoiBackend.API.Controllers.OrderControllers
@@ -18,16 +20,15 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
     [Route("api/orders")]
     public class OrderController : ControllerBase
     {
-        private readonly IHubContext<OrderHub> _hubContext;
+        private readonly IHubContext<SignalrHub> _hubContext;
         private readonly IOrderService _orderService;
         private readonly PrintOrderPdfService _printOrderPdfService;
-        public OrderController(IHubContext<OrderHub> hubContext, IOrderService orderService, PrintOrderPdfService printOrderPdfService)
+        public OrderController(IHubContext<SignalrHub> hubContext, IOrderService orderService, PrintOrderPdfService printOrderPdfService)
         {
             _hubContext = hubContext;
             _orderService = orderService;
             _printOrderPdfService = printOrderPdfService;
         }
-
         //get all
         [Authorize]
         [Authorize(Roles = "manager")]
@@ -72,9 +73,12 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
             try
             {
                 var result = await _orderService.CreateNewOrderAsync(request);
-                // Gửi thông báo đến các client đang xem đơn hàng này
-                 await _hubContext.Clients.Group($"order").SendAsync("ReceiveOrderCreate");
-
+                await _hubContext.Clients.Group("order").SendAsync("OrderListUpdate", new
+                {
+                    roomId = request.RoomId,
+                    shipperId = request.ShipperId,
+                    orderStatusId = request.OrderStatusId
+                });
                 return Ok(new { message = "Order created successfully", data = result });
             }
             catch (ArgumentException ex)
@@ -139,6 +143,7 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
                 }
 
                 var result = await _orderService.UpdateOrderDetailQuantiyPosAsync(request);
+                await _hubContext.Clients.Group("order").SendAsync("OrderUpdate", request.OrderId);
                 return Ok(new { message = "Order detail updated successfully", data = result });
             }
             catch (ArgumentException ex)
@@ -206,8 +211,7 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
                 }
 
                 var result = await _orderService.AddProductToOrderAsync(request);
-                await _hubContext.Clients.Group($"order").SendAsync("ReceiveOrderCreate", new {OrderId = request.OrderId});
-
+                await _hubContext.Clients.Group("order").SendAsync("OrderUpdate", request.OrderId);
                 return Ok(new { message = "Product added to order successfully", data = result });
             }
             catch (KeyNotFoundException ex)
@@ -261,7 +265,10 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
             try
             {
                 bool result = await _orderService.CombineOrderPosServiceAsync(request);
-
+                if (result)
+                {
+                    await _hubContext.Clients.Group("order").SendAsync("OrderUpdate", request.FirstOrderId);
+                }
                 return result
                     ? Ok(new { message = "Orders combined successfully." })
                     : BadRequest(new { message = "Failed to combine orders." });
@@ -467,7 +474,6 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
             }
         }
 
-        //pham son tung
         [Authorize]
         [Authorize(Roles = "manager, cashier")]
         [HttpPost("remove-order/{orderId}")]
@@ -475,27 +481,37 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
         {
             try
             {
-                // Gọi hàm service để thực hiện xóa đơn hàng
-                bool result = await _orderService.RemoveOrderById(orderId);
-
-                // Kiểm tra kết quả từ service
-                if (result)
+                var (orderDto, roomId, isUse) = await _orderService.RemoveOrderById(orderId);
+                if (roomId.HasValue && isUse.HasValue)
                 {
-                    // Trả về phản hồi thành công nếu đơn hàng được xóa thành công
-                    return Ok(new { Message = "Order has been successfully removed." });
+                    await _hubContext.Clients.Group("room").SendAsync("RoomStatusUpdate", new
+                    {
+                        roomId = roomId.Value,
+                        isUse = isUse.Value
+                    });
                 }
-                else
+                await _hubContext.Clients.Group("order").SendAsync("OrderListUpdate", new
                 {
-                    // Nếu không thành công, trả về lỗi BadRequest
-                    return BadRequest(new { Message = "Failed to remove order." });
-                }
+                    roomId = orderDto.RoomId,
+                    shipperId = orderDto.ShipperId,
+                    orderStatusId = orderDto.OrderStatusId
+                });
+                return Ok(new{Message = "Order has been successfully removed."});
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(new { message = ex.Message });
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(new { message = ex.Message });
             }
             catch (Exception ex)
             {
-                // Nếu có lỗi trong quá trình xử lý, trả về lỗi 500 (Internal Server Error)
-                return StatusCode(500, new { Message = $"Internal server error: {ex.Message}" });
+                return StatusCode(500, new { message = "Server error", error = ex.Message });
             }
         }
+
 
         //pham son tung
         [Authorize]
@@ -533,19 +549,20 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
 
             if (request.OrderId <= 0)
                 return BadRequest("OrderId không hợp lệ.");
-
             try
             {
                 var result = await _orderService.UpdateOrderWithDetailsAsync(request);
-                await _hubContext.Clients.All.SendAsync("ReceiveOrderUpdate", request.OrderId);
 
                 if (!result)
+                {
                     return StatusCode(500, "Cập nhật thất bại.");
+                }
+                await _hubContext.Clients.Group("order").SendAsync("OrderUpdate", request.OrderId);
                 return Ok(new { message = "Cập nhật thành công." });
             }
             catch (ArgumentException ex)
             {
-                return BadRequest(new { message = ex.Message });
+                return BadRequest(new { message = "hehehe" + ex.Message });
             }
             catch (DbUpdateException ex)
             {
@@ -627,7 +644,7 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
 
                 // Call service to delete
                 await _orderService.DeleteOrderDetailAsync(orderIdParsed, orderDetailIdParsed);
-
+                await _hubContext.Clients.Group("order").SendAsync("OrderUpdate", orderIdParsed);
                 return Ok(new { message = "Order detail deleted successfully." });
             }
             catch (ArgumentException ex)
@@ -692,6 +709,7 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
                     Reason = reason.Trim()
                 };
                 await _orderService.DeleteConfirmedOrderDetailAsync(request);
+                await _hubContext.Clients.Group("order").SendAsync("OrderUpdate", request.OrderId);
                 return Ok(new { message = "Confirmed order detail was deleted and cancellation logged successfully." });
             }
             catch (ArgumentException ex)

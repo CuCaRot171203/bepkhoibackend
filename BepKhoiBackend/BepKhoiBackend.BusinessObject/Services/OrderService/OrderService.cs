@@ -462,24 +462,38 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
         }
 
         //pham son tung
-        public async Task<bool> RemoveOrderById(int orderId)
+        public async Task<(OrderDto orderDto, int? roomId, bool? isUse)> RemoveOrderById(int orderId)
         {
-            try
+            var removedOrder = await _orderRepository.RemoveOrder(orderId);
+
+            int? updatedRoomId = null;
+            bool? newIsUse = null;
+
+            if (removedOrder.RoomId.HasValue)
             {
-                // Gọi hàm từ repository để thực hiện "xóa mềm"
-                var removedOrder = await _orderRepository.RemoveOrder(orderId);
-                // Nếu có RoomId thì cập nhật lại trạng thái phòng
-                if (removedOrder.RoomId.HasValue)
-                {
-                    await _orderRepository.UpdateRoomIsUseByRoomIdAsync(removedOrder.RoomId.Value);
-                }
-                return true;
+                var (roomId, isUse) = await _orderRepository.UpdateRoomIsUseByRoomIdAsync(removedOrder.RoomId.Value);
+                updatedRoomId = roomId;
+                newIsUse = isUse;
             }
-            catch (Exception ex)
+
+            var orderDto = new OrderDto
             {
-                throw new Exception($"Error in RemoveOrderAsync: {ex.Message}", ex);
-            }
+                OrderId = removedOrder.OrderId,
+                CustomerId = removedOrder.CustomerId,
+                ShipperId = removedOrder.ShipperId,
+                DeliveryInformationId = removedOrder.DeliveryInformationId,
+                OrderTypeId = removedOrder.OrderTypeId,
+                RoomId = removedOrder.RoomId,
+                CreatedTime = removedOrder.CreatedTime,
+                TotalQuantity = removedOrder.TotalQuantity,
+                AmountDue = removedOrder.AmountDue,
+                OrderStatusId = removedOrder.OrderStatusId,
+                OrderNote = removedOrder.OrderNote
+            };
+
+            return (orderDto, updatedRoomId, newIsUse);
         }
+
 
         //Pham Son Tung
         public async Task<IEnumerable<OrderDetailDtoPos>> GetOrderDetailsByOrderIdAsync(int orderId)
