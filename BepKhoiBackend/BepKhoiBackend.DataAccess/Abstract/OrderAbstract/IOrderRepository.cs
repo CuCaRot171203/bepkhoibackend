@@ -29,7 +29,7 @@ namespace BepKhoiBackend.DataAccess.Abstract.OrderAbstract
         Task UpdateOrderAfterAddOrderDetailAsync(int orderId);
         Task DeleteOrderDetailAsync(int orderId, int orderDetailId);
         Task DeleteConfirmedOrderDetailAsync(int orderId, int orderDetailId, OrderCancellationHistory cancellation);
-        Task UpdateRoomIsUseByRoomIdAsync(int roomId);
+        Task<(int roomId, bool? isUse)> UpdateRoomIsUseByRoomIdAsync(int roomId);
         Task<Order?> GetFullOrderByIdAsync(int orderId);
         Task<bool> CreateDeliveryInformationAsync(int orderId, string receiverName, string receiverPhone, string receiverAddress, string? deliveryNote);
         Task<DeliveryInformation?> GetDeliveryInformationByOrderIdAsync(int orderId);

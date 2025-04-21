@@ -1,8 +1,10 @@
-﻿using BepKhoiBackend.BusinessObject.dtos.InvoiceDto;
+﻿using BepKhoiBackend.API.Hubs;
+using BepKhoiBackend.BusinessObject.dtos.InvoiceDto;
 using BepKhoiBackend.BusinessObject.Services.InvoiceService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 
 namespace BepKhoiBackend.API.Controllers.InvoiceControllers
@@ -12,14 +14,16 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
     [ApiController]
     public class InvoiceController : ControllerBase
     {
+        private readonly IHubContext<SignalrHub> _hubContext;
         private readonly IInvoiceService _invoiceService;
         private readonly VnPayService _vnPayService;
         private readonly PrintInvoicePdfService _pdfService;
-        public InvoiceController(IInvoiceService invoiceService, VnPayService vnPayService, PrintInvoicePdfService pdfService)
+        public InvoiceController(IInvoiceService invoiceService, VnPayService vnPayService, PrintInvoicePdfService pdfService, IHubContext<SignalrHub> hubContext)
         {
             _invoiceService = invoiceService;
             _vnPayService = vnPayService;
             _pdfService = pdfService;
+            _hubContext = hubContext;
         }
 
         [Authorize(Roles = "manager")]
@@ -231,7 +235,15 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
                     request.InvoiceInfo,
                     request.InvoiceDetails
                 );
-
+                if (request.InvoiceInfo.Status == true)
+                {
+                    await _hubContext.Clients.Group("order").SendAsync("OrderListUpdate", new
+                    {
+                        roomId = request.InvoiceInfo.RoomId,
+                        shipperId = request.InvoiceInfo.ShipperId,
+                        orderStatusId = request.InvoiceInfo.OrderTypeId
+                    });
+                }
                 return Ok(new
                 {
                     message = "Tạo hóa đơn thanh toán thành công.",

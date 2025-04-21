@@ -32,25 +32,27 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
         }
 
         //Update isUse value
-        public async Task UpdateRoomIsUseByRoomIdAsync(int roomId)
+        public async Task<(int roomId, bool? isUse)> UpdateRoomIsUseByRoomIdAsync(int roomId)
         {
             try
             {
                 var room = await _context.Rooms
-                 .Include(r => r.Orders)
-                 .FirstOrDefaultAsync(r => r.RoomId == roomId);
+                    .Include(r => r.Orders)
+                    .FirstOrDefaultAsync(r => r.RoomId == roomId);
+
                 if (room == null)
                 {
-                    return;
+                    throw new KeyNotFoundException("Room not found.");
                 }
                 bool hasActiveOrder = room.Orders.Any(order => order.OrderStatusId == 1);
                 room.IsUse = hasActiveOrder;
                 _context.Rooms.Update(room);
                 await _context.SaveChangesAsync();
+                return (room.RoomId, room.IsUse);
             }
             catch (Exception)
             {
-                return;
+                throw;
             }
         }
 
@@ -461,31 +463,31 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
         {
             try
             {
-                // Tìm kiếm đơn hàng theo orderId
-                var order = await _context.Orders
-                    .Where(o => o.OrderId == orderId)
-                    .FirstOrDefaultAsync();
-
-                // Nếu không tìm thấy đơn hàng
+                var order = await _context.Orders.FirstOrDefaultAsync(o => o.OrderId == orderId);
                 if (order == null)
                 {
-                    throw new Exception("Order not found");
+                    throw new KeyNotFoundException($"Order with ID {orderId} not found.");
                 }
-
-                // Chuyển OrderStatusId thành 3
                 order.OrderStatusId = 3;
 
-                // Cập nhật lại đơn hàng trong cơ sở dữ liệu
                 _context.Orders.Update(order);
 
                 // Lưu thay đổi vào cơ sở dữ liệu
                 await _context.SaveChangesAsync();
-                return order; // Thành công
+
+                return order;
             }
-            catch (Exception ex)
+            catch (DbUpdateConcurrencyException dbEx)
             {
-                // Ném lỗi ra ngoài nếu có lỗi xảy ra
-                throw new Exception($"Error removing order: {ex.Message}", ex);
+                throw new InvalidOperationException("Concurrency error occurred while updating the order.", dbEx);
+            }
+            catch (DbUpdateException dbEx)
+            {
+                throw new InvalidOperationException("Database error occurred while removing the order.", dbEx);
+            }
+            catch
+            {
+                throw;
             }
         }
 

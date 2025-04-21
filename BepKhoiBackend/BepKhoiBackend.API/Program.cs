@@ -94,7 +94,7 @@ builder.Services.AddSignalR();
 
 var app = builder.Build();
 
-app.MapHub<OrderHub>("/orderHub"); // Đăng ký đường dẫn của Hub
+app.MapHub<SignalrHub>("/SignalrHub"); // Đăng ký đường dẫn của Hub
 
 // Configure the HTTP request pipeline.
 app.UseSwagger();
