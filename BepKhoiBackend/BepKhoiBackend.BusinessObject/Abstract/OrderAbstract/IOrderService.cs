@@ -15,7 +15,7 @@ namespace BepKhoiBackend.BusinessObject.Abstract.OrderAbstract
     public interface IOrderService
     {
 
-        Task<OrderDto> CreateNewOrderAsync(CreateOrderRequestDto request);
+        Task<(OrderDto orderDto, int? roomId, bool? isUse)> CreateNewOrderAsync(CreateOrderRequestDto request);
         Task<OrderDto> AddOrderNoteToOrderPosAsync(AddNoteRequest request);
         Task<OrderDetailDto> UpdateOrderDetailQuantiyPosAsync(UpdateOrderDetailQuantityRequest request);
         Task<bool> AddCustomerToOrderAsync(AddCustomerToOrderRequest request);

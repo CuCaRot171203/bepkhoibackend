@@ -179,6 +179,10 @@ namespace BepKhoiBackend.API.Controllers.OrderDetailControllers
                 if (result)
                 {
                     await _hubContext.Clients.Group("order").SendAsync("OrderUpdate", request.OrderId);
+                    if (request.SplitTo.HasValue)
+                    {
+                        await _hubContext.Clients.Group("order").SendAsync("OrderUpdate", request.SplitTo);
+                    }
                     return Ok(new { message = "Order split successfully." });
                 }
                 return BadRequest(new { message = "Failed to split order." });
