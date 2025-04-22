@@ -858,5 +858,33 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
                 throw;
             }
         }
+
+        public async Task<OrderCancellationHistoryDto?> GetOrderCancellationHistoryByIdAsync(int orderCancellationHistoryId)
+        {
+            try
+            {
+                var cancellation = await _orderRepository.GetOrderCancellationHistoryByIdAsync(orderCancellationHistoryId);
+                if (cancellation == null)
+                {
+                    return null;
+                }
+
+                return new OrderCancellationHistoryDto
+                {
+                    OrderCancellationHistoryId = cancellation.OrderCancellationHistoryId,
+                    OrderId = cancellation.OrderId,
+                    CashierId = cancellation.CashierId,
+                    CashierName = cancellation.Cashier?.UserInformation.UserName ?? "Unknown",
+                    ProductId = cancellation.ProductId,
+                    ProductName = cancellation.Product?.ProductName ?? "Unknown",
+                    Quantity = cancellation.Quantity,
+                    Reason = cancellation.Reason
+                };
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error retrieving OrderCancellationHistory: {ex.Message}", ex);
+            }
+        }
     }
 }

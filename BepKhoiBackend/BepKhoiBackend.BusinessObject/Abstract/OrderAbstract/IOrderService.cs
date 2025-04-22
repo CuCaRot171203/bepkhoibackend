@@ -3,6 +3,7 @@ using BepKhoiBackend.BusinessObject.dtos.MenuDto;
 using BepKhoiBackend.BusinessObject.dtos.OrderDetailDto;
 using BepKhoiBackend.BusinessObject.dtos.OrderDto;
 using BepKhoiBackend.BusinessObject.dtos.OrderDto.PaymentDto;
+using BepKhoiBackend.DataAccess.Models;
 using BepKhoiBackend.Shared.Helpers;
 using System;
 using System.Collections.Generic;
@@ -38,5 +39,6 @@ namespace BepKhoiBackend.BusinessObject.Abstract.OrderAbstract
         Task<DeliveryInformationDto?> GetDeliveryInformationByOrderIdAsync(int orderId);
         Task<List<int>> GetOrderIdsForQrSiteAsync(int roomId, int customerId);
         Task<bool> UpdateOrderWithDetailsAsync(OrderUpdateDTO dto);
+        Task<OrderCancellationHistoryDto?> GetOrderCancellationHistoryByIdAsync(int orderCancellationHistoryId);
     }
 }

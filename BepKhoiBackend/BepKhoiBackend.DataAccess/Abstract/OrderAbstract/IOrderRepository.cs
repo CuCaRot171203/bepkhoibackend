@@ -37,5 +37,7 @@ namespace BepKhoiBackend.DataAccess.Abstract.OrderAbstract
         Task<Order?> GetOrderByIdAsync(int orderId);
         Task<bool> UpdateOrderCustomerAsync(Order order);
         Task<bool> AddOrUpdateOrderDetailsAsync(Order order, List<OrderDetail> newDetails);
+
+        Task<OrderCancellationHistory?> GetOrderCancellationHistoryByIdAsync(int orderCancellationHistoryId);
     }
 }

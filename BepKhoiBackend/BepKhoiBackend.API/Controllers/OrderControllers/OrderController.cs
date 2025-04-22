@@ -937,6 +937,39 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
             }
         }
 
+        [Authorize]
+        [Authorize(Roles = "manager, cashier")]
+        [HttpGet("cancellation-history/{orderCancellationHistoryId}")]
+        public async Task<IActionResult> GetOrderCancellationHistoryByIdAsync(int orderCancellationHistoryId)
+        {
+            try
+            {
+                var cancellation = await _orderService.GetOrderCancellationHistoryByIdAsync(orderCancellationHistoryId);
+                if (cancellation == null)
+                {
+                    return NotFound(new
+                    {
+                        success = false,
+                        message = "Order cancellation history not found."
+                    });
+                }
 
+                return Ok(new
+                {
+                    success = true,
+                    message = "Order cancellation history retrieved successfully.",
+                    data = cancellation
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = "Server error",
+                    error = ex.Message
+                });
+            }
+        }
     }
 }

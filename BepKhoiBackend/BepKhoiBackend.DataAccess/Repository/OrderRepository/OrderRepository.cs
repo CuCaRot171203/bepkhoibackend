@@ -891,6 +891,25 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
                 throw;
             }
         }
+        public async Task<OrderCancellationHistory?> GetOrderCancellationHistoryByIdAsync(int orderCancellationHistoryId)
+        {
+            try
+            {
+                return await _context.OrderCancellationHistories
+                    .Include(och => och.Cashier)
+                    .Include(och => och.Order)
+                    .Include(och => och.Product)
+                    .FirstOrDefaultAsync(och => och.OrderCancellationHistoryId == orderCancellationHistoryId);
+            }
+            catch (DbUpdateException dbEx)
+            {
+                throw new Exception("Database error occurred while retrieving OrderCancellationHistory.", dbEx);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An error occurred while retrieving OrderCancellationHistory.", ex);
+            }
+        }
 
     }
 }
