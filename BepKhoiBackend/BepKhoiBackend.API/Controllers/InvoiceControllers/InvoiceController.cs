@@ -1,7 +1,11 @@
-﻿using BepKhoiBackend.BusinessObject.dtos.InvoiceDto;
+﻿using BepKhoiBackend.API.Hubs;
+using BepKhoiBackend.BusinessObject.dtos.InvoiceDto;
 using BepKhoiBackend.BusinessObject.Services.InvoiceService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
+using Microsoft.EntityFrameworkCore;
 
 namespace BepKhoiBackend.API.Controllers.InvoiceControllers
 {
@@ -9,22 +13,28 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
     [ApiController]
     public class InvoiceController : ControllerBase
     {
+        private readonly IHubContext<SignalrHub> _hubContext;
         private readonly IInvoiceService _invoiceService;
         private readonly VnPayService _vnPayService;
         private readonly PrintInvoicePdfService _pdfService;
-        public InvoiceController(IInvoiceService invoiceService, VnPayService vnPayService, PrintInvoicePdfService pdfService)
+        public InvoiceController(IInvoiceService invoiceService, VnPayService vnPayService, PrintInvoicePdfService pdfService, IHubContext<SignalrHub> hubContext)
         {
             _invoiceService = invoiceService;
             _vnPayService = vnPayService;
             _pdfService = pdfService;
+            _hubContext = hubContext;
         }
 
+        [Authorize]
+        [Authorize(Roles = "manager")]
         [HttpGet]
         public ActionResult<List<InvoiceDTO>> GetAllInvoices()
         {
             return Ok(_invoiceService.GetAllInvoices());
         }
 
+        [Authorize]
+        [Authorize(Roles = "manager")]
         [HttpGet("{id}")]
         public ActionResult<InvoiceDTO> GetInvoiceById(int id)
         {
@@ -33,36 +43,53 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
             return Ok(invoice);
         }
 
+
+
+        [Authorize]
+        [Authorize(Roles = "manager")]
         [HttpGet("customer/{keyword}")]
         public ActionResult<List<InvoiceDTO>> GetInvoiceByCustomer(string keyword)
         {
             return Ok(_invoiceService.GetInvoiceByCustomer(keyword));
         }
 
+        [Authorize]
+        [Authorize(Roles = "manager")]
         [HttpGet("cashier/{keyword}")]
         public ActionResult<List<InvoiceDTO>> GetInvoiceByCashier(string keyword)
         {
             return Ok(_invoiceService.GetInvoiceByCashier(keyword));
         }
 
+
+        [Authorize]
+
+        [Authorize(Roles = "manager")]
         [HttpGet("product/{productName}")]
         public ActionResult<List<InvoiceDTO>> GetInvoiceByProductName(string productName)
         {
             return Ok(_invoiceService.GetInvoiceByProductName(productName));
         }
+        [Authorize]
 
+        [Authorize(Roles = "manager")]
         [HttpGet("period")]
         public ActionResult<List<InvoiceDTO>> GetInvoiceByPeriod([FromQuery] DateTime from, [FromQuery] DateTime to)
         {
             return Ok(_invoiceService.GetInvoiceByPeriod(from, to));
         }
 
+        [Authorize]
+
+        [Authorize(Roles = "manager")]
         [HttpGet("status/{status}")]
         public ActionResult<List<InvoiceDTO>> GetInvoiceByStatus(bool status)
         {
             return Ok(_invoiceService.GetInvoiceByStatus(status));
         }
+        [Authorize]
 
+        [Authorize(Roles = "manager")]
         [HttpGet("order-method/{method}")]
         public ActionResult<List<InvoiceDTO>> GetInvoiceByOrderMethod(string method)
         {
@@ -70,6 +97,9 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
         }
 
         //------------------NgocQuan----------------------//
+        [Authorize]
+
+        [Authorize(Roles = "manager, cashier")]
         [HttpGet("{id}/print-pdf")]
         public IActionResult GetInvoicePdf(int id)
         {
@@ -83,7 +113,9 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
             var pdfBytes = _pdfService.GenerateInvoicePdf(invoice);
             return File(pdfBytes, "application/pdf", $"Invoice_{id}.pdf");
         }
+        [Authorize]
 
+        [Authorize(Roles = "manager, cashier")]
         [HttpGet("vnpay-url")]
         public IActionResult CreatePaymentUrlVnpay([FromQuery] int Id)
         {
@@ -117,7 +149,6 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
             }
         }
 
-
         [HttpGet("Return")]
         public IActionResult PaymentCallbackVnpay()
         {
@@ -150,5 +181,114 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
             //var redirectFail = $"https://yourfrontend.com/payment-failure?code={response.VnPayResponseCode}";
             return Redirect(redirectFail);
         }
+
+
+
+        //Phạm Sơn Tùng
+        public class InvoicePaymentRequestDto
+        {
+            public InvoiceForPaymentDto InvoiceInfo { get; set; } = null!;
+            public List<InvoiceDetailForPaymentDto> InvoiceDetails { get; set; } = new();
+        }
+        [Authorize]
+        [Authorize(Roles = "manager, cashier")]
+        [HttpPost("create-invoice-for-payment")]
+        public async Task<IActionResult> CreateInvoiceForPaymentAsync([FromBody] InvoicePaymentRequestDto request)
+        {
+            try
+            {
+                if (request == null || request.InvoiceInfo == null || request.InvoiceDetails == null || !request.InvoiceDetails.Any())
+                {
+                    return BadRequest(new { message = "Dữ liệu hóa đơn không hợp lệ." });
+                }
+                var invoice = request.InvoiceInfo;
+                // Kiểm tra các điều kiện hợp lệ
+                if (invoice.PaymentMethodId != 1 && invoice.PaymentMethodId != 2)
+                    return BadRequest(new { message = "Phương thức thanh toán không hợp lệ. Chỉ chấp nhận 1 hoặc 2." });
+
+                if (invoice.OrderTypeId < 1 || invoice.OrderTypeId > 3)
+                    return BadRequest(new { message = "Loại đơn hàng không hợp lệ. Chỉ chấp nhận 1, 2 hoặc 3." });
+
+                if (invoice.OrderId <= 0)
+                    return BadRequest(new { message = "Mã đơn hàng không hợp lệ." });
+
+                if (invoice.CashierId <= 0)
+                    return BadRequest(new { message = "Mã thu ngân không hợp lệ." });
+
+                if (invoice.CustomerId.HasValue && invoice.CustomerId <= 0)
+                    return BadRequest(new { message = "Mã khách hàng không hợp lệ." });
+
+                if (invoice.RoomId.HasValue && invoice.RoomId <= 0)
+                    return BadRequest(new { message = "Mã phòng không hợp lệ." });
+
+                if (invoice.ShipperId.HasValue && invoice.ShipperId <= 0)
+                    return BadRequest(new { message = "Mã shipper không hợp lệ." });
+
+                if (invoice.CheckInTime == default || invoice.CheckOutTime == default)
+                    return BadRequest(new { message = "Thời gian check-in hoặc check-out không hợp lệ." });
+
+                if (invoice.TotalQuantity <= 0)
+                    return BadRequest(new { message = "Tổng số lượng sản phẩm phải lớn hơn 0." });
+
+                foreach (var detail in request.InvoiceDetails)
+                {
+                    if (detail.ProductId <= 0)
+                        return BadRequest(new { message = "Mã sản phẩm không hợp lệ." });
+
+                    if (string.IsNullOrWhiteSpace(detail.ProductName))
+                        return BadRequest(new { message = "Tên sản phẩm không được để trống." });
+
+                    if (detail.Quantity <= 0)
+                        return BadRequest(new { message = $"Số lượng của sản phẩm '{detail.ProductName}' phải lớn hơn 0." });
+                }
+                var (invoiceId, roomId, isUse) = await _invoiceService.CreateInvoiceForPaymentServiceAsync(
+                    request.InvoiceInfo,
+                    request.InvoiceDetails
+                );
+                if (invoice.Status == true)
+                {
+                    await _hubContext.Clients.Group("order").SendAsync("OrderListUpdate", new
+                    {
+                        roomId = invoice.RoomId,
+                        shipperId = invoice.ShipperId,
+                        orderStatusId = invoice.OrderTypeId
+                    });
+                }
+                if (roomId.HasValue && isUse.HasValue)
+                {
+                    await _hubContext.Clients.Group("room").SendAsync("RoomStatusUpdate", new
+                    {
+                        roomId = roomId.Value,
+                        isUse = isUse.Value
+                    });
+                }
+                return Ok(new
+                {
+                    message = "Tạo hóa đơn thanh toán thành công.",
+                    invoiceId = invoiceId
+                });
+            }
+            catch (ArgumentNullException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+            catch (DbUpdateException ex)
+            {
+                return StatusCode(500, new { message = "Lỗi CSDL khi tạo hóa đơn.", error = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Lỗi không xác định.", error = ex.Message });
+            }
+        }
+
+
+
+
+
     }
 }

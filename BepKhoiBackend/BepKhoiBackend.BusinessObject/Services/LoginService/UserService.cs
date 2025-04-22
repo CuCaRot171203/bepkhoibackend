@@ -22,6 +22,7 @@ public class UserService : IUserService
         _otpService = otpService;
         _configuration = configuration;
     }
+
     public UserDto GetUserByEmail(string email)
     {
         var user = _userRepository.GetUserByEmail(email);

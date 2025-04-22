@@ -1,4 +1,5 @@
 ﻿using BepKhoiBackend.BusinessObject.dtos.RoomDto;
+using DocumentFormat.OpenXml.Office2010.Excel;
 
 namespace BepKhoiBackend.BusinessObject.Services.RoomService
 {
@@ -8,7 +9,7 @@ namespace BepKhoiBackend.BusinessObject.Services.RoomService
 
         Task DeleteQRCodeAsync(int roomId);
         Task UpdateQRCodeUrlAsync(int roomId, string qrCodeUrl);
-        Task<string> GenerateQRCodeAndSaveAsync(int roomId);
+        Task<string> GenerateQRCodeAndSaveAsync(int roomId, String UrlBase);
         Task<IEnumerable<RoomDto>> GetAllAsync(int limit, int offset);
         Task<RoomDto> GetByIdAsync(int id);
         Task AddAsync(RoomCreateDto roomCreateDto);

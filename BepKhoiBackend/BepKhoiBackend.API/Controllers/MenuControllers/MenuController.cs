@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using BepKhoiBackend.BusinessObject.Abstract.MenuBusinessAbstract;
 using BepKhoiBackend.BusinessObject.dtos.RoomDto;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BepKhoiBackend.API.Controllers.MenuControllers
 {
@@ -17,8 +18,10 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
         private readonly IMapper _mapper;
         private readonly IMenuService _menuService;
         private readonly ILogger<MenuController> _logger;
+        private readonly CloudinaryService _cloudinaryService;
 
         public MenuController(
+            CloudinaryService cloudinaryService,
             IMenuRepository menuRepository,
             IMapper mapper,
             ILogger<MenuController> logger,
@@ -28,10 +31,14 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
             _menuService = menuService;
             _mapper = mapper;
             _logger = logger;
+            _cloudinaryService = cloudinaryService;
         }
-        
+
+
         /*========== NEW MENU API CONTROLLER =======*/
         // API - MenuController.cs
+        [Authorize]
+        [Authorize(Roles = "manager")]
         [HttpGet("get-all-menus")]
         public async Task<IActionResult> GetAllMenuAsync(
             [FromQuery] string sortBy = "ProductId",
@@ -55,11 +62,11 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
 
         [HttpGet("get-all-menus-customer")]
         public async Task<IActionResult> GetAllMenuCustomerAsync(
-    [FromQuery] string sortBy = "ProductId",
-    [FromQuery] string sortDirection = "asc",
-    [FromQuery] int? categoryId = null,
-    [FromQuery] bool? isActive = null,
-    [FromQuery] string? productNameOrId = null)
+        [FromQuery] string sortBy = "ProductId",
+        [FromQuery] string sortDirection = "asc",
+        [FromQuery] int? categoryId = null,
+        [FromQuery] bool? isActive = null,
+        [FromQuery] string? productNameOrId = null)
         {
             var result = await _menuService.GetAllMenusCustomerAsync(sortBy, sortDirection, categoryId, isActive, productNameOrId);
 
@@ -73,7 +80,8 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
             });
         }
 
-
+        [Authorize]
+        [Authorize(Roles = "manager")]
         // API Get menu by ID
         [HttpGet("get-menu-by-id/{pid}")]
         [ProducesResponseType(200)] // OK
@@ -118,11 +126,13 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
         }
 
         // API add product to Menu list
+        [Authorize]
+        [Authorize(Roles = "manager")]
         [HttpPost("add")]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> AddMenu([FromBody] CreateMenuDto menuDto)
+        public async Task<IActionResult> AddMenu([FromForm] CreateMenuDto menuDto)
         {
             try
             {
@@ -131,9 +141,16 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
                     _logger.LogWarning("Invalid menu data received.");
                     return BadRequest(ModelState);
                 }
-
+                var imageUrls = new List<string>();
+                if (menuDto.Image != null)
+                {
+                    var imageUrl = await _cloudinaryService.UploadImageAsync(menuDto.Image);
+                    imageUrls.Add(imageUrl);
+                }
                 // Call service
-                var result = await _menuService.AddMenuAsync(menuDto);
+                var result = await _menuService.AddMenuAsync(menuDto, imageUrls);
+
+                // Upload images to Cloudinary
 
                 if (!result.IsSuccess)
                 {
@@ -146,12 +163,12 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
                 // Return result successfully
                 return CreatedAtAction(
                     nameof(GetMenuById),
-                    new { pId = addedMenuDto.ProductId},
+                    new { pId = addedMenuDto.ProductId },
                     new
-                {
-                    message = result.Message,
-                    data = addedMenuDto
-                });
+                    {
+                        message = result.Message,
+                        data = addedMenuDto
+                    });
             }
             catch (Exception ex)
             {
@@ -160,13 +177,16 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
             }
         }
 
+
         // API to update product by Id
+        [Authorize]
+        [Authorize(Roles = "manager")]
         [HttpPut("update-menu/{id}")]
         [ProducesResponseType(200)] // OK
         [ProducesResponseType(400)] // BadRequest
         [ProducesResponseType(404)] // NotFound
         [ProducesResponseType(500)] // InternalServerError
-        public async Task<IActionResult> UpdateMenu(int id, [FromBody] UpdateMenuDto dto)
+        public async Task<IActionResult> UpdateMenu(int id, [FromForm] UpdateMenuDto dto)
         {
             try
             {
@@ -181,7 +201,15 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
                     return BadRequest(new { message = "Product ID must be greater than 0." });
                 }
 
-                var result = await _menuService.UpdateMenuAsync(id, dto);
+                // Handle image upload
+                var imageUrls = new List<string>();
+                if (dto.Image != null)
+                {
+                    var imageUrl = await _cloudinaryService.UploadImageAsync(dto.Image);
+                    imageUrls.Add(imageUrl);
+                }
+
+                var result = await _menuService.UpdateMenuAsync(id, dto, imageUrls);
 
                 if (!result.IsSuccess)
                 {
@@ -214,6 +242,8 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
         }
 
         // API to delete product
+        [Authorize]
+        [Authorize(Roles = "manager")]
         [HttpDelete("{productId}")]
         [ProducesResponseType(204)] // No Content
         [ProducesResponseType(404)] // Not Found
@@ -246,6 +276,8 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
         }
 
         // API to export products list to excel
+        [Authorize]
+        [Authorize(Roles = "manager")]
         [HttpGet("export-products-excel")]
         public async Task<IActionResult> ExportProductsToExcel(
             [FromQuery] string sortBy = "ProductId",
@@ -264,9 +296,11 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
 
             return File(fileContent, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", fileName);
         }
-        
+
 
         // API to export products price list to excel
+        [Authorize]
+        [Authorize(Roles = "manager")]
         [HttpGet("export-product-price-excel")]
         public async Task<IActionResult> ExportProductPriceToExcel(
             [FromQuery] string sortBy = "ProductId",
@@ -289,6 +323,8 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
         }
 
         // API to update price of product
+        [Authorize]
+        [Authorize(Roles = "manager")]
         [HttpPut("update-price/{productId}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
@@ -327,6 +363,8 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
 
 
         //Pham Son Tung
+        [Authorize]
+        [Authorize(Roles = "manager, cashier")]
         [HttpGet("get-menu-pos")]
         public async Task<IActionResult> GetMenu()
         {
@@ -358,11 +396,13 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
 
         //Pham Son Tung
         // controller for filter by roomAreaId and isUse
+        [Authorize]
+        [Authorize(Roles = "manager, cashier")]
         [HttpGet("filter-menu-pos")]
         [ProducesResponseType(typeof(List<MenuPosDto>), 200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> FilterRoomPos([FromQuery] int? categoryId, [FromQuery] bool? isAvailable)
+        public async Task<IActionResult> FilterMenuPos([FromQuery] int? categoryId, [FromQuery] bool? isAvailable)
         {
             try
             {
@@ -386,6 +426,8 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
 
 
         //Pham Son Tung
+        [Authorize]
+        [Authorize(Roles = "manager")]
         [HttpGet("get-all-menu-qr")]
         public async Task<IActionResult> GetAllMenuQr()
         {

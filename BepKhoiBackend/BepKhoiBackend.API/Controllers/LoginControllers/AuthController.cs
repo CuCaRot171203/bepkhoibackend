@@ -5,10 +5,11 @@ using Microsoft.AspNetCore.Http;
 using System;
 using DocumentFormat.OpenXml.Office2016.Excel;
 using BepKhoiBackend.BusinessObject.Services.LoginService.Interface;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BepKhoiBackend.API.Controllers.LoginControllers
 {
-    [Route("api/[controller]")]
     [ApiController]
     public class AuthController : ControllerBase
     {
@@ -20,6 +21,7 @@ namespace BepKhoiBackend.API.Controllers.LoginControllers
             _authService = authService;
             _httpContextAccessor = httpContextAccessor;
         }
+
         [HttpPost("logout")]
         public IActionResult Logout()
         {
@@ -93,9 +95,10 @@ namespace BepKhoiBackend.API.Controllers.LoginControllers
                 var session = _httpContextAccessor.HttpContext.Session;
                 session.SetString("Token", token);
                 session.SetString("UserId", user.UserId.ToString());
-                session.SetString("Phone", user.Email);
+                session.SetString("Email", user.Email);
+                var role = User.FindFirst(ClaimTypes.Role)?.Value;
 
-                return Ok(new { message = "successful", token, userId = user.UserId });
+                return Ok(new { message = "successful", token, userId = user.UserId, RoleName = user.RoleName, UserName = user.UserName });
             }
             catch (Exception ex)
             {

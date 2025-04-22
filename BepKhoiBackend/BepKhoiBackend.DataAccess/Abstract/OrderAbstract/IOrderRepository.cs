@@ -20,14 +20,26 @@ namespace BepKhoiBackend.DataAccess.Abstract.OrderAbstract
         Task<Customer> GetCustomerIdByOrderIdAsync(int orderId);
         Task AssignCustomerToOrder(int orderId, int customerId);
         Task<bool> RemoveCustomerFromOrderAsync(int orderId);
-        Task<bool> RemoveOrder(int orderId);
+        Task<Order> RemoveOrder(int orderId);
         Task<IEnumerable<OrderDetail>> GetOrderDetailsByOrderIdAsync(int orderId);
         Task<List<Order>> GetAllAsync();
         Task<List<Order>> GetByDateRangeAsync(DateTime fromDate, DateTime toDate);
-        Task AddOrderAsync(Order order);
         Task AddOrderDetailsAsync(List<OrderDetail> orderDetails);
         Task<Order> GetAllOrderData(int orderId);
         Task UpdateOrderAfterAddOrderDetailAsync(int orderId);
+        Task DeleteOrderDetailAsync(int orderId, int orderDetailId);
+        Task DeleteConfirmedOrderDetailAsync(int orderId, int orderDetailId, OrderCancellationHistory cancellation);
+        Task<(int roomId, bool? isUse)> UpdateRoomIsUseByRoomIdAsync(int roomId);
+        Task<Order?> GetFullOrderByIdAsync(int orderId);
+        Task<bool> CreateDeliveryInformationAsync(int orderId, string receiverName, string receiverPhone, string receiverAddress, string? deliveryNote);
+        Task<DeliveryInformation?> GetDeliveryInformationByOrderIdAsync(int orderId);
+        Task<List<int>> GetOrderIdsForQrSiteAsync(int roomId, int customerId);
+        Task<Order?> GetOrderByIdAsync(int orderId);
+        Task<bool> UpdateOrderCustomerAsync(Order order);
+        Task<bool> AddOrUpdateOrderDetailsAsync(Order order, List<OrderDetail> newDetails);
 
+        Task<OrderCancellationHistory?> GetOrderCancellationHistoryByIdAsync(int orderCancellationHistoryId);
+
+        Task<DeliveryInformation?> GetDeliveryInformationByIdAsync(int deliveryInformationId);
     }
 }

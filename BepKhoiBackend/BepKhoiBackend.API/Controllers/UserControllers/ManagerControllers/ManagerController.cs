@@ -1,9 +1,11 @@
 ﻿using BepKhoiBackend.BusinessObject.Services.UserService.ManagerService;
 using BepKhoiBackend.BusinessObject.dtos.UserDto.ManagerDto;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BepKhoiBackend.API.Controllers.UserControllers.ManagerControllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ManagerController : ControllerBase
@@ -15,6 +17,7 @@ namespace BepKhoiBackend.API.Controllers.UserControllers.ManagerControllers
             _managerService = managerService;
         }
 
+        [Authorize(Roles = "manager")]
         // Lấy thông tin Manager theo ID
         [HttpGet("{id}")]
         public IActionResult GetManagerById(int id)
@@ -27,6 +30,7 @@ namespace BepKhoiBackend.API.Controllers.UserControllers.ManagerControllers
             return Ok(manager);
         }
 
+        [Authorize(Roles = "manager")]
         // Cập nhật thông tin Manager
         [HttpPut("{id}")]
         public IActionResult UpdateManager(int id, [FromBody] UpdateManagerDTO updatedManager)

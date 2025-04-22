@@ -1,9 +1,12 @@
-﻿using BepKhoiBackend.BusinessObject.Abstract.OrderAbstract;
+﻿using BepKhoiBackend.API.Hubs;
+using BepKhoiBackend.BusinessObject.Abstract.OrderAbstract;
 using BepKhoiBackend.BusinessObject.Abstract.OrderDetailAbstract;
 using BepKhoiBackend.BusinessObject.dtos.OrderDetailDto;
 using BepKhoiBackend.BusinessObject.Services.OrderService;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
+using Org.BouncyCastle.Asn1.Ocsp;
 
 namespace BepKhoiBackend.API.Controllers.OrderDetailControllers
 {
@@ -11,10 +14,12 @@ namespace BepKhoiBackend.API.Controllers.OrderDetailControllers
     [Route("api/order-detail")]
     public class OrderDetailControllers : ControllerBase
     {
+        private readonly IHubContext<SignalrHub> _hubContext;
         private readonly IOrderDetailService _orderDetailService;
 
-        public OrderDetailControllers(IOrderDetailService orderDetailService)
+        public OrderDetailControllers(IOrderDetailService orderDetailService, IHubContext<SignalrHub> hubContext)
         {
+            _hubContext = hubContext;
             _orderDetailService = orderDetailService;
         }
 
@@ -142,7 +147,7 @@ namespace BepKhoiBackend.API.Controllers.OrderDetailControllers
                 {
                     return NotFound(new { message = "No order details found. Order may not exist." });
                 }
-
+                await _hubContext.Clients.Group("order").SendAsync("OrderUpdate", orderId);
                 return Ok(new { message = "Order confirmed successfully." });
             }
             catch (ArgumentException ex)
@@ -173,6 +178,11 @@ namespace BepKhoiBackend.API.Controllers.OrderDetailControllers
                 bool result = await _orderDetailService.SplitOrderPosServiceAsync(request);
                 if (result)
                 {
+                    await _hubContext.Clients.Group("order").SendAsync("OrderUpdate", request.OrderId);
+                    if (request.SplitTo.HasValue)
+                    {
+                        await _hubContext.Clients.Group("order").SendAsync("OrderUpdate", request.SplitTo);
+                    }
                     return Ok(new { message = "Order split successfully." });
                 }
                 return BadRequest(new { message = "Failed to split order." });

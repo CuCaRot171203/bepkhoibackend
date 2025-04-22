@@ -14,12 +14,15 @@ public class UserRepository : IUserRepository
         _context = context;
     }
 
-    public User GetUserByEmail(string email)
-    {
-        return _context.Users.FirstOrDefault(u => u.Email == email);
-    }
+        public User GetUserByEmail(string email)
+        {
+            return _context.Users
+                    .Include(u => u.Role)
+                    .Include(u => u.UserInformation)
+                    .FirstOrDefault(u => u.Email == email);
+        }
 
-    public void UpdateUser(User user)
+        public void UpdateUser(User user)
     {
         _context.Users.Update(user);
         _context.SaveChanges();

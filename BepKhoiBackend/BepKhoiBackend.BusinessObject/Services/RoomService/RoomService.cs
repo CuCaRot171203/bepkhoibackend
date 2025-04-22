@@ -91,7 +91,7 @@ namespace BepKhoiBackend.BusinessObject.Services.RoomService
             await _roomRepository.AddAsync(room);
         }
 
-        public async Task<string> GenerateQRCodeAndSaveAsync(int roomId)
+        public async Task<string> GenerateQRCodeAndSaveAsync(int roomId, String UrlBase)
         {
             var room = await _roomRepository.GetByIdAsync(roomId);
             if (room == null)
@@ -106,7 +106,7 @@ namespace BepKhoiBackend.BusinessObject.Services.RoomService
             }
 
             // Dữ liệu để nhúng vào QR Code
-            string qrData = $"https://Facebook.com/roomId";
+            string qrData = $"{UrlBase}{roomId}";
 
             // Tạo và upload QR Code lên Cloudinary
             string qrCodeUrl = await _qrCodeService.GenerateAndUploadQRCodeAsync(qrData);

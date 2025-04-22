@@ -15,8 +15,8 @@ namespace BepKhoiBackend.BusinessObject.Abstract.MenuBusinessAbstract
             int? categoryId, bool? isActive, string? productNameOrId);
         Task<PagedResult<Menu>> GetMenuByIdAsync(int pId);
         //Task<PagedResult<Menu>> AddMenuAsync(Menu menu);
-        Task<PagedResult<MenuDto>> AddMenuAsync(CreateMenuDto menuDto);
-        Task<Result<Menu>> UpdateMenuAsync(int productId, UpdateMenuDto dto);
+        Task<PagedResult<MenuDto>> AddMenuAsync(CreateMenuDto menuDto, List<string> imageUrls);
+        Task<Result<Menu>> UpdateMenuAsync(int productId, UpdateMenuDto dto, List<string> imageUrls);
         Task<PagedResult<Menu>> DeleteMenuAsync(int id);
         Task<(byte[] fileContent, string FileName, bool HasData, string ErrorMessage)> ExportActiveProductsToExcelAsync(
         string sortBy, string sortDirection, int? categoryId = null, bool? isActive = null);

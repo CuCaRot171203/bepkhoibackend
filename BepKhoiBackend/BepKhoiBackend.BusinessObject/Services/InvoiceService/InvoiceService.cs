@@ -1,6 +1,9 @@
 ﻿using BepKhoiBackend.BusinessObject.dtos.InvoiceDto;
+using BepKhoiBackend.DataAccess.Abstract.OrderAbstract;
 using BepKhoiBackend.DataAccess.Models;
 using BepKhoiBackend.DataAccess.Repository.InvoiceRepository;
+using Microsoft.EntityFrameworkCore;
+using Org.BouncyCastle.Asn1.Ocsp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,10 +13,11 @@ namespace BepKhoiBackend.BusinessObject.Services.InvoiceService
     public class InvoiceService : IInvoiceService
     {
         private readonly IInvoiceRepository _invoiceRepository;
-
-        public InvoiceService(IInvoiceRepository invoiceRepository)
+        private readonly IOrderRepository _orderRepository;
+        public InvoiceService(IInvoiceRepository invoiceRepository, IOrderRepository orderRepository)
         {
             _invoiceRepository = invoiceRepository;
+            _orderRepository = orderRepository;
         }
 
         public List<InvoiceDTO> GetAllInvoices()
@@ -216,5 +220,78 @@ namespace BepKhoiBackend.BusinessObject.Services.InvoiceService
             // Trả về true nếu việc cập nhật thành công
             return true;
         }
+
+        //Phạm sơn tùng
+        public async Task<(int invoiceId, int? roomId, bool? isUse)> CreateInvoiceForPaymentServiceAsync(
+            InvoiceForPaymentDto invoiceDto,
+            List<InvoiceDetailForPaymentDto> detailDtos)
+        {
+            if (invoiceDto == null) throw new ArgumentNullException(nameof(invoiceDto));
+            if (detailDtos == null || !detailDtos.Any()) throw new ArgumentException("Chi tiết hóa đơn không được để trống.");
+
+            try
+            {
+                var invoice = new Invoice
+                {
+                    PaymentMethodId = invoiceDto.PaymentMethodId,
+                    OrderId = invoiceDto.OrderId,
+                    OrderTypeId = invoiceDto.OrderTypeId,
+                    CashierId = invoiceDto.CashierId,
+                    ShipperId = invoiceDto.ShipperId,
+                    CustomerId = invoiceDto.CustomerId,
+                    RoomId = invoiceDto.RoomId,
+                    CheckInTime = invoiceDto.CheckInTime,
+                    CheckOutTime = invoiceDto.CheckOutTime,
+                    TotalQuantity = invoiceDto.TotalQuantity,
+                    Subtotal = invoiceDto.Subtotal,
+                    OtherPayment = invoiceDto.OtherPayment,
+                    InvoiceDiscount = invoiceDto.InvoiceDiscount,
+                    TotalVat = invoiceDto.TotalVat,
+                    AmountDue = invoiceDto.AmountDue,
+                    Status = invoiceDto.Status ?? true,
+                    InvoiceNote = invoiceDto.InvoiceNote
+                };
+
+                var createdInvoice = await _invoiceRepository.CreateInvoiceForPaymentAsync(invoice);
+
+                var invoiceDetails = detailDtos.Select(d => new InvoiceDetail
+                {
+                    InvoiceId = createdInvoice.InvoiceId,
+                    ProductId = d.ProductId,
+                    ProductName = d.ProductName,
+                    Quantity = d.Quantity,
+                    Price = d.Price,
+                    ProductVat = d.ProductVat,
+                    ProductNote = d.ProductNote
+                }).ToList();
+
+                await _invoiceRepository.AddInvoiceDetailForPaymentsAsync(invoiceDetails);
+
+                await _invoiceRepository.ChangeOrderStatusAfterPayment(invoiceDto.OrderId);
+
+                // Nếu là đơn tại bàn thì cập nhật trạng thái phòng
+                int? updatedRoomId = null;
+                bool? isUse = null;
+                if (invoiceDto.OrderTypeId == 3 && invoiceDto.RoomId.HasValue)
+                {
+                    var result = await _orderRepository.UpdateRoomIsUseByRoomIdAsync(invoiceDto.RoomId.Value);
+                    updatedRoomId = result.roomId;
+                    isUse = result.isUse;
+                }
+
+                return (createdInvoice.InvoiceId, updatedRoomId, isUse);
+            }
+            catch (DbUpdateException dbEx)
+            {
+                throw new DbUpdateException("Database update error in service in CreateInvoiceForPaymentAsync.", dbEx);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Undefined Error in service in CreateInvoiceForPaymentAsync.", ex);
+            }
+        }
+
+
+
     }
 }

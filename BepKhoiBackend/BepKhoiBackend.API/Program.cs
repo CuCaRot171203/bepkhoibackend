@@ -52,7 +52,7 @@ builder.Host.UseSerilog();
 
 // Config Authentication Jwt
 JwtConfig.ConfigureJwtAuthentication(builder.Services, builder.Configuration);
-
+JwtConfig.ConfigureSwagger(builder.Services);
 // Add Application Services (custom config DI)
 builder.Services.AddApplicationServices(builder.Configuration);
 
@@ -79,7 +79,6 @@ builder.Services.AddScoped<VnPayService>();
 builder.Services.AddAuthorization();
 
 builder.Services.AddCorsPolicy(builder.Configuration);
-
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
@@ -90,15 +89,18 @@ builder.Services.AddCors(options =>
               .AllowCredentials(); // Quan trọng cho SignalR
     });
 });
+
+builder.Services.AddSignalR();
+
 var app = builder.Build();
-app.MapHub<OrderHub>("/orderHub"); // Đăng ký đường dẫn của Hub
+
+app.MapHub<SignalrHub>("/SignalrHub"); // Đăng ký đường dẫn của Hub
 
 // Configure the HTTP request pipeline.
 app.UseSwagger();
 app.UseSwaggerUI();
 app.UseMiddleware<ExceptionMiddleware>(); // Use to solve problemss
 app.UseSession();
-app.UseCors();
 
 app.UseHttpsRedirection();
 app.UseRouting();
