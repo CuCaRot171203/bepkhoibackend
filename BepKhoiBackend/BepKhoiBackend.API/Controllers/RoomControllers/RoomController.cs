@@ -44,11 +44,11 @@ namespace BepKhoiBackend.API.Controllers
         }
 
         [HttpPost("generate-qr/{id}")]
-        public async Task<IActionResult> GenerateQRCodeForRoom(int id)
+        public async Task<IActionResult> GenerateQRCodeForRoom(int id, String UrlBase)
         {
             try
             {
-                string qrCodeUrl = await _roomService.GenerateQRCodeAndSaveAsync(id);
+                string qrCodeUrl = await _roomService.GenerateQRCodeAndSaveAsync(int id, String UrlBase);
                 return Ok(new { message = "QR Code generated successfully", qrCodeUrl });
             }
             catch (KeyNotFoundException ex)

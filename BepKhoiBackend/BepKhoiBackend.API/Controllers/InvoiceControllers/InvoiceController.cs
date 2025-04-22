@@ -9,7 +9,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BepKhoiBackend.API.Controllers.InvoiceControllers
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class InvoiceController : ControllerBase
@@ -26,6 +25,7 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
             _hubContext = hubContext;
         }
 
+        [Authorize]
         [Authorize(Roles = "manager")]
         [HttpGet]
         public ActionResult<List<InvoiceDTO>> GetAllInvoices()
@@ -33,6 +33,7 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
             return Ok(_invoiceService.GetAllInvoices());
         }
 
+        [Authorize]
         [Authorize(Roles = "manager")]
         [HttpGet("{id}")]
         public ActionResult<InvoiceDTO> GetInvoiceById(int id)
@@ -42,6 +43,9 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
             return Ok(invoice);
         }
 
+
+
+        [Authorize]
         [Authorize(Roles = "manager")]
         [HttpGet("customer/{keyword}")]
         public ActionResult<List<InvoiceDTO>> GetInvoiceByCustomer(string keyword)
@@ -49,6 +53,7 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
             return Ok(_invoiceService.GetInvoiceByCustomer(keyword));
         }
 
+        [Authorize]
         [Authorize(Roles = "manager")]
         [HttpGet("cashier/{keyword}")]
         public ActionResult<List<InvoiceDTO>> GetInvoiceByCashier(string keyword)
@@ -56,12 +61,16 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
             return Ok(_invoiceService.GetInvoiceByCashier(keyword));
         }
 
+
+        [Authorize]
+
         [Authorize(Roles = "manager")]
         [HttpGet("product/{productName}")]
         public ActionResult<List<InvoiceDTO>> GetInvoiceByProductName(string productName)
         {
             return Ok(_invoiceService.GetInvoiceByProductName(productName));
         }
+        [Authorize]
 
         [Authorize(Roles = "manager")]
         [HttpGet("period")]
@@ -70,6 +79,7 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
             return Ok(_invoiceService.GetInvoiceByPeriod(from, to));
         }
 
+        [Authorize]
 
         [Authorize(Roles = "manager")]
         [HttpGet("status/{status}")]
@@ -77,6 +87,7 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
         {
             return Ok(_invoiceService.GetInvoiceByStatus(status));
         }
+        [Authorize]
 
         [Authorize(Roles = "manager")]
         [HttpGet("order-method/{method}")]
@@ -86,6 +97,8 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
         }
 
         //------------------NgocQuan----------------------//
+        [Authorize]
+
         [Authorize(Roles = "manager, cashier")]
         [HttpGet("{id}/print-pdf")]
         public IActionResult GetInvoicePdf(int id)
@@ -100,6 +113,7 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
             var pdfBytes = _pdfService.GenerateInvoicePdf(invoice);
             return File(pdfBytes, "application/pdf", $"Invoice_{id}.pdf");
         }
+        [Authorize]
 
         [Authorize(Roles = "manager, cashier")]
         [HttpGet("vnpay-url")]
@@ -135,7 +149,6 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
             }
         }
 
-        [Authorize(Roles = "manager, cashier")]
         [HttpGet("Return")]
         public IActionResult PaymentCallbackVnpay()
         {
@@ -177,6 +190,7 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
             public InvoiceForPaymentDto InvoiceInfo { get; set; } = null!;
             public List<InvoiceDetailForPaymentDto> InvoiceDetails { get; set; } = new();
         }
+        [Authorize]
         [Authorize(Roles = "manager, cashier")]
         [HttpPost("create-invoice-for-payment")]
         public async Task<IActionResult> CreateInvoiceForPaymentAsync([FromBody] InvoicePaymentRequestDto request)
