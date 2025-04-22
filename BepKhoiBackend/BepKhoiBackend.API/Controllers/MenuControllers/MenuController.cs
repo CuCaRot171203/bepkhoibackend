@@ -59,13 +59,14 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
                 data = mappedData
             });
         }
+
         [HttpGet("get-all-menus-customer")]
         public async Task<IActionResult> GetAllMenuCustomerAsync(
-    [FromQuery] string sortBy = "ProductId",
-    [FromQuery] string sortDirection = "asc",
-    [FromQuery] int? categoryId = null,
-    [FromQuery] bool? isActive = null,
-    [FromQuery] string? productNameOrId = null)
+        [FromQuery] string sortBy = "ProductId",
+        [FromQuery] string sortDirection = "asc",
+        [FromQuery] int? categoryId = null,
+        [FromQuery] bool? isActive = null,
+        [FromQuery] string? productNameOrId = null)
         {
             var result = await _menuService.GetAllMenusCustomerAsync(sortBy, sortDirection, categoryId, isActive, productNameOrId);
 
@@ -185,7 +186,7 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
         [ProducesResponseType(400)] // BadRequest
         [ProducesResponseType(404)] // NotFound
         [ProducesResponseType(500)] // InternalServerError
-        public async Task<IActionResult> UpdateMenu(int id, [FromBody] UpdateMenuDto dto)
+        public async Task<IActionResult> UpdateMenu(int id, [FromForm] UpdateMenuDto dto)
         {
             try
             {
@@ -200,7 +201,15 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
                     return BadRequest(new { message = "Product ID must be greater than 0." });
                 }
 
-                var result = await _menuService.UpdateMenuAsync(id, dto);
+                // Handle image upload
+                var imageUrls = new List<string>();
+                if (dto.Image != null)
+                {
+                    var imageUrl = await _cloudinaryService.UploadImageAsync(dto.Image);
+                    imageUrls.Add(imageUrl);
+                }
+
+                var result = await _menuService.UpdateMenuAsync(id, dto, imageUrls);
 
                 if (!result.IsSuccess)
                 {

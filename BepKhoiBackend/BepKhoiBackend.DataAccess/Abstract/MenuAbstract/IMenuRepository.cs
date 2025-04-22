@@ -21,5 +21,8 @@ namespace BepKhoiBackend.DataAccess.Abstract.MenuAbstract
         Task<IEnumerable<Menu>> GetAllMenuPos();
         Task<IEnumerable<Menu>> FilterMenuPos(int? categoryId, bool? isAvailable);
         Task<IEnumerable<Menu>> GetAllMenuQr();
+
+        Task<bool> DeleteImageByIdAsync(int ProductId); 
+
     }
 }

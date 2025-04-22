@@ -232,4 +232,23 @@ public class MenuRepository : RepositoryBase, IMenuRepository
             throw new Exception("Error when filter from database.", ex);
         }
     }
+
+    // Method to delete an image by ID
+    public async Task<bool> DeleteImageByIdAsync(int productId)
+    {
+
+        var images = await _context.ProductImages
+     .Where(pi => pi.ProductId == productId)
+     .ToListAsync();
+
+        if (images == null || !images.Any())
+        {
+            return false; // No images found for this product
+        }
+
+        _context.ProductImages.RemoveRange(images);
+        await _context.SaveChangesAsync();
+        return true; // Images deleted successfully
+
+    }
 }

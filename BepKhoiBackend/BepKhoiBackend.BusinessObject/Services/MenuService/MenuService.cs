@@ -18,14 +18,18 @@ namespace BepKhoiBackend.BusinessObject.Services.MenuService
         private readonly IMenuRepository _menuRepository;
         private readonly bepkhoiContext _context;
         private readonly IMapper _mapper;
+        private readonly CloudinaryService _cloudinaryService;
+
         public MenuService(
             IMenuRepository menuRepository,
-            bepkhoiContext context, 
-            IMapper mapper)
+            bepkhoiContext context,
+            IMapper mapper,
+            CloudinaryService cloudinaryService)
         {
             _menuRepository = menuRepository;
             _context = context;
             _mapper = mapper;
+            _cloudinaryService = cloudinaryService;
         }
 
         // Method to get menu by filter
@@ -310,7 +314,7 @@ namespace BepKhoiBackend.BusinessObject.Services.MenuService
 
 
         // Method to update menu
-        public async Task<Result<Menu>> UpdateMenuAsync(int productId, UpdateMenuDto dto)
+        public async Task<Result<Menu>> UpdateMenuAsync(int productId, UpdateMenuDto dto, List<string> imageUrls)
         {
             try
             {
@@ -321,6 +325,19 @@ namespace BepKhoiBackend.BusinessObject.Services.MenuService
 
                 if (existingMenu.IsDelete == true)
                     return Result<Menu>.Failure($"Menu with ID {productId} has been deleted.");
+
+                // Delete old images from Cloudinary and database
+                if (imageUrls.Any() && existingMenu.ProductImages != null && existingMenu.ProductImages.Any())
+                {
+                    foreach (var image in existingMenu.ProductImages)
+                    {
+                        // Delete from Cloudinary
+                        await _cloudinaryService.DeleteImageAsync(image.ProductImage1);
+
+                    }
+                    // Clear existing images from the entity
+                    existingMenu.ProductImages.Clear();
+                }
 
                 // Mapping DTO to existing entity
                 existingMenu.ProductName = dto.ProductName;
@@ -338,6 +355,15 @@ namespace BepKhoiBackend.BusinessObject.Services.MenuService
                 if (dto.IsDelete.HasValue)
                     existingMenu.IsDelete = dto.IsDelete.Value;
 
+                // Add new images
+                if (imageUrls.Any())
+                {
+                    existingMenu.ProductImages = imageUrls.Select(url => new ProductImage
+                    {
+                        ProductImage1 = url
+                    }).ToList();
+                }
+                await _menuRepository.DeleteImageByIdAsync(productId);
                 var updatedMenu = await _menuRepository.UpdateMenuAsync(existingMenu);
 
                 return Result<Menu>.Success(updatedMenu, $"Menu with ID {productId} updated successfully.");
@@ -353,13 +379,14 @@ namespace BepKhoiBackend.BusinessObject.Services.MenuService
         }
 
         // Method to soft delete
+        // Method to soft delete
         public async Task<PagedResult<Menu>> DeleteMenuAsync(int id)
         {
             try
             {
                 var menu = await _menuRepository.GetMenuByIdAsync(id);
 
-                // check null
+                // Check null
                 if (menu == null)
                 {
                     return new PagedResult<Menu>
@@ -371,7 +398,7 @@ namespace BepKhoiBackend.BusinessObject.Services.MenuService
                     };
                 }
 
-                // check soft delete
+                // Check soft delete
                 if (menu.IsDelete == true)
                 {
                     return new PagedResult<Menu>
@@ -383,6 +410,17 @@ namespace BepKhoiBackend.BusinessObject.Services.MenuService
                     };
                 }
 
+                // Delete associated images from Cloudinary and database
+                if (menu.ProductImages != null && menu.ProductImages.Any())
+                {
+                    foreach (var image in menu.ProductImages)
+                    {
+                        await _cloudinaryService.DeleteImageAsync(image.ProductImage1);
+                    }
+                    menu.ProductImages.Clear();
+                }
+                await _menuRepository.DeleteImageByIdAsync(id);
+                // Perform soft delete
                 await _menuRepository.DeleteMenuAsync(menu);
 
                 return new PagedResult<Menu>
