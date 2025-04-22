@@ -141,3 +141,17 @@ SELECT @@ROWCOUNT;
 2025-04-22 19:02:31.262 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.PaymentCallbackVnpay (BepKhoiBackend.API) in 116.2807ms
 2025-04-22 19:02:31.263 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.InvoiceControllers.InvoiceController.PaymentCallbackVnpay (BepKhoiBackend.API)'
 2025-04-22 19:02:31.264 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/api/Invoice/Return?vnp_Amount=28350000&vnp_BankCode=NCB&vnp_BankTranNo=VNP14920800&vnp_CardType=ATM&vnp_OrderInfo=6&vnp_PayDate=20250422190242&vnp_ResponseCode=00&vnp_TmnCode=1MTJPPPJ&vnp_TransactionNo=14920800&vnp_TransactionStatus=00&vnp_TxnRef=638809453169503684&vnp_SecureHash=2add7099b7565fcc0ab783bbc9ce8c9a0df04b4d019eb9730a7b13216a11abc2701a3ceacb012132c3dbe3debbe9ae36fdfb157caab8a4ca7aa668f9b2432a0c - - - 302 0 - 135.8711ms
+2025-04-22 19:11:10.759 +07:00 [INF] User profile is available. Using 'C:\Users\abc\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-22 19:11:10.901 +07:00 [INF] Now listening on: https://localhost:7257
+2025-04-22 19:11:10.902 +07:00 [INF] Now listening on: http://localhost:5287
+2025-04-22 19:11:11.025 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-22 19:11:11.026 +07:00 [INF] Hosting environment: Development
+2025-04-22 19:11:11.027 +07:00 [INF] Content root path: C:\Users\abc\Desktop\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\
+2025-04-22 19:11:11.622 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-04-22 19:11:11.800 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 181.4621ms
+2025-04-22 19:11:11.822 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-04-22 19:11:11.826 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 16521 application/javascript;+charset=utf-8 4.1281ms
+2025-04-22 19:11:12.076 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-04-22 19:11:12.134 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 57.6484ms
+2025-04-22 19:11:12.265 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-04-22 19:11:12.319 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 54.2017ms
