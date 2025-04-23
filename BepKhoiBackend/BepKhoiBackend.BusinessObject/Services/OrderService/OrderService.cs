@@ -859,11 +859,11 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
             }
         }
 
-        public async Task<OrderCancellationHistoryDto?> GetOrderCancellationHistoryByIdAsync(int orderCancellationHistoryId)
+        public async Task<OrderCancellationHistoryDto?> GetOrderCancellationHistoryByIdAsync(int orderId)
         {
             try
             {
-                var cancellation = await _orderRepository.GetOrderCancellationHistoryByIdAsync(orderCancellationHistoryId);
+                var cancellation = await _orderRepository.GetOrderCancellationHistoryByIdAsync(orderId);
                 if (cancellation == null)
                 {
                     return null;
@@ -880,6 +880,24 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
                     Quantity = cancellation.Quantity,
                     Reason = cancellation.Reason
                 };
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error retrieving OrderCancellationHistory: {ex.Message}", ex);
+            }
+        }
+
+        public async Task<DeliveryInformation?> GetDeliveryInformationByIdAsync(int DeliveryInformationId)
+        {
+            try
+            {
+                var DeliveryInformation = await _orderRepository.GetDeliveryInformationByIdAsync(DeliveryInformationId);
+                if (DeliveryInformation == null)
+                {
+                    return null;
+                }
+
+                return DeliveryInformation;
             }
             catch (Exception ex)
             {

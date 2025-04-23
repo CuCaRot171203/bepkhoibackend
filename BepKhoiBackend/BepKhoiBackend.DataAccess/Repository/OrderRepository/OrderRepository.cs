@@ -891,15 +891,16 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
                 throw;
             }
         }
-        public async Task<OrderCancellationHistory?> GetOrderCancellationHistoryByIdAsync(int orderCancellationHistoryId)
+        public async Task<OrderCancellationHistory?> GetOrderCancellationHistoryByIdAsync(int orderId)
         {
             try
             {
                 return await _context.OrderCancellationHistories
                     .Include(och => och.Cashier)
+                    .ThenInclude(c => c.UserInformation)
                     .Include(och => och.Order)
                     .Include(och => och.Product)
-                    .FirstOrDefaultAsync(och => och.OrderCancellationHistoryId == orderCancellationHistoryId);
+                    .FirstOrDefaultAsync(och => och.OrderId == orderId);
             }
             catch (DbUpdateException dbEx)
             {
@@ -908,6 +909,23 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
             catch (Exception ex)
             {
                 throw new Exception("An error occurred while retrieving OrderCancellationHistory.", ex);
+            }
+        }
+
+        public async Task<DeliveryInformation?> GetDeliveryInformationByIdAsync(int DeliveryInformationId)
+        {
+            try
+            {
+                return await _context.DeliveryInformations
+                    .FirstOrDefaultAsync(och => och.DeliveryInformationId == DeliveryInformationId);
+            }
+            catch (DbUpdateException dbEx)
+            {
+                throw new Exception("Database error occurred while retrieving DeliveryInformation.", dbEx);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An error occurred while retrieving DeliveryInformation.", ex);
             }
         }
 

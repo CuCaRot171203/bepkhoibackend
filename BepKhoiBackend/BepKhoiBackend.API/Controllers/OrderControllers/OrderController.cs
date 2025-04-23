@@ -939,12 +939,12 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
 
         [Authorize]
         [Authorize(Roles = "manager, cashier")]
-        [HttpGet("cancellation-history/{orderCancellationHistoryId}")]
-        public async Task<IActionResult> GetOrderCancellationHistoryByIdAsync(int orderCancellationHistoryId)
+        [HttpGet("cancellation-history/{orderId}")]
+        public async Task<IActionResult> GetOrderCancellationHistoryByIdAsync(int orderId)
         {
             try
             {
-                var cancellation = await _orderService.GetOrderCancellationHistoryByIdAsync(orderCancellationHistoryId);
+                var cancellation = await _orderService.GetOrderCancellationHistoryByIdAsync(orderId);
                 if (cancellation == null)
                 {
                     return NotFound(new
@@ -959,6 +959,41 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
                     success = true,
                     message = "Order cancellation history retrieved successfully.",
                     data = cancellation
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = "Server error",
+                    error = ex.Message
+                });
+            }
+        }
+
+        [Authorize]
+        [Authorize(Roles = "manager, cashier")]
+        [HttpGet("DeliveryInformation/{deliveryInformationId}")]
+        public async Task<IActionResult> GetDeliveryInformationByIdAsync(int deliveryInformationId)
+        {
+            try
+            {
+                var DeliveryInformation = await _orderService.GetDeliveryInformationByIdAsync(deliveryInformationId);
+                if (DeliveryInformation == null)
+                {
+                    return NotFound(new
+                    {
+                        success = false,
+                        message = "DeliveryInformation not found."
+                    });
+                }
+
+                return Ok(new
+                {
+                    success = true,
+                    message = "DeliveryInformation retrieved successfully.",
+                    data = DeliveryInformation
                 });
             }
             catch (Exception ex)
