@@ -938,7 +938,7 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
         }
 
         [Authorize]
-        [Authorize(Roles = "manager, cashier")]
+        [Authorize(Roles = "manager")]
         [HttpGet("cancellation-history/{orderId}")]
         public async Task<IActionResult> GetOrderCancellationHistoryByIdAsync(int orderId)
         {
@@ -973,7 +973,7 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
         }
 
         [Authorize]
-        [Authorize(Roles = "manager, cashier")]
+        [Authorize(Roles = "manager")]
         [HttpGet("DeliveryInformation/{deliveryInformationId}")]
         public async Task<IActionResult> GetDeliveryInformationByIdAsync(int deliveryInformationId)
         {
@@ -994,6 +994,41 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
                     success = true,
                     message = "DeliveryInformation retrieved successfully.",
                     data = DeliveryInformation
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = "Server error",
+                    error = ex.Message
+                });
+            }
+        }
+
+        [Authorize]
+        [Authorize(Roles = "manager")]
+        [HttpGet("OrderInformationById/{orderId}")]
+        public async Task<IActionResult> GetOrderFullInforByIdAsync(int orderId)
+        {
+            try
+            {
+                var Order = await _orderService.GetOrderFullInforByIdAsync(orderId);
+                if (Order == null)
+                {
+                    return NotFound(new
+                    {
+                        success = false,
+                        message = "Order not found."
+                    });
+                }
+
+                return Ok(new
+                {
+                    success = true,
+                    message = "Order retrieved successfully.",
+                    data = Order
                 });
             }
             catch (Exception ex)

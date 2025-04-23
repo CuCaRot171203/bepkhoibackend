@@ -41,8 +41,7 @@ namespace BepKhoiBackend.DataAccess.Abstract.OrderAbstract
         Task<OrderCancellationHistory?> GetOrderCancellationHistoryByIdAsync(int orderId);
 
         Task<DeliveryInformation?> GetDeliveryInformationByIdAsync(int DeliveryInformationId);
-
-
+        Task<Order?> GetOrderFullInforByIdAsync(int orderId);
 
 
     }

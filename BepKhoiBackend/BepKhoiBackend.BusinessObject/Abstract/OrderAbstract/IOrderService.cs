@@ -41,6 +41,8 @@ namespace BepKhoiBackend.BusinessObject.Abstract.OrderAbstract
         Task<bool> UpdateOrderWithDetailsAsync(OrderUpdateDTO dto);
         Task<OrderCancellationHistoryDto?> GetOrderCancellationHistoryByIdAsync(int orderCancellationHistoryId);
         Task<DeliveryInformation?> GetDeliveryInformationByIdAsync(int DeliveryInformationId);
+        Task<OrderFullInForDto> GetOrderFullInforByIdAsync(int orderId);
+
 
     }
 }

@@ -929,5 +929,17 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
             }
         }
 
+        public async Task<Order?> GetOrderFullInforByIdAsync(int orderId)
+        {
+            try
+            {
+                return await _context.Orders.Include(o => o.Customer).FirstOrDefaultAsync(o => o.OrderId == orderId);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
     }
 }

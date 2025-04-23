@@ -904,5 +904,45 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
                 throw new Exception($"Error retrieving OrderCancellationHistory: {ex.Message}", ex);
             }
         }
+
+        public async Task<OrderFullInForDto?> GetOrderFullInforByIdAsync(int orderId)
+        {
+            try
+            {
+                var order = await _orderRepository.GetOrderFullInforByIdAsync(orderId);
+                if (order == null) return null;
+
+                var orderDto = new OrderFullInForDto
+                {
+                    OrderId = order.OrderId,
+                    CustomerId = order.CustomerId,
+                    CustomerName = order.Customer.CustomerName,
+                    ShipperId = order.ShipperId,
+                    DeliveryInformationId = order.DeliveryInformationId,
+                    OrderTypeId = order.OrderTypeId,
+                    RoomId = order.RoomId,
+                    CreatedTime = order.CreatedTime,
+                    TotalQuantity = order.TotalQuantity,
+                    AmountDue = order.AmountDue,
+                    OrderStatusId = order.OrderStatusId,
+                    OrderNote = order.OrderNote
+                    
+                };
+
+                return orderDto;
+            }
+            catch (SqlException sqlEx)
+            {
+                throw;
+            }
+            catch (DbException dbEx)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Service error when fetching order: {ex.Message}", ex);
+            }
+        }
     }
 }
