@@ -39,7 +39,7 @@ namespace BepKhoiBackend.BusinessObject.Abstract.OrderAbstract
         Task<DeliveryInformationDto?> GetDeliveryInformationByOrderIdAsync(int orderId);
         Task<List<int>> GetOrderIdsForQrSiteAsync(int roomId, int customerId);
         Task<bool> UpdateOrderWithDetailsAsync(OrderUpdateDTO dto);
-        Task<OrderCancellationHistoryDto?> GetOrderCancellationHistoryByIdAsync(int orderCancellationHistoryId);
+        Task<List<OrderCancellationHistoryDto>> GetOrderCancellationHistoryByIdAsync(int orderCancellationHistoryId);
         Task<DeliveryInformation?> GetDeliveryInformationByIdAsync(int DeliveryInformationId);
         Task<OrderFullInForDto> GetOrderFullInforByIdAsync(int orderId);
 

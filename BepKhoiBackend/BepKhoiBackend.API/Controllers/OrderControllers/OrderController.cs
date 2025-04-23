@@ -944,8 +944,8 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
         {
             try
             {
-                var cancellation = await _orderService.GetOrderCancellationHistoryByIdAsync(orderId);
-                if (cancellation == null)
+                var cancellations = await _orderService.GetOrderCancellationHistoryByIdAsync(orderId);
+                if (cancellations == null || !cancellations.Any())
                 {
                     return NotFound(new
                     {
@@ -958,7 +958,7 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
                 {
                     success = true,
                     message = "Order cancellation history retrieved successfully.",
-                    data = cancellation
+                    data = cancellations
                 });
             }
             catch (Exception ex)

@@ -891,7 +891,7 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
                 throw;
             }
         }
-        public async Task<OrderCancellationHistory?> GetOrderCancellationHistoryByIdAsync(int orderId)
+        public async Task<List<OrderCancellationHistory>> GetOrderCancellationHistoryByIdAsync(int orderId)
         {
             try
             {
@@ -900,7 +900,8 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
                     .ThenInclude(c => c.UserInformation)
                     .Include(och => och.Order)
                     .Include(och => och.Product)
-                    .FirstOrDefaultAsync(och => och.OrderId == orderId);
+                    .Where(och => och.OrderId == orderId)
+                    .ToListAsync();
             }
             catch (DbUpdateException dbEx)
             {

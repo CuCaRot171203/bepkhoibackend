@@ -859,17 +859,17 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
             }
         }
 
-        public async Task<OrderCancellationHistoryDto?> GetOrderCancellationHistoryByIdAsync(int orderId)
+        public async Task<List<OrderCancellationHistoryDto>> GetOrderCancellationHistoryByIdAsync(int orderId)
         {
             try
             {
-                var cancellation = await _orderRepository.GetOrderCancellationHistoryByIdAsync(orderId);
-                if (cancellation == null)
+                var cancellations = await _orderRepository.GetOrderCancellationHistoryByIdAsync(orderId);
+                if (cancellations == null || !cancellations.Any())
                 {
-                    return null;
+                    return new List<OrderCancellationHistoryDto>();
                 }
 
-                return new OrderCancellationHistoryDto
+                return cancellations.Select(cancellation => new OrderCancellationHistoryDto
                 {
                     OrderCancellationHistoryId = cancellation.OrderCancellationHistoryId,
                     OrderId = cancellation.OrderId,
@@ -879,7 +879,7 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
                     ProductName = cancellation.Product?.ProductName ?? "Unknown",
                     Quantity = cancellation.Quantity,
                     Reason = cancellation.Reason
-                };
+                }).ToList();
             }
             catch (Exception ex)
             {
