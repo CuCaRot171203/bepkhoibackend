@@ -546,11 +546,21 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
             }
         }
 
-        public async Task<ResultWithList<OrderDto>> FilterOrdersByDateAsync(DateTime fromDate, DateTime toDate)
+        public async Task<ResultWithList<OrderDto>> FilterOrdersByDateAsync(DateTime? fromDate = null, DateTime? toDate = null, int? orderId = null)
         {
             try
             {
-                var orders = await _orderRepository.GetByDateRangeAsync(fromDate, toDate);
+                var orders = await _orderRepository.GetByDateRangeAsync(fromDate, toDate, orderId);
+
+                if (orders == null || !orders.Any())
+                {
+                    return new ResultWithList<OrderDto>
+                    {
+                        IsSuccess = false,
+                        StatusCode = 404,
+                        Message = "No orders found matching the criteria"
+                    };
+                }
 
                 var data = orders.Select(o => new OrderDto
                 {
@@ -570,16 +580,19 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
                 return new ResultWithList<OrderDto>
                 {
                     IsSuccess = true,
-                    Message = "Filtered orders successfully.",
+                    StatusCode = 200,
+                    Message = "Orders retrieved successfully",
                     Data = data
                 };
             }
             catch (Exception ex)
             {
+                // Consider logging the exception here
                 return new ResultWithList<OrderDto>
                 {
                     IsSuccess = false,
-                    Message = $"Error: {ex.Message}"
+                    StatusCode = 500,
+                    Message = $"An error occurred while retrieving orders: {ex.Message}"
                 };
             }
         }

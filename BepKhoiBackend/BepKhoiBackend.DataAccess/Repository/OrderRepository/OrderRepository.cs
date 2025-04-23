@@ -519,11 +519,33 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
             return await _context.Orders.ToListAsync();
         }
 
-        public async Task<List<Order>> GetByDateRangeAsync(DateTime fromDate, DateTime toDate)
+        public async Task<List<Order>> GetByDateRangeAsync(DateTime? fromDate = null, DateTime? toDate = null, int? orderId = null)
         {
-            return await _context.Orders
-                .Where(o => o.CreatedTime >= fromDate && o.CreatedTime <= toDate)
-                .ToListAsync();
+            var query = _context.Orders.AsQueryable();
+
+            // Apply date range filter if provided
+            if (fromDate.HasValue)
+            {
+                query = query.Where(o => o.CreatedTime >= fromDate.Value);
+            }
+
+            if (toDate.HasValue)
+            {
+                // Add one day to include the entire toDate
+                query = query.Where(o => o.CreatedTime <= toDate.Value.AddDays(1).AddTicks(-1));
+            }
+
+            if (orderId.HasValue)
+            {
+                query = query.Where(o => o.OrderId == orderId.Value);
+            }
+
+            // Add ordering and select only necessary fields
+            query = query
+                .OrderBy(o => o.CreatedTime)
+                .AsNoTracking();
+
+            return await query.ToListAsync();
         }
 
         //public async Task AddOrderAsync(Order order)

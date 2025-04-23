@@ -30,7 +30,8 @@ namespace BepKhoiBackend.BusinessObject.Abstract.OrderAbstract
         Task<(OrderDto orderDto, int? roomId, bool? isUse)> RemoveOrderById(int orderId);
         Task<IEnumerable<OrderDetailDtoPos>> GetOrderDetailsByOrderIdAsync(int orderId);
         Task<ResultWithList<OrderDto>> GetAllOrdersAsync();
-        Task<ResultWithList<OrderDto>> FilterOrdersByDateAsync(DateTime fromDate, DateTime toDate);
+        Task<ResultWithList<OrderDto>> FilterOrdersByDateAsync(DateTime? fromDate, DateTime? toDate, int? orderId);
+
         Task<OrderGeneralDataPosDto> GetOrderGeneralDataPosAsync(int orderId);
         Task DeleteOrderDetailAsync(int orderId, int orderDetailId);
         Task DeleteConfirmedOrderDetailAsync(DeleteConfirmedOrderDetailRequestDto request);

@@ -23,7 +23,7 @@ namespace BepKhoiBackend.DataAccess.Abstract.OrderAbstract
         Task<Order> RemoveOrder(int orderId);
         Task<IEnumerable<OrderDetail>> GetOrderDetailsByOrderIdAsync(int orderId);
         Task<List<Order>> GetAllAsync();
-        Task<List<Order>> GetByDateRangeAsync(DateTime fromDate, DateTime toDate);
+        Task<List<Order>> GetByDateRangeAsync(DateTime? fromDate, DateTime? toDate, int? orderId);
         Task AddOrderDetailsAsync(List<OrderDetail> orderDetails);
         Task<Order> GetAllOrderData(int orderId);
         Task UpdateOrderAfterAddOrderDetailAsync(int orderId);

@@ -47,20 +47,29 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
             });
         }
 
-        [Authorize]
-        [Authorize(Roles = "manager")]
-        [HttpGet("filter-by-date")]
-        public async Task<IActionResult> FilterOrdersByDateAsync([FromQuery] DateTime fromDate, [FromQuery] DateTime toDate)
+        [HttpGet("filter-by-date-and-order-id")]
+        public async Task<IActionResult> FilterOrdersByDateAsync(
+        [FromQuery] DateTime? fromDate = null,
+        [FromQuery] DateTime? toDate = null,
+        [FromQuery] int? orderId = null)
         {
-            var result = await _orderService.FilterOrdersByDateAsync(fromDate, toDate);
+            // Validate input parameters
+            if (fromDate.HasValue && toDate.HasValue && fromDate > toDate)
+            {
+                return BadRequest(new { message = "From date cannot be later than to date" });
+            }
 
-            if (!result.IsSuccess)
-                return NotFound(new { message = result.Message });
+            if (orderId.HasValue && orderId <= 0)
+            {
+                return BadRequest(new { message = "Order ID must be a positive integer" });
+            }
 
+            var result = await _orderService.FilterOrdersByDateAsync(fromDate, toDate, orderId);
             return Ok(new
             {
                 message = result.Message,
-                data = result.Data
+                data = result.Data,
+                count = result.Data?.Count ?? 0
             });
         }
 
