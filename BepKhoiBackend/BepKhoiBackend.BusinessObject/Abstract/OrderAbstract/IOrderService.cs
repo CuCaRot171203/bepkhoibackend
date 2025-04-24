@@ -3,6 +3,7 @@ using BepKhoiBackend.BusinessObject.dtos.MenuDto;
 using BepKhoiBackend.BusinessObject.dtos.OrderDetailDto;
 using BepKhoiBackend.BusinessObject.dtos.OrderDto;
 using BepKhoiBackend.BusinessObject.dtos.OrderDto.PaymentDto;
+using BepKhoiBackend.DataAccess.Models;
 using BepKhoiBackend.Shared.Helpers;
 using System;
 using System.Collections.Generic;
@@ -29,7 +30,8 @@ namespace BepKhoiBackend.BusinessObject.Abstract.OrderAbstract
         Task<(OrderDto orderDto, int? roomId, bool? isUse)> RemoveOrderById(int orderId);
         Task<IEnumerable<OrderDetailDtoPos>> GetOrderDetailsByOrderIdAsync(int orderId);
         Task<ResultWithList<OrderDto>> GetAllOrdersAsync();
-        Task<ResultWithList<OrderDto>> FilterOrdersByDateAsync(DateTime fromDate, DateTime toDate);
+        Task<ResultWithList<OrderDto>> FilterOrdersByDateAsync(DateTime? fromDate, DateTime? toDate, int? orderId);
+
         Task<OrderGeneralDataPosDto> GetOrderGeneralDataPosAsync(int orderId);
         Task DeleteOrderDetailAsync(int orderId, int orderDetailId);
         Task DeleteConfirmedOrderDetailAsync(DeleteConfirmedOrderDetailRequestDto request);
@@ -38,5 +40,10 @@ namespace BepKhoiBackend.BusinessObject.Abstract.OrderAbstract
         Task<DeliveryInformationDto?> GetDeliveryInformationByOrderIdAsync(int orderId);
         Task<List<int>> GetOrderIdsForQrSiteAsync(int roomId, int customerId);
         Task<bool> UpdateOrderWithDetailsAsync(OrderUpdateDTO dto);
+        Task<List<OrderCancellationHistoryDto>> GetOrderCancellationHistoryByIdAsync(int orderCancellationHistoryId);
+        Task<DeliveryInformation?> GetDeliveryInformationByIdAsync(int DeliveryInformationId);
+        Task<OrderFullInForDto> GetOrderFullInforByIdAsync(int orderId);
+
+
     }
 }

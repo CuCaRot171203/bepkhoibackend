@@ -546,11 +546,21 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
             }
         }
 
-        public async Task<ResultWithList<OrderDto>> FilterOrdersByDateAsync(DateTime fromDate, DateTime toDate)
+        public async Task<ResultWithList<OrderDto>> FilterOrdersByDateAsync(DateTime? fromDate = null, DateTime? toDate = null, int? orderId = null)
         {
             try
             {
-                var orders = await _orderRepository.GetByDateRangeAsync(fromDate, toDate);
+                var orders = await _orderRepository.GetByDateRangeAsync(fromDate, toDate, orderId);
+
+                if (orders == null || !orders.Any())
+                {
+                    return new ResultWithList<OrderDto>
+                    {
+                        IsSuccess = false,
+                        StatusCode = 404,
+                        Message = "No orders found matching the criteria"
+                    };
+                }
 
                 var data = orders.Select(o => new OrderDto
                 {
@@ -570,16 +580,19 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
                 return new ResultWithList<OrderDto>
                 {
                     IsSuccess = true,
-                    Message = "Filtered orders successfully.",
+                    StatusCode = 200,
+                    Message = "Orders retrieved successfully",
                     Data = data
                 };
             }
             catch (Exception ex)
             {
+                // Consider logging the exception here
                 return new ResultWithList<OrderDto>
                 {
                     IsSuccess = false,
-                    Message = $"Error: {ex.Message}"
+                    StatusCode = 500,
+                    Message = $"An error occurred while retrieving orders: {ex.Message}"
                 };
             }
         }
@@ -856,6 +869,92 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
             catch (Exception)
             {
                 throw;
+            }
+        }
+
+        public async Task<List<OrderCancellationHistoryDto>> GetOrderCancellationHistoryByIdAsync(int orderId)
+        {
+            try
+            {
+                var cancellations = await _orderRepository.GetOrderCancellationHistoryByIdAsync(orderId);
+                if (cancellations == null || !cancellations.Any())
+                {
+                    return new List<OrderCancellationHistoryDto>();
+                }
+
+                return cancellations.Select(cancellation => new OrderCancellationHistoryDto
+                {
+                    OrderCancellationHistoryId = cancellation.OrderCancellationHistoryId,
+                    OrderId = cancellation.OrderId,
+                    CashierId = cancellation.CashierId,
+                    CashierName = cancellation.Cashier?.UserInformation.UserName ?? "Unknown",
+                    ProductId = cancellation.ProductId,
+                    ProductName = cancellation.Product?.ProductName ?? "Unknown",
+                    Quantity = cancellation.Quantity,
+                    Reason = cancellation.Reason
+                }).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error retrieving OrderCancellationHistory: {ex.Message}", ex);
+            }
+        }
+
+        public async Task<DeliveryInformation?> GetDeliveryInformationByIdAsync(int DeliveryInformationId)
+        {
+            try
+            {
+                var DeliveryInformation = await _orderRepository.GetDeliveryInformationByIdAsync(DeliveryInformationId);
+                if (DeliveryInformation == null)
+                {
+                    return null;
+                }
+
+                return DeliveryInformation;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error retrieving OrderCancellationHistory: {ex.Message}", ex);
+            }
+        }
+
+        public async Task<OrderFullInForDto?> GetOrderFullInforByIdAsync(int orderId)
+        {
+            try
+            {
+                var order = await _orderRepository.GetOrderFullInforByIdAsync(orderId);
+                if (order == null) return null;
+
+                var orderDto = new OrderFullInForDto
+                {
+                    OrderId = order.OrderId,
+                    CustomerId = order.CustomerId,
+                    CustomerName = order.Customer.CustomerName,
+                    ShipperId = order.ShipperId,
+                    DeliveryInformationId = order.DeliveryInformationId,
+                    OrderTypeId = order.OrderTypeId,
+                    RoomId = order.RoomId,
+                    CreatedTime = order.CreatedTime,
+                    TotalQuantity = order.TotalQuantity,
+                    AmountDue = order.AmountDue,
+                    OrderStatusId = order.OrderStatusId,
+                    OrderNote = order.OrderNote
+                    
+                };
+
+                return orderDto;
+            }
+            catch (SqlException sqlEx)
+            {
+                throw;
+            }
+            catch (DbException dbEx)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Service error when fetching order: {ex.Message}", ex);
             }
         }
     }

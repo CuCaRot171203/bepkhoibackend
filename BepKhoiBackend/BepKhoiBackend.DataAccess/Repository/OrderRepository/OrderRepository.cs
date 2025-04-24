@@ -546,11 +546,33 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
             return await _context.Orders.ToListAsync();
         }
 
-        public async Task<List<Order>> GetByDateRangeAsync(DateTime fromDate, DateTime toDate)
+        public async Task<List<Order>> GetByDateRangeAsync(DateTime? fromDate = null, DateTime? toDate = null, int? orderId = null)
         {
-            return await _context.Orders
-                .Where(o => o.CreatedTime >= fromDate && o.CreatedTime <= toDate)
-                .ToListAsync();
+            var query = _context.Orders.AsQueryable();
+
+            // Apply date range filter if provided
+            if (fromDate.HasValue)
+            {
+                query = query.Where(o => o.CreatedTime >= fromDate.Value);
+            }
+
+            if (toDate.HasValue)
+            {
+                // Add one day to include the entire toDate
+                query = query.Where(o => o.CreatedTime <= toDate.Value.AddDays(1).AddTicks(-1));
+            }
+
+            if (orderId.HasValue)
+            {
+                query = query.Where(o => o.OrderId == orderId.Value);
+            }
+
+            // Add ordering and select only necessary fields
+            query = query
+                .OrderBy(o => o.CreatedTime)
+                .AsNoTracking();
+
+            return await query.ToListAsync();
         }
 
         //public async Task AddOrderAsync(Order order)
@@ -912,6 +934,56 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
             catch (DbUpdateException dbEx)
             {
                 throw new DbUpdateException("Database error occurred while retrieving DeliveryInformation.", dbEx);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public async Task<List<OrderCancellationHistory>> GetOrderCancellationHistoryByIdAsync(int orderId)
+        {
+            try
+            {
+                return await _context.OrderCancellationHistories
+                    .Include(och => och.Cashier)
+                    .ThenInclude(c => c.UserInformation)
+                    .Include(och => och.Order)
+                    .Include(och => och.Product)
+                    .Where(och => och.OrderId == orderId)
+                    .ToListAsync();
+            }
+            catch (DbUpdateException dbEx)
+            {
+                throw new Exception("Database error occurred while retrieving OrderCancellationHistory.", dbEx);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An error occurred while retrieving OrderCancellationHistory.", ex);
+            }
+        }
+
+        public async Task<DeliveryInformation?> GetDeliveryInformationByIdAsync(int DeliveryInformationId)
+        {
+            try
+            {
+                return await _context.DeliveryInformations
+                    .FirstOrDefaultAsync(och => och.DeliveryInformationId == DeliveryInformationId);
+            }
+            catch (DbUpdateException dbEx)
+            {
+                throw new Exception("Database error occurred while retrieving DeliveryInformation.", dbEx);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An error occurred while retrieving DeliveryInformation.", ex);
+            }
+        }
+
+        public async Task<Order?> GetOrderFullInforByIdAsync(int orderId)
+        {
+            try
+            {
+                return await _context.Orders.Include(o => o.Customer).FirstOrDefaultAsync(o => o.OrderId == orderId);
             }
             catch (Exception)
             {

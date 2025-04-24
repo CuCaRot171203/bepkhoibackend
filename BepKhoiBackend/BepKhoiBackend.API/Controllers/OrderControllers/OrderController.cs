@@ -48,20 +48,29 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
             });
         }
 
-        [Authorize]
-        [Authorize(Roles = "manager")]
-        [HttpGet("filter-by-date")]
-        public async Task<IActionResult> FilterOrdersByDateAsync([FromQuery] DateTime fromDate, [FromQuery] DateTime toDate)
+        [HttpGet("filter-by-date-and-order-id")]
+        public async Task<IActionResult> FilterOrdersByDateAsync(
+        [FromQuery] DateTime? fromDate = null,
+        [FromQuery] DateTime? toDate = null,
+        [FromQuery] int? orderId = null)
         {
-            var result = await _orderService.FilterOrdersByDateAsync(fromDate, toDate);
+            // Validate input parameters
+            if (fromDate.HasValue && toDate.HasValue && fromDate > toDate)
+            {
+                return BadRequest(new { message = "From date cannot be later than to date" });
+            }
 
-            if (!result.IsSuccess)
-                return NotFound(new { message = result.Message });
+            if (orderId.HasValue && orderId <= 0)
+            {
+                return BadRequest(new { message = "Order ID must be a positive integer" });
+            }
 
+            var result = await _orderService.FilterOrdersByDateAsync(fromDate, toDate, orderId);
             return Ok(new
             {
                 message = result.Message,
-                data = result.Data
+                data = result.Data,
+                count = result.Data?.Count ?? 0
             });
         }
 
@@ -963,6 +972,110 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
             catch (Exception ex)
             {
                 return StatusCode(500, new { message = "Gửi sự kiện thất bại.", error = ex.Message });
+            }
+        }
+        [Authorize]
+        [Authorize(Roles = "manager")]
+        [HttpGet("cancellation-history/{orderId}")]
+        public async Task<IActionResult> GetOrderCancellationHistoryByIdAsync(int orderId)
+        {
+            try
+            {
+                var cancellations = await _orderService.GetOrderCancellationHistoryByIdAsync(orderId);
+                if (cancellations == null || !cancellations.Any())
+                {
+                    return NotFound(new
+                    {
+                        success = false,
+                        message = "Order cancellation history not found."
+                    });
+                }
+
+                return Ok(new
+                {
+                    success = true,
+                    message = "Order cancellation history retrieved successfully.",
+                    data = cancellations
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = "Server error",
+                    error = ex.Message
+                });
+            }
+        }
+
+        [Authorize]
+        [Authorize(Roles = "manager")]
+        [HttpGet("DeliveryInformation/{deliveryInformationId}")]
+        public async Task<IActionResult> GetDeliveryInformationByIdAsync(int deliveryInformationId)
+        {
+            try
+            {
+                var DeliveryInformation = await _orderService.GetDeliveryInformationByIdAsync(deliveryInformationId);
+                if (DeliveryInformation == null)
+                {
+                    return NotFound(new
+                    {
+                        success = false,
+                        message = "DeliveryInformation not found."
+                    });
+                }
+
+                return Ok(new
+                {
+                    success = true,
+                    message = "DeliveryInformation retrieved successfully.",
+                    data = DeliveryInformation
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = "Server error",
+                    error = ex.Message
+                });
+            }
+        }
+
+        [Authorize]
+        [Authorize(Roles = "manager")]
+        [HttpGet("OrderInformationById/{orderId}")]
+        public async Task<IActionResult> GetOrderFullInforByIdAsync(int orderId)
+        {
+            try
+            {
+                var Order = await _orderService.GetOrderFullInforByIdAsync(orderId);
+                if (Order == null)
+                {
+                    return NotFound(new
+                    {
+                        success = false,
+                        message = "Order not found."
+                    });
+                }
+
+                return Ok(new
+                {
+                    success = true,
+                    message = "Order retrieved successfully.",
+                    data = Order
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = "Server error",
+                    error = ex.Message
+                });
             }
         }
     }

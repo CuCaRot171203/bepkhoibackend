@@ -8,6 +8,8 @@ namespace BepKhoiBackend.Shared.Helpers
 {
     public class ResultWithList<T>
     {
+        public int StatusCode;
+
         public bool IsSuccess { get; set; }
         public string Message { get; set; }
         public List<T> Data { get; set; } = new List<T>();

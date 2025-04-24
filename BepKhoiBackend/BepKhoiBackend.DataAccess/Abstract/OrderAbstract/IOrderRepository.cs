@@ -23,7 +23,7 @@ namespace BepKhoiBackend.DataAccess.Abstract.OrderAbstract
         Task<Order> RemoveOrder(int orderId);
         Task<IEnumerable<OrderDetail>> GetOrderDetailsByOrderIdAsync(int orderId);
         Task<List<Order>> GetAllAsync();
-        Task<List<Order>> GetByDateRangeAsync(DateTime fromDate, DateTime toDate);
+        Task<List<Order>> GetByDateRangeAsync(DateTime? fromDate, DateTime? toDate, int? orderId);
         Task AddOrderDetailsAsync(List<OrderDetail> orderDetails);
         Task<Order> GetAllOrderData(int orderId);
         Task UpdateOrderAfterAddOrderDetailAsync(int orderId);
@@ -38,5 +38,8 @@ namespace BepKhoiBackend.DataAccess.Abstract.OrderAbstract
         Task<bool> UpdateOrderCustomerAsync(Order order);
         Task<bool> AddOrUpdateOrderDetailsAsync(Order order, List<OrderDetail> newDetails);
         (int roomId, bool? isUse) UpdateRoomIsUseByRoomId(int roomId);
+        Task<List<OrderCancellationHistory>> GetOrderCancellationHistoryByIdAsync(int orderId);
+        Task<DeliveryInformation?> GetDeliveryInformationByIdAsync(int DeliveryInformationId);
+        Task<Order?> GetOrderFullInforByIdAsync(int orderId);
     }
 }
