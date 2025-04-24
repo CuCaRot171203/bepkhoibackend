@@ -1,6 +1,7 @@
 ﻿using BepKhoiBackend.BusinessObject.dtos.InvoiceDto;
 using BepKhoiBackend.DataAccess.Abstract.OrderAbstract;
 using BepKhoiBackend.DataAccess.Models;
+using BepKhoiBackend.DataAccess.Models.ExtendObjects;
 using BepKhoiBackend.DataAccess.Repository.InvoiceRepository;
 using Microsoft.EntityFrameworkCore;
 using Org.BouncyCastle.Asn1.Ocsp;
@@ -20,19 +21,22 @@ namespace BepKhoiBackend.BusinessObject.Services.InvoiceService
             _orderRepository = orderRepository;
         }
 
-        public List<InvoiceDTO> GetAllInvoices()
+        public async Task<List<InvoiceDTO>> GetAllInvoicesAsync()
         {
-            return _invoiceRepository.GetAllInvoices()
-                .Select(i => new InvoiceDTO
+            try
+            {
+                var invoices = await _invoiceRepository.GetAllInvoices(); 
+
+                return invoices.Select(i => new InvoiceDTO
                 {
                     InvoiceId = i.InvoiceId,
-                    PaymentMethod = i.PaymentMethod?.PaymentMethodTitle, 
+                    PaymentMethod = i.PaymentMethod?.PaymentMethodTitle,
                     OrderId = i.OrderId,
-                    OrderType = i.OrderType?.OrderTypeTitle,            
-                    Cashier = i.Cashier?.UserInformation?.UserName,                 
-                    Shipper = i.Shipper?.UserInformation?.UserName,                    
-                    Customer = i.Customer != null? $"{i.Customer.CustomerName}-{i.Customer.Phone}" : null,                   
-                    Room = i.Room != null? $"ID: {i.Room.RoomId} - {i.Room.RoomName}" : null,                           
+                    OrderType = i.OrderType?.OrderTypeTitle,
+                    Cashier = i.Cashier?.UserInformation?.UserName,
+                    Shipper = i.Shipper?.UserInformation?.UserName,
+                    Customer = i.Customer != null ? $"{i.Customer.CustomerName}-{i.Customer.Phone}" : null,
+                    Room = i.Room != null ? $"ID: {i.Room.RoomId} - {i.Room.RoomName}" : null,
                     CheckInTime = i.CheckInTime,
                     CheckOutTime = i.CheckOutTime,
                     TotalQuantity = i.TotalQuantity,
@@ -54,51 +58,39 @@ namespace BepKhoiBackend.BusinessObject.Services.InvoiceService
                         ProductNote = d.ProductNote
                     }).ToList()
                 }).ToList();
-        }
-
-        public InvoiceDTO? GetInvoiceById(int id)
-        {
-            var invoice = _invoiceRepository.GetInvoiceById(id);
-            if (invoice == null) return null;
-            return new InvoiceDTO
+            }
+            catch (Exception)
             {
-                InvoiceId = invoice.InvoiceId,
-                PaymentMethod = invoice.PaymentMethod?.PaymentMethodTitle,
-                OrderId = invoice.OrderId,
-                OrderType = invoice.OrderType?.OrderTypeTitle,
-                Cashier = invoice.Cashier?.UserInformation?.UserName,
-                Shipper = invoice.Shipper?.UserInformation?.UserName,
-                Customer = invoice.Customer != null ? $"{invoice.Customer.CustomerName}-{invoice.Customer.Phone}" : null,
-                Room = invoice.Room != null ? $"ID: {invoice.Room.RoomId} - {invoice.Room.RoomName}" : null,
-                CheckInTime = invoice.CheckInTime,
-                CheckOutTime = invoice.CheckOutTime,
-                TotalQuantity = invoice.TotalQuantity,
-                Subtotal = invoice.Subtotal,
-                OtherPayment = invoice.OtherPayment,
-                InvoiceDiscount = invoice.InvoiceDiscount,
-                TotalVat = invoice.TotalVat,
-                AmountDue = invoice.AmountDue,
-                Status = invoice.Status,
-                InvoiceNote = invoice.InvoiceNote,
-                InvoiceDetails = invoice.InvoiceDetails.Select(d => new InvoiceDetailDTO
-                {
-                    InvoiceDetailId = d.InvoiceDetailId,
-                    ProductId = d.ProductId,
-                    ProductName = d.ProductName,
-                    Quantity = d.Quantity,
-                    Price = d.Price,
-                    ProductVat = d.ProductVat,
-                    ProductNote = d.ProductNote
-                }).ToList()
-            };
+                throw;
+            }
         }
 
-        public List<InvoiceDTO> GetInvoiceByCustomer(string keyword)
+        public async Task<List<InvoiceDTO>> FilterInvoiceManagerServiceAsync(FilterInvoiceManager dto)
         {
-            return _invoiceRepository.GetInvoiceByCustomer(keyword)
-                .Select(i => new InvoiceDTO
+            try
+            {
+                var invoices = await _invoiceRepository.FilterInvoiceManagerAsync(dto);
+
+                return invoices.Select(i => new InvoiceDTO
                 {
                     InvoiceId = i.InvoiceId,
+                    PaymentMethod = i.PaymentMethod?.PaymentMethodTitle,
+                    OrderId = i.OrderId,
+                    OrderType = i.OrderType?.OrderTypeTitle,
+                    Cashier = i.Cashier?.UserInformation?.UserName,
+                    Shipper = i.Shipper?.UserInformation?.UserName,
+                    Customer = i.Customer != null ? $"{i.Customer.CustomerName}-{i.Customer.Phone}" : null,
+                    Room = i.Room != null ? $"ID: {i.Room.RoomId} - {i.Room.RoomName}" : null,
+                    CheckInTime = i.CheckInTime,
+                    CheckOutTime = i.CheckOutTime,
+                    TotalQuantity = i.TotalQuantity,
+                    Subtotal = i.Subtotal,
+                    OtherPayment = i.OtherPayment,
+                    InvoiceDiscount = i.InvoiceDiscount,
+                    TotalVat = i.TotalVat,
+                    AmountDue = i.AmountDue,
+                    Status = i.Status,
+                    InvoiceNote = i.InvoiceNote,
                     InvoiceDetails = i.InvoiceDetails.Select(d => new InvoiceDetailDTO
                     {
                         InvoiceDetailId = d.InvoiceDetailId,
@@ -110,101 +102,11 @@ namespace BepKhoiBackend.BusinessObject.Services.InvoiceService
                         ProductNote = d.ProductNote
                     }).ToList()
                 }).ToList();
-        }
-
-        public List<InvoiceDTO> GetInvoiceByCashier(string keyword)
-        {
-            return _invoiceRepository.GetInvoiceByCashier(keyword)
-                .Select(i => new InvoiceDTO
-                {
-                    InvoiceId = i.InvoiceId,
-                    InvoiceDetails = i.InvoiceDetails.Select(d => new InvoiceDetailDTO
-                    {
-                        InvoiceDetailId = d.InvoiceDetailId,
-                        ProductId = d.ProductId,
-                        ProductName = d.ProductName,
-                        Quantity = d.Quantity,
-                        Price = d.Price,
-                        ProductVat = d.ProductVat,
-                        ProductNote = d.ProductNote
-                    }).ToList()
-                }).ToList();
-        }
-
-        public List<InvoiceDTO> GetInvoiceByProductName(string productName)
-        {
-            return _invoiceRepository.GetInvoiceByProductName(productName)
-                .Select(i => new InvoiceDTO
-                {
-                    InvoiceId = i.InvoiceId,
-                    InvoiceDetails = i.InvoiceDetails.Select(d => new InvoiceDetailDTO
-                    {
-                        InvoiceDetailId = d.InvoiceDetailId,
-                        ProductId = d.ProductId,
-                        ProductName = d.ProductName,
-                        Quantity = d.Quantity,
-                        Price = d.Price,
-                        ProductVat = d.ProductVat,
-                        ProductNote = d.ProductNote
-                    }).ToList()
-                }).ToList();
-        }
-
-        public List<InvoiceDTO> GetInvoiceByPeriod(DateTime from, DateTime to)
-        {
-            return _invoiceRepository.GetInvoiceByPeriod(from, to)
-                .Select(i => new InvoiceDTO
-                {
-                    InvoiceId = i.InvoiceId,
-                    InvoiceDetails = i.InvoiceDetails.Select(d => new InvoiceDetailDTO
-                    {
-                        InvoiceDetailId = d.InvoiceDetailId,
-                        ProductId = d.ProductId,
-                        ProductName = d.ProductName,
-                        Quantity = d.Quantity,
-                        Price = d.Price,
-                        ProductVat = d.ProductVat,
-                        ProductNote = d.ProductNote
-                    }).ToList()
-                }).ToList();
-        }
-
-        public List<InvoiceDTO> GetInvoiceByStatus(bool status)
-        {
-            return _invoiceRepository.GetInvoiceByStatus(status)
-                .Select(i => new InvoiceDTO
-                {
-                    InvoiceId = i.InvoiceId,
-                    InvoiceDetails = i.InvoiceDetails.Select(d => new InvoiceDetailDTO
-                    {
-                        InvoiceDetailId = d.InvoiceDetailId,
-                        ProductId = d.ProductId,
-                        ProductName = d.ProductName,
-                        Quantity = d.Quantity,
-                        Price = d.Price,
-                        ProductVat = d.ProductVat,
-                        ProductNote = d.ProductNote
-                    }).ToList()
-                }).ToList();
-        }
-
-        public List<InvoiceDTO> GetInvoiceByOrderMethod(string method)
-        {
-            return _invoiceRepository.GetInvoiceByOrderMethod(method)
-                .Select(i => new InvoiceDTO
-                {
-                    InvoiceId = i.InvoiceId,
-                    InvoiceDetails = i.InvoiceDetails.Select(d => new InvoiceDetailDTO
-                    {
-                        InvoiceDetailId = d.InvoiceDetailId,
-                        ProductId = d.ProductId,
-                        ProductName = d.ProductName,
-                        Quantity = d.Quantity,
-                        Price = d.Price,
-                        ProductVat = d.ProductVat,
-                        ProductNote = d.ProductNote
-                    }).ToList()
-                }).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi xử lý dữ liệu hóa đơn đã lọc", ex);
+            }
         }
 
         //------------------NgocQuan----------------------//
@@ -233,10 +135,42 @@ namespace BepKhoiBackend.BusinessObject.Services.InvoiceService
         }
 
 
-        public Invoice? GetInvoiceByInvoiceId(int invoiceId)
+        public async Task<InvoiceForVnpayProcessDto?> GetInvoiceByIdForVnpayAsync(int invoiceId)
         {
-            var invoice = _invoiceRepository.GetInvoiceById(invoiceId);
-            return invoice;
+            try
+            {
+                var invoice = await _invoiceRepository.GetInvoiceByIdAsync(invoiceId);
+
+                if (invoice == null)
+                {
+                    return null;
+                }
+                return new InvoiceForVnpayProcessDto
+                {
+                    InvoiceId = invoice.InvoiceId,
+                    PaymentMethodId = invoice.PaymentMethodId,
+                    OrderId = invoice.OrderId,
+                    OrderTypeId = invoice.OrderTypeId,
+                    CashierId = invoice.CashierId,
+                    ShipperId = invoice.ShipperId,
+                    CustomerName = invoice.Customer?.CustomerName,
+                    RoomId = invoice.RoomId,
+                    CheckInTime = invoice.CheckInTime,
+                    CheckOutTime = invoice.CheckOutTime,
+                    TotalQuantity = invoice.TotalQuantity,
+                    Subtotal = invoice.Subtotal,
+                    OtherPayment = invoice.OtherPayment,
+                    InvoiceDiscount = invoice.InvoiceDiscount,
+                    TotalVat = invoice.TotalVat,
+                    AmountDue = invoice.AmountDue,
+                    Status = invoice.Status,
+                    InvoiceNote = invoice.InvoiceNote
+                };
+            }
+            catch (Exception)
+            {
+                throw; 
+            }
         }
 
         public async Task<bool> UpdateInvoiceStatus(int invoiceId, bool status)

@@ -1,5 +1,6 @@
 ﻿using BepKhoiBackend.BusinessObject.dtos.InvoiceDto;
 using BepKhoiBackend.DataAccess.Models;
+using BepKhoiBackend.DataAccess.Models.ExtendObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,18 +11,11 @@ namespace BepKhoiBackend.BusinessObject.Services.InvoiceService
 {
     public interface IInvoiceService
     {
-        List<InvoiceDTO> GetAllInvoices();
-        InvoiceDTO? GetInvoiceById(int id);
-        List<InvoiceDTO> GetInvoiceByCustomer(string keyword);
-        List<InvoiceDTO> GetInvoiceByCashier(string keyword);
-        List<InvoiceDTO> GetInvoiceByProductName(string productName);
-        List<InvoiceDTO> GetInvoiceByPeriod(DateTime from, DateTime to);
-        List<InvoiceDTO> GetInvoiceByStatus(bool status);
-        List<InvoiceDTO> GetInvoiceByOrderMethod(string method);
-
+        Task<List<InvoiceDTO>> GetAllInvoicesAsync();
+        Task<List<InvoiceDTO>> FilterInvoiceManagerServiceAsync(FilterInvoiceManager dto);
         //------------------NgocQuan----------------------//
         InvoicePdfDTO GetInvoiceForPdf(int id);
-        Invoice? GetInvoiceByInvoiceId(int id);
+        Task<InvoiceForVnpayProcessDto?> GetInvoiceByIdForVnpayAsync(int invoiceId);
         Task<bool> UpdateInvoiceStatus(int invoiceId, bool status);
         Task<(int invoiceId, int? roomId, bool? isUse)> CreateInvoiceForPaymentServiceAsync(
             InvoiceForPaymentDto invoiceDto,

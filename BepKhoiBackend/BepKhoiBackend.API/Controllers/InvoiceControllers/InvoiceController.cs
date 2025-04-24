@@ -1,6 +1,7 @@
 ﻿using BepKhoiBackend.API.Hubs;
 using BepKhoiBackend.BusinessObject.dtos.InvoiceDto;
 using BepKhoiBackend.BusinessObject.Services.InvoiceService;
+using BepKhoiBackend.DataAccess.Models.ExtendObjects;
 using BepKhoiBackend.Shared.Helpers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -29,77 +30,62 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
         [Authorize]
         [Authorize(Roles = "manager")]
         [HttpGet]
-        public ActionResult<List<InvoiceDTO>> GetAllInvoices()
+        public async Task<ActionResult<List<InvoiceDTO>>> GetAllInvoices()
         {
-            return Ok(_invoiceService.GetAllInvoices());
+            try
+            {
+                var result = await _invoiceService.GetAllInvoicesAsync();
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    message = "Đã xảy ra lỗi khi lấy danh sách hóa đơn.",
+                    error = ex.Message
+                });
+            }
         }
-
-        [Authorize]
-        [Authorize(Roles = "manager")]
-        [HttpGet("{id}")]
-        public ActionResult<InvoiceDTO> GetInvoiceById(int id)
-        {
-            var invoice = _invoiceService.GetInvoiceById(id);
-            if (invoice == null) return NotFound();
-            return Ok(invoice);
-        }
-
-
-
-        [Authorize]
-        [Authorize(Roles = "manager")]
-        [HttpGet("customer/{keyword}")]
-        public ActionResult<List<InvoiceDTO>> GetInvoiceByCustomer(string keyword)
-        {
-            return Ok(_invoiceService.GetInvoiceByCustomer(keyword));
-        }
-
-        [Authorize]
-        [Authorize(Roles = "manager")]
-        [HttpGet("cashier/{keyword}")]
-        public ActionResult<List<InvoiceDTO>> GetInvoiceByCashier(string keyword)
-        {
-            return Ok(_invoiceService.GetInvoiceByCashier(keyword));
-        }
-
-
-        [Authorize]
 
         [Authorize(Roles = "manager")]
-        [HttpGet("product/{productName}")]
-        public ActionResult<List<InvoiceDTO>> GetInvoiceByProductName(string productName)
+        [HttpPost("filter-invoices")]
+        public async Task<IActionResult> FilterInvoices([FromBody] FilterInvoiceManager filterDto)
         {
-            return Ok(_invoiceService.GetInvoiceByProductName(productName));
+            // Validate cơ bản
+            if (filterDto.FromDate.HasValue && filterDto.ToDate.HasValue)
+            {
+                if (filterDto.FromDate > filterDto.ToDate)
+                {
+                    return BadRequest("Ngày bắt đầu không được lớn hơn ngày kết thúc.");
+                }
+            }
+
+            if (!string.IsNullOrWhiteSpace(filterDto.CustomerKeyword) && filterDto.CustomerKeyword.Length > 100)
+            {
+                return BadRequest("Từ khóa tìm kiếm khách hàng quá dài.");
+            }
+
+            if (!string.IsNullOrWhiteSpace(filterDto.CashierKeyword) && filterDto.CashierKeyword.Length > 100)
+            {
+                return BadRequest("Từ khóa tìm kiếm thu ngân quá dài.");
+            }
+
+            try
+            {
+                var result = await _invoiceService.FilterInvoiceManagerServiceAsync(filterDto);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    Message = "Đã xảy ra lỗi khi lọc danh sách hóa đơn.",
+                    Details = ex.Message
+                });
+            }
         }
-        [Authorize]
-
-        [Authorize(Roles = "manager")]
-        [HttpGet("period")]
-        public ActionResult<List<InvoiceDTO>> GetInvoiceByPeriod([FromQuery] DateTime from, [FromQuery] DateTime to)
-        {
-            return Ok(_invoiceService.GetInvoiceByPeriod(from, to));
-        }
-
-        [Authorize]
-
-        [Authorize(Roles = "manager")]
-        [HttpGet("status/{status}")]
-        public ActionResult<List<InvoiceDTO>> GetInvoiceByStatus(bool status)
-        {
-            return Ok(_invoiceService.GetInvoiceByStatus(status));
-        }
-        [Authorize]
-
-        [Authorize(Roles = "manager")]
-        [HttpGet("order-method/{method}")]
-        public ActionResult<List<InvoiceDTO>> GetInvoiceByOrderMethod(string method)
-        {
-            return Ok(_invoiceService.GetInvoiceByOrderMethod(method));
-        }
-
         //------------------NgocQuan----------------------//
         [Authorize]
-
         [Authorize(Roles = "manager, cashier")]
         [HttpGet("{id}/print-pdf")]
         public IActionResult GetInvoicePdf(int id)
@@ -114,19 +100,20 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
             var pdfBytes = _pdfService.GenerateInvoicePdf(invoice);
             return File(pdfBytes, "application/pdf", $"Invoice_{id}.pdf");
         }
-        [Authorize]
 
+
+        [Authorize]
         [Authorize(Roles = "manager, cashier")]
         [HttpGet("vnpay-url")]
-        public IActionResult CreatePaymentUrlVnpay([FromQuery] int Id)
+        public async Task<IActionResult> CreatePaymentUrlVnpay([FromQuery] int Id)
         {
-            var invoice = _invoiceService.GetInvoiceByInvoiceId(Id);
+            var invoice = await _invoiceService.GetInvoiceByIdForVnpayAsync(Id);
             if (invoice == null)
             {
                 return NotFound($"Không tìm thấy hóa đơn với ID {Id}");
             }
 
-            if (invoice.AmountDue == null || invoice.AmountDue <= 0)
+            if (invoice.AmountDue <= 0)
             {
                 return BadRequest("Số tiền thanh toán không hợp lệ.");
             }
@@ -136,7 +123,7 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
                 OrderType = "other",
                 Amount = (int)invoice.AmountDue,
                 InvoiceId = invoice.InvoiceId.ToString(),
-                Name = invoice.Customer?.CustomerName ?? "Khách Lẻ"
+                Name = invoice.CustomerName ?? "Khách Lẻ"
             };
 
             try
@@ -144,7 +131,7 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
                 var url = _vnPayService.CreatePaymentUrl(model, HttpContext);
                 return Ok(url);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return StatusCode(500, "Có lỗi xảy ra trong quá trình tạo URL thanh toán.");
             }

@@ -1,4 +1,5 @@
 ﻿using BepKhoiBackend.DataAccess.Models;
+using BepKhoiBackend.DataAccess.Models.ExtendObjects;
 using BepKhoiBackend.DataAccess.Repository.InvoiceRepository;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -16,87 +17,91 @@ namespace BepKhoiBackend.DataAccess.Repositories
             _context = context;
         }
 
-        public List<Invoice> GetAllInvoices()
+        public async Task<List<Invoice>> GetAllInvoices()
         {
-            return _context.Invoices
-                .Include(i => i.InvoiceDetails)
-                .Include(i => i.PaymentMethod)
-                .Include(i => i.OrderType)
-                .Include(i => i.Cashier).ThenInclude(i => i.UserInformation)
-                .Include(i => i.Shipper).ThenInclude(i => i.UserInformation)
-                .Include(i => i.Customer)
-                .Include(i => i.Room)
-                .ToList();
+            try
+            {
+                return await _context.Invoices
+                    .Include(i => i.InvoiceDetails)
+                    .Include(i => i.PaymentMethod)
+                    .Include(i => i.OrderType)
+                    .Include(i => i.Cashier).ThenInclude(i => i.UserInformation)
+                    .Include(i => i.Shipper).ThenInclude(i => i.UserInformation)
+                    .Include(i => i.Customer)
+                    .Include(i => i.Room)
+                    .ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Đã xảy ra lỗi khi truy vấn danh sách hóa đơn.", ex);
+            }
+        }
+        public async Task<List<Invoice>> FilterInvoiceManagerAsync(FilterInvoiceManager dto)
+        {
+            try
+            {
+                var query = _context.Invoices
+                    .Include(i => i.InvoiceDetails)
+                    .Include(i => i.PaymentMethod)
+                    .Include(i => i.OrderType)
+                    .Include(i => i.Cashier).ThenInclude(c => c.UserInformation)
+                    .Include(i => i.Shipper).ThenInclude(s => s.UserInformation)
+                    .Include(i => i.Customer)
+                    .Include(i => i.Room)
+                    .AsQueryable();
+
+                if (dto.InvoiceId.HasValue)
+                {
+                    query = query.Where(i => i.InvoiceId == dto.InvoiceId.Value);
+                }
+
+                if (!string.IsNullOrWhiteSpace(dto.CustomerKeyword))
+                {
+                    query = query.Where(i =>
+                        i.CustomerId.ToString() == dto.CustomerKeyword ||
+                        (i.Customer != null && (
+                            i.Customer.CustomerName.Contains(dto.CustomerKeyword) ||
+                            i.Customer.Phone.Contains(dto.CustomerKeyword)))
+                    );
+                }
+
+                if (!string.IsNullOrWhiteSpace(dto.CashierKeyword))
+                {
+                    query = query.Where(i =>
+                        i.CashierId.ToString() == dto.CashierKeyword ||
+                        (i.Cashier != null &&
+                         (i.Cashier.Phone.Contains(dto.CashierKeyword) ||
+                         (i.Cashier.UserInformation != null &&
+                         i.Cashier.UserInformation.UserName.Contains(dto.CashierKeyword))))
+                    );
+                }
+
+                if (dto.FromDate.HasValue && dto.ToDate.HasValue)
+                {
+                    query = query.Where(i =>
+                        i.CheckInTime >= dto.FromDate.Value &&
+                        i.CheckOutTime <= dto.ToDate.Value);
+                }
+
+                if (dto.Status.HasValue)
+                {
+                    query = query.Where(i => i.Status == dto.Status.Value);
+                }
+
+                if (dto.PaymentMethod.HasValue)
+                {
+                    query = query.Where(i =>
+                        i.PaymentMethodId == dto.PaymentMethod.Value);
+                }
+
+                return await query.ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi truy vấn danh sách hóa đơn", ex);
+            }
         }
 
-
-        public Invoice? GetInvoiceById(int id)
-        {
-            return _context.Invoices
-                .Include(i => i.InvoiceDetails)
-                .Include(i => i.PaymentMethod)
-                .Include(i => i.OrderType)
-                .Include(i => i.Cashier).ThenInclude(i => i.UserInformation)
-                .Include(i => i.Shipper).ThenInclude(i => i.UserInformation)
-                .Include(i => i.Customer)
-                .Include(i => i.Room)
-                .FirstOrDefault(i => i.InvoiceId == id);
-        }
-
-        public List<Invoice> GetInvoiceByCustomer(string keyword)
-        {
-            return _context.Invoices
-                .Include(i => i.Customer)
-                .Include(i => i.InvoiceDetails)
-                .Where(i => i.CustomerId.ToString() == keyword ||
-                            i.Customer!.CustomerName.Contains(keyword) ||
-                            i.Customer.Phone.Contains(keyword))
-                .ToList();
-        }
-
-        public List<Invoice> GetInvoiceByCashier(string keyword)
-        {
-            return _context.Invoices
-                .Include(i => i.Cashier)
-                .Include(i => i.InvoiceDetails)
-                .Where(i => i.CashierId.ToString() == keyword ||
-                            i.Cashier.UserInformation.UserName.Contains(keyword))
-                .ToList();
-        }
-
-        public List<Invoice> GetInvoiceByProductName(string productName)
-        {
-            return _context.Invoices
-                .Include(i => i.InvoiceDetails)
-                .ThenInclude(d => d.Product)
-                .Where(i => i.InvoiceDetails.Any(d => d.Product.ProductName.Contains(productName)))
-                .ToList();
-        }
-
-        public List<Invoice> GetInvoiceByPeriod(DateTime from, DateTime to)
-        {
-            return _context.Invoices
-                 .Include(i => i.InvoiceDetails)
-                .Where(i => i.CheckInTime >= from && i.CheckOutTime <= to)
-                .ToList();
-        }
-
-        public List<Invoice> GetInvoiceByStatus(bool status)
-        {
-            return _context.Invoices
-                .Include(i => i.InvoiceDetails)
-                .Where(i => i.Status == status)
-                .ToList();
-        }
-
-        public List<Invoice> GetInvoiceByOrderMethod(string method)
-        {
-            return _context.Invoices
-              .Include(i => i.InvoiceDetails)
-                .Include(i => i.PaymentMethod)
-                .Where(i => i.PaymentMethod.PaymentMethodTitle.Contains(method))
-                .ToList();
-        }
 
         //------------------NgocQuan----------------------//
         public Invoice? GetInvoiceForPdf(int id)
@@ -107,9 +112,16 @@ namespace BepKhoiBackend.DataAccess.Repositories
                 .Include(i => i.Customer)
                 .FirstOrDefault(i => i.InvoiceId == id);
         }
-        public async Task<Invoice> GetInvoiceByIdAsync(int id)
+        public async Task<Invoice?> GetInvoiceByIdAsync(int id)
         {
-            return await _context.Invoices.FirstOrDefaultAsync(i => i.InvoiceId == id);
+            try
+            {
+                return await _context.Invoices.Include(i => i.Customer).FirstOrDefaultAsync(i => i.InvoiceId == id);
+            }
+            catch(Exception)
+            {
+                throw;
+            }
         }
         public async Task<bool> UpdateInvoiceStatus(int invoiceId, bool status)
         {
