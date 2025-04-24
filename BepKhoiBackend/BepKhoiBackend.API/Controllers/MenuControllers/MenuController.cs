@@ -104,8 +104,23 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
                     _logger.LogWarning($"Couldn't find menu with ID: {pid}");
                     return NotFound(new { message = result.Message });
                 }
-
-                var mappedData = _mapper.Map<MenuDto>(result.Data.First());
+                var menudata = result.Data.FirstOrDefault();
+                var mappedData = new MenuForManagerDto
+                {
+                    ProductId = menudata.ProductId,
+                    ProductName = menudata.ProductName,
+                    ProductCategoryId = menudata.ProductCategoryId,
+                    CostPrice = menudata.CostPrice,
+                    SellPrice = menudata.SellPrice,
+                    SalePrice = menudata.SalePrice,
+                    ProductVat = menudata.ProductVat,
+                    Description = menudata.Description,
+                    UnitId = menudata.UnitId,
+                    IsAvailable= menudata.IsAvailable,
+                    Status = menudata.Status,
+                    IsDelete = menudata.IsDelete,
+                    ImageUrl = menudata.ProductImages.FirstOrDefault()?.ProductImage1 ?? string.Empty
+                };
 
                 return Ok(new
                 {

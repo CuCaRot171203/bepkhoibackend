@@ -56,6 +56,7 @@ public class MenuRepository : RepositoryBase, IMenuRepository
         }
 
         return await _context.Menus
+            .Include(m=>m.ProductImages)
             .Where(m => m.ProductId == pId && m.IsDelete == false)
             .FirstOrDefaultAsync();
     }
