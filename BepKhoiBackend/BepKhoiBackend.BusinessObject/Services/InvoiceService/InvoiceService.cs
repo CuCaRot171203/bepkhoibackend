@@ -26,6 +26,23 @@ namespace BepKhoiBackend.BusinessObject.Services.InvoiceService
                 .Select(i => new InvoiceDTO
                 {
                     InvoiceId = i.InvoiceId,
+                    PaymentMethod = i.PaymentMethod?.PaymentMethodTitle, 
+                    OrderId = i.OrderId,
+                    OrderType = i.OrderType?.OrderTypeTitle,            
+                    Cashier = i.Cashier?.UserInformation?.UserName,                 
+                    Shipper = i.Shipper?.UserInformation?.UserName,                    
+                    Customer = i.Customer != null? $"{i.Customer.CustomerName}-{i.Customer.Phone}" : null,                   
+                    Room = i.Room != null? $"ID: {i.Room.RoomId} - {i.Room.RoomName}" : null,                           
+                    CheckInTime = i.CheckInTime,
+                    CheckOutTime = i.CheckOutTime,
+                    TotalQuantity = i.TotalQuantity,
+                    Subtotal = i.Subtotal,
+                    OtherPayment = i.OtherPayment,
+                    InvoiceDiscount = i.InvoiceDiscount,
+                    TotalVat = i.TotalVat,
+                    AmountDue = i.AmountDue,
+                    Status = i.Status,
+                    InvoiceNote = i.InvoiceNote,
                     InvoiceDetails = i.InvoiceDetails.Select(d => new InvoiceDetailDTO
                     {
                         InvoiceDetailId = d.InvoiceDetailId,
@@ -46,6 +63,23 @@ namespace BepKhoiBackend.BusinessObject.Services.InvoiceService
             return new InvoiceDTO
             {
                 InvoiceId = invoice.InvoiceId,
+                PaymentMethod = invoice.PaymentMethod?.PaymentMethodTitle,
+                OrderId = invoice.OrderId,
+                OrderType = invoice.OrderType?.OrderTypeTitle,
+                Cashier = invoice.Cashier?.UserInformation?.UserName,
+                Shipper = invoice.Shipper?.UserInformation?.UserName,
+                Customer = invoice.Customer != null ? $"{invoice.Customer.CustomerName}-{invoice.Customer.Phone}" : null,
+                Room = invoice.Room != null ? $"ID: {invoice.Room.RoomId} - {invoice.Room.RoomName}" : null,
+                CheckInTime = invoice.CheckInTime,
+                CheckOutTime = invoice.CheckOutTime,
+                TotalQuantity = invoice.TotalQuantity,
+                Subtotal = invoice.Subtotal,
+                OtherPayment = invoice.OtherPayment,
+                InvoiceDiscount = invoice.InvoiceDiscount,
+                TotalVat = invoice.TotalVat,
+                AmountDue = invoice.AmountDue,
+                Status = invoice.Status,
+                InvoiceNote = invoice.InvoiceNote,
                 InvoiceDetails = invoice.InvoiceDetails.Select(d => new InvoiceDetailDTO
                 {
                     InvoiceDetailId = d.InvoiceDetailId,

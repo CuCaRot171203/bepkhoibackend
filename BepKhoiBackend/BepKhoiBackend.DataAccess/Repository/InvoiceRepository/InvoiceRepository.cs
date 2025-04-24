@@ -20,13 +20,26 @@ namespace BepKhoiBackend.DataAccess.Repositories
         {
             return _context.Invoices
                 .Include(i => i.InvoiceDetails)
+                .Include(i => i.PaymentMethod)
+                .Include(i => i.OrderType)
+                .Include(i => i.Cashier).ThenInclude(i => i.UserInformation)
+                .Include(i => i.Shipper).ThenInclude(i => i.UserInformation)
+                .Include(i => i.Customer)
+                .Include(i => i.Room)
                 .ToList();
         }
+
 
         public Invoice? GetInvoiceById(int id)
         {
             return _context.Invoices
                 .Include(i => i.InvoiceDetails)
+                .Include(i => i.PaymentMethod)
+                .Include(i => i.OrderType)
+                .Include(i => i.Cashier).ThenInclude(i => i.UserInformation)
+                .Include(i => i.Shipper).ThenInclude(i => i.UserInformation)
+                .Include(i => i.Customer)
+                .Include(i => i.Room)
                 .FirstOrDefault(i => i.InvoiceId == id);
         }
 
