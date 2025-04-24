@@ -98,9 +98,9 @@ namespace BepKhoiBackend.DataAccess.Repositories
         {
             return await _context.Invoices.FirstOrDefaultAsync(i => i.InvoiceId == id);
         }
-        public bool UpdateInvoiceStatus(int invoiceId, bool status)
+        public async Task<bool> UpdateInvoiceStatus(int invoiceId, bool status)
         {
-            var invoice = _context.Invoices.FirstOrDefault(i => i.InvoiceId == invoiceId);
+            var invoice = await _context.Invoices.FirstOrDefaultAsync(i => i.InvoiceId == invoiceId);
 
             // Nếu hóa đơn không tồn tại, trả về false
             if (invoice == null)

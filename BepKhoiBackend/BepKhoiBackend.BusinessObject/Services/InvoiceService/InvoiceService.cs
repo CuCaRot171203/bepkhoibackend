@@ -205,10 +205,10 @@ namespace BepKhoiBackend.BusinessObject.Services.InvoiceService
             return invoice;
         }
 
-        public bool UpdateInvoiceStatus(int invoiceId, bool status)
+        public async Task<bool> UpdateInvoiceStatus(int invoiceId, bool status)
         {
             // Gọi phương thức cập nhật trạng thái hóa đơn trong repository
-            bool isUpdated = _invoiceRepository.UpdateInvoiceStatus(invoiceId, status);
+            bool isUpdated = await _invoiceRepository.UpdateInvoiceStatus(invoiceId, status);
 
             // Kiểm tra nếu không thành công (ví dụ: không tìm thấy hóa đơn)
             if (!isUpdated)
@@ -221,31 +221,20 @@ namespace BepKhoiBackend.BusinessObject.Services.InvoiceService
             return true;
         }
 
-        public class InvoiceProcessResult
+        //Pham Son Tung
+        public async Task<(Invoice invoice, (int? roomId, bool? isUse)? roomUpdateResult)> HandleInvoiceVnpayCompletionAsync(int invoiceId)
         {
-            public int? RoomId { get; set; }
-            public int? ShipperId { get; set; }
-            public int OrderTypeId { get; set; }
-            public bool? InvoiceStatus { get; set; }
-            public int? CustomerId { get; set; }
-            public bool? IsUse { get; set; }
-            public bool HasRoomStatusChanged => RoomId.HasValue && IsUse.HasValue;
-            public bool ShouldNotifyCustomer => CustomerId.HasValue && InvoiceStatus == true && RoomId.HasValue;
-        }
-
-        public (Invoice invoice, (int? roomId, bool? isUse)? roomUpdateResult) HandleInvoiceVnpayCompletionAsync(int invoiceId)
-        {
-            var invoice = _invoiceRepository.GetInvoiceById(invoiceId);
+            var invoice = await _invoiceRepository.GetInvoiceByIdAsync(invoiceId); 
             if (invoice == null)
                 throw new ArgumentException("Invoice not found with ID: " + invoiceId);
 
-             _invoiceRepository.ChangeOrderStatusAfterPayment(invoice.OrderId);
+            await _invoiceRepository.ChangeOrderStatusAfterPayment(invoice.OrderId); 
 
             (int? roomId, bool? isUse)? roomUpdateResult = null;
 
             if (invoice.OrderTypeId == 3 && invoice.RoomId.HasValue)
             {
-                var result = _orderRepository.UpdateRoomIsUseByRoomId(invoice.RoomId.Value);
+                var result = await _orderRepository.UpdateRoomIsUseByRoomIdAsync(invoice.RoomId.Value);
                 roomUpdateResult = (result.roomId, result.isUse);
             }
 

@@ -22,11 +22,11 @@ namespace BepKhoiBackend.BusinessObject.Services.InvoiceService
         //------------------NgocQuan----------------------//
         InvoicePdfDTO GetInvoiceForPdf(int id);
         Invoice? GetInvoiceByInvoiceId(int id);
-        bool UpdateInvoiceStatus(int invoiceId, bool status);
+        Task<bool> UpdateInvoiceStatus(int invoiceId, bool status);
         Task<(int invoiceId, int? roomId, bool? isUse)> CreateInvoiceForPaymentServiceAsync(
             InvoiceForPaymentDto invoiceDto,
             List<InvoiceDetailForPaymentDto> detailDtos);
-        (Invoice invoice, (int? roomId, bool? isUse)? roomUpdateResult) HandleInvoiceVnpayCompletionAsync(int invoiceId);
+        Task<(Invoice invoice, (int? roomId, bool? isUse)? roomUpdateResult)> HandleInvoiceVnpayCompletionAsync(int invoiceId);
     }
 
 }

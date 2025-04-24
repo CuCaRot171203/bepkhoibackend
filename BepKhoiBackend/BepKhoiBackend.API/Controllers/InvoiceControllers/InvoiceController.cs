@@ -151,7 +151,7 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
         }
 
         [HttpGet("Return")]
-        public IActionResult PaymentCallbackVnpay()
+        public async Task<IActionResult> PaymentCallbackVnpay()
         {
             var response = _vnPayService.PaymentExecute(Request.Query);
 
@@ -159,17 +159,17 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
             {
                 if (int.TryParse(response.InvoiceId, out int invoiceId))
                 {
-                    _invoiceService.UpdateInvoiceStatus(invoiceId, true);
+                    await _invoiceService.UpdateInvoiceStatus(invoiceId, true);
                     //Gửi sự kiện thanh toán thành công
-                    _hubContext.Clients.Group("payment").SendAsync("PaymentStatus", new
+                    await _hubContext.Clients.Group("payment").SendAsync("PaymentStatus", new
                     {
                         invoiceId = response.InvoiceId,
                         status = true
                     });
                     //Cập nhật lại trạng thái order và iseUse của room
-                    var (invoice, roomUpdateResult) = _invoiceService.HandleInvoiceVnpayCompletionAsync(invoiceId);
+                    var (invoice, roomUpdateResult) = await _invoiceService.HandleInvoiceVnpayCompletionAsync(invoiceId);
                     //Gửi sự kiện cập nhật danh sách order 
-                    _hubContext.Clients.Group("order").SendAsync("OrderListUpdate", new
+                    await _hubContext.Clients.Group("order").SendAsync("OrderListUpdate", new
                     {
                         roomId = invoice.RoomId,
                         shipperId = invoice.ShipperId,
@@ -178,7 +178,7 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
                     // Gửi sự kiện RoomStatusUpdate nếu có cập nhật trạng thái phòng
                     if (roomUpdateResult?.roomId != null && roomUpdateResult?.isUse != null)
                     {
-                        _hubContext.Clients.Group("room").SendAsync("RoomStatusUpdate", new
+                        await _hubContext.Clients.Group("room").SendAsync("RoomStatusUpdate", new
                         {
                             roomId = roomUpdateResult.Value.roomId!.Value,
                             isUse = roomUpdateResult.Value.isUse!.Value
@@ -187,7 +187,7 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
                     // Gửi sự kiện CustomerOrderListUpdate nếu có thông tin khách hàng
                     if (invoice.RoomId.HasValue && invoice.CustomerId.HasValue && invoice.Status == true)
                     {
-                        _hubContext.Clients.Group("order").SendAsync("CustomerOrderListUpdate", new
+                        await _hubContext.Clients.Group("order").SendAsync("CustomerOrderListUpdate", new
                         {
                             customerId = invoice.CustomerId
                         });
@@ -198,7 +198,7 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
                 }
             else
                 {
-                    _hubContext.Clients.Group("payment").SendAsync("PaymentStatus", new
+                    await _hubContext.Clients.Group("payment").SendAsync("PaymentStatus", new
                     {
                         invoiceId = response.InvoiceId,
                         status = false
@@ -209,7 +209,7 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
             }
 
             // Redirect đến trang thất bại
-            _hubContext.Clients.Group("payment").SendAsync("PaymentStatus", new
+            await _hubContext.Clients.Group("payment").SendAsync("PaymentStatus", new
             {
                 invoiceId = response.InvoiceId,
                 status = false
