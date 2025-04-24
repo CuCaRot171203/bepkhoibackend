@@ -26,7 +26,7 @@ namespace BepKhoiBackend.BusinessObject.Services.InvoiceService
         Task<(int invoiceId, int? roomId, bool? isUse)> CreateInvoiceForPaymentServiceAsync(
             InvoiceForPaymentDto invoiceDto,
             List<InvoiceDetailForPaymentDto> detailDtos);
-
+        (Invoice invoice, (int? roomId, bool? isUse)? roomUpdateResult) HandleInvoiceVnpayCompletionAsync(int invoiceId);
     }
 
 }

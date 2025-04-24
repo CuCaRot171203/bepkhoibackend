@@ -1,6 +1,7 @@
 ﻿using BepKhoiBackend.API.Hubs;
 using BepKhoiBackend.BusinessObject.dtos.InvoiceDto;
 using BepKhoiBackend.BusinessObject.Services.InvoiceService;
+using BepKhoiBackend.Shared.Helpers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -159,26 +160,61 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
                 if (int.TryParse(response.InvoiceId, out int invoiceId))
                 {
                     _invoiceService.UpdateInvoiceStatus(invoiceId, true);
-
+                    //Gửi sự kiện thanh toán thành công
+                    _hubContext.Clients.Group("payment").SendAsync("PaymentStatus", new
+                    {
+                        invoiceId = response.InvoiceId,
+                        status = true
+                    });
+                    //Cập nhật lại trạng thái order và iseUse của room
+                    var (invoice, roomUpdateResult) = _invoiceService.HandleInvoiceVnpayCompletionAsync(invoiceId);
+                    //Gửi sự kiện cập nhật danh sách order 
+                    _hubContext.Clients.Group("order").SendAsync("OrderListUpdate", new
+                    {
+                        roomId = invoice.RoomId,
+                        shipperId = invoice.ShipperId,
+                        orderStatusId = invoice.OrderTypeId
+                    });
+                    // Gửi sự kiện RoomStatusUpdate nếu có cập nhật trạng thái phòng
+                    if (roomUpdateResult?.roomId != null && roomUpdateResult?.isUse != null)
+                    {
+                        _hubContext.Clients.Group("room").SendAsync("RoomStatusUpdate", new
+                        {
+                            roomId = roomUpdateResult.Value.roomId!.Value,
+                            isUse = roomUpdateResult.Value.isUse!.Value
+                        });
+                    }
+                    // Gửi sự kiện CustomerOrderListUpdate nếu có thông tin khách hàng
+                    if (invoice.RoomId.HasValue && invoice.CustomerId.HasValue && invoice.Status == true)
+                    {
+                        _hubContext.Clients.Group("order").SendAsync("CustomerOrderListUpdate", new
+                        {
+                            customerId = invoice.CustomerId
+                        });
+                    }
                     // Redirect đến frontend (ví dụ: trang thanh toán thành công)
                     var redirectUrl = $"https://facebook.com/";
-
-                    //var redirectUrl = $"https://yourfrontend.com/payment-success?invoiceId={invoiceId}&transactionId={response.TransactionId}";
                     return Redirect(redirectUrl);
                 }
             else
                 {
+                    _hubContext.Clients.Group("payment").SendAsync("PaymentStatus", new
+                    {
+                        invoiceId = response.InvoiceId,
+                        status = false
+                    });
                     var failUrl = $"https://www.facebook.com/reel/639253061931440";
-
-                    //var failUrl = $"https://yourfrontend.com/payment-failure?message=InvalidInvoiceId";
                     return Redirect(failUrl);
                 }
             }
 
             // Redirect đến trang thất bại
-           var redirectFail = $"https://www.facebook.com/reel/639253061931440";
-
-            //var redirectFail = $"https://yourfrontend.com/payment-failure?code={response.VnPayResponseCode}";
+            _hubContext.Clients.Group("payment").SendAsync("PaymentStatus", new
+            {
+                invoiceId = response.InvoiceId,
+                status = false
+            });
+            var redirectFail = $"https://www.facebook.com/reel/639253061931440";
             return Redirect(redirectFail);
         }
 
@@ -260,6 +296,13 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
                     {
                         roomId = roomId.Value,
                         isUse = isUse.Value
+                    });
+                }
+                if (invoice.RoomId.HasValue && invoice.CustomerId.HasValue && invoice.Status == true)
+                {
+                    await _hubContext.Clients.Group("order").SendAsync("CustomerOrderListUpdate", new
+                    {
+                        customerId = invoice.CustomerId,
                     });
                 }
                 return Ok(new

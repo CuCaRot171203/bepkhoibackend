@@ -55,6 +55,33 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
                 throw;
             }
         }
+        public (int roomId, bool? isUse) UpdateRoomIsUseByRoomId(int roomId)
+        {
+            try
+            {
+                var room = _context.Rooms
+                    .Include(r => r.Orders)
+                    .FirstOrDefault(r => r.RoomId == roomId); // Dùng FirstOrDefault (sync)
+
+                if (room == null)
+                {
+                    throw new KeyNotFoundException("Room not found.");
+                }
+
+                bool hasActiveOrder = room.Orders.Any(order => order.OrderStatusId == 1);
+                room.IsUse = hasActiveOrder;
+
+                _context.Rooms.Update(room);
+                _context.SaveChanges(); // Dùng SaveChanges (sync)
+
+                return (room.RoomId, room.IsUse);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
 
         // Get order by Id for Pos site
         public async Task<Order?> GetOrderByIdPosAsync(int orderId)

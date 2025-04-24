@@ -4,6 +4,7 @@ using BepKhoiBackend.BusinessObject.dtos.CustomerDto;
 using BepKhoiBackend.BusinessObject.dtos.MenuDto;
 using BepKhoiBackend.BusinessObject.dtos.OrderDetailDto;
 using BepKhoiBackend.BusinessObject.dtos.OrderDto;
+using BepKhoiBackend.BusinessObject.dtos.ShippingOrderDto;
 using DocumentFormat.OpenXml.Office2016.Excel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -422,7 +423,10 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
             try
             {
                 await _orderService.AssignCustomerToOrderAsync(orderId, customerId);
-
+                await _hubContext.Clients.Group("order").SendAsync("CustomerOrderListUpdate", new
+                {
+                    customerId = customerId,
+                });
                 return Ok(new
                 {
                     success = true,
@@ -510,6 +514,11 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
                     shipperId = orderDto.ShipperId,
                     orderStatusId = orderDto.OrderStatusId
                 });
+                await _hubContext.Clients.Group("order").SendAsync("CustomerOrderListUpdate", new
+                {
+                    customerId = orderDto.CustomerId,
+                });
+
                 return Ok(new{Message = "Order has been successfully removed."});
             }
             catch (KeyNotFoundException ex)
@@ -528,8 +537,6 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
 
 
         //pham son tung
-        [Authorize]
-        [Authorize(Roles = "manager, cashier")]
         [HttpGet("get-order-details-by-order-id")]
         public async Task<IActionResult> GetOrderDetailsByOrderIdAsync(int orderId)
         {
@@ -937,6 +944,26 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
             }
         }
 
+        //Phạm Sơn Tùng
+        [HttpPost("notify-customer-join")]
+        public async Task<IActionResult> NotifyCustomerJoinAsync([FromBody] NotifyCustomerJoinDto request)
+        {
+            try
+            {
+                await _hubContext.Clients.Group("common").SendAsync("CustomerJoin", new
+                {
+                    roomId = request.RoomId,
+                    customerId = request.CustomerId,
+                    customerName = request.CustomerName,
+                    phone = request.Phone
+                });
 
+                return Ok(new { message = "Đã gửi sự kiện CustomerJoin thành công." });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Gửi sự kiện thất bại.", error = ex.Message });
+            }
+        }
     }
 }

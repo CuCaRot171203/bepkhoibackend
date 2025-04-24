@@ -221,6 +221,37 @@ namespace BepKhoiBackend.BusinessObject.Services.InvoiceService
             return true;
         }
 
+        public class InvoiceProcessResult
+        {
+            public int? RoomId { get; set; }
+            public int? ShipperId { get; set; }
+            public int OrderTypeId { get; set; }
+            public bool? InvoiceStatus { get; set; }
+            public int? CustomerId { get; set; }
+            public bool? IsUse { get; set; }
+            public bool HasRoomStatusChanged => RoomId.HasValue && IsUse.HasValue;
+            public bool ShouldNotifyCustomer => CustomerId.HasValue && InvoiceStatus == true && RoomId.HasValue;
+        }
+
+        public (Invoice invoice, (int? roomId, bool? isUse)? roomUpdateResult) HandleInvoiceVnpayCompletionAsync(int invoiceId)
+        {
+            var invoice = _invoiceRepository.GetInvoiceById(invoiceId);
+            if (invoice == null)
+                throw new ArgumentException("Invoice not found with ID: " + invoiceId);
+
+             _invoiceRepository.ChangeOrderStatusAfterPayment(invoice.OrderId);
+
+            (int? roomId, bool? isUse)? roomUpdateResult = null;
+
+            if (invoice.OrderTypeId == 3 && invoice.RoomId.HasValue)
+            {
+                var result = _orderRepository.UpdateRoomIsUseByRoomId(invoice.RoomId.Value);
+                roomUpdateResult = (result.roomId, result.isUse);
+            }
+
+            return (invoice, roomUpdateResult);
+        }
+
         //Phạm sơn tùng
         public async Task<(int invoiceId, int? roomId, bool? isUse)> CreateInvoiceForPaymentServiceAsync(
             InvoiceForPaymentDto invoiceDto,
@@ -266,20 +297,24 @@ namespace BepKhoiBackend.BusinessObject.Services.InvoiceService
                 }).ToList();
 
                 await _invoiceRepository.AddInvoiceDetailForPaymentsAsync(invoiceDetails);
-
-                await _invoiceRepository.ChangeOrderStatusAfterPayment(invoiceDto.OrderId);
-
-                // Nếu là đơn tại bàn thì cập nhật trạng thái phòng
-                int? updatedRoomId = null;
-                bool? isUse = null;
-                if (invoiceDto.OrderTypeId == 3 && invoiceDto.RoomId.HasValue)
+                if (invoice.Status == true)
                 {
-                    var result = await _orderRepository.UpdateRoomIsUseByRoomIdAsync(invoiceDto.RoomId.Value);
-                    updatedRoomId = result.roomId;
-                    isUse = result.isUse;
+                    await _invoiceRepository.ChangeOrderStatusAfterPayment(invoiceDto.OrderId);
+                    // Nếu là đơn tại bàn thì cập nhật trạng thái phòng
+                    int? updatedRoomId = null;
+                    bool? isUse = null;
+                    if (invoiceDto.OrderTypeId == 3 && invoiceDto.RoomId.HasValue)
+                    {
+                        var result = await _orderRepository.UpdateRoomIsUseByRoomIdAsync(invoiceDto.RoomId.Value);
+                        updatedRoomId = result.roomId;
+                        isUse = result.isUse;
+                    }
+                    return (createdInvoice.InvoiceId, updatedRoomId, isUse);
                 }
-
-                return (createdInvoice.InvoiceId, updatedRoomId, isUse);
+                else
+                {
+                    return (createdInvoice.InvoiceId, null, null);
+                }
             }
             catch (DbUpdateException dbEx)
             {

@@ -7,7 +7,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BepKhoiBackend.API.Controllers.CustomerControllers
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class CustomerController : ControllerBase
@@ -69,7 +68,6 @@ namespace BepKhoiBackend.API.Controllers.CustomerControllers
             }
         }
 
-        [Authorize(Roles = "manager")]
         [HttpGet("search")]
         [ProducesResponseType(typeof(List<CustomerDTO>), 200)] // OK
         [ProducesResponseType(400)] // BadRequest
@@ -120,7 +118,6 @@ namespace BepKhoiBackend.API.Controllers.CustomerControllers
             return File(fileContents, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Customers.xlsx");
         }
 
-        [Authorize(Roles = "manager, cashier")]
         [HttpPost("create-new-customer")]
         [ProducesResponseType(200)] // OK
         [ProducesResponseType(400)] // BadRequest
