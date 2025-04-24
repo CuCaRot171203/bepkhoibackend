@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using BepKhoiBackend.BusinessObject.dtos.LoginDto;
@@ -15,6 +16,7 @@ public class UserService : IUserService
     private readonly IUserRepository _userRepository;
     private readonly IOtpService _otpService;
     private readonly IConfiguration _configuration;
+    private const string Chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()";
 
     public UserService(IUserRepository userRepository, IOtpService otpService, IConfiguration configuration)
     {
@@ -37,6 +39,25 @@ public class UserService : IUserService
             Email = user.Email,
             IsVerify = user.IsVerify
         };
+    }
+
+
+    public string GenerateRandomPassword()
+    {
+        int length = 16;
+        var password = new StringBuilder();
+        using (var rng = RandomNumberGenerator.Create())
+        {
+            var bytes = new byte[sizeof(uint)];
+            for (int i = 0; i < length; i++)
+            {
+                rng.GetBytes(bytes);
+                uint randomNumber = BitConverter.ToUInt32(bytes, 0);
+                var index = randomNumber % Chars.Length;
+                password.Append(Chars[(int)index]);
+            }
+        }
+        return password.ToString();
     }
 
     public async Task<bool> VerifyUserByEmail(string email, string otp)
@@ -80,15 +101,15 @@ public class UserService : IUserService
     }
 
     //code logic reset password
-    public async Task<bool> ForgotPassword(ForgotPasswordDto request)
+    public async Task<bool> ForgotPassword(string email, string password)
     {
-        var user = _userRepository.GetUserByEmail(request.Email);
+        var user = _userRepository.GetUserByEmail(email);
         if (user == null)
         {
             return false; // Người dùng không tồn tại
         }
         // Mã hóa mật khẩu mới
-        user.Password = request.NewPassword;
+        user.Password = password;
         _userRepository.UpdateUser(user);
         return true;
     }

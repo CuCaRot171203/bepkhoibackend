@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using BepKhoiBackend.BusinessObject.DTOs;
 using BepKhoiBackend.BusinessObject.Services.LoginService.Interface;
+using Org.BouncyCastle.Asn1.Ocsp;
+using DocumentFormat.OpenXml.Office2016.Excel;
 
 namespace BepKhoiBackend.API.Controllers.LoginControllers
 {
@@ -148,42 +150,40 @@ namespace BepKhoiBackend.API.Controllers.LoginControllers
 
 
         [HttpPost("forgot-password")]
-        public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordDto request)
+        public async Task<IActionResult> ForgotPassword([FromBody] String email)
         {
             try
             {
-                // Kiểm tra request có bị null không
-                if (request == null)
-                {
-                    return BadRequest(new { message = "Invalid request data." });
-                }
 
                 // Kiểm tra email và mật khẩu không được để trống
-                if (string.IsNullOrWhiteSpace(request.Email) || string.IsNullOrWhiteSpace(request.NewPassword))
+                if (string.IsNullOrWhiteSpace(email) )
                 {
-                    return BadRequest(new { message = "Email and New Password are required." });
+                    return BadRequest(new { message = "Email are required." });
                 }
 
                 // Kiểm tra độ dài email không vượt quá 255 ký tự
-                if (request.Email.Length > 255)
+                if (email.Length > 255)
                 {
                     return BadRequest(new { message = "Email must be at most 255 characters long." });
                 }
 
                 // Kiểm tra email có đúng định dạng không
-                if (!_userService.IsValidEmail(request.Email))
+                if (!_userService.IsValidEmail(email))
                 {
                     return BadRequest(new { message = "Invalid email format." });
                 }
 
-                // Kiểm tra độ dài mật khẩu không vượt quá 255 ký tự
-                if (request.NewPassword.Length > 255)
+                //
+                if(_userService.GetUserByEmail ==  null)
                 {
-                    return BadRequest(new { message = "Password must be at most 255 characters long." });
-                }
+                    return BadRequest(new { message = "user not exist" });
 
+                }
+                var password = _userService.GenerateRandomPassword();
                 // Gọi service để thực hiện đặt lại mật khẩu
-                var result = await _userService.ForgotPassword(request);
+                var result = await _userService.ForgotPassword(email,password);
+                //sent pass to email
+                await _emailService.SendEmailAsync(email, "", $"Your Password is: {password}");
                 if (!result)
                 {
                     return NotFound(new { message = "Email not found!" });

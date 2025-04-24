@@ -510,7 +510,6 @@ C:\Users\abc\Desktop\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\D
 C:\Users\abc\Desktop\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.AssemblyInfoInputs.cache
 C:\Users\abc\Desktop\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.AssemblyInfo.cs
 C:\Users\abc\Desktop\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.csproj.CoreCompileInputs.cache
-C:\Users\abc\Desktop\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\abc\Desktop\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\abc\Desktop\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.sourcelink.json
 C:\Users\abc\Desktop\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\scopedcss\bundle\BepKhoiBackend.API.styles.css
