@@ -193,7 +193,7 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
                         });
                     }
                     // Redirect đến frontend (ví dụ: trang thanh toán thành công)
-                    var redirectUrl = $"https://facebook.com/";
+                    var redirectUrl = $"http://localhost:3000/vnpay-result?result=true";
                     return Redirect(redirectUrl);
                 }
             else
@@ -203,7 +203,7 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
                         invoiceId = response.InvoiceId,
                         status = false
                     });
-                    var failUrl = $"https://www.facebook.com/reel/639253061931440";
+                    var failUrl = $"http://localhost:3000/vnpay-result?result=false";
                     return Redirect(failUrl);
                 }
             }
@@ -214,7 +214,7 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
                 invoiceId = response.InvoiceId,
                 status = false
             });
-            var redirectFail = $"https://www.facebook.com/reel/639253061931440";
+            var redirectFail = $"http://localhost:3000/vnpay-result?result=false";
             return Redirect(redirectFail);
         }
 
