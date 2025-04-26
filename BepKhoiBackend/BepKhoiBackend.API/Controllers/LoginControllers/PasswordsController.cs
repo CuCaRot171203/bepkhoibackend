@@ -136,7 +136,7 @@ namespace BepKhoiBackend.API.Controllers.LoginControllers
                 session.SetString("UserId", user.UserId.ToString());
                 session.SetString("Phone", user.Email);
 
-                return Ok(new { message = "Verification successful!", token, UserId = user.UserId });
+                return Ok(new { message = "Verification successful!", token, userId = user.UserId, RoleName = user.RoleName, UserName = user.UserName });
             }
             catch (Exception ex)
             {

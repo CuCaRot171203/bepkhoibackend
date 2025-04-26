@@ -24,7 +24,6 @@ namespace BepKhoiBackend.API.Configurations
                             Encoding.UTF8.GetBytes(configuration["Jwt:Key"]) 
                         ),
                     };
-
                     options.Events = new JwtBearerEvents
                     {
                         OnAuthenticationFailed = context =>

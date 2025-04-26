@@ -37,7 +37,9 @@ public class UserService : IUserService
         {
             UserId = user.UserId,
             Email = user.Email,
-            IsVerify = user.IsVerify
+            IsVerify = user.IsVerify,
+            UserName = user.UserInformation.UserName,
+            RoleName = user.Role.RoleName
         };
     }
 
