@@ -19,6 +19,6 @@ namespace BepKhoiBackend.DataAccess.Repository.InvoiceRepository
         Task<Invoice> CreateInvoiceForPaymentAsync(Invoice invoice);
         Task<bool> AddInvoiceDetailForPaymentsAsync(List<InvoiceDetail> invoiceDetails);
         Task ChangeOrderStatusAfterPayment(int orderId);
-
+        Task CheckOrderBeforePaymentAsync(Invoice invoiceDto);
     }
 }

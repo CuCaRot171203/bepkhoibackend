@@ -210,5 +210,30 @@ namespace BepKhoiBackend.DataAccess.Repositories
                 throw new Exception("An error occurred while updating the order status.", ex);
             }
         }
+
+        //Pham Son Tung
+        public async Task CheckOrderBeforePaymentAsync(Invoice invoiceDto)
+        {
+            var order = await _context.Orders
+                .FirstOrDefaultAsync(o => o.OrderId == invoiceDto.OrderId);
+
+            if (order == null)
+                throw new ArgumentException($"Không tìm thấy đơn hàng.");
+
+            if (order.OrderStatusId != 1)
+                throw new InvalidOperationException($"Đơn hàng không hợp lệ để thanh toán.");
+
+            if (order.OrderTypeId != invoiceDto.OrderTypeId ||
+                order.CustomerId != invoiceDto.CustomerId ||
+                order.ShipperId != invoiceDto.ShipperId ||
+                order.RoomId != invoiceDto.RoomId ||
+                order.TotalQuantity != invoiceDto.TotalQuantity ||
+                order.AmountDue != invoiceDto.Subtotal)
+            {
+                throw new InvalidOperationException("Thông tin thanh toán không đồng bộ với dữ liệu đơn hàng.");
+            }
+        }
+
+
     }
 }

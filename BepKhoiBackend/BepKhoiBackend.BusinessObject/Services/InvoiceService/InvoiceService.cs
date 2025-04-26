@@ -236,10 +236,10 @@ namespace BepKhoiBackend.BusinessObject.Services.InvoiceService
                     InvoiceDiscount = invoiceDto.InvoiceDiscount,
                     TotalVat = invoiceDto.TotalVat,
                     AmountDue = invoiceDto.AmountDue,
-                    Status = invoiceDto.Status ?? true,
+                    Status = invoiceDto.Status ?? false,
                     InvoiceNote = invoiceDto.InvoiceNote
                 };
-
+                await _invoiceRepository.CheckOrderBeforePaymentAsync(invoice);
                 var createdInvoice = await _invoiceRepository.CreateInvoiceForPaymentAsync(invoice);
 
                 var invoiceDetails = detailDtos.Select(d => new InvoiceDetail
@@ -273,13 +273,21 @@ namespace BepKhoiBackend.BusinessObject.Services.InvoiceService
                     return (createdInvoice.InvoiceId, null, null);
                 }
             }
-            catch (DbUpdateException dbEx)
+            catch (DbUpdateException)
             {
-                throw new DbUpdateException("Database update error in service in CreateInvoiceForPaymentAsync.", dbEx);
+                throw;
             }
-            catch (Exception ex)
+            catch (ArgumentException)
             {
-                throw new Exception("Undefined Error in service in CreateInvoiceForPaymentAsync.", ex);
+                throw;
+            }
+            catch (InvalidOperationException)
+            {
+                throw;
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
 

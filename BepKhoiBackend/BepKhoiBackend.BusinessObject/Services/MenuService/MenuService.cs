@@ -350,11 +350,6 @@ namespace BepKhoiBackend.BusinessObject.Services.MenuService
                 existingMenu.UnitId = dto.UnitId;
                 existingMenu.IsAvailable = dto.IsAvailable ?? existingMenu.IsAvailable;
                 existingMenu.Status = dto.Status ?? existingMenu.Status;
-
-                // Handle delete if provided
-                if (dto.IsDelete.HasValue)
-                    existingMenu.IsDelete = dto.IsDelete.Value;
-
                 // Add new images
                 if (imageUrls.Any())
                 {

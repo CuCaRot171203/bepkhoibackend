@@ -306,6 +306,10 @@ namespace BepKhoiBackend.API.Controllers.InvoiceControllers
             {
                 return BadRequest(new { message = ex.Message });
             }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
             catch (DbUpdateException ex)
             {
                 return StatusCode(500, new { message = "Lỗi CSDL khi tạo hóa đơn.", error = ex.Message });
