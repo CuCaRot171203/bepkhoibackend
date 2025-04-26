@@ -18,49 +18,70 @@ namespace BepKhoiBackend.DataAccess.Repository.UserRepository.ManagerRepository
         }
 
         // Lấy thông tin Manager theo ID
-        public User GetManagerById(int id)
+        public User? GetManagerById(int id)
         {
-            return _context.Users
-                .Include(u => u.UserInformation)
-                .Include(u => u.Role) // Load thông tin vai trò
-                .FirstOrDefault(u => u.UserId == id && u.RoleId == 1 && (u.IsDelete == false || u.IsDelete == null));
+            try
+            {
+                return _context.Users
+                    .Include(u => u.UserInformation)
+                    .Include(u => u.Role)
+                    .FirstOrDefault(u => u.UserId == id && u.Role.RoleName == "manager" && u.IsDelete != true && u.Status == true);
+            }catch(Exception)
+            {
+                throw;
+            }
         }
-      
+
         // Cập nhật thông tin Manager
-        public bool UpdateManager(int userId, string email, string phone, string userName, string address,
-                                  string provinceCity, string district, string wardCommune, DateTime? dateOfBirth)
+        public async Task<bool> UpdateManagerAsync(int userId, string email, string phone, string? userName, string? address,
+                                                   string? provinceCity, string? district, string? wardCommune, DateTime? dateOfBirth)
         {
-            var manager = _context.Users
-                .Include(u => u.UserInformation)
-                .FirstOrDefault(u => u.UserId == userId && u.RoleId == 1);
-
-            if (manager == null)
+            try
             {
-                return false; // Không tìm thấy manager
-            }
+                var manager = await _context.Users
+                    .Include(u => u.UserInformation)
+                    .FirstOrDefaultAsync(u => u.UserId == userId && u.IsDelete!=true);
 
-            // Kiểm tra nếu có thay đổi email thì đặt is_verify = false
-            if (!string.IsNullOrEmpty(email) && manager.Email != email)
+                if (manager == null)
+                {
+                    throw new KeyNotFoundException($"Không tìm thấy Manager với ID: {userId}");
+                }
+
+                // Update email 
+                if (!string.IsNullOrWhiteSpace(email) && manager.Email != email)
+                {
+                    manager.Email = email;
+                }
+
+                // Update phone
+                if (!string.IsNullOrWhiteSpace(phone))
+                {
+                    manager.Phone = phone;
+                }
+
+                // Update thông tin UserInformation nếu có
+                if (manager.UserInformation != null)
+                {
+                    if (!string.IsNullOrWhiteSpace(userName))
+                        manager.UserInformation.UserName = userName;
+
+                    manager.UserInformation.Address = address;
+                    manager.UserInformation.ProvinceCity = provinceCity;
+                    manager.UserInformation.District = district;
+                    manager.UserInformation.WardCommune = wardCommune;
+                    manager.UserInformation.DateOfBirth = dateOfBirth;
+                }
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception)
             {
-                manager.Email = email;
-                manager.IsVerify = false; // Đánh dấu email chưa xác thực
+                throw;
             }
-
-            // Cập nhật các thông tin cơ bản
-            manager.Phone = phone;
-
-            if (manager.UserInformation != null)
-            {
-                manager.UserInformation.UserName = userName;
-                manager.UserInformation.Address = address;
-                manager.UserInformation.ProvinceCity = provinceCity;
-                manager.UserInformation.District = district;
-                manager.UserInformation.WardCommune = wardCommune;
-                manager.UserInformation.DateOfBirth = dateOfBirth;
-            }
-
-            _context.SaveChanges();
-            return true;
         }
+
+
+
+
     }
 }

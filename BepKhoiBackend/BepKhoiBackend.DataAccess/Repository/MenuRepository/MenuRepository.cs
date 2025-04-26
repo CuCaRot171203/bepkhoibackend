@@ -42,9 +42,11 @@ public class MenuRepository : RepositoryBase, IMenuRepository
     /*========= CALL METHOD ==========*/
 
     // Get all menu
-    public async Task<IQueryable<Menu>> GetMenusQueryableAsync()
+    public IQueryable<Menu> GetMenusQueryable()
     {
-        return _context.Menus.Where(m => m.IsDelete == false).AsQueryable();
+        return _context.Menus
+            .AsNoTracking()
+            .Where(m => m.IsDelete != true);
     }
 
     // Get menu by id
@@ -134,7 +136,8 @@ public class MenuRepository : RepositoryBase, IMenuRepository
         {
             var menuList = await _context.Menus
                 .AsNoTracking()
-                .Where(m => (m.IsDelete == null || m.IsDelete == false))
+                .Include(m => m.ProductImages)
+                .Where(m => m.IsDelete != true)
                 .Where(m => m.Status == true)
                 .OrderBy(m => m.ProductName)
                 .Select(m => new Menu
@@ -148,8 +151,10 @@ public class MenuRepository : RepositoryBase, IMenuRepository
                     UnitId = m.UnitId,
                     IsAvailable = m.IsAvailable,
                     Status = m.Status,
-                    // Lấy ProductImage đầu tiên của mỗi sản phẩm, nếu có
-                    ProductImages = m.ProductImages.Any() ? new List<ProductImage> { m.ProductImages.FirstOrDefault() } : null
+                    ProductImages = m.ProductImages
+                    .OrderBy(pi => pi.ProductImageId) 
+                    .Take(1)
+                    .ToList()
                 })
                 .ToListAsync();
 
@@ -169,7 +174,7 @@ public class MenuRepository : RepositoryBase, IMenuRepository
             var menuList = await _context.Menus
                 .AsNoTracking()
                 .Include(m => m.ProductImages)
-                .Where(m => (m.IsDelete == null || m.IsDelete == false))
+                .Where(m => (m.IsDelete != true && m.IsAvailable == true && m.Status==true))
                 .OrderBy(m => m.ProductName)
                 .Select(m => new Menu
                 {
@@ -182,8 +187,10 @@ public class MenuRepository : RepositoryBase, IMenuRepository
                     UnitId = m.UnitId,
                     IsAvailable = m.IsAvailable,
                     Status = m.Status,
-                    // Lấy ProductImage đầu tiên của mỗi sản phẩm, nếu có
-                    ProductImages = m.ProductImages.ToList()
+                    ProductImages = m.ProductImages
+                    .OrderBy(pi => pi.ProductImageId)
+                    .Take(1)
+                    .ToList()
                 })
                 .ToListAsync();
 

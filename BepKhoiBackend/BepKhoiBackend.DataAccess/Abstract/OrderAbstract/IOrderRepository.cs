@@ -1,4 +1,5 @@
 ﻿using BepKhoiBackend.DataAccess.Models;
+using BepKhoiBackend.DataAccess.Models.ExtendObjects;
 
 namespace BepKhoiBackend.DataAccess.Abstract.OrderAbstract
 {
@@ -41,5 +42,6 @@ namespace BepKhoiBackend.DataAccess.Abstract.OrderAbstract
         Task<List<OrderCancellationHistory>> GetOrderCancellationHistoryByIdAsync(int orderId);
         Task<DeliveryInformation?> GetDeliveryInformationByIdAsync(int DeliveryInformationId);
         Task<Order?> GetOrderFullInforByIdAsync(int orderId);
+        Task<List<Order>> FilterOrderManagerAsync(FilterOrderManager dto);
     }
 }

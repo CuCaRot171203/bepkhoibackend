@@ -1,5 +1,6 @@
 ﻿using BepKhoiBackend.DataAccess.Abstract.OrderAbstract;
 using BepKhoiBackend.DataAccess.Models;
+using BepKhoiBackend.DataAccess.Models.ExtendObjects;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System.Data.Common;
@@ -984,6 +985,61 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
             try
             {
                 return await _context.Orders.Include(o => o.Customer).FirstOrDefaultAsync(o => o.OrderId == orderId);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        //Pham Son Tung
+        public async Task<List<Order>> FilterOrderManagerAsync(FilterOrderManager dto)
+        {
+            try
+            {
+                var query = _context.Orders
+                    .Include(o => o.Customer)
+                    .Include(o => o.OrderStatus)
+                    .Include(o => o.OrderType)
+                    .AsQueryable();
+
+                if (dto.OrderId.HasValue)
+                {
+                    query = query.Where(o => o.OrderId == dto.OrderId.Value);
+                }
+
+                if (!string.IsNullOrWhiteSpace(dto.CustomerKeyword))
+                {
+                    query = query.Where(o =>
+                        o.CustomerId.ToString() == dto.CustomerKeyword ||
+                        (o.Customer != null && (
+                            o.Customer.CustomerName.Contains(dto.CustomerKeyword) ||
+                            o.Customer.Phone.Contains(dto.CustomerKeyword)))
+                    );
+                }
+
+                if (dto.FromDate.HasValue && dto.ToDate.HasValue)
+                {
+                    query = query.Where(o =>
+                        o.CreatedTime >= dto.FromDate.Value &&
+                        o.CreatedTime <= dto.ToDate.Value.AddDays(1).AddTicks(-1));
+                }
+
+                if (dto.OrderStatus.HasValue)
+                {
+                    query = query.Where(o => o.OrderStatusId == dto.OrderStatus.Value);
+                }
+
+                if (dto.Ordertype.HasValue)
+                {
+                    query = query.Where(o => o.OrderTypeId == dto.Ordertype.Value);
+                }
+
+                query = query
+                    .OrderBy(o => o.CreatedTime)
+                    .AsNoTracking();
+
+                return await query.ToListAsync();
             }
             catch (Exception)
             {

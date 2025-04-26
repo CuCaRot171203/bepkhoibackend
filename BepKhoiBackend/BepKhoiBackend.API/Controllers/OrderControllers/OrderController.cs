@@ -1078,5 +1078,50 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
                 });
             }
         }
+
+
+        //Pham Son Tung
+        [Authorize(Roles = "manager")]
+        [HttpPost("filter-orders")]
+        public async Task<IActionResult> FilterOrderManager([FromBody] FilterOrderManagerDto filterDto)
+        {
+            // Validate cơ bản
+            if (filterDto.FromDate.HasValue && filterDto.ToDate.HasValue)
+            {
+                if (filterDto.FromDate > filterDto.ToDate)
+                {
+                    return BadRequest("Ngày bắt đầu không được lớn hơn ngày kết thúc.");
+                }
+            }
+
+            if (!string.IsNullOrWhiteSpace(filterDto.CustomerKeyword) && filterDto.CustomerKeyword.Length > 100)
+            {
+                return BadRequest("Từ khóa tìm kiếm khách hàng quá dài.");
+            }
+
+            if (filterDto.OrderId.HasValue && filterDto.OrderId <= 0)
+            {
+                return BadRequest("ID đơn hàng phải là số nguyên dương.");
+            }
+
+            try
+            {
+                var result = await _orderService.FilterOrderManagerAsync(filterDto);
+                return Ok(new
+                {
+                    message = result.Message,
+                    data = result.Data,
+                    count = result.Data?.Count ?? 0
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    Message = "Đã xảy ra lỗi khi lọc danh sách đơn hàng.",
+                    Details = ex.Message
+                });
+            }
+        }
     }
 }

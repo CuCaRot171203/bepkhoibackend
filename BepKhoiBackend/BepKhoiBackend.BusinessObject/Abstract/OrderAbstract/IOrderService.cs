@@ -43,7 +43,7 @@ namespace BepKhoiBackend.BusinessObject.Abstract.OrderAbstract
         Task<List<OrderCancellationHistoryDto>> GetOrderCancellationHistoryByIdAsync(int orderCancellationHistoryId);
         Task<DeliveryInformation?> GetDeliveryInformationByIdAsync(int DeliveryInformationId);
         Task<OrderFullInForDto> GetOrderFullInforByIdAsync(int orderId);
-
+        Task<ResultWithList<OrderDto>> FilterOrderManagerAsync(FilterOrderManagerDto dto);
 
     }
 }

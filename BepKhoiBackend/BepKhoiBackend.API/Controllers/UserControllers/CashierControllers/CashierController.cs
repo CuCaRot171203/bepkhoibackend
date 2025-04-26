@@ -57,7 +57,7 @@ namespace BepKhoiBackend.API.Controllers.UserControllers.CashierControllers
 
 
         [HttpPut("{id}")]
-        // [Authorize(Roles = "Admin, Manager")]
+        [Authorize(Roles = "manager, cashier")]
         public IActionResult UpdateCashier(int id, [FromBody] UpdateCashierDTO updatedCashier)
         {
             if (updatedCashier == null)
@@ -87,7 +87,6 @@ namespace BepKhoiBackend.API.Controllers.UserControllers.CashierControllers
 
         [Authorize(Roles = "manager")]
         [HttpDelete("{id}")]
-        //[Authorize(Roles = "Admin")]
         public IActionResult DeleteCashier(int id)
         {
             _cashierService.DeleteCashier(id);

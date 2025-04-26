@@ -9,7 +9,7 @@ namespace BepKhoiBackend.DataAccess.Abstract.MenuAbstract
     {
         Task<bool> CheckMenuExistById(int pId);
         Task<bool> CheckMenuIsDelete(int pId);
-        Task<IQueryable<Menu>> GetMenusQueryableAsync();
+        IQueryable<Menu> GetMenusQueryable();
         Task<Menu?> GetMenuByIdAsync(int pId);
         Task<Menu> AddMenuAsync(Menu menu);
         Task<Menu> UpdateMenuAsync(Menu menu);

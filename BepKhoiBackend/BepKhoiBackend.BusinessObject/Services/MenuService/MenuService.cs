@@ -46,7 +46,7 @@ namespace BepKhoiBackend.BusinessObject.Services.MenuService
                     return new ResultWithList<Menu> { IsSuccess = false, Message = $"Invalid sort field: {sortBy}" };
                 }
 
-                var query = await _menuRepository.GetMenusQueryableAsync();
+                var query = _menuRepository.GetMenusQueryable();
 
                 // Filter by categoryId
                 if (categoryId.HasValue)
@@ -112,8 +112,8 @@ namespace BepKhoiBackend.BusinessObject.Services.MenuService
                     return new ResultWithList<MenuCustomerDto> { IsSuccess = false, Message = $"Invalid sort field: {sortBy}" };
                 }
 
-                var query = await _menuRepository.GetMenusQueryableAsync();
-
+                var query = _menuRepository.GetMenusQueryable();
+                query = query.Where(m => m.Status==true && m.IsAvailable==true);
                 if (categoryId.HasValue)
                     query = query.Where(m => m.ProductCategoryId == categoryId.Value);
 
@@ -634,7 +634,7 @@ namespace BepKhoiBackend.BusinessObject.Services.MenuService
             try
             {
                 // Lấy danh sách menu từ repository
-                var menuList = await _menuRepository.GetAllMenuPos();
+                var menuList = await _menuRepository.GetAllMenuQr();
 
                 // Map từ Menu entity sang MenuPosDto
                 var menuDtoList = menuList.Select(m => new MenuQrDto

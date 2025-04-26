@@ -17,47 +17,75 @@ namespace BepKhoiBackend.API.Controllers.UserControllers.ManagerControllers
             _managerService = managerService;
         }
 
-        [Authorize(Roles = "manager")]
         // Lấy thông tin Manager theo ID
+        [Authorize(Roles = "manager")]
         [HttpGet("{id}")]
         public IActionResult GetManagerById(int id)
         {
-            var manager = _managerService.GetManagerById(id);
-            if (manager == null)
+            try
             {
-                return NotFound($"Không tìm thấy Manager với ID {id}.");
+                var manager = _managerService.GetManagerById(id);
+                if (manager == null)
+                {
+                    return NotFound($"Không tìm thấy Manager với ID {id}.");
+                }
+                return Ok(manager);
             }
-            return Ok(manager);
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Đã xảy ra lỗi khi lấy thông tin Manager: {ex.Message}");
+            }
         }
 
-        [Authorize(Roles = "manager")]
         // Cập nhật thông tin Manager
+        [Authorize(Roles = "manager")]
         [HttpPut("{id}")]
-        public IActionResult UpdateManager(int id, [FromBody] UpdateManagerDTO updatedManager)
+        public async Task<IActionResult> UpdateManager(int id, [FromBody] UpdateManagerDTO updatedManager)
         {
             if (updatedManager == null)
             {
                 return BadRequest("Dữ liệu không hợp lệ.");
             }
 
-            var isUpdated = _managerService.UpdateManager(
-                id,
-                updatedManager.Email,
-                updatedManager.Phone,
-                updatedManager.UserName,
-                updatedManager.Address,
-                updatedManager.ProvinceCity,
-                updatedManager.District,
-                updatedManager.WardCommune,
-                updatedManager.DateOfBirth
-            );
-
-            if (!isUpdated)
+            // Validate cơ bản
+            if (string.IsNullOrWhiteSpace(updatedManager.Email))
             {
-                return BadRequest("Cập nhật Manager thất bại. Kiểm tra lại thông tin.");
+                return BadRequest("Email không được để trống.");
             }
 
-            return Ok($"Manager có ID {id} đã được cập nhật thành công.");
+            if (string.IsNullOrWhiteSpace(updatedManager.Phone))
+            {
+                return BadRequest("Số điện thoại không được để trống.");
+            }
+
+            try
+            {
+                var isUpdated = await _managerService.UpdateManagerAsync(
+                    id,
+                    updatedManager.Email,
+                    updatedManager.Phone,
+                    updatedManager.UserName,
+                    updatedManager.Address,
+                    updatedManager.ProvinceCity,
+                    updatedManager.District,
+                    updatedManager.WardCommune,
+                    updatedManager.DateOfBirth
+                );
+
+                if (!isUpdated)
+                {
+                    return BadRequest("Cập nhật Manager thất bại. Kiểm tra lại thông tin.");
+                }
+
+                return Ok($"Manager có ID {id} đã được cập nhật thành công.");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Đã xảy ra lỗi khi cập nhật Manager: {ex.Message}");
+            }
         }
+
+
+
     }
 }

@@ -8,6 +8,7 @@ using BepKhoiBackend.BusinessObject.dtos.OrderDto.PaymentDto;
 using BepKhoiBackend.DataAccess.Abstract.OrderAbstract;
 using BepKhoiBackend.DataAccess.Abstract.OrderDetailAbstract;
 using BepKhoiBackend.DataAccess.Models;
+using BepKhoiBackend.DataAccess.Models.ExtendObjects;
 using BepKhoiBackend.Shared.Helpers;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
@@ -955,6 +956,61 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
             catch (Exception ex)
             {
                 throw new Exception($"Service error when fetching order: {ex.Message}", ex);
+            }
+        }
+
+        public async Task<ResultWithList<OrderDto>> FilterOrderManagerAsync(FilterOrderManagerDto dto)
+        {
+            try
+            {
+                var filter = new FilterOrderManager
+                {
+                    OrderId = dto.OrderId,
+                    CustomerKeyword = dto.CustomerKeyword,
+                    FromDate = dto.FromDate,
+                    ToDate = dto.ToDate,
+                    OrderStatus = dto.OrderStatus,
+                    Ordertype = dto.Ordertype
+                };
+
+                var orders = await _orderRepository.FilterOrderManagerAsync(filter);
+
+                if (orders == null || !orders.Any())
+                {
+                    return new ResultWithList<OrderDto>
+                    {
+                        IsSuccess = false,
+                        StatusCode = 404,
+                        Message = "Không tìm thấy đơn hàng phù hợp với tiêu chí."
+                    };
+                }
+
+                var data = orders.Select(o => new OrderDto
+                {
+                    OrderId = o.OrderId,
+                    CustomerId = o.CustomerId,
+                    ShipperId = o.ShipperId,
+                    DeliveryInformationId = o.DeliveryInformationId,
+                    OrderTypeId = o.OrderTypeId,
+                    RoomId = o.RoomId,
+                    CreatedTime = o.CreatedTime,
+                    TotalQuantity = o.TotalQuantity,
+                    AmountDue = o.AmountDue,
+                    OrderStatusId = o.OrderStatusId,
+                    OrderNote = o.OrderNote
+                }).ToList();
+
+                return new ResultWithList<OrderDto>
+                {
+                    IsSuccess = true,
+                    StatusCode = 200,
+                    Message = "Lấy danh sách đơn hàng thành công.",
+                    Data = data
+                };
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
     }
