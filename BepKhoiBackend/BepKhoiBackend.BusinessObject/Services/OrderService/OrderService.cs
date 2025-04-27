@@ -394,15 +394,9 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
 
                 return customerPosDto;
             }
-            catch (KeyNotFoundException ex)
+            catch (Exception)
             {
-                // Có thể log lại và ném ra lại cho Controller xử lý
-                throw new KeyNotFoundException($"Order with ID {orderId} not found at service.", ex);
-            }
-            catch (Exception ex)
-            {
-                // Logging hoặc xử lý thêm nếu cần
-                throw new Exception("An error occurred in OrderService while retrieving the customer.", ex);
+                throw;
             }
         }
 
@@ -413,15 +407,9 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
             {
                 await _orderRepository.AssignCustomerToOrder(orderId, customerId);
             }
-            catch (KeyNotFoundException ex)
+            catch (Exception)
             {
-                // Ghi log hoặc xử lý lỗi nếu cần
-                throw new Exception($"Order or Customer not found. {ex.Message}", ex);
-            }
-            catch (Exception ex)
-            {
-                // Logging hoặc xử lý lỗi khác nếu cần
-                throw new Exception("An error occurred in OrderService while assigning customer to order.", ex);
+                throw;
             }
         }
 
@@ -430,21 +418,15 @@ namespace BepKhoiBackend.BusinessObject.Services.OrderService
         {
             try
             {
-                // Gọi phương thức từ repository để xóa CustomerId
                 var result = await _orderRepository.RemoveCustomerFromOrderAsync(orderId);
-                // Xử lý logic sau khi xóa (nếu cần, như log lỗi, thông báo thành công,...)
                 if (result)
                 {
-                    // Thành công
                     return true;
                 }
-                // Nếu không tìm thấy đơn hàng hoặc gặp lỗi
                 return false;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                // Xử lý lỗi xảy ra trong service
-                Console.Error.WriteLine($"Service error: {ex.Message}");
                 return false;
             }
         }

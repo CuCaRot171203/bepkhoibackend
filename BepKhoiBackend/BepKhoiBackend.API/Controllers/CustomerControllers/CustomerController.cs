@@ -18,15 +18,21 @@ namespace BepKhoiBackend.API.Controllers.CustomerControllers
             _customerService = customerService;
         }
 
-        [Authorize(Roles = "manager")]
+        [Authorize(Roles = "manager, cashier")]
         [HttpGet]
         public ActionResult<List<CustomerDTO>> GetAllCustomers()
         {
-            var customers = _customerService.GetAllCustomers();
-            return Ok(customers);
+            try
+            {
+                var customers = _customerService.GetAllCustomers();
+                return Ok(customers);
+            }catch(Exception ex)
+            {
+                return StatusCode(500, new { message = "An unexpected error occurred.", details = ex.Message });
+            }
         }
 
-        [Authorize(Roles = "manager")]
+        [Authorize(Roles = "manager, cashier")]
         [HttpGet("{id}")]
         [ProducesResponseType(typeof(CustomerDTO), 200)] // OK
         [ProducesResponseType(400)] // BadRequest
@@ -34,13 +40,6 @@ namespace BepKhoiBackend.API.Controllers.CustomerControllers
         [ProducesResponseType(500)] // Internal Server Error
         public ActionResult<CustomerDTO> GetCustomerById(int id)
         {
-            //var customer = _customerService.GetCustomerById(id);
-            //if (customer == null)
-            //{
-            //    return NotFound(new { message = "Khách hàng không tồn tại!" });
-            //}
-            //return Ok(customer);
-
             try
             {
                 if (id <= 0)
@@ -68,6 +67,7 @@ namespace BepKhoiBackend.API.Controllers.CustomerControllers
             }
         }
 
+        [Authorize(Roles = "manager, cashier")]
         [HttpGet("search")]
         [ProducesResponseType(typeof(List<CustomerDTO>), 200)] // OK
         [ProducesResponseType(400)] // BadRequest
@@ -98,7 +98,7 @@ namespace BepKhoiBackend.API.Controllers.CustomerControllers
             }
         }
 
-        [Authorize(Roles = "manager")]
+        [Authorize(Roles = "manager, cashier")]
         [HttpGet("{customerId}/invoices")]
         public IActionResult GetInvoicesByCustomerId(int customerId)
         {
@@ -110,7 +110,7 @@ namespace BepKhoiBackend.API.Controllers.CustomerControllers
             return Ok(invoices);
         }
 
-        [Authorize(Roles = "manager")]
+        [Authorize(Roles = "manager, cashier")]
         [HttpGet("export")]
         public IActionResult ExportCustomers()
         {
@@ -118,6 +118,7 @@ namespace BepKhoiBackend.API.Controllers.CustomerControllers
             return File(fileContents, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Customers.xlsx");
         }
 
+        [Authorize(Roles = "manager, cashier")]
         [HttpPost("create-new-customer")]
         [ProducesResponseType(200)] // OK
         [ProducesResponseType(400)] // BadRequest
@@ -148,5 +149,54 @@ namespace BepKhoiBackend.API.Controllers.CustomerControllers
                 return StatusCode(500, new { message = "Server error", error = ex.Message });
             }
         }
+
+        [Authorize(Roles = "manager, cashier")]
+        [HttpDelete("delete/{customerId}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
+        public async Task<IActionResult> DeleteCustomer(int customerId)
+        {
+            try
+            {
+                await _customerService.DeleteCustomerAsync(customerId);
+                return Ok(new { message = "Customer deleted successfully." });
+            }
+            catch (InvalidOperationException)
+            {
+                return BadRequest(new { message = "Customer not found." });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "An unexpected error occurred.", details = ex.Message });
+            }
+        }
+
+        [Authorize(Roles = "manager, cashier")]
+        [HttpPut("update/{customerId}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
+        public async Task<IActionResult> UpdateCustomer(int customerId, [FromQuery] string phone, [FromQuery] string customerName)
+        {
+            try
+            {
+                await _customerService.UpdateCustomerAsync(customerId, phone, customerName);
+                return Ok(new { message = "Customer updated successfully." });
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(new { message = "Customer not found or exist phone number."});
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "An unexpected error occurred.", details = ex.Message });
+            }
+        }
+
+
+
     }
 }

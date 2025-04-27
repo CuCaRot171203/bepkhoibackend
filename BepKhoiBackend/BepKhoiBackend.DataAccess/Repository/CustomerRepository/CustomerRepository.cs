@@ -22,7 +22,7 @@ namespace BepKhoiBackend.DataAccess.Repository.CustomerRepository
         {
             return _context.Customers
                 .Include(c => c.Invoices)
-                .Where(c => c.IsDelete == false || c.IsDelete == null)
+                .Where(c => c.IsDelete != true)
                 .ToList();
         }
 
@@ -52,10 +52,10 @@ namespace BepKhoiBackend.DataAccess.Repository.CustomerRepository
         {
             return await _context.Customers
                 .AsNoTracking()
-                .FirstOrDefaultAsync(c => c.Phone == phone);
+                .FirstOrDefaultAsync(c => c.Phone == phone && c.IsDelete != true);
         }
 
-        // func to create customer 
+        //Phạm Sơn Tùng
         public async Task CreateCustomerAsync(Customer customer)
         {
             try
@@ -63,10 +63,60 @@ namespace BepKhoiBackend.DataAccess.Repository.CustomerRepository
                 _context.Customers.Add(customer);
                 await _context.SaveChangesAsync();
             }
-            catch(Exception ex)
+            catch (Exception)
             {
                 throw;
             }
         }
+
+
+        //Phạm Sơn Tùng
+        public async Task DeleteCustomerAsync(int customerId)
+        {
+            try
+            {
+                var customer = await _context.Customers.FindAsync(customerId);
+
+                if (customer == null)
+                {
+                    throw new ArgumentException($"Customer with ID {customerId} not found.");
+                }
+
+                customer.IsDelete = true;
+                _context.Customers.Update(customer);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public async Task UpdateCustomerAsync(int customerId, string phone, string customerName)
+        {
+            try
+            {
+                var customer = await _context.Customers.FindAsync(customerId);
+                var existPhone = await _context.Customers.FirstOrDefaultAsync(c => c.Phone == phone && c.CustomerId != customerId);
+                if (customer == null)
+                {
+                    throw new ArgumentException($"Customer with ID {customerId} not found.");
+                }
+                if (existPhone != null)
+                {
+                    throw new ArgumentException($"Exist phone number.");
+                }
+                _context.Customers.Update(customer);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception)
+            {
+                throw; 
+            }
+        }
+
+
+
+
     }
 }

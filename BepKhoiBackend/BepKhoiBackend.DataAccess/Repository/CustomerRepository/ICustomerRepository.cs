@@ -14,5 +14,7 @@ namespace BepKhoiBackend.DataAccess.Repository.CustomerRepository
         List<Customer> SearchCustomers(string keyword);
         Task<Customer?> GetCustomerByPhoneAsync(string phone);
         Task CreateCustomerAsync(Customer customer);
+        Task DeleteCustomerAsync(int customerId);
+        Task UpdateCustomerAsync(int customerId, string phone, string customerName);
     }
 }

@@ -18,7 +18,7 @@ namespace BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers
         }
 
         [HttpGet]
-        //[Authorize(Roles = "Admin, Manager")]
+        [Authorize(Roles = "manager, cashier, shipper")]
         public ActionResult<IEnumerable<ShipperDTO>> GetAllShippers()
         {
             var shippers = _shipperService.GetAllShippers();
@@ -30,7 +30,7 @@ namespace BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers
         }
 
         [HttpGet("{id}")]
-        //[Authorize(Roles = "Admin, Manager")]
+        [Authorize(Roles = "manager, cashier")]
         public ActionResult<ShipperDTO> GetShipperById(int id)
         {
             var shipper = _shipperService.GetShipperById(id);
@@ -42,7 +42,7 @@ namespace BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers
         }
 
         [HttpPost]
-        //[Authorize(Roles = "Admin, Manager")]
+        [Authorize(Roles = "manager")]
         public IActionResult CreateShipper([FromBody] CreateShipperDTO newShipper)
         {
             if (newShipper == null)
@@ -55,7 +55,7 @@ namespace BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers
         }
 
         [HttpPut("{id}")]
-        // [Authorize(Roles = "Admin, Manager")]
+        [Authorize(Roles = "manager, shipper")]
         public IActionResult UpdateShipper(int id, [FromBody] UpdateShipperDTO updatedShipper)
         {
             if (updatedShipper == null)
@@ -85,13 +85,16 @@ namespace BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers
 
 
         [HttpDelete("{id}")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "manager")]
         public IActionResult DeleteShipper(int id)
         {
             _shipperService.DeleteShipper(id);
             return Ok($"Shipper có ID {id} đã bị xóa.");
         }
+
+
         [HttpGet("{id}/invoices")]
+        [Authorize(Roles = "manager")]
         public ActionResult<IEnumerable<ShipperInvoiceDTO>> GetShipperInvoices(int id)
         {
             var invoices = _shipperService.GetShipperInvoices(id);
@@ -101,13 +104,19 @@ namespace BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers
             }
             return Ok(new { ShipperId = id, Invoices = invoices });
         }
+
+
         [HttpGet("search")]
+        [Authorize(Roles = "manager")]
         public ActionResult<List<ShipperDTO>> GetShippers([FromQuery] string? searchTerm, [FromQuery] bool? status)
         {
             var shippers = _shipperService.GetShippers(searchTerm, status);
             return shippers is { Count: > 0 } ? Ok(shippers) : NotFound("Không tìm thấy shipper nào.");
         }
+
+
         [HttpGet("export")]
+        [Authorize(Roles = "manager")]
         public IActionResult ExportShippersToExcel()
         {
             var fileContents = _shipperService.ExportShippersToExcel();

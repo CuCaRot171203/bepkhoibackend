@@ -1,5 +1,6 @@
 ﻿using BepKhoiBackend.BusinessObject.dtos.RoomDto;
 using BepKhoiBackend.BusinessObject.Services.RoomService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -34,6 +35,7 @@ namespace BepKhoiBackend.API.Controllers
             return Ok(room);
         }
 
+        [Authorize(Roles = "manager")]
         [HttpPost("create")]
         public async Task<IActionResult> Create([FromBody] RoomCreateDto roomCreateDto)
         {
@@ -43,6 +45,7 @@ namespace BepKhoiBackend.API.Controllers
             return Ok(new { message = "Room created successfully" });
         }
 
+        [Authorize(Roles = "manager")]
         [HttpPost("generate-qr/{id}")]
         public async Task<IActionResult> GenerateQRCodeForRoom(int id, String UrlBase)
         {
@@ -61,6 +64,7 @@ namespace BepKhoiBackend.API.Controllers
             }
         }
 
+        [Authorize(Roles = "manager")]
         [HttpDelete("delete-qr/{id}")]
         public async Task<IActionResult> DeleteQRCode(int id)
         {
@@ -75,6 +79,7 @@ namespace BepKhoiBackend.API.Controllers
             }
         }
 
+        [Authorize(Roles = "manager, cashier")]
         [HttpGet("download-qr/{id}")]
         public async Task<IActionResult> DownloadQRCode(int id)
         {
@@ -89,6 +94,7 @@ namespace BepKhoiBackend.API.Controllers
             }
         }
 
+        [Authorize(Roles = "manager")]
         [HttpPut("update/{id}")]
         public async Task<IActionResult> Update(int id, [FromBody] RoomUpdateDto roomUpdateDto)
         {
@@ -99,6 +105,7 @@ namespace BepKhoiBackend.API.Controllers
             return Ok(new { message = "Room updated successfully" });
         }
 
+        [Authorize(Roles = "manager")]
         [HttpDelete("delete/{id}")]
         public async Task<IActionResult> SoftDelete(int id)
         {
@@ -116,9 +123,8 @@ namespace BepKhoiBackend.API.Controllers
             return Ok(result);
         }
 
-        /*========= Room Controller - Thanh Tung ======== */
-
         //controller for get Room for POS site
+        [Authorize(Roles = "manager, cashier")]
         [HttpGet("get-all-room-for-pos")]
         [ProducesResponseType(typeof(List<RoomDtoPos>), 200)]
         [ProducesResponseType(400)]
@@ -146,7 +152,7 @@ namespace BepKhoiBackend.API.Controllers
             }
         }
 
-        // controller for filter by roomAreaId and isUse
+        [Authorize(Roles = "manager, cashier")]
         [HttpGet("filter-room-pos")]
         [ProducesResponseType(typeof(List<RoomDtoPos>), 200)]
         [ProducesResponseType(400)]
@@ -173,36 +179,7 @@ namespace BepKhoiBackend.API.Controllers
             }
         }
 
-        // controller for searching by username and room name
-        //[HttpGet("search-room-pos")]
-        //[ProducesResponseType(typeof(List<RoomDtoPos>), 200)]
-        //[ProducesResponseType(400)]
-        //[ProducesResponseType(404)]
-        //[ProducesResponseType(500)]
-        //public async Task<IActionResult> SearchRoomPos([FromQuery] string searchString)
-        //{
-        //    try
-        //    {
-        //        var result = await _roomService.SearchRoomPosAsync(searchString);
-        //        if (result == null || !result.Any())
-        //        {
-        //            return NotFound(new { message = "Can't find username or roomname." });
-        //        }
-
-        //        return Ok(result);
-        //    }
-        //    catch (ArgumentException ex)
-        //    {
-        //        return BadRequest(new { message = ex.Message });
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return StatusCode(500, new { message = "Error server.", error = ex.Message });
-        //    }
-        //}
-
-
-
+        [Authorize(Roles = "manager, cashier")]
         [HttpPut("update-room-note")]
         public async Task<IActionResult> UpdateRoomNote([FromBody] RoomNoteUpdateDto dto)
         {

@@ -96,8 +96,6 @@ namespace BepKhoiBackend.BusinessObject.Services.CustomerService
             }
         }
 
-        // ======== Customer Service - Thanh Tung ======
-
         // Method create customer
         public async Task<Customer> CreateNewCustomerAsync(CreateNewCustomerRequest request)
         {
@@ -125,5 +123,40 @@ namespace BepKhoiBackend.BusinessObject.Services.CustomerService
                 throw;
             }
         }
+
+        public async Task DeleteCustomerAsync(int customerId)
+        {
+            try
+            {
+                // Gọi repository để xóa khách hàng
+                await _customerRepository.DeleteCustomerAsync(customerId);
+            }
+            catch (ArgumentException ex)
+            {
+                throw new InvalidOperationException($"Error while deleting customer: {ex.Message}", ex);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public async Task UpdateCustomerAsync(int customerId, string phone, string customerName)
+        {
+            try
+            {
+                await _customerRepository.UpdateCustomerAsync(customerId, phone, customerName);
+            }
+            catch (ArgumentException ex)
+            {
+                throw new InvalidOperationException($"Error while updating customer: {ex.Message}", ex);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+
     }
 }

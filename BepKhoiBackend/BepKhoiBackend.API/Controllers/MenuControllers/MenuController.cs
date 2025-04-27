@@ -39,7 +39,7 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
         /*========== NEW MENU API CONTROLLER =======*/
         // API - MenuController.cs
         [Authorize]
-        [Authorize(Roles = "manager")]
+        [Authorize(Roles = "manager, cashier")]
         [HttpGet("get-all-menus")]
         public async Task<IActionResult> GetAllMenuAsync(
             [FromQuery] string sortBy = "ProductId",
@@ -81,8 +81,7 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
             });
         }
 
-        [Authorize]
-        [Authorize(Roles = "manager")]
+        [Authorize(Roles = "manager, cashier")]
         // API Get menu by ID
         [HttpGet("get-menu-by-id/{pid}")]
         [ProducesResponseType(200)] // OK
@@ -143,7 +142,7 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
 
         // API add product to Menu list
         [Authorize]
-        [Authorize(Roles = "manager")]
+        [Authorize(Roles = "manager, cashier")]
         [HttpPost("add")]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
@@ -220,17 +219,19 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
                     return NotFound(new { message = $"Menu with ID {id} not found." });
                 if (existingMenu.IsDelete == true)
                     return BadRequest(new { message = $"Menu with ID {id} has been deleted." });
-                string image = existingMenu.ProductImages.First().ProductImage1;
+                string? image = existingMenu.ProductImages?.FirstOrDefault()?.ProductImage1;
                 // Handle images
                 List<string> imageUrls = new List<string>();
                 if (dto.Image != null)
                 {
-                    
-                    await _cloudinaryService.DeleteImageAsync(image);
                     var newImageUrl = await _cloudinaryService.UploadImageAsync(dto.Image);
                     imageUrls.Add(newImageUrl);
                 }
-                else
+                if (image != null)
+                {
+                    await _cloudinaryService.DeleteImageAsync(image);
+                }
+                if (dto.Image == null)
                 {
                     // Keep old images
                     if (existingMenu.ProductImages != null && existingMenu.ProductImages.Any())
@@ -454,8 +455,6 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
 
 
         //Pham Son Tung
-        [Authorize]
-        [Authorize(Roles = "manager")]
         [HttpGet("get-all-menu-qr")]
         public async Task<IActionResult> GetAllMenuQr()
         {

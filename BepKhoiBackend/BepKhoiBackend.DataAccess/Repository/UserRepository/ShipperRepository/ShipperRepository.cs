@@ -72,7 +72,8 @@ namespace BepKhoiBackend.DataAccess.Repository.UserRepository.ShipperRepository
         {
             var shipper = _context.Users
                 .Include(u => u.UserInformation)
-                .FirstOrDefault(u => u.UserId == userId && u.RoleId == 3);
+                .Include(u => u.Role)
+                .FirstOrDefault(u => u.UserId == userId && u.Role.RoleName=="shipper");
 
             if (shipper == null)
             {

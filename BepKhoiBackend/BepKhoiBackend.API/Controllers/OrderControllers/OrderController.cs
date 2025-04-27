@@ -31,8 +31,7 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
             _printOrderPdfService = printOrderPdfService;
         }
         //get all
-        [Authorize]
-        [Authorize(Roles = "manager")]
+        [Authorize(Roles = "manager, cashier")]
         [HttpGet("get-all-orders")]
         public async Task<IActionResult> GetAllOrdersAsync()
         {
@@ -48,6 +47,7 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
             });
         }
 
+        [Authorize(Roles = "manager, cashier")]
         [HttpGet("filter-by-date-and-order-id")]
         public async Task<IActionResult> FilterOrdersByDateAsync(
         [FromQuery] DateTime? fromDate = null,
@@ -320,7 +320,6 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
         }
 
         //Pham Son Tung
-        [Authorize]
         [Authorize(Roles = "manager, cashier")]
         [HttpGet("get-order-by-type-pos")]
         public async Task<IActionResult> GetOrdersByTypePosAsync(int? roomId, int? shipperId, int? orderTypeId)
@@ -349,6 +348,7 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
 
 
         //-------------NgocQuan----------------//
+        [Authorize(Roles = "manager, cashier")]
         [HttpGet("{orderId}/print-pdf-temp-Invoice")]
         public async Task<IActionResult> GetTempInvoicePdf(int orderId)
         {
@@ -369,14 +369,13 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
             }
         }
         //Pham Son Tung
-        [Authorize]
         [Authorize(Roles = "manager, cashier")]
         [HttpGet("get-customer-of-order/{orderId}")]
         public async Task<IActionResult> GetCustomerOfOrder([FromRoute] int orderId)
         {
             try
             {
-                var customer = await _orderService.GetCustomerIdByOrderIdAsync(orderId); // Trả về CustomerPosDto
+                var customer = await _orderService.GetCustomerIdByOrderIdAsync(orderId); 
 
                 return Ok(new
                 {
@@ -386,7 +385,7 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
             }
             catch (KeyNotFoundException ex)
             {
-                return Ok(new
+                return NotFound(new
                 {
                     success = false,
                     message = ex.Message
@@ -485,18 +484,13 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
         [HttpPost("remove-customer/{orderId}")]
         public async Task<IActionResult> RemoveCustomerFromOrder(int orderId)
         {
-            // Gọi service để thực hiện xóa CustomerId khỏi đơn hàng
             var result = await _orderService.RemoveCustomerFromOrderAsync(orderId);
-
-            // Kiểm tra kết quả và trả về phản hồi cho client
             if (result)
             {
-                // Nếu thành công
                 return Ok(new { Message = "Customer removed successfully from the order." });
             }
             else
             {
-                // Nếu thất bại, có thể vì đơn hàng không tồn tại hoặc gặp lỗi
                 return BadRequest(new { Message = "Failed to remove customer from the order." });
             }
         }
@@ -551,26 +545,20 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
         {
             try
             {
-                // Gọi service để lấy danh sách order details theo orderId
                 var orderDetails = await _orderService.GetOrderDetailsByOrderIdAsync(orderId);
-
-                // Trả về kết quả thành công với danh sách order details
                 return Ok(orderDetails);
             }
             catch (ArgumentException argEx)
             {
-                // Nếu có lỗi về tham số (ví dụ: orderId không hợp lệ), trả về lỗi với thông điệp chi tiết
                 return BadRequest(new { message = $"Invalid parameter: {argEx.Message}" });
             }
             catch (Exception ex)
             {
-                // Xử lý tất cả các lỗi khác, trả về lỗi server với thông tin chi tiết
                 return StatusCode(500, new { message = "An error occurred while processing your request.", details = ex.Message });
             }
         }
 
         //Phạm Sơn Tùng
-       
         [HttpPut("update-order-customer")]
         public async Task<IActionResult> UpdateOrderCustomer([FromBody] OrderUpdateDTO request)
         {
@@ -975,7 +963,7 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
             }
         }
         [Authorize]
-        [Authorize(Roles = "manager")]
+        [Authorize(Roles = "manager, cashier")]
         [HttpGet("cancellation-history/{orderId}")]
         public async Task<IActionResult> GetOrderCancellationHistoryByIdAsync(int orderId)
         {
@@ -1010,7 +998,7 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
         }
 
         [Authorize]
-        [Authorize(Roles = "manager")]
+        [Authorize(Roles = "manager, cashier")]
         [HttpGet("DeliveryInformation/{deliveryInformationId}")]
         public async Task<IActionResult> GetDeliveryInformationByIdAsync(int deliveryInformationId)
         {
@@ -1045,7 +1033,7 @@ namespace BepKhoiBackend.API.Controllers.OrderControllers
         }
 
         [Authorize]
-        [Authorize(Roles = "manager")]
+        [Authorize(Roles = "manager, cashier")]
         [HttpGet("OrderInformationById/{orderId}")]
         public async Task<IActionResult> GetOrderFullInforByIdAsync(int orderId)
         {

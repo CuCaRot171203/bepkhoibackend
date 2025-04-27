@@ -15,8 +15,10 @@ namespace BepKhoiBackend.BusinessObject.Services.CustomerService
         List<CustomerDTO> SearchCustomers(string searchTerm);
         List<CustomerInvoiceDto> GetInvoicesByCustomerId(int customerId);
         byte[] ExportCustomersToExcel();
-
         Task<Customer> CreateNewCustomerAsync(CreateNewCustomerRequest request);
+        Task DeleteCustomerAsync(int customerId);
+        Task UpdateCustomerAsync(int customerId, string phone, string customerName);
+
 
     }
 }

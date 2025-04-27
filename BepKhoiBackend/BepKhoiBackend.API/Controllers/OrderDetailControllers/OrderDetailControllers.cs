@@ -3,6 +3,7 @@ using BepKhoiBackend.BusinessObject.Abstract.OrderAbstract;
 using BepKhoiBackend.BusinessObject.Abstract.OrderDetailAbstract;
 using BepKhoiBackend.BusinessObject.dtos.OrderDetailDto;
 using BepKhoiBackend.BusinessObject.Services.OrderService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
@@ -132,6 +133,7 @@ namespace BepKhoiBackend.API.Controllers.OrderDetailControllers
 
         //Pham Son Tung
         //Api ConfirmOrderPos of POS site 
+        [Authorize(Roles = "manager, cashier")]
         [HttpPut("confirm/{orderId}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
@@ -162,6 +164,7 @@ namespace BepKhoiBackend.API.Controllers.OrderDetailControllers
 
         //Pham Son Tung
         //Api SplitOrderPos of POS site
+        [Authorize(Roles = "manager, cashier")]
         [HttpPost("SplitOrderPos")]
         [ProducesResponseType(typeof(object), 200)] // Thành công
         [ProducesResponseType(typeof(object), 400)] // Bad Request

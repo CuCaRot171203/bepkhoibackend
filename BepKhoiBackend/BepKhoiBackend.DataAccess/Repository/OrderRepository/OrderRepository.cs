@@ -362,58 +362,26 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
                 .Include(o => o.OrderDetails)
                 .FirstOrDefaultAsync(o => o.OrderId == orderId);
         }
-        //Pham Son Tung
-        //public async Task<Customer> GetCustomerIdByOrderIdAsync(int orderId)
-        //{
-        //    try
-        //    {
-        //        var order = await _context.Orders
-        //            .FirstOrDefaultAsync(o => o.OrderId == orderId);
 
-        //        if (order == null)
-        //        {
-        //            throw new KeyNotFoundException($"Order with ID {orderId} was not found at repository.");
-        //        }
-        //        var customer = await _context.Customers.FirstOrDefaultAsync(c=>c.CustomerId == order.CustomerId);
-        //        if (customer == null)
-        //        {
-        //            throw new KeyNotFoundException($"customer with ID {order.Customer} was not found at repository.");
-        //        }
-        //        return customer;
-        //    }
-        //    catch (DbUpdateException dbEx)
-        //    {
-        //        // Lỗi liên quan đến thao tác database (transaction, connection...)
-        //        throw new Exception("Database update error occurred while fetching the order.", dbEx);
-        //    }
-        //    catch (DbException dbEx)
-        //    {
-        //        // Các lỗi database khác (nếu dùng System.Data.Common)
-        //        throw new Exception("A database error occurred while retrieving the order.", dbEx);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        // Catch all để tránh app crash
-        //        throw new Exception("An unexpected error occurred while getting the customer ID.", ex);
-        //    }
-        //}
         public async Task<Customer> GetCustomerIdByOrderIdAsync(int orderId)
         {
-            var order = await _context.Orders
-                .FirstOrDefaultAsync(o => o.OrderId == orderId);
-
-            if (order == null)
-            {
-                throw new KeyNotFoundException($"Order with ID {orderId} was not found at repository.");
+            try{
+                var order = await _context.Orders.FirstOrDefaultAsync(o => o.OrderId == orderId);
+                if (order == null)
+                {
+                    throw new KeyNotFoundException($"Order with ID {orderId} was not found at repository.");
+                }
+                var customer = await _context.Customers.FirstOrDefaultAsync(c => c.CustomerId == order.CustomerId);
+                if (customer == null)
+                {
+                    throw new KeyNotFoundException($"Customer with ID {order.CustomerId} was not found at repository.");
+                }
+                return customer;
             }
-
-            var customer = await _context.Customers.FirstOrDefaultAsync(c => c.CustomerId == order.CustomerId);
-            if (customer == null)
+            catch (Exception)
             {
-                throw new KeyNotFoundException($"Customer with ID {order.CustomerId} was not found at repository.");
+                throw;
             }
-
-            return customer;
         }
 
         public async Task AssignCustomerToOrder(int orderId, int customerId)
@@ -443,9 +411,9 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
             {
                 throw new Exception("A database error occurred while assigning customer to order.", dbEx);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new Exception("An unexpected error occurred while assigning customer to order.", ex);
+                throw;
             }
         }
 
@@ -454,35 +422,18 @@ namespace BepKhoiBackend.DataAccess.Repository.OrderRepository
         {
             try
             {
-                // Tìm đơn hàng với orderId
-                var order = await _context.Orders
-                                          .FirstOrDefaultAsync(o => o.OrderId == orderId);
-
-                // Kiểm tra xem đơn hàng có tồn tại không
+                var order = await _context.Orders.FirstOrDefaultAsync(o => o.OrderId == orderId);
                 if (order == null)
                 {
-                    return false; // Không tìm thấy đơn hàng
+                    return false; 
                 }
-
-                // Set CustomerId về null
                 order.CustomerId = null;
-
-                // Lưu thay đổi vào cơ sở dữ liệu
                 await _context.SaveChangesAsync();
-
-                return true; // Thành công
+                return true; 
             }
-            catch (DbUpdateException dbEx)
+            catch (Exception)
             {
-                // Xử lý lỗi liên quan đến cập nhật cơ sở dữ liệu
-                Console.Error.WriteLine($"Database update error: {dbEx.Message}");
-                return false;
-            }
-            catch (Exception ex)
-            {
-                // Xử lý các lỗi khác
-                Console.Error.WriteLine($"An error occurred: {ex.Message}");
-                return false;
+                throw;
             }
         }
 

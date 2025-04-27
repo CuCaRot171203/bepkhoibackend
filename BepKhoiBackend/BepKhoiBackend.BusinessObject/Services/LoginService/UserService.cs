@@ -25,7 +25,7 @@ public class UserService : IUserService
         _configuration = configuration;
     }
 
-    public UserDto GetUserByEmail(string email)
+    public UserDto? GetUserByEmail(string email)
     {
         var user = _userRepository.GetUserByEmail(email);
         if (user == null)
@@ -179,5 +179,24 @@ public class UserService : IUserService
         };
     }
 
+    //Phạm Sơn Tùng
+    public async Task UpdateUserStatusAsync(int userId, bool status)
+    {
+        if (userId <= 0)
+        {
+            throw new ArgumentException("User ID must be greater than zero.");
+        }
 
+        await _userRepository.UpdateUserStatusAsync(userId, status);
+    }
+
+    public async Task DeleteUserAsync(int userId)
+    {
+        if (userId <= 0)
+        {
+            throw new ArgumentException("User ID must be greater than zero.");
+        }
+
+        await _userRepository.UpdateUserIsDeleteAsync(userId);
+    }
 }

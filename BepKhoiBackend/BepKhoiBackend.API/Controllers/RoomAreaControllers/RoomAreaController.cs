@@ -1,5 +1,6 @@
 ﻿using BepKhoiBackend.BusinessObject.dtos.RoomAreaDto;
 using BepKhoiBackend.BusinessObject.Services.RoomAreaService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -51,11 +52,6 @@ namespace BepKhoiBackend.API.Controllers.RoomAreaControllers
             return Ok(result);
         }
 
-
-
-
-
-
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
@@ -66,6 +62,7 @@ namespace BepKhoiBackend.API.Controllers.RoomAreaControllers
             return Ok(roomArea);
         }
 
+        [Authorize(Roles = "manager")]
         [HttpPost("create")]
         public async Task<IActionResult> Create([FromBody] RoomAreaDto roomAreaDto)
         {
@@ -76,6 +73,7 @@ namespace BepKhoiBackend.API.Controllers.RoomAreaControllers
             return Ok(new { message = "RoomArea created successfully" });
         }
 
+        [Authorize(Roles = "manager")]
         [HttpPut("update/{id}")]
         public async Task<IActionResult> Update(int id, [FromBody] RoomAreaDto roomAreaDto)
         {
@@ -87,6 +85,7 @@ namespace BepKhoiBackend.API.Controllers.RoomAreaControllers
             return Ok(new { message = "RoomArea updated successfully" });
         }
 
+        [Authorize(Roles = "manager")]
         [HttpDelete("delete/{id}")]
         public async Task<IActionResult> SoftDelete(int id)
         {

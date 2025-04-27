@@ -67,8 +67,9 @@ namespace BepKhoiBackend.DataAccess.Repository.UserRepository.CashierRepository
                                   string provinceCity, string district, string wardCommune, DateTime? dateOfBirth)
         {
             var cashier = _context.Users
+                .Include(u => u.Role)
                 .Include(u => u.UserInformation)
-                .FirstOrDefault(u => u.UserId == userId && u.RoleId == 2);
+                .FirstOrDefault(u => u.UserId == userId && u.Role.RoleName == "cashier");
 
             if (cashier == null)
             {
