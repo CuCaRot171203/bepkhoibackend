@@ -314,7 +314,6 @@ namespace BepKhoiBackend.BusinessObject.Services.MenuService
         }
 
 
-        // Method to update menu
         public async Task<Result<Menu>> UpdateMenuAsync(int productId, UpdateMenuDto dto, List<string> imageUrls)
         {
             try
@@ -327,20 +326,7 @@ namespace BepKhoiBackend.BusinessObject.Services.MenuService
                 if (existingMenu.IsDelete == true)
                     return Result<Menu>.Failure($"Menu with ID {productId} has been deleted.");
 
-                // Delete old images from Cloudinary and database
-                if (imageUrls.Any() && existingMenu.ProductImages != null && existingMenu.ProductImages.Any())
-                {
-                    foreach (var image in existingMenu.ProductImages)
-                    {
-                        // Delete from Cloudinary
-                        await _cloudinaryService.DeleteImageAsync(image.ProductImage1);
-
-                    }
-                    // Clear existing images from the entity
-                    existingMenu.ProductImages.Clear();
-                }
-
-                // Mapping DTO to existing entity
+                // Cập nhật thông tin
                 existingMenu.ProductName = dto.ProductName;
                 existingMenu.ProductCategoryId = dto.ProductCategoryId;
                 existingMenu.CostPrice = dto.CostPrice;
@@ -351,15 +337,18 @@ namespace BepKhoiBackend.BusinessObject.Services.MenuService
                 existingMenu.UnitId = dto.UnitId;
                 existingMenu.IsAvailable = dto.IsAvailable ?? existingMenu.IsAvailable;
                 existingMenu.Status = dto.Status ?? existingMenu.Status;
-                // Add new image only if provided
+
+                // Cập nhật ảnh
                 if (imageUrls.Any())
                 {
-                    existingMenu.ProductImages = new List<ProductImage>
+                    await _menuRepository.DeleteImageByIdAsync(productId); // Xóa record cũ trong DB
+
+                    existingMenu.ProductImages = imageUrls.Select(url => new ProductImage
                     {
-                        new ProductImage { ProductImage1 = imageUrls.First() }
-                    };
+                        ProductImage1 = url
+                    }).ToList();
                 }
-                await _menuRepository.DeleteImageByIdAsync(productId);
+
                 var updatedMenu = await _menuRepository.UpdateMenuAsync(existingMenu);
 
                 return Result<Menu>.Success(updatedMenu, $"Menu with ID {productId} updated successfully.");
@@ -373,6 +362,7 @@ namespace BepKhoiBackend.BusinessObject.Services.MenuService
                 return Result<Menu>.Failure($"Error occurred while updating menu: {ex.Message}");
             }
         }
+
 
         // Method to soft delete
         // Method to soft delete

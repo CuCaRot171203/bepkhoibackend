@@ -7,6 +7,7 @@ using Microsoft.IdentityModel.Tokens;
 using BepKhoiBackend.BusinessObject.Abstract.MenuBusinessAbstract;
 using BepKhoiBackend.BusinessObject.dtos.RoomDto;
 using Microsoft.AspNetCore.Authorization;
+using DocumentFormat.OpenXml.Office2010.Excel;
 
 namespace BepKhoiBackend.API.Controllers.MenuControllers
 {
@@ -162,6 +163,7 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
                     var imageUrl = await _cloudinaryService.UploadImageAsync(menuDto.Image);
                     imageUrls.Add(imageUrl);
                 }
+               
                 // Call service
                 var result = await _menuService.AddMenuAsync(menuDto, imageUrls);
 
@@ -193,14 +195,12 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
         }
 
 
-        // API to update product by Id
-        [Authorize]
         [Authorize(Roles = "manager")]
         [HttpPut("update-menu/{id}")]
-        [ProducesResponseType(200)] // OK
-        [ProducesResponseType(400)] // BadRequest
-        [ProducesResponseType(404)] // NotFound
-        [ProducesResponseType(500)] // InternalServerError
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
         public async Task<IActionResult> UpdateMenu(int id, [FromForm] UpdateMenuDto dto)
         {
             try
@@ -212,23 +212,38 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
                 }
 
                 if (id <= 0)
-                {
                     return BadRequest(new { message = "Product ID must be greater than 0." });
-                }
 
-                // Handle image upload
-                var imageUrls = new List<string>();
+                var menuResult = await _menuService.GetMenuByIdAsync(id);
+                var existingMenu = menuResult.Data?.FirstOrDefault();
+                if (existingMenu == null)
+                    return NotFound(new { message = $"Menu with ID {id} not found." });
+                if (existingMenu.IsDelete == true)
+                    return BadRequest(new { message = $"Menu with ID {id} has been deleted." });
+
+                // Handle images
+                List<string> imageUrls = new List<string>();
                 if (dto.Image != null)
                 {
-                    var imageUrl = await _cloudinaryService.UploadImageAsync(dto.Image);
-                    imageUrls.Add(imageUrl);
+                    // Delete old images
+                    if (existingMenu.ProductImages != null && existingMenu.ProductImages.Any())
+                    {
+                        foreach (var img in existingMenu.ProductImages)
+                        {
+                            await _cloudinaryService.DeleteImageAsync(img.ProductImage1);
+                        }
+                    }
+                    await _cloudinaryService.DeleteImageAsync(existingMenu.ProductImages.First().ProductImage1);
+                    var newImageUrl = await _cloudinaryService.UploadImageAsync(dto.Image);
+                    imageUrls.Add(newImageUrl);
                 }
-                if(dto.Image == null)
+                else
                 {
-                    var menu = await _menuService.GetMenuByIdAsync(id);
-                    var datamenu = menu.Data.FirstOrDefault();
-                    imageUrls.Add(datamenu?.ProductImages?.FirstOrDefault()?.ProductImage1);
-
+                    // Keep old images
+                    if (existingMenu.ProductImages != null && existingMenu.ProductImages.Any())
+                    {
+                        imageUrls.Add(existingMenu.ProductImages.First().ProductImage1);
+                    }
                 }
 
                 var result = await _menuService.UpdateMenuAsync(id, dto, imageUrls);
@@ -237,9 +252,6 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
                 {
                     if (result.Message.Contains("not found"))
                         return NotFound(new { message = result.Message });
-                    if (result.Message.Contains("deleted"))
-                        return BadRequest(new { message = result.Message });
-
                     return BadRequest(new { message = result.Message });
                 }
 
@@ -262,6 +274,7 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
                 return StatusCode(500, new { message = "An unexpected error occurred while updating the menu." });
             }
         }
+
 
         // API to delete product
         [Authorize]
