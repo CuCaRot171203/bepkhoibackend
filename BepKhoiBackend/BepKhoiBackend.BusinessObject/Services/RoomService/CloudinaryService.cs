@@ -18,25 +18,37 @@ public class CloudinaryService
 
         _cloudinary = new Cloudinary(new Account(cloudName, apiKey, apiSecret));
     }
+
+    private string GenerateRandomCode(int length = 10)
+    {
+        return Guid.NewGuid().ToString("N").Substring(0, length);
+    }
+
     public async Task<string> UploadImageAsync(string filePath)
     {
+        var randomFileName = GenerateRandomCode();
+
         var uploadParams = new ImageUploadParams
         {
             File = new FileDescription(filePath),
-            PublicId = Path.GetFileNameWithoutExtension(filePath),
+            PublicId = randomFileName,
             Overwrite = true
         };
+
         var uploadResult = await _cloudinary.UploadAsync(uploadParams);
         return uploadResult.SecureUrl.ToString();
     }
+
     public async Task<string> UploadImageAsync(IFormFile file)
     {
+        var randomFileName = GenerateRandomCode();
+
         using (var stream = file.OpenReadStream())
         {
             var uploadParams = new ImageUploadParams
             {
                 File = new FileDescription(file.FileName, stream),
-                PublicId = Path.GetFileNameWithoutExtension(file.FileName),
+                PublicId = randomFileName,
                 Overwrite = true
             };
 
@@ -60,7 +72,6 @@ public class CloudinaryService
         }
     }
 
-    // Hàm lấy PublicId từ URL của Cloudinary
     private string GetPublicIdFromUrl(string imageUrl)
     {
         Uri uri = new Uri(imageUrl);

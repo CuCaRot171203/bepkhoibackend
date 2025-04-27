@@ -169,3 +169,828 @@ WHERE @@ROWCOUNT = 1 AND [Product_image_id] = scope_identity();
 2025-04-28 01:12:40.230 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.MenuControllers.MenuController.UpdateMenu (BepKhoiBackend.API) in 3358.5616ms
 2025-04-28 01:12:40.231 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.MenuControllers.MenuController.UpdateMenu (BepKhoiBackend.API)'
 2025-04-28 01:12:40.233 +07:00 [INF] Request finished HTTP/2 PUT https://localhost:7257/api/Menu/update-menu/18 multipart/form-data;+boundary=----WebKitFormBoundaryl0usAUzDpwYRK1LU 37418 - 200 - application/json;+charset=utf-8 3374.4934ms
+2025-04-28 02:54:27.854 +07:00 [INF] User profile is available. Using 'C:\Users\abc\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-28 02:54:28.004 +07:00 [INF] Now listening on: https://localhost:7257
+2025-04-28 02:54:28.005 +07:00 [INF] Now listening on: http://localhost:5287
+2025-04-28 02:54:28.130 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-28 02:54:28.131 +07:00 [INF] Hosting environment: Development
+2025-04-28 02:54:28.131 +07:00 [INF] Content root path: C:\Users\abc\Desktop\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\
+2025-04-28 02:54:28.500 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-04-28 02:54:28.699 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 202.7945ms
+2025-04-28 02:54:28.718 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-04-28 02:54:28.722 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 16521 application/javascript;+charset=utf-8 3.7389ms
+2025-04-28 02:54:28.966 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-04-28 02:54:29.011 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 45.2377ms
+2025-04-28 02:54:29.060 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-04-28 02:54:29.110 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 49.6551ms
+2025-04-28 02:54:58.072 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7257/api/rooms/generate-qr/3?UrlBase=abc - 0
+2025-04-28 02:54:58.105 +07:00 [INF] CORS policy execution failed.
+2025-04-28 02:54:58.106 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-04-28 02:54:58.229 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.RoomController.GenerateQRCodeForRoom (BepKhoiBackend.API)'
+2025-04-28 02:54:58.247 +07:00 [INF] Route matched with {action = "GenerateQRCodeForRoom", controller = "Room"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GenerateQRCodeForRoom(Int32, System.String) on controller BepKhoiBackend.API.Controllers.RoomController (BepKhoiBackend.API).
+2025-04-28 02:54:59.239 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-28 02:54:59.777 +07:00 [INF] Executed DbCommand (41ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Room_id], [r].[isDelete], [r].[isUse], [r].[Ordinal_number], [r].[Qr_code_url], [r].[Room_area_id], [r].[Room_name], [r].[Room_note], [r].[Seat_number], [r].[Status]
+FROM [Room] AS [r]
+WHERE ([r].[Room_id] = @__id_0) AND ([r].[isDelete] = CAST(0 AS bit))
+2025-04-28 02:55:10.268 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Room_id], [r].[isDelete], [r].[isUse], [r].[Ordinal_number], [r].[Qr_code_url], [r].[Room_area_id], [r].[Room_name], [r].[Room_note], [r].[Seat_number], [r].[Status]
+FROM [Room] AS [r]
+WHERE ([r].[Room_id] = @__id_0) AND ([r].[isDelete] = CAST(0 AS bit))
+2025-04-28 02:55:10.359 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[@p9='?' (DbType = Int32), @p0='?' (DbType = Boolean), @p1='?' (DbType = Boolean), @p2='?' (DbType = Int32), @p3='?' (Size = 255), @p4='?' (DbType = Int32), @p5='?' (Size = 100), @p6='?' (Size = 255), @p7='?' (DbType = Int32), @p8='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Room] SET [isDelete] = @p0, [isUse] = @p1, [Ordinal_number] = @p2, [Qr_code_url] = @p3, [Room_area_id] = @p4, [Room_name] = @p5, [Room_note] = @p6, [Seat_number] = @p7, [Status] = @p8
+WHERE [Room_id] = @p9;
+SELECT @@ROWCOUNT;
+2025-04-28 02:55:10.383 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType22`2[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-28 02:55:10.392 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.RoomController.GenerateQRCodeForRoom (BepKhoiBackend.API) in 12139.9711ms
+2025-04-28 02:55:10.393 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.RoomController.GenerateQRCodeForRoom (BepKhoiBackend.API)'
+2025-04-28 02:55:10.398 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7257/api/rooms/generate-qr/3?UrlBase=abc - 0 - 200 - application/json;+charset=utf-8 12326.3596ms
+2025-04-28 02:55:48.137 +07:00 [INF] Request starting HTTP/2 DELETE https://localhost:7257/api/rooms/delete-qr/3 - -
+2025-04-28 02:55:48.143 +07:00 [INF] CORS policy execution failed.
+2025-04-28 02:55:48.144 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-04-28 02:55:48.147 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API)'
+2025-04-28 02:55:48.159 +07:00 [INF] Route matched with {action = "DeleteQRCode", controller = "Room"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteQRCode(Int32) on controller BepKhoiBackend.API.Controllers.RoomController (BepKhoiBackend.API).
+2025-04-28 02:55:48.176 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-28 02:55:48.186 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Room_id], [r].[isDelete], [r].[isUse], [r].[Ordinal_number], [r].[Qr_code_url], [r].[Room_area_id], [r].[Room_name], [r].[Room_note], [r].[Seat_number], [r].[Status]
+FROM [Room] AS [r]
+WHERE ([r].[Room_id] = @__id_0) AND ([r].[isDelete] = CAST(0 AS bit))
+2025-04-28 02:55:48.914 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@p9='?' (DbType = Int32), @p0='?' (DbType = Boolean), @p1='?' (DbType = Boolean), @p2='?' (DbType = Int32), @p3='?' (Size = 255), @p4='?' (DbType = Int32), @p5='?' (Size = 100), @p6='?' (Size = 255), @p7='?' (DbType = Int32), @p8='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Room] SET [isDelete] = @p0, [isUse] = @p1, [Ordinal_number] = @p2, [Qr_code_url] = @p3, [Room_area_id] = @p4, [Room_name] = @p5, [Room_note] = @p6, [Seat_number] = @p7, [Status] = @p8
+WHERE [Room_id] = @p9;
+SELECT @@ROWCOUNT;
+2025-04-28 02:55:48.917 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-28 02:55:48.919 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API) in 756.1997ms
+2025-04-28 02:55:48.919 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API)'
+2025-04-28 02:55:48.920 +07:00 [INF] Request finished HTTP/2 DELETE https://localhost:7257/api/rooms/delete-qr/3 - - - 200 - application/json;+charset=utf-8 783.4960ms
+2025-04-28 02:58:07.762 +07:00 [INF] User profile is available. Using 'C:\Users\abc\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-28 02:58:07.935 +07:00 [INF] Now listening on: https://localhost:7257
+2025-04-28 02:58:07.936 +07:00 [INF] Now listening on: http://localhost:5287
+2025-04-28 02:58:08.107 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-28 02:58:08.108 +07:00 [INF] Hosting environment: Development
+2025-04-28 02:58:08.110 +07:00 [INF] Content root path: C:\Users\abc\Desktop\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\
+2025-04-28 02:58:08.355 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-04-28 02:58:08.507 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 155.1881ms
+2025-04-28 02:58:08.530 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-04-28 02:58:08.530 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-04-28 02:58:08.535 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 16521 application/javascript;+charset=utf-8 4.4610ms
+2025-04-28 02:58:08.565 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 34.9147ms
+2025-04-28 02:58:08.869 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-04-28 02:58:08.930 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 60.6367ms
+2025-04-28 02:59:00.328 +07:00 [INF] Request starting HTTP/2 DELETE https://localhost:7257/api/rooms/delete-qr/3 - -
+2025-04-28 02:59:00.371 +07:00 [INF] CORS policy execution failed.
+2025-04-28 02:59:00.372 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-04-28 02:59:00.462 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API)'
+2025-04-28 02:59:00.481 +07:00 [INF] Route matched with {action = "DeleteQRCode", controller = "Room"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteQRCode(Int32) on controller BepKhoiBackend.API.Controllers.RoomController (BepKhoiBackend.API).
+2025-04-28 02:59:01.332 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-28 02:59:01.772 +07:00 [INF] Executed DbCommand (39ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Room_id], [r].[isDelete], [r].[isUse], [r].[Ordinal_number], [r].[Qr_code_url], [r].[Room_area_id], [r].[Room_name], [r].[Room_note], [r].[Seat_number], [r].[Status]
+FROM [Room] AS [r]
+WHERE ([r].[Room_id] = @__id_0) AND ([r].[isDelete] = CAST(0 AS bit))
+2025-04-28 02:59:01.853 +07:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-28 02:59:01.860 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API) in 1373.1178ms
+2025-04-28 02:59:01.861 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API)'
+2025-04-28 02:59:01.866 +07:00 [INF] Request finished HTTP/2 DELETE https://localhost:7257/api/rooms/delete-qr/3 - - - 400 - application/json;+charset=utf-8 1538.3334ms
+2025-04-28 02:59:09.178 +07:00 [INF] Request starting HTTP/2 DELETE https://localhost:7257/api/rooms/delete-qr/2 - -
+2025-04-28 02:59:09.186 +07:00 [INF] CORS policy execution failed.
+2025-04-28 02:59:09.187 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-04-28 02:59:09.188 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API)'
+2025-04-28 02:59:09.190 +07:00 [INF] Route matched with {action = "DeleteQRCode", controller = "Room"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteQRCode(Int32) on controller BepKhoiBackend.API.Controllers.RoomController (BepKhoiBackend.API).
+2025-04-28 02:59:09.215 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-28 02:59:09.227 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Room_id], [r].[isDelete], [r].[isUse], [r].[Ordinal_number], [r].[Qr_code_url], [r].[Room_area_id], [r].[Room_name], [r].[Room_note], [r].[Seat_number], [r].[Status]
+FROM [Room] AS [r]
+WHERE ([r].[Room_id] = @__id_0) AND ([r].[isDelete] = CAST(0 AS bit))
+2025-04-28 02:59:10.770 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@p9='?' (DbType = Int32), @p0='?' (DbType = Boolean), @p1='?' (DbType = Boolean), @p2='?' (DbType = Int32), @p3='?' (Size = 255), @p4='?' (DbType = Int32), @p5='?' (Size = 100), @p6='?' (Size = 255), @p7='?' (DbType = Int32), @p8='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Room] SET [isDelete] = @p0, [isUse] = @p1, [Ordinal_number] = @p2, [Qr_code_url] = @p3, [Room_area_id] = @p4, [Room_name] = @p5, [Room_note] = @p6, [Seat_number] = @p7, [Status] = @p8
+WHERE [Room_id] = @p9;
+SELECT @@ROWCOUNT;
+2025-04-28 02:59:10.790 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-28 02:59:10.792 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API) in 1589.9295ms
+2025-04-28 02:59:10.793 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API)'
+2025-04-28 02:59:10.794 +07:00 [INF] Request finished HTTP/2 DELETE https://localhost:7257/api/rooms/delete-qr/2 - - - 200 - application/json;+charset=utf-8 1616.5062ms
+2025-04-28 02:59:18.892 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7257/api/rooms/generate-qr/2?UrlBase=avc - 0
+2025-04-28 02:59:18.894 +07:00 [INF] CORS policy execution failed.
+2025-04-28 02:59:18.894 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-04-28 02:59:18.897 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.RoomController.GenerateQRCodeForRoom (BepKhoiBackend.API)'
+2025-04-28 02:59:18.903 +07:00 [INF] Route matched with {action = "GenerateQRCodeForRoom", controller = "Room"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GenerateQRCodeForRoom(Int32, System.String) on controller BepKhoiBackend.API.Controllers.RoomController (BepKhoiBackend.API).
+2025-04-28 02:59:18.969 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-28 02:59:18.974 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Room_id], [r].[isDelete], [r].[isUse], [r].[Ordinal_number], [r].[Qr_code_url], [r].[Room_area_id], [r].[Room_name], [r].[Room_note], [r].[Seat_number], [r].[Status]
+FROM [Room] AS [r]
+WHERE ([r].[Room_id] = @__id_0) AND ([r].[isDelete] = CAST(0 AS bit))
+2025-04-28 02:59:28.206 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Room_id], [r].[isDelete], [r].[isUse], [r].[Ordinal_number], [r].[Qr_code_url], [r].[Room_area_id], [r].[Room_name], [r].[Room_note], [r].[Seat_number], [r].[Status]
+FROM [Room] AS [r]
+WHERE ([r].[Room_id] = @__id_0) AND ([r].[isDelete] = CAST(0 AS bit))
+2025-04-28 02:59:28.210 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[@p9='?' (DbType = Int32), @p0='?' (DbType = Boolean), @p1='?' (DbType = Boolean), @p2='?' (DbType = Int32), @p3='?' (Size = 255), @p4='?' (DbType = Int32), @p5='?' (Size = 100), @p6='?' (Size = 255), @p7='?' (DbType = Int32), @p8='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Room] SET [isDelete] = @p0, [isUse] = @p1, [Ordinal_number] = @p2, [Qr_code_url] = @p3, [Room_area_id] = @p4, [Room_name] = @p5, [Room_note] = @p6, [Seat_number] = @p7, [Status] = @p8
+WHERE [Room_id] = @p9;
+SELECT @@ROWCOUNT;
+2025-04-28 02:59:28.213 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType22`2[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-28 02:59:28.214 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.RoomController.GenerateQRCodeForRoom (BepKhoiBackend.API) in 9306.1148ms
+2025-04-28 02:59:28.215 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.RoomController.GenerateQRCodeForRoom (BepKhoiBackend.API)'
+2025-04-28 02:59:28.216 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7257/api/rooms/generate-qr/2?UrlBase=avc - 0 - 200 - application/json;+charset=utf-8 9323.4775ms
+2025-04-28 02:59:42.485 +07:00 [INF] Request starting HTTP/2 DELETE https://localhost:7257/api/rooms/delete-qr/2 - -
+2025-04-28 02:59:42.486 +07:00 [INF] CORS policy execution failed.
+2025-04-28 02:59:42.487 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-04-28 02:59:42.488 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API)'
+2025-04-28 02:59:42.489 +07:00 [INF] Route matched with {action = "DeleteQRCode", controller = "Room"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteQRCode(Int32) on controller BepKhoiBackend.API.Controllers.RoomController (BepKhoiBackend.API).
+2025-04-28 02:59:42.492 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-28 02:59:42.495 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Room_id], [r].[isDelete], [r].[isUse], [r].[Ordinal_number], [r].[Qr_code_url], [r].[Room_area_id], [r].[Room_name], [r].[Room_note], [r].[Seat_number], [r].[Status]
+FROM [Room] AS [r]
+WHERE ([r].[Room_id] = @__id_0) AND ([r].[isDelete] = CAST(0 AS bit))
+2025-04-28 02:59:43.141 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[@p9='?' (DbType = Int32), @p0='?' (DbType = Boolean), @p1='?' (DbType = Boolean), @p2='?' (DbType = Int32), @p3='?' (Size = 255), @p4='?' (DbType = Int32), @p5='?' (Size = 100), @p6='?' (Size = 255), @p7='?' (DbType = Int32), @p8='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Room] SET [isDelete] = @p0, [isUse] = @p1, [Ordinal_number] = @p2, [Qr_code_url] = @p3, [Room_area_id] = @p4, [Room_name] = @p5, [Room_note] = @p6, [Seat_number] = @p7, [Status] = @p8
+WHERE [Room_id] = @p9;
+SELECT @@ROWCOUNT;
+2025-04-28 02:59:43.144 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-28 02:59:43.147 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API) in 655.7088ms
+2025-04-28 02:59:43.148 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API)'
+2025-04-28 02:59:43.149 +07:00 [INF] Request finished HTTP/2 DELETE https://localhost:7257/api/rooms/delete-qr/2 - - - 200 - application/json;+charset=utf-8 663.5510ms
+2025-04-28 03:00:17.815 +07:00 [INF] User profile is available. Using 'C:\Users\abc\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-28 03:00:18.154 +07:00 [INF] Now listening on: https://localhost:7257
+2025-04-28 03:00:18.155 +07:00 [INF] Now listening on: http://localhost:5287
+2025-04-28 03:00:18.337 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-28 03:00:18.338 +07:00 [INF] Hosting environment: Development
+2025-04-28 03:00:18.339 +07:00 [INF] Content root path: C:\Users\abc\Desktop\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\
+2025-04-28 03:00:18.800 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-04-28 03:00:19.063 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 267.0961ms
+2025-04-28 03:00:19.077 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-04-28 03:00:19.084 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 16521 application/javascript;+charset=utf-8 7.0895ms
+2025-04-28 03:00:19.322 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-04-28 03:00:19.398 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 76.8878ms
+2025-04-28 03:00:19.497 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-04-28 03:00:19.548 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 51.8820ms
+2025-04-28 03:04:13.139 +07:00 [INF] User profile is available. Using 'C:\Users\abc\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-28 03:04:13.344 +07:00 [INF] Now listening on: https://localhost:7257
+2025-04-28 03:04:13.345 +07:00 [INF] Now listening on: http://localhost:5287
+2025-04-28 03:04:13.512 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-28 03:04:13.513 +07:00 [INF] Hosting environment: Development
+2025-04-28 03:04:13.514 +07:00 [INF] Content root path: C:\Users\abc\Desktop\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\
+2025-04-28 03:04:13.858 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-04-28 03:04:14.064 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 216.7001ms
+2025-04-28 03:04:14.086 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-04-28 03:04:14.091 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 16521 application/javascript;+charset=utf-8 4.7060ms
+2025-04-28 03:04:14.349 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-04-28 03:04:14.406 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 56.5585ms
+2025-04-28 03:04:14.625 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-04-28 03:04:14.786 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 160.7649ms
+2025-04-28 03:04:33.826 +07:00 [INF] Request starting HTTP/2 DELETE https://localhost:7257/api/rooms/delete-qr/3 - -
+2025-04-28 03:04:33.872 +07:00 [INF] CORS policy execution failed.
+2025-04-28 03:04:33.873 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-04-28 03:04:33.958 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API)'
+2025-04-28 03:04:33.975 +07:00 [INF] Route matched with {action = "DeleteQRCode", controller = "Room"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteQRCode(Int32) on controller BepKhoiBackend.API.Controllers.RoomController (BepKhoiBackend.API).
+2025-04-28 03:04:34.876 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-28 03:04:35.391 +07:00 [INF] Executed DbCommand (58ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Room_id], [r].[isDelete], [r].[isUse], [r].[Ordinal_number], [r].[Qr_code_url], [r].[Room_area_id], [r].[Room_name], [r].[Room_note], [r].[Seat_number], [r].[Status]
+FROM [Room] AS [r]
+WHERE ([r].[Room_id] = @__id_0) AND ([r].[isDelete] = CAST(0 AS bit))
+2025-04-28 03:04:35.518 +07:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-28 03:04:35.528 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API) in 1546.0368ms
+2025-04-28 03:04:35.531 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API)'
+2025-04-28 03:04:35.538 +07:00 [INF] Request finished HTTP/2 DELETE https://localhost:7257/api/rooms/delete-qr/3 - - - 400 - application/json;+charset=utf-8 1712.6728ms
+2025-04-28 03:04:42.106 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7257/api/rooms/generate-qr/4?UrlBase=abc - 0
+2025-04-28 03:04:42.112 +07:00 [INF] CORS policy execution failed.
+2025-04-28 03:04:42.113 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-04-28 03:04:42.115 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.RoomController.GenerateQRCodeForRoom (BepKhoiBackend.API)'
+2025-04-28 03:04:42.118 +07:00 [INF] Route matched with {action = "GenerateQRCodeForRoom", controller = "Room"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GenerateQRCodeForRoom(Int32, System.String) on controller BepKhoiBackend.API.Controllers.RoomController (BepKhoiBackend.API).
+2025-04-28 03:04:42.139 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-28 03:04:42.150 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Room_id], [r].[isDelete], [r].[isUse], [r].[Ordinal_number], [r].[Qr_code_url], [r].[Room_area_id], [r].[Room_name], [r].[Room_note], [r].[Seat_number], [r].[Status]
+FROM [Room] AS [r]
+WHERE ([r].[Room_id] = @__id_0) AND ([r].[isDelete] = CAST(0 AS bit))
+2025-04-28 03:04:52.017 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Room_id], [r].[isDelete], [r].[isUse], [r].[Ordinal_number], [r].[Qr_code_url], [r].[Room_area_id], [r].[Room_name], [r].[Room_note], [r].[Seat_number], [r].[Status]
+FROM [Room] AS [r]
+WHERE ([r].[Room_id] = @__id_0) AND ([r].[isDelete] = CAST(0 AS bit))
+2025-04-28 03:04:52.111 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@p9='?' (DbType = Int32), @p0='?' (DbType = Boolean), @p1='?' (DbType = Boolean), @p2='?' (DbType = Int32), @p3='?' (Size = 255), @p4='?' (DbType = Int32), @p5='?' (Size = 100), @p6='?' (Size = 255), @p7='?' (DbType = Int32), @p8='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Room] SET [isDelete] = @p0, [isUse] = @p1, [Ordinal_number] = @p2, [Qr_code_url] = @p3, [Room_area_id] = @p4, [Room_name] = @p5, [Room_note] = @p6, [Seat_number] = @p7, [Status] = @p8
+WHERE [Room_id] = @p9;
+SELECT @@ROWCOUNT;
+2025-04-28 03:04:52.127 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType22`2[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-28 03:04:52.129 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.RoomController.GenerateQRCodeForRoom (BepKhoiBackend.API) in 10010.1725ms
+2025-04-28 03:04:52.130 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.RoomController.GenerateQRCodeForRoom (BepKhoiBackend.API)'
+2025-04-28 03:04:52.131 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7257/api/rooms/generate-qr/4?UrlBase=abc - 0 - 200 - application/json;+charset=utf-8 10024.6247ms
+2025-04-28 03:04:57.830 +07:00 [INF] Request starting HTTP/2 DELETE https://localhost:7257/api/rooms/delete-qr/4 - -
+2025-04-28 03:04:57.831 +07:00 [INF] CORS policy execution failed.
+2025-04-28 03:04:57.832 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-04-28 03:04:57.834 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API)'
+2025-04-28 03:04:57.835 +07:00 [INF] Route matched with {action = "DeleteQRCode", controller = "Room"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteQRCode(Int32) on controller BepKhoiBackend.API.Controllers.RoomController (BepKhoiBackend.API).
+2025-04-28 03:04:57.881 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-28 03:04:57.885 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Room_id], [r].[isDelete], [r].[isUse], [r].[Ordinal_number], [r].[Qr_code_url], [r].[Room_area_id], [r].[Room_name], [r].[Room_note], [r].[Seat_number], [r].[Status]
+FROM [Room] AS [r]
+WHERE ([r].[Room_id] = @__id_0) AND ([r].[isDelete] = CAST(0 AS bit))
+2025-04-28 03:04:58.454 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@p9='?' (DbType = Int32), @p0='?' (DbType = Boolean), @p1='?' (DbType = Boolean), @p2='?' (DbType = Int32), @p3='?' (Size = 255), @p4='?' (DbType = Int32), @p5='?' (Size = 100), @p6='?' (Size = 255), @p7='?' (DbType = Int32), @p8='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Room] SET [isDelete] = @p0, [isUse] = @p1, [Ordinal_number] = @p2, [Qr_code_url] = @p3, [Room_area_id] = @p4, [Room_name] = @p5, [Room_note] = @p6, [Seat_number] = @p7, [Status] = @p8
+WHERE [Room_id] = @p9;
+SELECT @@ROWCOUNT;
+2025-04-28 03:04:58.456 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-28 03:04:58.458 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API) in 621.6668ms
+2025-04-28 03:04:58.460 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API)'
+2025-04-28 03:04:58.461 +07:00 [INF] Request finished HTTP/2 DELETE https://localhost:7257/api/rooms/delete-qr/4 - - - 200 - application/json;+charset=utf-8 630.8225ms
+2025-04-28 03:06:01.506 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7257/api/rooms/generate-qr/5?UrlBase=abc - 0
+2025-04-28 03:06:01.506 +07:00 [INF] CORS policy execution failed.
+2025-04-28 03:06:01.507 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-04-28 03:06:01.508 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.RoomController.GenerateQRCodeForRoom (BepKhoiBackend.API)'
+2025-04-28 03:06:01.509 +07:00 [INF] Route matched with {action = "GenerateQRCodeForRoom", controller = "Room"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GenerateQRCodeForRoom(Int32, System.String) on controller BepKhoiBackend.API.Controllers.RoomController (BepKhoiBackend.API).
+2025-04-28 03:06:01.511 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-28 03:06:01.517 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Room_id], [r].[isDelete], [r].[isUse], [r].[Ordinal_number], [r].[Qr_code_url], [r].[Room_area_id], [r].[Room_name], [r].[Room_note], [r].[Seat_number], [r].[Status]
+FROM [Room] AS [r]
+WHERE ([r].[Room_id] = @__id_0) AND ([r].[isDelete] = CAST(0 AS bit))
+2025-04-28 03:06:04.460 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Room_id], [r].[isDelete], [r].[isUse], [r].[Ordinal_number], [r].[Qr_code_url], [r].[Room_area_id], [r].[Room_name], [r].[Room_note], [r].[Seat_number], [r].[Status]
+FROM [Room] AS [r]
+WHERE ([r].[Room_id] = @__id_0) AND ([r].[isDelete] = CAST(0 AS bit))
+2025-04-28 03:06:04.465 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@p9='?' (DbType = Int32), @p0='?' (DbType = Boolean), @p1='?' (DbType = Boolean), @p2='?' (DbType = Int32), @p3='?' (Size = 255), @p4='?' (DbType = Int32), @p5='?' (Size = 100), @p6='?' (Size = 255), @p7='?' (DbType = Int32), @p8='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Room] SET [isDelete] = @p0, [isUse] = @p1, [Ordinal_number] = @p2, [Qr_code_url] = @p3, [Room_area_id] = @p4, [Room_name] = @p5, [Room_note] = @p6, [Seat_number] = @p7, [Status] = @p8
+WHERE [Room_id] = @p9;
+SELECT @@ROWCOUNT;
+2025-04-28 03:06:04.467 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType22`2[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-28 03:06:04.468 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.RoomController.GenerateQRCodeForRoom (BepKhoiBackend.API) in 2957.8446ms
+2025-04-28 03:06:04.469 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.RoomController.GenerateQRCodeForRoom (BepKhoiBackend.API)'
+2025-04-28 03:06:04.469 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7257/api/rooms/generate-qr/5?UrlBase=abc - 0 - 200 - application/json;+charset=utf-8 2963.7911ms
+2025-04-28 03:06:08.648 +07:00 [INF] Request starting HTTP/2 DELETE https://localhost:7257/api/rooms/delete-qr/5 - -
+2025-04-28 03:06:08.649 +07:00 [INF] CORS policy execution failed.
+2025-04-28 03:06:08.650 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-04-28 03:06:08.651 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API)'
+2025-04-28 03:06:08.651 +07:00 [INF] Route matched with {action = "DeleteQRCode", controller = "Room"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteQRCode(Int32) on controller BepKhoiBackend.API.Controllers.RoomController (BepKhoiBackend.API).
+2025-04-28 03:06:08.653 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-28 03:06:08.655 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Room_id], [r].[isDelete], [r].[isUse], [r].[Ordinal_number], [r].[Qr_code_url], [r].[Room_area_id], [r].[Room_name], [r].[Room_note], [r].[Seat_number], [r].[Status]
+FROM [Room] AS [r]
+WHERE ([r].[Room_id] = @__id_0) AND ([r].[isDelete] = CAST(0 AS bit))
+2025-04-28 03:06:09.246 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@p9='?' (DbType = Int32), @p0='?' (DbType = Boolean), @p1='?' (DbType = Boolean), @p2='?' (DbType = Int32), @p3='?' (Size = 255), @p4='?' (DbType = Int32), @p5='?' (Size = 100), @p6='?' (Size = 255), @p7='?' (DbType = Int32), @p8='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Room] SET [isDelete] = @p0, [isUse] = @p1, [Ordinal_number] = @p2, [Qr_code_url] = @p3, [Room_area_id] = @p4, [Room_name] = @p5, [Room_note] = @p6, [Seat_number] = @p7, [Status] = @p8
+WHERE [Room_id] = @p9;
+SELECT @@ROWCOUNT;
+2025-04-28 03:06:09.253 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-28 03:06:09.255 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API) in 602.5257ms
+2025-04-28 03:06:09.256 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API)'
+2025-04-28 03:06:09.258 +07:00 [INF] Request finished HTTP/2 DELETE https://localhost:7257/api/rooms/delete-qr/5 - - - 200 - application/json;+charset=utf-8 609.2824ms
+2025-04-28 03:11:03.326 +07:00 [INF] User profile is available. Using 'C:\Users\abc\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-28 03:11:03.469 +07:00 [INF] Now listening on: https://localhost:7257
+2025-04-28 03:11:03.470 +07:00 [INF] Now listening on: http://localhost:5287
+2025-04-28 03:11:03.597 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-28 03:11:03.599 +07:00 [INF] Hosting environment: Development
+2025-04-28 03:11:03.600 +07:00 [INF] Content root path: C:\Users\abc\Desktop\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\
+2025-04-28 03:11:03.855 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-04-28 03:11:03.979 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 126.4675ms
+2025-04-28 03:11:03.999 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-04-28 03:11:03.999 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-04-28 03:11:04.003 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 16521 application/javascript;+charset=utf-8 3.7656ms
+2025-04-28 03:11:04.026 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 26.8164ms
+2025-04-28 03:11:04.470 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-04-28 03:11:04.509 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 39.0463ms
+2025-04-28 03:11:18.669 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-04-28 03:11:18.672 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 2.8106ms
+2025-04-28 03:11:18.697 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-04-28 03:11:18.704 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-04-28 03:11:18.706 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 16521 application/javascript;+charset=utf-8 1.2485ms
+2025-04-28 03:11:18.711 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 13.8891ms
+2025-04-28 03:11:18.991 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-04-28 03:11:19.018 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 26.1688ms
+2025-04-28 03:11:22.069 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-04-28 03:11:22.072 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 2.5750ms
+2025-04-28 03:11:22.090 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-04-28 03:11:22.092 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-04-28 03:11:22.093 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 16521 application/javascript;+charset=utf-8 1.0322ms
+2025-04-28 03:11:22.095 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 4.8811ms
+2025-04-28 03:11:22.324 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-04-28 03:11:22.346 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 21.9640ms
+2025-04-28 03:11:54.241 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-04-28 03:11:54.247 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 6.6861ms
+2025-04-28 03:11:54.291 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-04-28 03:11:54.293 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 16521 application/javascript;+charset=utf-8 1.5730ms
+2025-04-28 03:11:54.565 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-04-28 03:11:54.571 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 6.4717ms
+2025-04-28 03:11:54.646 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-04-28 03:11:54.677 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 31.6682ms
+2025-04-28 03:13:00.465 +07:00 [INF] User profile is available. Using 'C:\Users\abc\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-28 03:13:00.683 +07:00 [INF] Now listening on: https://localhost:7257
+2025-04-28 03:13:00.688 +07:00 [INF] Now listening on: http://localhost:5287
+2025-04-28 03:13:00.884 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-28 03:13:00.885 +07:00 [INF] Hosting environment: Development
+2025-04-28 03:13:00.886 +07:00 [INF] Content root path: C:\Users\abc\Desktop\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\
+2025-04-28 03:13:01.021 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-04-28 03:13:01.219 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 205.3186ms
+2025-04-28 03:13:01.256 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-04-28 03:13:01.256 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-04-28 03:13:01.262 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 16521 application/javascript;+charset=utf-8 6.1595ms
+2025-04-28 03:13:01.298 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 41.6154ms
+2025-04-28 03:13:01.673 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-04-28 03:13:01.718 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 45.0097ms
+2025-04-28 03:18:32.367 +07:00 [INF] User profile is available. Using 'C:\Users\abc\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-28 03:18:32.565 +07:00 [INF] Now listening on: https://localhost:7257
+2025-04-28 03:18:32.566 +07:00 [INF] Now listening on: http://localhost:5287
+2025-04-28 03:18:32.714 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-28 03:18:32.715 +07:00 [INF] Hosting environment: Development
+2025-04-28 03:18:32.716 +07:00 [INF] Content root path: C:\Users\abc\Desktop\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\
+2025-04-28 03:18:32.956 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-04-28 03:18:33.112 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 158.5714ms
+2025-04-28 03:18:33.133 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-04-28 03:18:33.133 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-04-28 03:18:33.137 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 16521 application/javascript;+charset=utf-8 3.5916ms
+2025-04-28 03:18:33.162 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 28.8855ms
+2025-04-28 03:18:33.595 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-04-28 03:18:33.640 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 45.0993ms
+2025-04-28 03:19:07.300 +07:00 [INF] User profile is available. Using 'C:\Users\abc\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-28 03:19:07.686 +07:00 [INF] Now listening on: https://localhost:7257
+2025-04-28 03:19:07.687 +07:00 [INF] Now listening on: http://localhost:5287
+2025-04-28 03:19:07.878 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-28 03:19:07.881 +07:00 [INF] Hosting environment: Development
+2025-04-28 03:19:07.882 +07:00 [INF] Content root path: C:\Users\abc\Desktop\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\
+2025-04-28 03:19:08.011 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-04-28 03:19:08.283 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 278.2744ms
+2025-04-28 03:19:08.323 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-04-28 03:19:08.324 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-04-28 03:19:08.329 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 16521 application/javascript;+charset=utf-8 5.5214ms
+2025-04-28 03:19:08.369 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 46.3828ms
+2025-04-28 03:19:09.029 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-04-28 03:19:09.094 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 65.1685ms
+2025-04-28 03:19:27.806 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7257/api/rooms/generate-qr/5?UrlBase=abc - 0
+2025-04-28 03:19:27.852 +07:00 [INF] CORS policy execution failed.
+2025-04-28 03:19:27.853 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-04-28 03:19:27.939 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.RoomController.GenerateQRCodeForRoom (BepKhoiBackend.API)'
+2025-04-28 03:19:27.958 +07:00 [INF] Route matched with {action = "GenerateQRCodeForRoom", controller = "Room"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GenerateQRCodeForRoom(Int32, System.String) on controller BepKhoiBackend.API.Controllers.RoomController (BepKhoiBackend.API).
+2025-04-28 03:19:28.843 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-28 03:19:29.308 +07:00 [INF] Executed DbCommand (45ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Room_id], [r].[isDelete], [r].[isUse], [r].[Ordinal_number], [r].[Qr_code_url], [r].[Room_area_id], [r].[Room_name], [r].[Room_note], [r].[Seat_number], [r].[Status]
+FROM [Room] AS [r]
+WHERE ([r].[Room_id] = @__id_0) AND ([r].[isDelete] = CAST(0 AS bit))
+2025-04-28 03:19:39.225 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Room_id], [r].[isDelete], [r].[isUse], [r].[Ordinal_number], [r].[Qr_code_url], [r].[Room_area_id], [r].[Room_name], [r].[Room_note], [r].[Seat_number], [r].[Status]
+FROM [Room] AS [r]
+WHERE ([r].[Room_id] = @__id_0) AND ([r].[isDelete] = CAST(0 AS bit))
+2025-04-28 03:19:39.317 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[@p9='?' (DbType = Int32), @p0='?' (DbType = Boolean), @p1='?' (DbType = Boolean), @p2='?' (DbType = Int32), @p3='?' (Size = 255), @p4='?' (DbType = Int32), @p5='?' (Size = 100), @p6='?' (Size = 255), @p7='?' (DbType = Int32), @p8='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Room] SET [isDelete] = @p0, [isUse] = @p1, [Ordinal_number] = @p2, [Qr_code_url] = @p3, [Room_area_id] = @p4, [Room_name] = @p5, [Room_note] = @p6, [Seat_number] = @p7, [Status] = @p8
+WHERE [Room_id] = @p9;
+SELECT @@ROWCOUNT;
+2025-04-28 03:19:39.340 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType22`2[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-28 03:19:39.348 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.RoomController.GenerateQRCodeForRoom (BepKhoiBackend.API) in 11383.8484ms
+2025-04-28 03:19:39.349 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.RoomController.GenerateQRCodeForRoom (BepKhoiBackend.API)'
+2025-04-28 03:19:39.355 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7257/api/rooms/generate-qr/5?UrlBase=abc - 0 - 200 - application/json;+charset=utf-8 11548.5010ms
+2025-04-28 03:19:52.335 +07:00 [INF] Request starting HTTP/2 DELETE https://localhost:7257/api/rooms/delete-qr/5 - -
+2025-04-28 03:19:52.346 +07:00 [INF] CORS policy execution failed.
+2025-04-28 03:19:52.347 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-04-28 03:19:52.352 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API)'
+2025-04-28 03:19:52.372 +07:00 [INF] Route matched with {action = "DeleteQRCode", controller = "Room"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteQRCode(Int32) on controller BepKhoiBackend.API.Controllers.RoomController (BepKhoiBackend.API).
+2025-04-28 03:19:52.395 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-28 03:19:52.400 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Room_id], [r].[isDelete], [r].[isUse], [r].[Ordinal_number], [r].[Qr_code_url], [r].[Room_area_id], [r].[Room_name], [r].[Room_note], [r].[Seat_number], [r].[Status]
+FROM [Room] AS [r]
+WHERE ([r].[Room_id] = @__id_0) AND ([r].[isDelete] = CAST(0 AS bit))
+2025-04-28 03:19:52.953 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[@p9='?' (DbType = Int32), @p0='?' (DbType = Boolean), @p1='?' (DbType = Boolean), @p2='?' (DbType = Int32), @p3='?' (Size = 255), @p4='?' (DbType = Int32), @p5='?' (Size = 100), @p6='?' (Size = 255), @p7='?' (DbType = Int32), @p8='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Room] SET [isDelete] = @p0, [isUse] = @p1, [Ordinal_number] = @p2, [Qr_code_url] = @p3, [Room_area_id] = @p4, [Room_name] = @p5, [Room_note] = @p6, [Seat_number] = @p7, [Status] = @p8
+WHERE [Room_id] = @p9;
+SELECT @@ROWCOUNT;
+2025-04-28 03:19:52.956 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-28 03:19:52.958 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API) in 584.9779ms
+2025-04-28 03:19:52.961 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API)'
+2025-04-28 03:19:52.962 +07:00 [INF] Request finished HTTP/2 DELETE https://localhost:7257/api/rooms/delete-qr/5 - - - 200 - application/json;+charset=utf-8 626.9627ms
+2025-04-28 03:20:08.707 +07:00 [INF] User profile is available. Using 'C:\Users\abc\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-28 03:20:08.864 +07:00 [INF] Now listening on: https://localhost:7257
+2025-04-28 03:20:08.866 +07:00 [INF] Now listening on: http://localhost:5287
+2025-04-28 03:20:09.016 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-28 03:20:09.017 +07:00 [INF] Hosting environment: Development
+2025-04-28 03:20:09.017 +07:00 [INF] Content root path: C:\Users\abc\Desktop\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\
+2025-04-28 03:20:09.246 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-04-28 03:20:09.394 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 151.1083ms
+2025-04-28 03:20:09.416 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-04-28 03:20:09.416 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-04-28 03:20:09.420 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 16521 application/javascript;+charset=utf-8 4.6546ms
+2025-04-28 03:20:09.445 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 29.7076ms
+2025-04-28 03:20:09.845 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-04-28 03:20:09.892 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 47.3143ms
+2025-04-28 03:20:30.356 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7257/api/rooms/generate-qr/5?UrlBase=abc - 0
+2025-04-28 03:20:30.385 +07:00 [INF] CORS policy execution failed.
+2025-04-28 03:20:30.386 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-04-28 03:20:30.464 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.RoomController.GenerateQRCodeForRoom (BepKhoiBackend.API)'
+2025-04-28 03:20:30.486 +07:00 [INF] Route matched with {action = "GenerateQRCodeForRoom", controller = "Room"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GenerateQRCodeForRoom(Int32, System.String) on controller BepKhoiBackend.API.Controllers.RoomController (BepKhoiBackend.API).
+2025-04-28 03:20:31.412 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-28 03:20:31.900 +07:00 [INF] Executed DbCommand (41ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Room_id], [r].[isDelete], [r].[isUse], [r].[Ordinal_number], [r].[Qr_code_url], [r].[Room_area_id], [r].[Room_name], [r].[Room_note], [r].[Seat_number], [r].[Status]
+FROM [Room] AS [r]
+WHERE ([r].[Room_id] = @__id_0) AND ([r].[isDelete] = CAST(0 AS bit))
+2025-04-28 03:20:42.295 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Room_id], [r].[isDelete], [r].[isUse], [r].[Ordinal_number], [r].[Qr_code_url], [r].[Room_area_id], [r].[Room_name], [r].[Room_note], [r].[Seat_number], [r].[Status]
+FROM [Room] AS [r]
+WHERE ([r].[Room_id] = @__id_0) AND ([r].[isDelete] = CAST(0 AS bit))
+2025-04-28 03:20:42.383 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[@p9='?' (DbType = Int32), @p0='?' (DbType = Boolean), @p1='?' (DbType = Boolean), @p2='?' (DbType = Int32), @p3='?' (Size = 255), @p4='?' (DbType = Int32), @p5='?' (Size = 100), @p6='?' (Size = 255), @p7='?' (DbType = Int32), @p8='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Room] SET [isDelete] = @p0, [isUse] = @p1, [Ordinal_number] = @p2, [Qr_code_url] = @p3, [Room_area_id] = @p4, [Room_name] = @p5, [Room_note] = @p6, [Seat_number] = @p7, [Status] = @p8
+WHERE [Room_id] = @p9;
+SELECT @@ROWCOUNT;
+2025-04-28 03:20:42.405 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType22`2[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-28 03:20:42.414 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.RoomController.GenerateQRCodeForRoom (BepKhoiBackend.API) in 11922.5192ms
+2025-04-28 03:20:42.416 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.RoomController.GenerateQRCodeForRoom (BepKhoiBackend.API)'
+2025-04-28 03:20:42.421 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7257/api/rooms/generate-qr/5?UrlBase=abc - 0 - 200 - application/json;+charset=utf-8 12065.2752ms
+2025-04-28 03:20:47.209 +07:00 [INF] Request starting HTTP/2 DELETE https://localhost:7257/api/rooms/delete-qr/5 - -
+2025-04-28 03:20:47.214 +07:00 [INF] CORS policy execution failed.
+2025-04-28 03:20:47.215 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-04-28 03:20:47.219 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API)'
+2025-04-28 03:20:47.230 +07:00 [INF] Route matched with {action = "DeleteQRCode", controller = "Room"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteQRCode(Int32) on controller BepKhoiBackend.API.Controllers.RoomController (BepKhoiBackend.API).
+2025-04-28 03:20:47.250 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-28 03:20:47.254 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Room_id], [r].[isDelete], [r].[isUse], [r].[Ordinal_number], [r].[Qr_code_url], [r].[Room_area_id], [r].[Room_name], [r].[Room_note], [r].[Seat_number], [r].[Status]
+FROM [Room] AS [r]
+WHERE ([r].[Room_id] = @__id_0) AND ([r].[isDelete] = CAST(0 AS bit))
+2025-04-28 03:20:47.783 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@p9='?' (DbType = Int32), @p0='?' (DbType = Boolean), @p1='?' (DbType = Boolean), @p2='?' (DbType = Int32), @p3='?' (Size = 255), @p4='?' (DbType = Int32), @p5='?' (Size = 100), @p6='?' (Size = 255), @p7='?' (DbType = Int32), @p8='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Room] SET [isDelete] = @p0, [isUse] = @p1, [Ordinal_number] = @p2, [Qr_code_url] = @p3, [Room_area_id] = @p4, [Room_name] = @p5, [Room_note] = @p6, [Seat_number] = @p7, [Status] = @p8
+WHERE [Room_id] = @p9;
+SELECT @@ROWCOUNT;
+2025-04-28 03:20:47.786 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-28 03:20:47.787 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API) in 553.522ms
+2025-04-28 03:20:47.788 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API)'
+2025-04-28 03:20:47.789 +07:00 [INF] Request finished HTTP/2 DELETE https://localhost:7257/api/rooms/delete-qr/5 - - - 200 - application/json;+charset=utf-8 580.1246ms
+2025-04-28 03:21:17.764 +07:00 [INF] User profile is available. Using 'C:\Users\abc\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-28 03:21:17.912 +07:00 [INF] Now listening on: https://localhost:7257
+2025-04-28 03:21:17.913 +07:00 [INF] Now listening on: http://localhost:5287
+2025-04-28 03:21:18.051 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-28 03:21:18.052 +07:00 [INF] Hosting environment: Development
+2025-04-28 03:21:18.053 +07:00 [INF] Content root path: C:\Users\abc\Desktop\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\
+2025-04-28 03:21:18.748 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-04-28 03:21:19.014 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 273.5059ms
+2025-04-28 03:21:19.073 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-04-28 03:21:19.210 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 16521 application/javascript;+charset=utf-8 136.5824ms
+2025-04-28 03:21:19.556 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-04-28 03:21:19.658 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 102.1189ms
+2025-04-28 03:21:19.738 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-04-28 03:21:19.841 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 102.0172ms
+2025-04-28 03:21:50.915 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7257/api/rooms/generate-qr/5?UrlBase=abc - 0
+2025-04-28 03:21:50.947 +07:00 [INF] CORS policy execution failed.
+2025-04-28 03:21:50.948 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-04-28 03:21:50.991 +07:00 [INF] Bearer was not authenticated. Failure message: No SecurityTokenValidator available for token.
+2025-04-28 03:21:50.996 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.RoomController.GenerateQRCodeForRoom (BepKhoiBackend.API)'
+2025-04-28 03:21:51.018 +07:00 [INF] Route matched with {action = "GenerateQRCodeForRoom", controller = "Room"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GenerateQRCodeForRoom(Int32, System.String) on controller BepKhoiBackend.API.Controllers.RoomController (BepKhoiBackend.API).
+2025-04-28 03:21:51.910 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-28 03:21:52.406 +07:00 [INF] Executed DbCommand (44ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Room_id], [r].[isDelete], [r].[isUse], [r].[Ordinal_number], [r].[Qr_code_url], [r].[Room_area_id], [r].[Room_name], [r].[Room_note], [r].[Seat_number], [r].[Status]
+FROM [Room] AS [r]
+WHERE ([r].[Room_id] = @__id_0) AND ([r].[isDelete] = CAST(0 AS bit))
+2025-04-28 03:21:52.558 +07:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType1`2[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-28 03:21:52.569 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.RoomController.GenerateQRCodeForRoom (BepKhoiBackend.API) in 1542.8724ms
+2025-04-28 03:21:52.571 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.RoomController.GenerateQRCodeForRoom (BepKhoiBackend.API)'
+2025-04-28 03:21:52.577 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7257/api/rooms/generate-qr/5?UrlBase=abc - 0 - 500 - application/json;+charset=utf-8 1662.1460ms
+2025-04-28 03:22:14.647 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7257/api/rooms/generate-qr/6?UrlBase=abc - 0
+2025-04-28 03:22:14.653 +07:00 [INF] CORS policy execution failed.
+2025-04-28 03:22:14.654 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-04-28 03:22:14.655 +07:00 [INF] Bearer was not authenticated. Failure message: No SecurityTokenValidator available for token.
+2025-04-28 03:22:14.656 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.RoomController.GenerateQRCodeForRoom (BepKhoiBackend.API)'
+2025-04-28 03:22:14.658 +07:00 [INF] Route matched with {action = "GenerateQRCodeForRoom", controller = "Room"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GenerateQRCodeForRoom(Int32, System.String) on controller BepKhoiBackend.API.Controllers.RoomController (BepKhoiBackend.API).
+2025-04-28 03:22:14.672 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-28 03:22:14.685 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Room_id], [r].[isDelete], [r].[isUse], [r].[Ordinal_number], [r].[Qr_code_url], [r].[Room_area_id], [r].[Room_name], [r].[Room_note], [r].[Seat_number], [r].[Status]
+FROM [Room] AS [r]
+WHERE ([r].[Room_id] = @__id_0) AND ([r].[isDelete] = CAST(0 AS bit))
+2025-04-28 03:22:14.691 +07:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType1`2[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-28 03:22:14.692 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.RoomController.GenerateQRCodeForRoom (BepKhoiBackend.API) in 33.1747ms
+2025-04-28 03:22:14.693 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.RoomController.GenerateQRCodeForRoom (BepKhoiBackend.API)'
+2025-04-28 03:22:14.694 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7257/api/rooms/generate-qr/6?UrlBase=abc - 0 - 500 - application/json;+charset=utf-8 46.9270ms
+2025-04-28 03:22:22.341 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7257/api/rooms/generate-qr/7?UrlBase=abc - 0
+2025-04-28 03:22:22.342 +07:00 [INF] CORS policy execution failed.
+2025-04-28 03:22:22.343 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-04-28 03:22:22.345 +07:00 [INF] Bearer was not authenticated. Failure message: No SecurityTokenValidator available for token.
+2025-04-28 03:22:22.346 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.RoomController.GenerateQRCodeForRoom (BepKhoiBackend.API)'
+2025-04-28 03:22:22.347 +07:00 [INF] Route matched with {action = "GenerateQRCodeForRoom", controller = "Room"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GenerateQRCodeForRoom(Int32, System.String) on controller BepKhoiBackend.API.Controllers.RoomController (BepKhoiBackend.API).
+2025-04-28 03:22:22.396 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-28 03:22:22.401 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Room_id], [r].[isDelete], [r].[isUse], [r].[Ordinal_number], [r].[Qr_code_url], [r].[Room_area_id], [r].[Room_name], [r].[Room_note], [r].[Seat_number], [r].[Status]
+FROM [Room] AS [r]
+WHERE ([r].[Room_id] = @__id_0) AND ([r].[isDelete] = CAST(0 AS bit))
+2025-04-28 03:22:22.405 +07:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType1`2[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-28 03:22:22.406 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.RoomController.GenerateQRCodeForRoom (BepKhoiBackend.API) in 57.2891ms
+2025-04-28 03:22:22.407 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.RoomController.GenerateQRCodeForRoom (BepKhoiBackend.API)'
+2025-04-28 03:22:22.408 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7257/api/rooms/generate-qr/7?UrlBase=abc - 0 - 500 - application/json;+charset=utf-8 67.2689ms
+2025-04-28 03:22:34.461 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7257/api/rooms/generate-qr/7?UrlBase=abaaaaaaaa - 0
+2025-04-28 03:22:34.462 +07:00 [INF] CORS policy execution failed.
+2025-04-28 03:22:34.463 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-04-28 03:22:34.464 +07:00 [INF] Bearer was not authenticated. Failure message: No SecurityTokenValidator available for token.
+2025-04-28 03:22:34.464 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.RoomController.GenerateQRCodeForRoom (BepKhoiBackend.API)'
+2025-04-28 03:22:34.466 +07:00 [INF] Route matched with {action = "GenerateQRCodeForRoom", controller = "Room"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GenerateQRCodeForRoom(Int32, System.String) on controller BepKhoiBackend.API.Controllers.RoomController (BepKhoiBackend.API).
+2025-04-28 03:22:34.468 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-28 03:22:34.471 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Room_id], [r].[isDelete], [r].[isUse], [r].[Ordinal_number], [r].[Qr_code_url], [r].[Room_area_id], [r].[Room_name], [r].[Room_note], [r].[Seat_number], [r].[Status]
+FROM [Room] AS [r]
+WHERE ([r].[Room_id] = @__id_0) AND ([r].[isDelete] = CAST(0 AS bit))
+2025-04-28 03:22:34.475 +07:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType1`2[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-28 03:22:34.480 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.RoomController.GenerateQRCodeForRoom (BepKhoiBackend.API) in 12.7708ms
+2025-04-28 03:22:34.484 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.RoomController.GenerateQRCodeForRoom (BepKhoiBackend.API)'
+2025-04-28 03:22:34.485 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7257/api/rooms/generate-qr/7?UrlBase=abaaaaaaaa - 0 - 500 - application/json;+charset=utf-8 24.3911ms
+2025-04-28 03:22:38.738 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-04-28 03:22:38.742 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 4.4505ms
+2025-04-28 03:22:38.770 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-04-28 03:22:38.772 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-04-28 03:22:38.774 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 16521 application/javascript;+charset=utf-8 1.4170ms
+2025-04-28 03:22:38.782 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 11.9045ms
+2025-04-28 03:22:39.081 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-04-28 03:22:39.104 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 22.4278ms
+2025-04-28 03:23:03.407 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7257/api/rooms/generate-qr/5?UrlBase=htt.xxa - 0
+2025-04-28 03:23:03.408 +07:00 [INF] CORS policy execution failed.
+2025-04-28 03:23:03.409 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-04-28 03:23:03.484 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.RoomController.GenerateQRCodeForRoom (BepKhoiBackend.API)'
+2025-04-28 03:23:03.486 +07:00 [INF] Route matched with {action = "GenerateQRCodeForRoom", controller = "Room"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GenerateQRCodeForRoom(Int32, System.String) on controller BepKhoiBackend.API.Controllers.RoomController (BepKhoiBackend.API).
+2025-04-28 03:23:03.488 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-28 03:23:03.490 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Room_id], [r].[isDelete], [r].[isUse], [r].[Ordinal_number], [r].[Qr_code_url], [r].[Room_area_id], [r].[Room_name], [r].[Room_note], [r].[Seat_number], [r].[Status]
+FROM [Room] AS [r]
+WHERE ([r].[Room_id] = @__id_0) AND ([r].[isDelete] = CAST(0 AS bit))
+2025-04-28 03:23:03.494 +07:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType1`2[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-28 03:23:03.495 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.RoomController.GenerateQRCodeForRoom (BepKhoiBackend.API) in 8.0626ms
+2025-04-28 03:23:03.496 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.RoomController.GenerateQRCodeForRoom (BepKhoiBackend.API)'
+2025-04-28 03:23:03.497 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7257/api/rooms/generate-qr/5?UrlBase=htt.xxa - 0 - 500 - application/json;+charset=utf-8 90.1581ms
+2025-04-28 03:23:19.916 +07:00 [INF] User profile is available. Using 'C:\Users\abc\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-28 03:23:20.091 +07:00 [INF] Now listening on: https://localhost:7257
+2025-04-28 03:23:20.092 +07:00 [INF] Now listening on: http://localhost:5287
+2025-04-28 03:23:20.230 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-28 03:23:20.231 +07:00 [INF] Hosting environment: Development
+2025-04-28 03:23:20.232 +07:00 [INF] Content root path: C:\Users\abc\Desktop\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\
+2025-04-28 03:23:20.478 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-04-28 03:23:20.645 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 169.9363ms
+2025-04-28 03:23:20.673 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-04-28 03:23:20.673 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-04-28 03:23:20.679 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 16521 application/javascript;+charset=utf-8 5.9121ms
+2025-04-28 03:23:20.728 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 54.8981ms
+2025-04-28 03:23:21.047 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-04-28 03:23:21.115 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 67.5346ms
+2025-04-28 03:23:36.375 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7257/api/rooms/generate-qr/5?UrlBase=abc - 0
+2025-04-28 03:23:36.410 +07:00 [INF] CORS policy execution failed.
+2025-04-28 03:23:36.411 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-04-28 03:23:36.502 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.RoomController.GenerateQRCodeForRoom (BepKhoiBackend.API)'
+2025-04-28 03:23:36.522 +07:00 [INF] Route matched with {action = "GenerateQRCodeForRoom", controller = "Room"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GenerateQRCodeForRoom(Int32, System.String) on controller BepKhoiBackend.API.Controllers.RoomController (BepKhoiBackend.API).
+2025-04-28 03:23:37.389 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-28 03:23:37.842 +07:00 [INF] Executed DbCommand (40ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Room_id], [r].[isDelete], [r].[isUse], [r].[Ordinal_number], [r].[Qr_code_url], [r].[Room_area_id], [r].[Room_name], [r].[Room_note], [r].[Seat_number], [r].[Status]
+FROM [Room] AS [r]
+WHERE ([r].[Room_id] = @__id_0) AND ([r].[isDelete] = CAST(0 AS bit))
+2025-04-28 03:23:41.673 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Room_id], [r].[isDelete], [r].[isUse], [r].[Ordinal_number], [r].[Qr_code_url], [r].[Room_area_id], [r].[Room_name], [r].[Room_note], [r].[Seat_number], [r].[Status]
+FROM [Room] AS [r]
+WHERE ([r].[Room_id] = @__id_0) AND ([r].[isDelete] = CAST(0 AS bit))
+2025-04-28 03:23:41.757 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@p9='?' (DbType = Int32), @p0='?' (DbType = Boolean), @p1='?' (DbType = Boolean), @p2='?' (DbType = Int32), @p3='?' (Size = 255), @p4='?' (DbType = Int32), @p5='?' (Size = 100), @p6='?' (Size = 255), @p7='?' (DbType = Int32), @p8='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Room] SET [isDelete] = @p0, [isUse] = @p1, [Ordinal_number] = @p2, [Qr_code_url] = @p3, [Room_area_id] = @p4, [Room_name] = @p5, [Room_note] = @p6, [Seat_number] = @p7, [Status] = @p8
+WHERE [Room_id] = @p9;
+SELECT @@ROWCOUNT;
+2025-04-28 03:23:41.784 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType22`2[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-28 03:23:41.793 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.RoomController.GenerateQRCodeForRoom (BepKhoiBackend.API) in 5264.0172ms
+2025-04-28 03:23:41.794 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.RoomController.GenerateQRCodeForRoom (BepKhoiBackend.API)'
+2025-04-28 03:23:41.800 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7257/api/rooms/generate-qr/5?UrlBase=abc - 0 - 200 - application/json;+charset=utf-8 5425.1870ms
+2025-04-28 03:23:55.303 +07:00 [INF] Request starting HTTP/2 DELETE https://localhost:7257/api/rooms/delete-qr/5 - -
+2025-04-28 03:23:55.309 +07:00 [INF] CORS policy execution failed.
+2025-04-28 03:23:55.310 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-04-28 03:23:55.314 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API)'
+2025-04-28 03:23:55.328 +07:00 [INF] Route matched with {action = "DeleteQRCode", controller = "Room"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteQRCode(Int32) on controller BepKhoiBackend.API.Controllers.RoomController (BepKhoiBackend.API).
+2025-04-28 03:23:55.343 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-28 03:23:55.347 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Room_id], [r].[isDelete], [r].[isUse], [r].[Ordinal_number], [r].[Qr_code_url], [r].[Room_area_id], [r].[Room_name], [r].[Room_note], [r].[Seat_number], [r].[Status]
+FROM [Room] AS [r]
+WHERE ([r].[Room_id] = @__id_0) AND ([r].[isDelete] = CAST(0 AS bit))
+2025-04-28 03:23:55.855 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[@p9='?' (DbType = Int32), @p0='?' (DbType = Boolean), @p1='?' (DbType = Boolean), @p2='?' (DbType = Int32), @p3='?' (Size = 255), @p4='?' (DbType = Int32), @p5='?' (Size = 100), @p6='?' (Size = 255), @p7='?' (DbType = Int32), @p8='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Room] SET [isDelete] = @p0, [isUse] = @p1, [Ordinal_number] = @p2, [Qr_code_url] = @p3, [Room_area_id] = @p4, [Room_name] = @p5, [Room_note] = @p6, [Seat_number] = @p7, [Status] = @p8
+WHERE [Room_id] = @p9;
+SELECT @@ROWCOUNT;
+2025-04-28 03:23:55.858 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-28 03:23:55.860 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API) in 529.9957ms
+2025-04-28 03:23:55.861 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API)'
+2025-04-28 03:23:55.863 +07:00 [INF] Request finished HTTP/2 DELETE https://localhost:7257/api/rooms/delete-qr/5 - - - 200 - application/json;+charset=utf-8 560.6183ms
+2025-04-28 03:24:16.684 +07:00 [INF] User profile is available. Using 'C:\Users\abc\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-28 03:24:16.837 +07:00 [INF] Now listening on: https://localhost:7257
+2025-04-28 03:24:16.838 +07:00 [INF] Now listening on: http://localhost:5287
+2025-04-28 03:24:16.969 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-28 03:24:16.970 +07:00 [INF] Hosting environment: Development
+2025-04-28 03:24:16.971 +07:00 [INF] Content root path: C:\Users\abc\Desktop\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\
+2025-04-28 03:24:17.186 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-04-28 03:24:17.327 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 143.3913ms
+2025-04-28 03:24:17.350 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-04-28 03:24:17.351 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-04-28 03:24:17.354 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 16521 application/javascript;+charset=utf-8 3.3726ms
+2025-04-28 03:24:17.377 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 27.1800ms
+2025-04-28 03:24:17.718 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-04-28 03:24:17.771 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 53.6288ms
+2025-04-28 03:24:36.182 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7257/api/rooms/generate-qr/1?UrlBase=abc - 0
+2025-04-28 03:24:36.209 +07:00 [INF] CORS policy execution failed.
+2025-04-28 03:24:36.211 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-04-28 03:24:36.292 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.RoomController.GenerateQRCodeForRoom (BepKhoiBackend.API)'
+2025-04-28 03:24:36.309 +07:00 [INF] Route matched with {action = "GenerateQRCodeForRoom", controller = "Room"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GenerateQRCodeForRoom(Int32, System.String) on controller BepKhoiBackend.API.Controllers.RoomController (BepKhoiBackend.API).
+2025-04-28 03:24:37.182 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-28 03:24:37.629 +07:00 [INF] Executed DbCommand (40ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Room_id], [r].[isDelete], [r].[isUse], [r].[Ordinal_number], [r].[Qr_code_url], [r].[Room_area_id], [r].[Room_name], [r].[Room_note], [r].[Seat_number], [r].[Status]
+FROM [Room] AS [r]
+WHERE ([r].[Room_id] = @__id_0) AND ([r].[isDelete] = CAST(0 AS bit))
+2025-04-28 03:24:37.719 +07:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType1`2[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-28 03:24:37.729 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.RoomController.GenerateQRCodeForRoom (BepKhoiBackend.API) in 1413.97ms
+2025-04-28 03:24:37.732 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.RoomController.GenerateQRCodeForRoom (BepKhoiBackend.API)'
+2025-04-28 03:24:37.741 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7257/api/rooms/generate-qr/1?UrlBase=abc - 0 - 500 - application/json;+charset=utf-8 1558.2433ms
+2025-04-28 03:24:47.057 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7257/api/rooms/generate-qr/6?UrlBase=abc - 0
+2025-04-28 03:24:47.063 +07:00 [INF] CORS policy execution failed.
+2025-04-28 03:24:47.064 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-04-28 03:24:47.065 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.RoomController.GenerateQRCodeForRoom (BepKhoiBackend.API)'
+2025-04-28 03:24:47.066 +07:00 [INF] Route matched with {action = "GenerateQRCodeForRoom", controller = "Room"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GenerateQRCodeForRoom(Int32, System.String) on controller BepKhoiBackend.API.Controllers.RoomController (BepKhoiBackend.API).
+2025-04-28 03:24:47.074 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-28 03:24:47.083 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Room_id], [r].[isDelete], [r].[isUse], [r].[Ordinal_number], [r].[Qr_code_url], [r].[Room_area_id], [r].[Room_name], [r].[Room_note], [r].[Seat_number], [r].[Status]
+FROM [Room] AS [r]
+WHERE ([r].[Room_id] = @__id_0) AND ([r].[isDelete] = CAST(0 AS bit))
+2025-04-28 03:24:51.913 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Room_id], [r].[isDelete], [r].[isUse], [r].[Ordinal_number], [r].[Qr_code_url], [r].[Room_area_id], [r].[Room_name], [r].[Room_note], [r].[Seat_number], [r].[Status]
+FROM [Room] AS [r]
+WHERE ([r].[Room_id] = @__id_0) AND ([r].[isDelete] = CAST(0 AS bit))
+2025-04-28 03:24:52.002 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@p9='?' (DbType = Int32), @p0='?' (DbType = Boolean), @p1='?' (DbType = Boolean), @p2='?' (DbType = Int32), @p3='?' (Size = 255), @p4='?' (DbType = Int32), @p5='?' (Size = 100), @p6='?' (Size = 255), @p7='?' (DbType = Int32), @p8='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Room] SET [isDelete] = @p0, [isUse] = @p1, [Ordinal_number] = @p2, [Qr_code_url] = @p3, [Room_area_id] = @p4, [Room_name] = @p5, [Room_note] = @p6, [Seat_number] = @p7, [Status] = @p8
+WHERE [Room_id] = @p9;
+SELECT @@ROWCOUNT;
+2025-04-28 03:24:52.019 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType22`2[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-28 03:24:52.023 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.RoomController.GenerateQRCodeForRoom (BepKhoiBackend.API) in 4955.671ms
+2025-04-28 03:24:52.023 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.RoomController.GenerateQRCodeForRoom (BepKhoiBackend.API)'
+2025-04-28 03:24:52.024 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7257/api/rooms/generate-qr/6?UrlBase=abc - 0 - 200 - application/json;+charset=utf-8 4966.8170ms
+2025-04-28 03:25:09.186 +07:00 [INF] Request starting HTTP/2 DELETE https://localhost:7257/api/rooms/delete-qr/6 - -
+2025-04-28 03:25:09.187 +07:00 [INF] CORS policy execution failed.
+2025-04-28 03:25:09.188 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-04-28 03:25:09.191 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API)'
+2025-04-28 03:25:09.198 +07:00 [INF] Route matched with {action = "DeleteQRCode", controller = "Room"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteQRCode(Int32) on controller BepKhoiBackend.API.Controllers.RoomController (BepKhoiBackend.API).
+2025-04-28 03:25:09.255 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-28 03:25:09.260 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Room_id], [r].[isDelete], [r].[isUse], [r].[Ordinal_number], [r].[Qr_code_url], [r].[Room_area_id], [r].[Room_name], [r].[Room_note], [r].[Seat_number], [r].[Status]
+FROM [Room] AS [r]
+WHERE ([r].[Room_id] = @__id_0) AND ([r].[isDelete] = CAST(0 AS bit))
+2025-04-28 03:25:09.741 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@p9='?' (DbType = Int32), @p0='?' (DbType = Boolean), @p1='?' (DbType = Boolean), @p2='?' (DbType = Int32), @p3='?' (Size = 255), @p4='?' (DbType = Int32), @p5='?' (Size = 100), @p6='?' (Size = 255), @p7='?' (DbType = Int32), @p8='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Room] SET [isDelete] = @p0, [isUse] = @p1, [Ordinal_number] = @p2, [Qr_code_url] = @p3, [Room_area_id] = @p4, [Room_name] = @p5, [Room_note] = @p6, [Seat_number] = @p7, [Status] = @p8
+WHERE [Room_id] = @p9;
+SELECT @@ROWCOUNT;
+2025-04-28 03:25:09.744 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-28 03:25:09.746 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API) in 546.2413ms
+2025-04-28 03:25:09.747 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API)'
+2025-04-28 03:25:09.747 +07:00 [INF] Request finished HTTP/2 DELETE https://localhost:7257/api/rooms/delete-qr/6 - - - 200 - application/json;+charset=utf-8 561.5012ms
+2025-04-28 03:26:02.467 +07:00 [INF] User profile is available. Using 'C:\Users\abc\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-28 03:26:02.622 +07:00 [INF] Now listening on: https://localhost:7257
+2025-04-28 03:26:02.623 +07:00 [INF] Now listening on: http://localhost:5287
+2025-04-28 03:26:02.763 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-28 03:26:02.763 +07:00 [INF] Hosting environment: Development
+2025-04-28 03:26:02.764 +07:00 [INF] Content root path: C:\Users\abc\Desktop\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\
+2025-04-28 03:26:03.094 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-04-28 03:26:03.235 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 142.9425ms
+2025-04-28 03:26:03.253 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-04-28 03:26:03.253 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-04-28 03:26:03.257 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 16521 application/javascript;+charset=utf-8 4.0259ms
+2025-04-28 03:26:03.282 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 28.8650ms
+2025-04-28 03:26:03.648 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-04-28 03:26:03.693 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 44.7294ms
+2025-04-28 03:26:14.597 +07:00 [INF] User profile is available. Using 'C:\Users\abc\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-28 03:26:14.768 +07:00 [INF] Now listening on: https://localhost:7257
+2025-04-28 03:26:14.770 +07:00 [INF] Now listening on: http://localhost:5287
+2025-04-28 03:26:14.903 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-28 03:26:14.904 +07:00 [INF] Hosting environment: Development
+2025-04-28 03:26:14.905 +07:00 [INF] Content root path: C:\Users\abc\Desktop\New folder\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\
+2025-04-28 03:26:15.239 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/index.html - -
+2025-04-28 03:26:15.427 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/index.html - - - 200 - text/html;charset=utf-8 194.0857ms
+2025-04-28 03:26:15.462 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - -
+2025-04-28 03:26:15.462 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/_vs/browserLink - -
+2025-04-28 03:26:15.468 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_framework/aspnetcore-browser-refresh.js - - - 200 16521 application/javascript;+charset=utf-8 6.3264ms
+2025-04-28 03:26:15.508 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 46.7609ms
+2025-04-28 03:26:15.814 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - -
+2025-04-28 03:26:15.873 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7257/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 58.9549ms
+2025-04-28 03:26:24.118 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7257/api/rooms/generate-qr/7?UrlBase=abc - 0
+2025-04-28 03:26:24.148 +07:00 [INF] CORS policy execution failed.
+2025-04-28 03:26:24.149 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-04-28 03:26:24.175 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.RoomController.GenerateQRCodeForRoom (BepKhoiBackend.API)'
+2025-04-28 03:26:24.198 +07:00 [INF] Route matched with {action = "GenerateQRCodeForRoom", controller = "Room"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GenerateQRCodeForRoom(Int32, System.String) on controller BepKhoiBackend.API.Controllers.RoomController (BepKhoiBackend.API).
+2025-04-28 03:26:25.122 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-28 03:26:25.586 +07:00 [INF] Executed DbCommand (41ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Room_id], [r].[isDelete], [r].[isUse], [r].[Ordinal_number], [r].[Qr_code_url], [r].[Room_area_id], [r].[Room_name], [r].[Room_note], [r].[Seat_number], [r].[Status]
+FROM [Room] AS [r]
+WHERE ([r].[Room_id] = @__id_0) AND ([r].[isDelete] = CAST(0 AS bit))
+2025-04-28 03:26:35.722 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Room_id], [r].[isDelete], [r].[isUse], [r].[Ordinal_number], [r].[Qr_code_url], [r].[Room_area_id], [r].[Room_name], [r].[Room_note], [r].[Seat_number], [r].[Status]
+FROM [Room] AS [r]
+WHERE ([r].[Room_id] = @__id_0) AND ([r].[isDelete] = CAST(0 AS bit))
+2025-04-28 03:26:35.827 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@p9='?' (DbType = Int32), @p0='?' (DbType = Boolean), @p1='?' (DbType = Boolean), @p2='?' (DbType = Int32), @p3='?' (Size = 255), @p4='?' (DbType = Int32), @p5='?' (Size = 100), @p6='?' (Size = 255), @p7='?' (DbType = Int32), @p8='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Room] SET [isDelete] = @p0, [isUse] = @p1, [Ordinal_number] = @p2, [Qr_code_url] = @p3, [Room_area_id] = @p4, [Room_name] = @p5, [Room_note] = @p6, [Seat_number] = @p7, [Status] = @p8
+WHERE [Room_id] = @p9;
+SELECT @@ROWCOUNT;
+2025-04-28 03:26:35.853 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType22`2[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-28 03:26:35.862 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.RoomController.GenerateQRCodeForRoom (BepKhoiBackend.API) in 11658.0252ms
+2025-04-28 03:26:35.864 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.RoomController.GenerateQRCodeForRoom (BepKhoiBackend.API)'
+2025-04-28 03:26:35.870 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7257/api/rooms/generate-qr/7?UrlBase=abc - 0 - 200 - application/json;+charset=utf-8 11752.3821ms
+2025-04-28 03:26:48.299 +07:00 [INF] Request starting HTTP/2 DELETE https://localhost:7257/api/rooms/delete-qr/7 - -
+2025-04-28 03:26:48.306 +07:00 [INF] CORS policy execution failed.
+2025-04-28 03:26:48.307 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-04-28 03:26:48.309 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API)'
+2025-04-28 03:26:48.317 +07:00 [INF] Route matched with {action = "DeleteQRCode", controller = "Room"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteQRCode(Int32) on controller BepKhoiBackend.API.Controllers.RoomController (BepKhoiBackend.API).
+2025-04-28 03:26:48.335 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-28 03:26:48.338 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Room_id], [r].[isDelete], [r].[isUse], [r].[Ordinal_number], [r].[Qr_code_url], [r].[Room_area_id], [r].[Room_name], [r].[Room_note], [r].[Seat_number], [r].[Status]
+FROM [Room] AS [r]
+WHERE ([r].[Room_id] = @__id_0) AND ([r].[isDelete] = CAST(0 AS bit))
+2025-04-28 03:26:48.794 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@p9='?' (DbType = Int32), @p0='?' (DbType = Boolean), @p1='?' (DbType = Boolean), @p2='?' (DbType = Int32), @p3='?' (Size = 255), @p4='?' (DbType = Int32), @p5='?' (Size = 100), @p6='?' (Size = 255), @p7='?' (DbType = Int32), @p8='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Room] SET [isDelete] = @p0, [isUse] = @p1, [Ordinal_number] = @p2, [Qr_code_url] = @p3, [Room_area_id] = @p4, [Room_name] = @p5, [Room_note] = @p6, [Seat_number] = @p7, [Status] = @p8
+WHERE [Room_id] = @p9;
+SELECT @@ROWCOUNT;
+2025-04-28 03:26:48.797 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-28 03:26:48.798 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API) in 478.9474ms
+2025-04-28 03:26:48.799 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API)'
+2025-04-28 03:26:48.800 +07:00 [INF] Request finished HTTP/2 DELETE https://localhost:7257/api/rooms/delete-qr/7 - - - 200 - application/json;+charset=utf-8 501.2195ms
+2025-04-28 03:26:57.665 +07:00 [INF] Request starting HTTP/2 DELETE https://localhost:7257/api/rooms/delete-qr/7 - -
+2025-04-28 03:26:57.667 +07:00 [INF] CORS policy execution failed.
+2025-04-28 03:26:57.668 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-04-28 03:26:57.670 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API)'
+2025-04-28 03:26:57.671 +07:00 [INF] Route matched with {action = "DeleteQRCode", controller = "Room"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteQRCode(Int32) on controller BepKhoiBackend.API.Controllers.RoomController (BepKhoiBackend.API).
+2025-04-28 03:26:57.733 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-28 03:26:57.739 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Room_id], [r].[isDelete], [r].[isUse], [r].[Ordinal_number], [r].[Qr_code_url], [r].[Room_area_id], [r].[Room_name], [r].[Room_note], [r].[Seat_number], [r].[Status]
+FROM [Room] AS [r]
+WHERE ([r].[Room_id] = @__id_0) AND ([r].[isDelete] = CAST(0 AS bit))
+2025-04-28 03:26:57.741 +07:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-28 03:26:57.742 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API) in 70.3907ms
+2025-04-28 03:26:57.743 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API)'
+2025-04-28 03:26:57.744 +07:00 [INF] Request finished HTTP/2 DELETE https://localhost:7257/api/rooms/delete-qr/7 - - - 400 - application/json;+charset=utf-8 78.7721ms
+2025-04-28 03:26:58.709 +07:00 [INF] Request starting HTTP/2 DELETE https://localhost:7257/api/rooms/delete-qr/7 - -
+2025-04-28 03:26:58.710 +07:00 [INF] CORS policy execution failed.
+2025-04-28 03:26:58.710 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-04-28 03:26:58.712 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API)'
+2025-04-28 03:26:58.712 +07:00 [INF] Route matched with {action = "DeleteQRCode", controller = "Room"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteQRCode(Int32) on controller BepKhoiBackend.API.Controllers.RoomController (BepKhoiBackend.API).
+2025-04-28 03:26:58.714 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-28 03:26:58.717 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Room_id], [r].[isDelete], [r].[isUse], [r].[Ordinal_number], [r].[Qr_code_url], [r].[Room_area_id], [r].[Room_name], [r].[Room_note], [r].[Seat_number], [r].[Status]
+FROM [Room] AS [r]
+WHERE ([r].[Room_id] = @__id_0) AND ([r].[isDelete] = CAST(0 AS bit))
+2025-04-28 03:26:58.721 +07:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-28 03:26:58.724 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API) in 11.0218ms
+2025-04-28 03:26:58.726 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API)'
+2025-04-28 03:26:58.727 +07:00 [INF] Request finished HTTP/2 DELETE https://localhost:7257/api/rooms/delete-qr/7 - - - 400 - application/json;+charset=utf-8 17.8759ms
+2025-04-28 03:26:59.449 +07:00 [INF] Request starting HTTP/2 DELETE https://localhost:7257/api/rooms/delete-qr/7 - -
+2025-04-28 03:26:59.450 +07:00 [INF] CORS policy execution failed.
+2025-04-28 03:26:59.451 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-04-28 03:26:59.452 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API)'
+2025-04-28 03:26:59.453 +07:00 [INF] Route matched with {action = "DeleteQRCode", controller = "Room"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteQRCode(Int32) on controller BepKhoiBackend.API.Controllers.RoomController (BepKhoiBackend.API).
+2025-04-28 03:26:59.455 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-28 03:26:59.458 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Room_id], [r].[isDelete], [r].[isUse], [r].[Ordinal_number], [r].[Qr_code_url], [r].[Room_area_id], [r].[Room_name], [r].[Room_note], [r].[Seat_number], [r].[Status]
+FROM [Room] AS [r]
+WHERE ([r].[Room_id] = @__id_0) AND ([r].[isDelete] = CAST(0 AS bit))
+2025-04-28 03:26:59.460 +07:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-28 03:26:59.461 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API) in 7.4527ms
+2025-04-28 03:26:59.462 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API)'
+2025-04-28 03:26:59.463 +07:00 [INF] Request finished HTTP/2 DELETE https://localhost:7257/api/rooms/delete-qr/7 - - - 400 - application/json;+charset=utf-8 14.1166ms
+2025-04-28 03:27:00.131 +07:00 [INF] Request starting HTTP/2 DELETE https://localhost:7257/api/rooms/delete-qr/7 - -
+2025-04-28 03:27:00.133 +07:00 [INF] CORS policy execution failed.
+2025-04-28 03:27:00.134 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-04-28 03:27:00.135 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API)'
+2025-04-28 03:27:00.135 +07:00 [INF] Route matched with {action = "DeleteQRCode", controller = "Room"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteQRCode(Int32) on controller BepKhoiBackend.API.Controllers.RoomController (BepKhoiBackend.API).
+2025-04-28 03:27:00.137 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-28 03:27:00.141 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Room_id], [r].[isDelete], [r].[isUse], [r].[Ordinal_number], [r].[Qr_code_url], [r].[Room_area_id], [r].[Room_name], [r].[Room_note], [r].[Seat_number], [r].[Status]
+FROM [Room] AS [r]
+WHERE ([r].[Room_id] = @__id_0) AND ([r].[isDelete] = CAST(0 AS bit))
+2025-04-28 03:27:00.144 +07:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-28 03:27:00.147 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API) in 10.1305ms
+2025-04-28 03:27:00.148 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API)'
+2025-04-28 03:27:00.150 +07:00 [INF] Request finished HTTP/2 DELETE https://localhost:7257/api/rooms/delete-qr/7 - - - 400 - application/json;+charset=utf-8 18.7349ms
+2025-04-28 03:27:00.797 +07:00 [INF] Request starting HTTP/2 DELETE https://localhost:7257/api/rooms/delete-qr/7 - -
+2025-04-28 03:27:00.798 +07:00 [INF] CORS policy execution failed.
+2025-04-28 03:27:00.799 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-04-28 03:27:00.800 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API)'
+2025-04-28 03:27:00.801 +07:00 [INF] Route matched with {action = "DeleteQRCode", controller = "Room"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteQRCode(Int32) on controller BepKhoiBackend.API.Controllers.RoomController (BepKhoiBackend.API).
+2025-04-28 03:27:00.803 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-28 03:27:00.810 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Room_id], [r].[isDelete], [r].[isUse], [r].[Ordinal_number], [r].[Qr_code_url], [r].[Room_area_id], [r].[Room_name], [r].[Room_note], [r].[Seat_number], [r].[Status]
+FROM [Room] AS [r]
+WHERE ([r].[Room_id] = @__id_0) AND ([r].[isDelete] = CAST(0 AS bit))
+2025-04-28 03:27:00.813 +07:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-28 03:27:00.815 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API) in 12.4224ms
+2025-04-28 03:27:00.816 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API)'
+2025-04-28 03:27:00.817 +07:00 [INF] Request finished HTTP/2 DELETE https://localhost:7257/api/rooms/delete-qr/7 - - - 400 - application/json;+charset=utf-8 19.8616ms
+2025-04-28 03:27:11.372 +07:00 [INF] Request starting HTTP/2 DELETE https://localhost:7257/api/rooms/delete-qr/7 - -
+2025-04-28 03:27:11.373 +07:00 [INF] CORS policy execution failed.
+2025-04-28 03:27:11.375 +07:00 [INF] Request origin https://localhost:7257 does not have permission to access the resource.
+2025-04-28 03:27:11.376 +07:00 [INF] Executing endpoint 'BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API)'
+2025-04-28 03:27:11.376 +07:00 [INF] Route matched with {action = "DeleteQRCode", controller = "Room"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteQRCode(Int32) on controller BepKhoiBackend.API.Controllers.RoomController (BepKhoiBackend.API).
+2025-04-28 03:27:11.379 +07:00 [INF] Entity Framework Core 6.0.0 initialized 'bepkhoiContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-04-28 03:27:11.382 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Room_id], [r].[isDelete], [r].[isUse], [r].[Ordinal_number], [r].[Qr_code_url], [r].[Room_area_id], [r].[Room_name], [r].[Room_note], [r].[Seat_number], [r].[Status]
+FROM [Room] AS [r]
+WHERE ([r].[Room_id] = @__id_0) AND ([r].[isDelete] = CAST(0 AS bit))
+2025-04-28 03:27:11.385 +07:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-28 03:27:11.387 +07:00 [INF] Executed action BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API) in 9.104ms
+2025-04-28 03:27:11.389 +07:00 [INF] Executed endpoint 'BepKhoiBackend.API.Controllers.RoomController.DeleteQRCode (BepKhoiBackend.API)'
+2025-04-28 03:27:11.393 +07:00 [INF] Request finished HTTP/2 DELETE https://localhost:7257/api/rooms/delete-qr/7 - - - 400 - application/json;+charset=utf-8 20.4703ms

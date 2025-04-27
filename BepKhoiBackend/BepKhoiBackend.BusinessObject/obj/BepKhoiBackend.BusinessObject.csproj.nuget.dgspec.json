@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\abc\\Desktop\\bênw\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj": {}
+    "C:\\Users\\abc\\Desktop\\New folder\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\abc\\Desktop\\bênw\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj": {
+    "C:\\Users\\abc\\Desktop\\New folder\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\abc\\Desktop\\bênw\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj",
+        "projectUniqueName": "C:\\Users\\abc\\Desktop\\New folder\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj",
         "projectName": "BepKhoiBackend.BusinessObject",
-        "projectPath": "C:\\Users\\abc\\Desktop\\bênw\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj",
+        "projectPath": "C:\\Users\\abc\\Desktop\\New folder\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\BepKhoiBackend.BusinessObject.csproj",
         "packagesPath": "C:\\Users\\abc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\abc\\Desktop\\bênw\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\obj\\",
+        "outputPath": "C:\\Users\\abc\\Desktop\\New folder\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.BusinessObject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -33,11 +33,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\abc\\Desktop\\bênw\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj": {
-                "projectPath": "C:\\Users\\abc\\Desktop\\bênw\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj"
+              "C:\\Users\\abc\\Desktop\\New folder\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj": {
+                "projectPath": "C:\\Users\\abc\\Desktop\\New folder\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj"
               },
-              "C:\\Users\\abc\\Desktop\\bênw\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj": {
-                "projectPath": "C:\\Users\\abc\\Desktop\\bênw\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj"
+              "C:\\Users\\abc\\Desktop\\New folder\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj": {
+                "projectPath": "C:\\Users\\abc\\Desktop\\New folder\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj"
               }
             }
           }
@@ -131,14 +131,14 @@
         }
       }
     },
-    "C:\\Users\\abc\\Desktop\\bênw\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj": {
+    "C:\\Users\\abc\\Desktop\\New folder\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\abc\\Desktop\\bênw\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\abc\\Desktop\\New folder\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj",
         "projectName": "BepKhoiBackend.DataAccess",
-        "projectPath": "C:\\Users\\abc\\Desktop\\bênw\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj",
+        "projectPath": "C:\\Users\\abc\\Desktop\\New folder\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\BepKhoiBackend.DataAccess.csproj",
         "packagesPath": "C:\\Users\\abc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\abc\\Desktop\\bênw\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\obj\\",
+        "outputPath": "C:\\Users\\abc\\Desktop\\New folder\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -160,8 +160,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\abc\\Desktop\\bênw\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj": {
-                "projectPath": "C:\\Users\\abc\\Desktop\\bênw\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj"
+              "C:\\Users\\abc\\Desktop\\New folder\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj": {
+                "projectPath": "C:\\Users\\abc\\Desktop\\New folder\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj"
               }
             }
           }
@@ -235,14 +235,14 @@
         }
       }
     },
-    "C:\\Users\\abc\\Desktop\\bênw\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj": {
+    "C:\\Users\\abc\\Desktop\\New folder\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\abc\\Desktop\\bênw\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj",
+        "projectUniqueName": "C:\\Users\\abc\\Desktop\\New folder\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj",
         "projectName": "BepKhoiBackend.Shared",
-        "projectPath": "C:\\Users\\abc\\Desktop\\bênw\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj",
+        "projectPath": "C:\\Users\\abc\\Desktop\\New folder\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Shared\\BepKhoiBackend.Shared.csproj",
         "packagesPath": "C:\\Users\\abc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\abc\\Desktop\\bênw\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Shared\\obj\\",
+        "outputPath": "C:\\Users\\abc\\Desktop\\New folder\\bepkhoibackend\\BepKhoiBackend\\BepKhoiBackend.Shared\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
