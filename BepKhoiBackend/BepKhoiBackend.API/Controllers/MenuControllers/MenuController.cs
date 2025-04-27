@@ -220,20 +220,13 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
                     return NotFound(new { message = $"Menu with ID {id} not found." });
                 if (existingMenu.IsDelete == true)
                     return BadRequest(new { message = $"Menu with ID {id} has been deleted." });
-
+                string image = existingMenu.ProductImages.First().ProductImage1;
                 // Handle images
                 List<string> imageUrls = new List<string>();
                 if (dto.Image != null)
                 {
-                    // Delete old images
-                    if (existingMenu.ProductImages != null && existingMenu.ProductImages.Any())
-                    {
-                        foreach (var img in existingMenu.ProductImages)
-                        {
-                            await _cloudinaryService.DeleteImageAsync(img.ProductImage1);
-                        }
-                    }
-                    await _cloudinaryService.DeleteImageAsync(existingMenu.ProductImages.First().ProductImage1);
+                    
+                    await _cloudinaryService.DeleteImageAsync(image);
                     var newImageUrl = await _cloudinaryService.UploadImageAsync(dto.Image);
                     imageUrls.Add(newImageUrl);
                 }
