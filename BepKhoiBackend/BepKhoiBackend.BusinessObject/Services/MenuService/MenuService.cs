@@ -10,6 +10,7 @@ using BepKhoiBackend.Shared.Helpers;
 using ClosedXML.Excel;
 using DocumentFormat.OpenXml.InkML;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 
 namespace BepKhoiBackend.BusinessObject.Services.MenuService
 {
@@ -350,13 +351,13 @@ namespace BepKhoiBackend.BusinessObject.Services.MenuService
                 existingMenu.UnitId = dto.UnitId;
                 existingMenu.IsAvailable = dto.IsAvailable ?? existingMenu.IsAvailable;
                 existingMenu.Status = dto.Status ?? existingMenu.Status;
-                // Add new images
+                // Add new image only if provided
                 if (imageUrls.Any())
                 {
-                    existingMenu.ProductImages = imageUrls.Select(url => new ProductImage
+                    existingMenu.ProductImages = new List<ProductImage>
                     {
-                        ProductImage1 = url
-                    }).ToList();
+                        new ProductImage { ProductImage1 = imageUrls.First() }
+                    };
                 }
                 await _menuRepository.DeleteImageByIdAsync(productId);
                 var updatedMenu = await _menuRepository.UpdateMenuAsync(existingMenu);

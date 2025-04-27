@@ -70,6 +70,11 @@ public class UserService : IUserService
         var user = _userRepository.GetUserByEmail(email);
         if (user == null)
             return false;
+        if (user.Status != true || user.IsDelete == true)
+        {
+            throw new UnauthorizedAccessException();
+
+        }
 
         user.IsVerify = true;
         _userRepository.UpdateUser(user);

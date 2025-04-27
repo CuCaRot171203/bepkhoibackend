@@ -23,10 +23,16 @@ namespace BepKhoiBackend.BusinessObject.Services.LoginService
 
         public UserDto? ValidateUser(LoginRequestDto loginRequest)
         {
+           
             var user = _userRepository.GetUserByEmail(loginRequest.Email);
-            if (user == null || user.Password != loginRequest.Password)
+            if (user == null || user.Password != loginRequest.Password || user.Status != true || user.IsDelete == true)
             {
                 return null;
+            }
+            if (user.Status != true || user.IsDelete == true)
+            {
+                throw new UnauthorizedAccessException();
+
             }
 
             return new UserDto

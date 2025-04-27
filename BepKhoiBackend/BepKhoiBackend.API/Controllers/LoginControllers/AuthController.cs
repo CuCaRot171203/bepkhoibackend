@@ -7,6 +7,7 @@ using DocumentFormat.OpenXml.Office2016.Excel;
 using BepKhoiBackend.BusinessObject.Services.LoginService.Interface;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
+using CloudinaryDotNet.Actions;
 
 namespace BepKhoiBackend.API.Controllers.LoginControllers
 {
@@ -82,7 +83,7 @@ namespace BepKhoiBackend.API.Controllers.LoginControllers
                 var user = _authService.ValidateUser(loginRequest);
                 if (user == null)
                 {
-                    return Unauthorized(new { message = "Invalid email or password." });
+                    return Unauthorized(new { message = "Invalid email, password. " });
                 }
 
                 if (!user.IsVerify == true)
@@ -99,6 +100,13 @@ namespace BepKhoiBackend.API.Controllers.LoginControllers
                 var role = User.FindFirst(ClaimTypes.Role)?.Value;
 
                 return Ok(new { message = "successful", token, userId = user.UserId, RoleName = user.RoleName, UserName = user.UserName });
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return StatusCode(StatusCodes.Status403Forbidden, new
+                {
+                    message = "deactived account."
+                });
             }
             catch (Exception ex)
             {

@@ -529,3 +529,4 @@ C:\Users\abc\Desktop\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\D
 C:\Users\abc\Desktop\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.pdb
 C:\Users\abc\Desktop\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.genruntimeconfig.cache
 C:\Users\abc\Desktop\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\ref\BepKhoiBackend.API.dll
+C:\Users\abc\Desktop\Doan\bepkhoibackend\BepKhoiBackend\BepKhoiBackend.API\obj\Debug\net6.0\BepKhoiBackend.API.MvcApplicationPartsAssemblyInfo.cs

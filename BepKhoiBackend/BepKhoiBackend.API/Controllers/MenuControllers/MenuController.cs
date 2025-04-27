@@ -223,6 +223,13 @@ namespace BepKhoiBackend.API.Controllers.MenuControllers
                     var imageUrl = await _cloudinaryService.UploadImageAsync(dto.Image);
                     imageUrls.Add(imageUrl);
                 }
+                if(dto.Image == null)
+                {
+                    var menu = await _menuService.GetMenuByIdAsync(id);
+                    var datamenu = menu.Data.FirstOrDefault();
+                    imageUrls.Add(datamenu?.ProductImages?.FirstOrDefault()?.ProductImage1);
+
+                }
 
                 var result = await _menuService.UpdateMenuAsync(id, dto, imageUrls);
 

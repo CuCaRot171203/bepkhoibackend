@@ -138,6 +138,13 @@ namespace BepKhoiBackend.API.Controllers.LoginControllers
 
                 return Ok(new { message = "Verification successful!", token, userId = user.UserId, RoleName = user.RoleName, UserName = user.UserName });
             }
+            catch (UnauthorizedAccessException)
+            {
+                return StatusCode(StatusCodes.Status403Forbidden, new
+                {
+                    message = "deactived account."
+                });
+            }
             catch (Exception ex)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, new
