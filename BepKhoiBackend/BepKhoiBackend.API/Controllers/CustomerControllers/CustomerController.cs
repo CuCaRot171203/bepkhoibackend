@@ -67,16 +67,12 @@ namespace BepKhoiBackend.API.Controllers.CustomerControllers
             }
         }
 
-        [Authorize(Roles = "manager, cashier")]
         [HttpGet("search")]
         [ProducesResponseType(typeof(List<CustomerDTO>), 200)] // OK
         [ProducesResponseType(400)] // BadRequest
         [ProducesResponseType(500)] // Internal Server Error
         public ActionResult<List<CustomerDTO>> SearchCustomersByNameOrPhone([FromQuery] string searchTerm)
         {
-            //var customers = _customerService.SearchCustomers(searchTerm);
-            //return Ok(customers);
-
             try
             {
                 // Kiểm tra điều kiện đầu vào
@@ -118,7 +114,6 @@ namespace BepKhoiBackend.API.Controllers.CustomerControllers
             return File(fileContents, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Customers.xlsx");
         }
 
-        [Authorize(Roles = "manager, cashier")]
         [HttpPost("create-new-customer")]
         [ProducesResponseType(200)] // OK
         [ProducesResponseType(400)] // BadRequest
