@@ -79,6 +79,10 @@ namespace BepKhoiBackend.API.Controllers.UserControllers.ManagerControllers
 
                 return Ok($"Manager có ID {id} đã được cập nhật thành công.");
             }
+            catch (InvalidOperationException)
+            {
+                return BadRequest("Cập nhật Manager thất bại. Kiểm tra lại thông tin.");
+            }
             catch (Exception ex)
             {
                 return StatusCode(500, $"Đã xảy ra lỗi khi cập nhật Manager: {ex.Message}");

@@ -63,41 +63,48 @@ namespace BepKhoiBackend.DataAccess.Repository.UserRepository.CashierRepository
         }
 
         // Cập nhật thông tin Cashier
-        public bool UpdateCashier(int userId, string email, string phone, string userName, string address,
+        public async Task<bool> UpdateCashier(int userId, string email, string phone, string userName, string address,
                                   string provinceCity, string district, string wardCommune, DateTime? dateOfBirth)
         {
-            var cashier = _context.Users
-                .Include(u => u.Role)
-                .Include(u => u.UserInformation)
-                .FirstOrDefault(u => u.UserId == userId && u.Role.RoleName == "cashier");
-
-            if (cashier == null)
+            try
             {
-                return false; // Không tìm thấy cashier
-            }
+                var cashier = _context.Users
+                    .Include(u => u.Role)
+                    .Include(u => u.UserInformation)
+                    .FirstOrDefault(u => u.UserId == userId && u.Role.RoleName == "cashier");
 
-            // Kiểm tra nếu có thay đổi email thì đặt is_verify = false
-            if (!string.IsNullOrEmpty(email) && cashier.Email != email)
+                if (cashier == null)
+                {
+                    return false;
+                }
+                var existPhoneOrEmail = await _context.Users.FirstOrDefaultAsync(c => c.UserId != userId && (c.Email == email || c.Phone == phone));
+                if (existPhoneOrEmail != null)
+                {
+                    throw new InvalidOperationException("Email hoặc số điện thoại đã tồn tại tồn tại.");
+                }
+                if (!string.IsNullOrEmpty(email) && cashier.Email != email)
+                {
+                    cashier.Email = email;
+                    cashier.IsVerify = false;
+                }
+                cashier.Phone = phone;
+                if (cashier.UserInformation != null)
+                {
+                    cashier.UserInformation.UserName = userName;
+                    cashier.UserInformation.Address = address;
+                    cashier.UserInformation.ProvinceCity = provinceCity;
+                    cashier.UserInformation.District = district;
+                    cashier.UserInformation.WardCommune = wardCommune;
+                    cashier.UserInformation.DateOfBirth = dateOfBirth;
+                }
+
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
             {
-                cashier.Email = email;
-                cashier.IsVerify = false; // Đánh dấu email chưa xác thực
+                throw;
             }
-
-            // Cập nhật các thông tin cơ bản
-            cashier.Phone = phone;
-
-            if (cashier.UserInformation != null)
-            {
-                cashier.UserInformation.UserName = userName;
-                cashier.UserInformation.Address = address;
-                cashier.UserInformation.ProvinceCity = provinceCity;
-                cashier.UserInformation.District = district;
-                cashier.UserInformation.WardCommune = wardCommune;
-                cashier.UserInformation.DateOfBirth = dateOfBirth;
-            }
-
-            _context.SaveChanges();
-            return true;
         }
 
 

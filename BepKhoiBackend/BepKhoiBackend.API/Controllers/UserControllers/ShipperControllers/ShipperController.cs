@@ -58,29 +58,40 @@ namespace BepKhoiBackend.API.Controllers.UserControllers.ShipperControllers
         [Authorize(Roles = "manager, shipper")]
         public IActionResult UpdateShipper(int id, [FromBody] UpdateShipperDTO updatedShipper)
         {
-            if (updatedShipper == null)
+            try
             {
-                return BadRequest("Dữ liệu không hợp lệ.");
+                if (updatedShipper == null)
+                {
+                    return BadRequest("Dữ liệu không hợp lệ.");
+                }
+
+                var isUpdated = _shipperService.UpdateShipper(
+                    id,
+                    updatedShipper.Email,
+                    updatedShipper.Phone,
+                    updatedShipper.UserName,
+                    updatedShipper.Address,
+                    updatedShipper.ProvinceCity,
+                    updatedShipper.District,
+                    updatedShipper.WardCommune,
+                    updatedShipper.DateOfBirth
+                );
+
+                if (!isUpdated)
+                {
+                    return BadRequest("Cập nhật shipper thất bại. Kiểm tra lại thông tin.");
+                }
+
+                return Ok($"Shipper có ID {id} đã được cập nhật thành công.");
             }
-
-            var isUpdated = _shipperService.UpdateShipper(
-                id,
-                updatedShipper.Email,
-                updatedShipper.Phone,
-                updatedShipper.UserName,
-                updatedShipper.Address,
-                updatedShipper.ProvinceCity,
-                updatedShipper.District,
-                updatedShipper.WardCommune,
-                updatedShipper.DateOfBirth
-            );
-
-            if (!isUpdated)
+            catch (InvalidOperationException)
             {
                 return BadRequest("Cập nhật shipper thất bại. Kiểm tra lại thông tin.");
             }
-
-            return Ok($"Shipper có ID {id} đã được cập nhật thành công.");
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Đã xảy ra lỗi khi cập nhật Manager: {ex.Message}");
+            }
         }
 
 

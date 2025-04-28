@@ -58,8 +58,15 @@ namespace BepKhoiBackend.BusinessObject.Services.UserService.ShipperService
                           string address, string provinceCity, string district, string wardCommune,
                           DateTime? dateOfBirth)
         {
-            return _shipperRepository.UpdateShipper(userId, email, phone, userName,
-                                                    address, provinceCity, district, wardCommune, dateOfBirth);
+            try
+            {
+                return _shipperRepository.UpdateShipper(userId, email, phone, userName,
+                                        address, provinceCity, district, wardCommune, dateOfBirth);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
 

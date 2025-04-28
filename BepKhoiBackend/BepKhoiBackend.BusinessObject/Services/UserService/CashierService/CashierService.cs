@@ -59,13 +59,19 @@ namespace BepKhoiBackend.BusinessObject.Services.UserService.CashierService
             _cashierRepository.CreateCashier(email, password, phone, userName);
         }
 
-        public bool UpdateCashier(int userId, string email, string phone, string userName,
+        public async Task<bool> UpdateCashier(int userId, string email, string phone, string userName,
                            string address, string provinceCity, string district,
                            string wardCommune, DateTime? dateOfBirth)
         {
-            return _cashierRepository.UpdateCashier(userId, email, phone, userName,
-                                                    address, provinceCity, district,
-                                                    wardCommune, dateOfBirth);
+            try
+            {
+                return await  _cashierRepository.UpdateCashier(userId, email, phone, userName,
+                                        address, provinceCity, district,
+                                        wardCommune, dateOfBirth);
+            }
+            catch (Exception) {
+                throw;
+            }
         }
 
 

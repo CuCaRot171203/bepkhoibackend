@@ -609,7 +609,7 @@ namespace BepKhoiBackend.BusinessObject.Services.MenuService
                     UnitId = m.UnitId,
                     IsAvailable = m.IsAvailable,
                     Status = m.Status,
-                    ProductImageUrl = m.ProductImages==null?null:m.ProductImages.FirstOrDefault().ProductImage1,
+                    ProductImageUrl = m.ProductImages==null?null:m.ProductImages.FirstOrDefault()?.ProductImage1,
                 }).ToList();
 
                 return menuDtoList;

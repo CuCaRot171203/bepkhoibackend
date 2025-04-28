@@ -14,7 +14,7 @@ namespace BepKhoiBackend.API.Controllers.ProductCategoryControllers
         {
             _productCategoryService = productCategoryService;
         }
-     
+
         [HttpGet("get-all-categories")]
         public async Task<IActionResult> GetAllCategories()
         {

@@ -79,7 +79,11 @@ namespace BepKhoiBackend.DataAccess.Repository.UserRepository.ShipperRepository
             {
                 return false; // Không tìm thấy shipper
             }
-
+            var existPhoneOrEmail = _context.Users.FirstOrDefault(c => c.UserId != userId && (c.Email == email || c.Phone == phone));
+            if (existPhoneOrEmail != null)
+            {
+                throw new InvalidOperationException("Email hoặc số điện thoại đã tồn tại tồn tại.");
+            }
             // Kiểm tra nếu có thay đổi email thì đặt is_verify = false
             if (!string.IsNullOrEmpty(email) && shipper.Email != email)
             {

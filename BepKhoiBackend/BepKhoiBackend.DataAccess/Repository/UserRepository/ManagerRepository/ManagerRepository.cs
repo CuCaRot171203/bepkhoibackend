@@ -46,7 +46,11 @@ namespace BepKhoiBackend.DataAccess.Repository.UserRepository.ManagerRepository
                 {
                     throw new KeyNotFoundException($"Không tìm thấy Manager với ID: {userId}");
                 }
-
+                var existPhoneOrEmail = await _context.Users.FirstOrDefaultAsync(c => c.UserId != userId && (c.Email==email || c.Phone==phone));
+                if(existPhoneOrEmail != null)
+                {
+                    throw new InvalidOperationException("Email hoặc số điện thoại đã tồn tại tồn tại.");
+                }
                 // Update email 
                 if (!string.IsNullOrWhiteSpace(email) && manager.Email != email)
                 {
@@ -63,8 +67,7 @@ namespace BepKhoiBackend.DataAccess.Repository.UserRepository.ManagerRepository
                 if (manager.UserInformation != null)
                 {
                     if (!string.IsNullOrWhiteSpace(userName))
-                        manager.UserInformation.UserName = userName;
-
+                    manager.UserInformation.UserName = userName;
                     manager.UserInformation.Address = address;
                     manager.UserInformation.ProvinceCity = provinceCity;
                     manager.UserInformation.District = district;

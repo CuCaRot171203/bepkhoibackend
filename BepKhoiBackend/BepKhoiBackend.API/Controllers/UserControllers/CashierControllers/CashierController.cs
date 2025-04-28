@@ -58,31 +58,42 @@ namespace BepKhoiBackend.API.Controllers.UserControllers.CashierControllers
 
         [HttpPut("{id}")]
         [Authorize(Roles = "manager, cashier")]
-        public IActionResult UpdateCashier(int id, [FromBody] UpdateCashierDTO updatedCashier)
+        public async Task<IActionResult> UpdateCashier(int id, [FromBody] UpdateCashierDTO updatedCashier)
         {
-            if (updatedCashier == null)
+            try
             {
-                return BadRequest("Dữ liệu không hợp lệ.");
+                if (updatedCashier == null)
+                {
+                    return BadRequest("Dữ liệu không hợp lệ.");
+                }
+
+                var isUpdated = await _cashierService.UpdateCashier(
+                    id,
+                    updatedCashier.Email,
+                    updatedCashier.Phone,
+                    updatedCashier.UserName,
+                    updatedCashier.Address,
+                    updatedCashier.ProvinceCity,
+                    updatedCashier.District,
+                    updatedCashier.WardCommune,
+                    updatedCashier.DateOfBirth
+                );
+
+                if (!isUpdated)
+                {
+                    return BadRequest("Cập nhật cashier thất bại. Kiểm tra lại thông tin.");
+                }
+
+                return Ok($"Cashier có ID {id} đã được cập nhật thành công.");
             }
-
-            var isUpdated = _cashierService.UpdateCashier(
-                id,
-                updatedCashier.Email,
-                updatedCashier.Phone,
-                updatedCashier.UserName,
-                updatedCashier.Address,
-                updatedCashier.ProvinceCity,
-                updatedCashier.District,
-                updatedCashier.WardCommune,
-                updatedCashier.DateOfBirth
-            );
-
-            if (!isUpdated)
+            catch (InvalidOperationException)
             {
                 return BadRequest("Cập nhật cashier thất bại. Kiểm tra lại thông tin.");
             }
-
-            return Ok($"Cashier có ID {id} đã được cập nhật thành công.");
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Đã xảy ra lỗi khi cập nhật Cashier: {ex.Message}");
+            }
         }
 
         [Authorize(Roles = "manager")]
